@@ -16,7 +16,7 @@ ifeq ($(UNAME),Darwin)
 endif
 ifeq ($(UNAME), Linux)
 	curl -LO "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip" && \
-	unzip protoc-$(PROTOC_VERSION)-linux-x86_64.zip -d $HOME/.local && \
+	unzip protoc-$(PROTOC_VERSION)-linux-x86_64.zip -d $${HOME}/.local && \
 	export PATH="$${PATH}:$${HOME}/.local/bin"
 endif
 endif
