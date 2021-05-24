@@ -5,8 +5,9 @@ import (
 	"log"
 	"net"
 
-	pb "pr12er/pkg/protos"
-	"pr12er/pkg/serv"
+	"github.com/codingpot/pr12er/pkg/serv"
+
+	pb "github.com/codingpot/pr12er/pkg/protos"
 
 	"google.golang.org/grpc"
 )

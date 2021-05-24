@@ -6,7 +6,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-	pb "pr12er/pkg/protos"
+	pb "github.com/codingpot/pr12er/pkg/protos"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 
 	c := pb.NewPr12ErServiceClient(conn)
 
-	response, err := c.GetHello(context.Background(), &pb.HelloRequest{})
+	response, err := c.GetHello(context.Background(), &pb.HelloRequest{Body: "hi server!"})
 	if err != nil {
 		log.Fatalf("Error when calling SayHello: %s", err)
 	}

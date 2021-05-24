@@ -3,7 +3,7 @@ package serv
 import (
 	"log"
 
-	pb "pr12er/pkg/protos"
+	pb "github.com/codingpot/pr12er/pkg/protos"
 
 	"golang.org/x/net/context"
 )
@@ -13,6 +13,6 @@ type Server struct {
 }
 
 func (s *Server) GetHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
-	log.Printf("Get Request Hello!")
+	log.Printf("Get Request Hello! body: %s", in.Body)
 	return &pb.HelloResponse{Body: "Hello From the Server!"}, nil
 }

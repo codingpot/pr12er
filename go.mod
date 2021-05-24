@@ -1,4 +1,4 @@
-module pr12er
+module github.com/codingpot/pr12er
 
 go 1.16
 
