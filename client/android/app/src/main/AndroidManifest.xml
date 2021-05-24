@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pr12er">
+    package="com.github.codingpot.pr12er">
    <application
         android:label="pr12er"
         android:icon="@mipmap/ic_launcher">

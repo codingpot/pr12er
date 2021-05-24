@@ -9,7 +9,6 @@ import 'dart:async' as $async;
 
 import 'dart:core' as $core;
 
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:grpc/service_api.dart' as $grpc;
 import 'pr12er.pb.dart' as $0;
 export 'pr12er.pb.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:grpc/grpc.dart';
 import 'package:pr12er/protos/pr12er.pb.dart';
 import 'package:pr12er/protos/pr12er.pbgrpc.dart';
@@ -45,7 +44,7 @@ class _ClientState extends State<Client> {
                       child: OutlinedButton(
                           onPressed: () {
                             // print(myController.text);
-                            _call_grpc();
+                            _callGrpc(myController.text);
                           },
                           child: const Text('Click Me')))
                 ],
@@ -55,8 +54,7 @@ class _ClientState extends State<Client> {
         ));
   }
 
-  // ignore: non_constant_identifier_names
-  Future<void> _call_grpc() async {
+  Future<void> _callGrpc(String message) async {
     final channel = ClientChannel(
       'localhost', // Use your IP address where the server is running
       port: 9000,
@@ -64,7 +62,7 @@ class _ClientState extends State<Client> {
     );
     final stub = Pr12erServiceClient(channel);
 
-    var request = HelloRequest();
+    var request = HelloRequest()..body = message;
     var response = await stub.getHello(request);
     result = response.body;
     print(result);

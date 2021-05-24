@@ -11,10 +11,13 @@ import 'dart:typed_data' as $typed_data;
 @$core.Deprecated('Use helloRequestDescriptor instead')
 const HelloRequest$json = const {
   '1': 'HelloRequest',
+  '2': const [
+    const {'1': 'body', '3': 1, '4': 1, '5': 9, '10': 'body'},
+  ],
 };
 
 /// Descriptor for `HelloRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List helloRequestDescriptor = $convert.base64Decode('CgxIZWxsb1JlcXVlc3Q=');
+final $typed_data.Uint8List helloRequestDescriptor = $convert.base64Decode('CgxIZWxsb1JlcXVlc3QSEgoEYm9keRgBIAEoCVIEYm9keQ==');
 @$core.Deprecated('Use helloResponseDescriptor instead')
 const HelloResponse$json = const {
   '1': 'HelloResponse',
@@ -25,3 +28,18 @@ const HelloResponse$json = const {
 
 /// Descriptor for `HelloResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List helloResponseDescriptor = $convert.base64Decode('Cg1IZWxsb1Jlc3BvbnNlEhIKBGJvZHkYASABKAlSBGJvZHk=');
+const $core.Map<$core.String, $core.dynamic> Pr12erServiceBase$json = const {
+  '1': 'Pr12erService',
+  '2': const [
+    const {'1': 'GetHello', '2': '.pr12er.protos.HelloRequest', '3': '.pr12er.protos.HelloResponse'},
+  ],
+};
+
+@$core.Deprecated('Use pr12erServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> Pr12erServiceBase$messageJson = const {
+  '.pr12er.protos.HelloRequest': HelloRequest$json,
+  '.pr12er.protos.HelloResponse': HelloResponse$json,
+};
+
+/// Descriptor for `Pr12erService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List pr12erServiceDescriptor = $convert.base64Decode('Cg1QcjEyZXJTZXJ2aWNlEkUKCEdldEhlbGxvEhsucHIxMmVyLnByb3Rvcy5IZWxsb1JlcXVlc3QaHC5wcjEyZXIucHJvdG9zLkhlbGxvUmVzcG9uc2U=');

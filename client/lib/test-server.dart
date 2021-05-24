@@ -5,7 +5,7 @@ import 'package:pr12er/protos/pr12er.pbgrpc.dart';
 class GreeterService extends Pr12erServiceBase {
   @override
   Future<HelloResponse> getHello(ServiceCall call, HelloRequest request) async {
-    return HelloResponse()..body = 'Hello, World!';
+    return HelloResponse()..body = 'Hello, ${request.body}';
   }
 }
 
