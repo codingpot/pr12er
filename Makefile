@@ -3,8 +3,8 @@
 
 PROTOC := $(shell which protoc)
 PROTOC_GEN_GO := $(shell which protoc-gen-go))
-PROTOC_VERSION := "3.17.0"
-PROTOC_RELEASE := "https://github.com/protocolbuffers/protobuf/releases"
+PROTOC_VERSION := 3.17.0
+PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
 PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
 GOPATH := ${GOPATH}
