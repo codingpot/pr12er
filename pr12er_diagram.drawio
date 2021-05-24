@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" modified="2021-05-24T05:14:33.797Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="fHb2_aLsFxAltYVeNyiG" version="14.6.9" type="github">
+  <diagram id="Qm3RDbUZNF5xUFch9ARM" name="Page-1">
+    <mxGraphModel dx="2066" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FagR1-plRdVGBSgHOJf5-4" value="&lt;font style=&quot;font-size: 30px&quot;&gt;GetHello(HelloRequest)&lt;/font&gt;" style="endArrow=classic;html=1;" edge="1" parent="1" source="FagR1-plRdVGBSgHOJf5-1" target="FagR1-plRdVGBSgHOJf5-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="280" as="sourcePoint" />
+            <mxPoint x="430" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FagR1-plRdVGBSgHOJf5-5" value="" style="aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image;image=img/lib/active_directory/generic_server.svg;" vertex="1" parent="1">
+          <mxGeometry x="818" y="230" width="84" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="FagR1-plRdVGBSgHOJf5-6" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="190" y="160" width="134.75" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="FagR1-plRdVGBSgHOJf5-1" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.mobile;pointerEvents=1;" vertex="1" parent="FagR1-plRdVGBSgHOJf5-6">
+          <mxGeometry y="49" width="134.75" height="196" as="geometry" />
+        </mxCell>
+        <mxCell id="FagR1-plRdVGBSgHOJf5-2" value="&lt;font style=&quot;font-size: 30px&quot;&gt;Hello World&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="FagR1-plRdVGBSgHOJf5-6">
+          <mxGeometry x="44.1" y="134.75" width="49" height="24.5" as="geometry" />
+        </mxCell>
+        <mxCell id="FagR1-plRdVGBSgHOJf5-3" value="&lt;font style=&quot;font-size: 30px&quot;&gt;Flutter&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="FagR1-plRdVGBSgHOJf5-6">
+          <mxGeometry x="44.1" width="49" height="24.5" as="geometry" />
+        </mxCell>
+        <mxCell id="FagR1-plRdVGBSgHOJf5-7" value="&lt;font style=&quot;font-size: 30px&quot;&gt;gRPC&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="840" y="160" width="40" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
