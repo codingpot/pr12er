@@ -21,7 +21,6 @@ jobs:
         with:
           channel: "stable"
       - run: flutter pub get
-      - run: flutter test
       - run: flutter build apk
 
   go-build:
