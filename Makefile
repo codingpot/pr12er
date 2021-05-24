@@ -3,17 +3,21 @@
 
 PROTOC := $(shell which protoc)
 PROTOC_GEN_GO := $(shell which protoc-gen-go))
+PROTOC_VERSION := "3.17.0"
 PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
 GOPATH := ${GOPATH}
+
 install:
 ifeq ($(PROTOC),)
 ifeq ($(UNAME),Darwin)
 	brew install protobuf
 endif
 ifeq ($(UNAME), Linux)
-	sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
-	&& sudo apt-get -y install --no-install-recommends libprotobuf-dev protobuf-compiler golang-goprotobuf-dev
+	PB_REL="https://github.com/protocolbuffers/protobuf/releases" && \
+	curl -LO $PB_REL/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip && \
+	unzip protoc-3.15.8-linux-x86_64.zip -d $HOME/.local && \
+	export PATH="$PATH:$HOME/.local/bin"
 endif
 endif
 #ifeq ($(PROTOC_GEN_GO),)
