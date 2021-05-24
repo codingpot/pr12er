@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  fluuter-build:
+  flutter-build:
     runs-on: ubuntu-latest
     defaults:
       run:
