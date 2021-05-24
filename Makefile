@@ -6,7 +6,6 @@ PROTOC_GEN_GO := $(shell which protoc-gen-go))
 PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
 GOPATH := ${GOPATH}
-
 install:
 ifeq ($(PROTOC),)
 ifeq ($(UNAME),Darwin)
@@ -40,3 +39,10 @@ $(PROTO_FILES):
 gen.dart:
 	mkdir -p ./client/lib/protos/ && \
 		protoc --proto_path=server/pr12er/protos --dart_out=grpc:./client/lib/protos $(PROTO_FILES)
+
+
+# This will fail if files are modified.
+# This will ensure generated files are always up to date.
+test.gen: gen.go gen.dart
+	git update-index --refresh
+	git diff-index --quiet HEAD --
