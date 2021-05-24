@@ -5,7 +5,6 @@ option go_package = "pkg/protos;pr12er";
 
 message HelloRequest {
   string body = 1;
-  string body = 1;
 }
 
 message HelloResponse {
