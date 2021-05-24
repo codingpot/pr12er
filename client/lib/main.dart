@@ -26,7 +26,7 @@ class Client extends StatefulWidget {
 }
 
 class _ClientState extends State<Client> {
-  String result = "";
+  String _result = "";
   final myController = TextEditingController();
 
   @override
@@ -36,6 +36,7 @@ class _ClientState extends State<Client> {
         child: Center(
           child: Column(
             children: [
+              Text(_result),
               TextField(
                 controller: myController,
               ),
@@ -43,9 +44,10 @@ class _ClientState extends State<Client> {
                 children: [
                   Expanded(
                       child: OutlinedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             // print(myController.text);
-                            _callGrpc(myController.text);
+                            final body = await _callGrpc(myController.text);
+                            setState(() => _result = body);
                           },
                           child: const Text('Click Me')))
                 ],
@@ -55,7 +57,7 @@ class _ClientState extends State<Client> {
         ));
   }
 
-  Future<void> _callGrpc(String message) async {
+  Future<String> _callGrpc(String message) async {
     final channel = ClientChannel(
       'localhost', // Use your IP address where the server is running
       port: 9000,
@@ -65,8 +67,9 @@ class _ClientState extends State<Client> {
 
     var request = HelloRequest()..body = message;
     var response = await stub.getHello(request);
-    result = response.body;
-    print(result);
+
     await channel.shutdown();
+
+    return response.body;
   }
 }
