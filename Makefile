@@ -22,6 +22,7 @@ endif
 	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
 	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1.0
 #endif
+	pub global activate protoc_plugin
 
 gen.go: $(PROTO_FILES)
 $(PROTO_FILES):
