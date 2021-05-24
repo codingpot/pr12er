@@ -1,0 +1,20 @@
+# Test protoc generate
+name: Protoc
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+      - uses: actions/setup-go@v2.1.3
+        with:
+          go-version: 1.16
+      - run: make install gen.go gen.dart test.gen
