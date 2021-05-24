@@ -4,11 +4,14 @@
 <img src="./pr12er_diagram.svg" width="80%">
 </div>
 
-## for go backend
+## Install proto toolchain
 
+```shell
+make install
 ```
-protoc \
-	    --go_out . \
-	    --go-grpc_out . \
-	    pr12er/protos/pr12er.proto
+
+## Generated proto files
+
+```shell
+make gen.all
 ```
