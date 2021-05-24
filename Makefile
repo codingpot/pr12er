@@ -1,5 +1,5 @@
-.PHONY: install gen.go
-.DEFAULT_GOAL := gen.go
+.PHONY: install gen.go gen.dart test.gen clean
+.DEFAULT_GOAL := gen.all
 
 PROTOC := $(shell which protoc)
 PROTOC_GEN_GO := $(shell which protoc-gen-go))
@@ -24,18 +24,17 @@ endif
 #endif
 	pub global activate protoc_plugin
 
-gen.go: $(PROTO_FILES)
-$(PROTO_FILES):
-	@echo protoc : $@
-	@protoc \
-    -I ./ \
-    -I $(GOPATH)/src \
+gen.all: gen.go gen.dart
+
+gen.go:
+	mkdir -p ./server/pkg/protos/
+	protoc \
     --proto_path=server/pr12er/protos \
     --go_out=server/pkg/protos \
     --go_opt=paths=source_relative \
     --go-grpc_out=server/pkg/protos \
     --go-grpc_opt=paths=source_relative \
-    $@
+    $(PROTO_FILES)
 
 gen.dart:
 	mkdir -p ./client/lib/protos/ && \
@@ -47,3 +46,8 @@ gen.dart:
 test.gen: gen.go gen.dart
 	git update-index --refresh
 	git diff-index --quiet HEAD --
+
+
+clean:
+	rm -rf ./client/lib/protos
+	rm -rf ./server/pkg/protos/
