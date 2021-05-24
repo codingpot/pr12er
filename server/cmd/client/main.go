@@ -6,7 +6,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-	pb "github.com/codingpot/pr12er/pkg/protos"
+	pb "github.com/codingpot/pr12er/server/pkg/protos/hello"
 )
 
 func main() {

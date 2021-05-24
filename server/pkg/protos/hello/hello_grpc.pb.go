@@ -97,5 +97,5 @@ var Pr12ErService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "pr12er/protos/pr12er.proto",
+	Metadata: "hello/hello.proto",
 }

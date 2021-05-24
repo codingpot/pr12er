@@ -3,7 +3,7 @@ package serv
 import (
 	"log"
 
-	pb "github.com/codingpot/pr12er/pkg/protos"
+	pb "github.com/codingpot/pr12er/server/pkg/protos/hello"
 
 	"golang.org/x/net/context"
 )
