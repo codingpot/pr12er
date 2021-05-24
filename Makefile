@@ -4,6 +4,7 @@
 PROTOC := $(shell which protoc)
 PROTOC_GEN_GO := $(shell which protoc-gen-go))
 PROTOC_VERSION := "3.17.0"
+PROTOC_RELEASE := "https://github.com/protocolbuffers/protobuf/releases"
 PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
 GOPATH := ${GOPATH}
@@ -14,10 +15,9 @@ ifeq ($(UNAME),Darwin)
 	brew install protobuf
 endif
 ifeq ($(UNAME), Linux)
-	PB_REL="https://github.com/protocolbuffers/protobuf/releases" && \
-	curl -LO $PB_REL/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip && \
+	curl -LO "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip" && \
 	unzip protoc-3.15.8-linux-x86_64.zip -d $HOME/.local && \
-	export PATH="$PATH:$HOME/.local/bin"
+	export PATH="$${PATH}:$${HOME}/.local/bin"
 endif
 endif
 #ifeq ($(PROTOC_GEN_GO),)
