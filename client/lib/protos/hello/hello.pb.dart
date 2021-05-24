@@ -1,11 +1,10 @@
 ///
 //  Generated code. Do not modify.
-//  source: pr12er.proto
+//  source: hello/hello.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
-import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
@@ -102,15 +101,5 @@ class HelloResponse extends $pb.GeneratedMessage {
   $core.bool hasBody() => $_has(0);
   @$pb.TagNumber(1)
   void clearBody() => clearField(1);
-}
-
-class Pr12erServiceApi {
-  $pb.RpcClient _client;
-  Pr12erServiceApi(this._client);
-
-  $async.Future<HelloResponse> getHello($pb.ClientContext? ctx, HelloRequest request) {
-    var emptyResponse = HelloResponse();
-    return _client.invoke<HelloResponse>(ctx, 'Pr12erService', 'GetHello', request, emptyResponse);
-  }
 }
 

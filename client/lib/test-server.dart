@@ -1,6 +1,6 @@
 import 'package:grpc/grpc.dart';
-import 'package:pr12er/protos/pr12er.pb.dart';
-import 'package:pr12er/protos/pr12er.pbgrpc.dart';
+
+import 'protos/hello/hello.pbgrpc.dart';
 
 class GreeterService extends Pr12erServiceBase {
   @override

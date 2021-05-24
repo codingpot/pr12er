@@ -3,7 +3,7 @@
 
 PROTOC := $(shell which protoc)
 PROTOC_GEN_GO := $(shell which protoc-gen-go))
-PROTO_FILES := $(shell cd ./server/pr12er/protos && find . -mindepth 2 -maxdepth 2 -type f)
+PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
 GOPATH := ${GOPATH}
 
@@ -36,3 +36,7 @@ $(PROTO_FILES):
     --go-grpc_out=server/pkg/protos \
     --go-grpc_opt=paths=source_relative \
     $@
+
+gen.dart:
+	mkdir -p ./client/lib/protos/ && \
+		protoc --proto_path=server/pr12er/protos --dart_out=grpc:./client/lib/protos $(PROTO_FILES)
