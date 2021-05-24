@@ -5,6 +5,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/codingpot/pr12er/server/pkg/env"
 	"github.com/codingpot/pr12er/server/pkg/serv"
 
 	pb "github.com/codingpot/pr12er/server/pkg/protos/hello"
@@ -14,7 +15,9 @@ import (
 
 func main() {
 
-	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", 9000))
+	fmt.Printf("Grpc server start! ver: %s\n", env.Nversion)
+
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", env.ServiceAddress))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
