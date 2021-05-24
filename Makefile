@@ -12,8 +12,8 @@ ifeq ($(UNAME),Darwin)
 	brew install protobuf
 endif
 ifeq ($(UNAME), Linux)
-	apt-get update && export DEBIAN_FRONTEND=noninteractive \
-	&& apt-get -y install --no-install-recommends libprotobuf-dev protobuf-compiler golang-goprotobuf-dev
+	sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
+	&& sudo apt-get -y install --no-install-recommends libprotobuf-dev protobuf-compiler golang-goprotobuf-dev
 endif
 endif
 #ifeq ($(PROTOC_GEN_GO),)
