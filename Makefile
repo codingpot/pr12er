@@ -21,10 +21,7 @@ ifeq ($(UNAME), Linux)
 endif
 endif
 #ifeq ($(PROTOC_GEN_GO),)
-	go get -u github.com/golang/protobuf/protoc-gen-go
-	go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26.0
-	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
-	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1.0
+	(cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | xargs go install)
 #endif
 	pub global activate protoc_plugin
 
