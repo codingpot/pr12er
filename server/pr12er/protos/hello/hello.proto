@@ -3,6 +3,8 @@ package pr12er.protos;
 
 option go_package = "pkg/protos;pr12er";
 
+import "server/pr12er/protos/video/video.proto";
+
 message HelloRequest {
   string body = 1;
 }
@@ -13,4 +15,5 @@ message HelloResponse {
 
 service Pr12erService {
   rpc GetHello(HelloRequest) returns (HelloResponse);
+  rpc GetVideos(VideosRequest) returns (VideosResponse);
 }

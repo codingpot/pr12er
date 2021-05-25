@@ -13,12 +13,12 @@ enum Category {
 }
   
 message Video {
-    required uint32 id = 1;
-    required string title = 2;
-    required string link = 3;
-    required string presenter = 4;
-    required Category category = 5;
-    required uint32 number_of_like = 6;
+    uint32 id = 1;
+    string title = 2;
+    string link = 3;
+    string presenter = 4;
+    Category category = 5;
+    uint32 number_of_like = 6;
 }
 
 message VideosResponse {  
@@ -26,7 +26,3 @@ message VideosResponse {
 }
 
 message VideosRequest {}
-
-service Pr12erVideoFetchService {
-    rpc GetVideos(VideosRequest) returns (VideosResponse);
-}
