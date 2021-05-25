@@ -28,13 +28,11 @@ endif
 gen.all: gen.go gen.dart
 
 gen.go:
-	mkdir -p ./server/pkg/protos/
 	protoc \
-    --proto_path=server/pr12er/protos \
-    --go_out=server/pkg/protos \
-    --go_opt=paths=source_relative \
-    --go-grpc_out=server/pkg/protos \
-    --go-grpc_opt=paths=source_relative \
+    --go_out=server \
+    --go_opt=paths=import \
+    --go-grpc_out=server \
+    --go-grpc_opt=paths=import \
     $(PROTO_FILES)
 
 gen.dart:
@@ -49,6 +47,14 @@ test.gen: gen.go gen.dart
 	git diff-index --quiet HEAD --
 
 
+test: test.gen test.go test.dart
+
+test.go:
+	cd server && go build -o server ./cmd/server && go build -o client ./cmd/client
+
+test.dart:
+	cd client && flutter build apk
+
 clean:
-	rm -rf ./client/lib/protos
-	rm -rf ./server/pkg/protos/
+	rm -rf ./client/lib/protos/
+	rm -rf ./server/pkg/pr12er/
