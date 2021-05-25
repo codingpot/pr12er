@@ -1,3 +1,8 @@
+syntax = "proto3";
+package pr12er.protos;
+
+option go_package = "pkg/protos;pr12er";
+
 enum Category {
     UNKOWN = 0;
     VISION = 1;
