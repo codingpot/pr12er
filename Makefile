@@ -1,4 +1,3 @@
-.PHONY: install gen.go gen.dart test.gen clean
 .DEFAULT_GOAL := gen.all
 
 PROTOC := $(shell which protoc)
@@ -9,6 +8,7 @@ PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
 GOPATH := ${GOPATH}
 
+.PHONY: install
 install:
 ifeq ($(PROTOC),)
 ifeq ($(UNAME),Darwin)
@@ -25,8 +25,10 @@ endif
 #endif
 	pub global activate protoc_plugin
 
+.PHONY: gen.all
 gen.all: gen.go gen.dart
 
+.PHONY: gen.go
 gen.go:
 	protoc \
     --go_out=server \
@@ -35,26 +37,31 @@ gen.go:
     --go-grpc_opt=paths=import \
     $(PROTO_FILES)
 
+.PHONY: gen.dart
 gen.dart:
 	mkdir -p ./client/lib/protos/ && \
 		protoc --proto_path=server/pr12er/protos --dart_out=grpc:./client/lib/protos $(PROTO_FILES)
 
-
 # This will fail if files are modified.
 # This will ensure generated files are always up to date.
+.PHONY: test.gen
 test.gen: gen.go gen.dart
 	git update-index --refresh
 	git diff-index --quiet HEAD --
 
 
+.PHONY: test
 test: test.gen test.go test.dart
 
+.PHONY: test.go
 test.go:
 	cd server && go build -o server ./cmd/server && go build -o client ./cmd/client
 
+.PHONY: test.dart
 test.dart:
 	cd client && flutter build apk
 
+.PHONY: clean
 clean:
 	rm -rf ./client/lib/protos/
 	rm -rf ./server/pkg/pr12er/
