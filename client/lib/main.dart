@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grpc/grpc.dart';
-
-import 'protos/hello/hello.pb.dart';
-import 'protos/hello/hello.pbgrpc.dart';
+import 'service.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,7 +43,8 @@ class _ClientState extends State<Client> {
                       child: OutlinedButton(
                           onPressed: () async {
                             // print(myController.text);
-                            final body = await _callGrpc(myController.text);
+                            final body = await GrpcMsgSender()
+                                .sendMessage(myController.text);
                             setState(() => _result = body);
                           },
                           child: const Text('Click Me')))
@@ -55,21 +53,5 @@ class _ClientState extends State<Client> {
             ],
           ),
         ));
-  }
-
-  Future<String> _callGrpc(String message) async {
-    final channel = ClientChannel(
-      'localhost', // Use your IP address where the server is running
-      port: 9000,
-      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
-    );
-    final stub = Pr12erServiceClient(channel);
-
-    var request = HelloRequest()..body = message;
-    var response = await stub.getHello(request);
-
-    await channel.shutdown();
-
-    return response.body;
   }
 }

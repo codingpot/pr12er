@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: hello/hello.proto
+//  source: service.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
@@ -28,3 +28,20 @@ const HelloResponse$json = const {
 
 /// Descriptor for `HelloResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List helloResponseDescriptor = $convert.base64Decode('Cg1IZWxsb1Jlc3BvbnNlEhIKBGJvZHkYASABKAlSBGJvZHk=');
+@$core.Deprecated('Use getVideosResponseDescriptor instead')
+const GetVideosResponse$json = const {
+  '1': 'GetVideosResponse',
+  '2': const [
+    const {'1': 'videos', '3': 1, '4': 3, '5': 11, '6': '.pr12er.protos.Video', '10': 'videos'},
+  ],
+};
+
+/// Descriptor for `GetVideosResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getVideosResponseDescriptor = $convert.base64Decode('ChFHZXRWaWRlb3NSZXNwb25zZRIsCgZ2aWRlb3MYASADKAsyFC5wcjEyZXIucHJvdG9zLlZpZGVvUgZ2aWRlb3M=');
+@$core.Deprecated('Use getVideosRequestDescriptor instead')
+const GetVideosRequest$json = const {
+  '1': 'GetVideosRequest',
+};
+
+/// Descriptor for `GetVideosRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getVideosRequestDescriptor = $convert.base64Decode('ChBHZXRWaWRlb3NSZXF1ZXN0');

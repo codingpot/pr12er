@@ -1,7 +1,7 @@
 syntax = "proto3";
 package pr12er.protos;
 
-option go_package = "pkg/protos;pr12er";
+option go_package = "github.com/codingpot/server/pkg/pr12er";
 
 enum Category {
     CATEGORY_UNSPECIFIED = 0;
@@ -11,7 +11,7 @@ enum Category {
     CATEGORY_AUDIO = 4;
     CATEGORY_RS = 5;
 }
-  
+
 message Video {
     int32 id = 1;
     string title = 2;
@@ -20,9 +20,3 @@ message Video {
     Category category = 5;
     int32 number_of_like = 6;
 }
-
-message GetVideosResponse {  
-    repeated Video videos = 1;
-}
-
-message GetVideosRequest {}

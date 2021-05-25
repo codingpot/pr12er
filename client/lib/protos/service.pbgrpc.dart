@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: hello/hello.proto
+//  source: service.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
@@ -10,9 +10,8 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'hello.pb.dart' as $0;
-import '../video/video.pb.dart' as $1;
-export 'hello.pb.dart';
+import 'service.pb.dart' as $0;
+export 'service.pb.dart';
 
 class Pr12erServiceClient extends $grpc.Client {
   static final _$getHello =
@@ -21,10 +20,11 @@ class Pr12erServiceClient extends $grpc.Client {
           ($0.HelloRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.HelloResponse.fromBuffer(value));
   static final _$getVideos =
-      $grpc.ClientMethod<$1.VideosRequest, $1.VideosResponse>(
+      $grpc.ClientMethod<$0.GetVideosRequest, $0.GetVideosResponse>(
           '/pr12er.protos.Pr12erService/GetVideos',
-          ($1.VideosRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $1.VideosResponse.fromBuffer(value));
+          ($0.GetVideosRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.GetVideosResponse.fromBuffer(value));
 
   Pr12erServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -36,7 +36,8 @@ class Pr12erServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getHello, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.VideosResponse> getVideos($1.VideosRequest request,
+  $grpc.ResponseFuture<$0.GetVideosResponse> getVideos(
+      $0.GetVideosRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getVideos, request, options: options);
   }
@@ -53,13 +54,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.HelloRequest.fromBuffer(value),
         ($0.HelloResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.VideosRequest, $1.VideosResponse>(
+    $addMethod($grpc.ServiceMethod<$0.GetVideosRequest, $0.GetVideosResponse>(
         'GetVideos',
         getVideos_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.VideosRequest.fromBuffer(value),
-        ($1.VideosResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.GetVideosRequest.fromBuffer(value),
+        ($0.GetVideosResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.HelloResponse> getHello_Pre(
@@ -67,13 +68,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
     return getHello(call, await request);
   }
 
-  $async.Future<$1.VideosResponse> getVideos_Pre(
-      $grpc.ServiceCall call, $async.Future<$1.VideosRequest> request) async {
+  $async.Future<$0.GetVideosResponse> getVideos_Pre($grpc.ServiceCall call,
+      $async.Future<$0.GetVideosRequest> request) async {
     return getVideos(call, await request);
   }
 
   $async.Future<$0.HelloResponse> getHello(
       $grpc.ServiceCall call, $0.HelloRequest request);
-  $async.Future<$1.VideosResponse> getVideos(
-      $grpc.ServiceCall call, $1.VideosRequest request);
+  $async.Future<$0.GetVideosResponse> getVideos(
+      $grpc.ServiceCall call, $0.GetVideosRequest request);
 }
