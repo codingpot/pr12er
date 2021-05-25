@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
 
-import 'protos/hello/hello.pb.dart';
-import 'protos/hello/hello.pbgrpc.dart';
+import 'protos/service.pbgrpc.dart';
 
 void main() => runApp(MyApp());
 
