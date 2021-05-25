@@ -18,7 +18,7 @@ message Video {
     string link = 3;
     string presenter = 4;
     Category category = 5;
-    uint32 number_of_like = 6;
+    int32 number_of_like = 6;
 }
 
 message VideosResponse {  
