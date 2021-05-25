@@ -1,10 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:grpc/grpc.dart';
-
-import 'protos/service.pb.dart';
-import 'protos/service.pbgrpc.dart';
+import 'service.dart';
 
 void main() => runApp(MyApp());
 
@@ -58,29 +53,5 @@ class _ClientState extends State<Client> {
             ],
           ),
         ));
-  }
-}
-
-class GrpcMsgSender {
-  ClientChannel channel = ClientChannel("");
-  static final GrpcMsgSender _singleton = new GrpcMsgSender._internal();
-
-  factory GrpcMsgSender() => _singleton;
-
-  GrpcMsgSender._internal() {
-    channel = ClientChannel(
-      'localhost', // Use your IP address where the server is running
-      port: 9000,
-      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
-    );
-  }
-
-  Future<String> sendMessage(String message) async {
-    final stub = Pr12erServiceClient(channel);
-
-    var request = HelloRequest()..body = message;
-    var response = await stub.getHello(request);
-
-    return response.body;
   }
 }
