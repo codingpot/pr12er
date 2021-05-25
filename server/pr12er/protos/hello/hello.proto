@@ -13,6 +13,12 @@ message HelloResponse {
   string body = 1;
 }
 
+message GetVideosResponse {
+    repeated Video videos = 1;
+}
+
+message GetVideosRequest {}
+
 service Pr12erService {
   rpc GetHello(HelloRequest) returns (HelloResponse);
   rpc GetVideos(GetVideosRequest) returns (GetVideosResponse);

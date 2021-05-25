@@ -20,9 +20,3 @@ message Video {
     Category category = 5;
     int32 number_of_like = 6;
 }
-
-message GetVideosResponse {  
-    repeated Video videos = 1;
-}
-
-message GetVideosRequest {}
