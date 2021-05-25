@@ -12,46 +12,46 @@ import 'dart:typed_data' as $typed_data;
 const Category$json = const {
   '1': 'Category',
   '2': const [
-    const {'1': 'UNKOWN', '2': 0},
-    const {'1': 'VISION', '2': 1},
-    const {'1': 'NLP', '2': 2},
-    const {'1': 'OCR', '2': 3},
-    const {'1': 'AUDIO', '2': 4},
-    const {'1': 'RS', '2': 5},
+    const {'1': 'CATEGORY_UNSPECIFIED', '2': 0},
+    const {'1': 'CATEGORY_VISION', '2': 1},
+    const {'1': 'CATEGORY_NLP', '2': 2},
+    const {'1': 'CATEGORY_OCR', '2': 3},
+    const {'1': 'CATEGORY_AUDIO', '2': 4},
+    const {'1': 'CATEGORY_RS', '2': 5},
   ],
 };
 
 /// Descriptor for `Category`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List categoryDescriptor = $convert.base64Decode('CghDYXRlZ29yeRIKCgZVTktPV04QABIKCgZWSVNJT04QARIHCgNOTFAQAhIHCgNPQ1IQAxIJCgVBVURJTxAEEgYKAlJTEAU=');
+final $typed_data.Uint8List categoryDescriptor = $convert.base64Decode('CghDYXRlZ29yeRIYChRDQVRFR09SWV9VTlNQRUNJRklFRBAAEhMKD0NBVEVHT1JZX1ZJU0lPThABEhAKDENBVEVHT1JZX05MUBACEhAKDENBVEVHT1JZX09DUhADEhIKDkNBVEVHT1JZX0FVRElPEAQSDwoLQ0FURUdPUllfUlMQBQ==');
 @$core.Deprecated('Use videoDescriptor instead')
 const Video$json = const {
   '1': 'Video',
   '2': const [
-    const {'1': 'id', '3': 1, '4': 1, '5': 13, '10': 'id'},
+    const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
     const {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'link', '3': 3, '4': 1, '5': 9, '10': 'link'},
     const {'1': 'presenter', '3': 4, '4': 1, '5': 9, '10': 'presenter'},
     const {'1': 'category', '3': 5, '4': 1, '5': 14, '6': '.pr12er.protos.Category', '10': 'category'},
-    const {'1': 'number_of_like', '3': 6, '4': 1, '5': 13, '10': 'numberOfLike'},
+    const {'1': 'number_of_like', '3': 6, '4': 1, '5': 5, '10': 'numberOfLike'},
   ],
 };
 
 /// Descriptor for `Video`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoDVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMwoIY2F0ZWdvcnkYBSABKA4yFy5wcjEyZXIucHJvdG9zLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoDVIMbnVtYmVyT2ZMaWtl');
-@$core.Deprecated('Use videosResponseDescriptor instead')
-const VideosResponse$json = const {
-  '1': 'VideosResponse',
+final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMwoIY2F0ZWdvcnkYBSABKA4yFy5wcjEyZXIucHJvdG9zLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoBVIMbnVtYmVyT2ZMaWtl');
+@$core.Deprecated('Use getVideosResponseDescriptor instead')
+const GetVideosResponse$json = const {
+  '1': 'GetVideosResponse',
   '2': const [
     const {'1': 'videos', '3': 1, '4': 3, '5': 11, '6': '.pr12er.protos.Video', '10': 'videos'},
   ],
 };
 
-/// Descriptor for `VideosResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videosResponseDescriptor = $convert.base64Decode('Cg5WaWRlb3NSZXNwb25zZRIsCgZ2aWRlb3MYASADKAsyFC5wcjEyZXIucHJvdG9zLlZpZGVvUgZ2aWRlb3M=');
-@$core.Deprecated('Use videosRequestDescriptor instead')
-const VideosRequest$json = const {
-  '1': 'VideosRequest',
+/// Descriptor for `GetVideosResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getVideosResponseDescriptor = $convert.base64Decode('ChFHZXRWaWRlb3NSZXNwb25zZRIsCgZ2aWRlb3MYASADKAsyFC5wcjEyZXIucHJvdG9zLlZpZGVvUgZ2aWRlb3M=');
+@$core.Deprecated('Use getVideosRequestDescriptor instead')
+const GetVideosRequest$json = const {
+  '1': 'GetVideosRequest',
 };
 
-/// Descriptor for `VideosRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videosRequestDescriptor = $convert.base64Decode('Cg1WaWRlb3NSZXF1ZXN0');
+/// Descriptor for `GetVideosRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getVideosRequestDescriptor = $convert.base64Decode('ChBHZXRWaWRlb3NSZXF1ZXN0');

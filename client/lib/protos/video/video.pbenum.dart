@@ -10,20 +10,20 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Category extends $pb.ProtobufEnum {
-  static const Category UNKOWN = Category._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'UNKOWN');
-  static const Category VISION = Category._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'VISION');
-  static const Category NLP = Category._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'NLP');
-  static const Category OCR = Category._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'OCR');
-  static const Category AUDIO = Category._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'AUDIO');
-  static const Category RS = Category._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'RS');
+  static const Category CATEGORY_UNSPECIFIED = Category._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'CATEGORY_UNSPECIFIED');
+  static const Category CATEGORY_VISION = Category._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'CATEGORY_VISION');
+  static const Category CATEGORY_NLP = Category._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'CATEGORY_NLP');
+  static const Category CATEGORY_OCR = Category._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'CATEGORY_OCR');
+  static const Category CATEGORY_AUDIO = Category._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'CATEGORY_AUDIO');
+  static const Category CATEGORY_RS = Category._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'CATEGORY_RS');
 
   static const $core.List<Category> values = <Category> [
-    UNKOWN,
-    VISION,
-    NLP,
-    OCR,
-    AUDIO,
-    RS,
+    CATEGORY_UNSPECIFIED,
+    CATEGORY_VISION,
+    CATEGORY_NLP,
+    CATEGORY_OCR,
+    CATEGORY_AUDIO,
+    CATEGORY_RS,
   ];
 
   static final $core.Map<$core.int, Category> _byValue = $pb.ProtobufEnum.initByValue(values);

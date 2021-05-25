@@ -46,7 +46,8 @@ class _ClientState extends State<Client> {
                       child: OutlinedButton(
                           onPressed: () async {
                             // print(myController.text);
-                            final body = await _callGrpc(myController.text);
+                            final body = await GrpcMsgSender()
+                                .sendMessage(myController.text);
                             setState(() => _result = body);
                           },
                           child: const Text('Click Me')))
@@ -56,8 +57,18 @@ class _ClientState extends State<Client> {
           ),
         ));
   }
+}
 
-  Future<String> _callGrpc(String message) async {
+class GrpcMsgSender {
+  static final GrpcMsgSender _instance = GrpcMsgSender._internal();
+
+  factory GrpcMsgSender() {
+    return _instance;
+  }
+
+  GrpcMsgSender._internal();
+
+  Future<String> sendMessage(String message) async {
     final channel = ClientChannel(
       'localhost', // Use your IP address where the server is running
       port: 9000,

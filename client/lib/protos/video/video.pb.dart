@@ -15,12 +15,12 @@ export 'video.pbenum.dart';
 
 class Video extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Video', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pr12er.protos'), createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', $pb.PbFieldType.OU3)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'link')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'presenter')
-    ..e<Category>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'category', $pb.PbFieldType.OE, defaultOrMaker: Category.UNKOWN, valueOf: Category.valueOf, enumValues: Category.values)
-    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfLike', $pb.PbFieldType.OU3)
+    ..e<Category>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'category', $pb.PbFieldType.OE, defaultOrMaker: Category.CATEGORY_UNSPECIFIED, valueOf: Category.valueOf, enumValues: Category.values)
+    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfLike', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -78,7 +78,7 @@ class Video extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.int get id => $_getIZ(0);
   @$pb.TagNumber(1)
-  set id($core.int v) { $_setUnsignedInt32(0, v); }
+  set id($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
@@ -123,21 +123,21 @@ class Video extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.int get numberOfLike => $_getIZ(5);
   @$pb.TagNumber(6)
-  set numberOfLike($core.int v) { $_setUnsignedInt32(5, v); }
+  set numberOfLike($core.int v) { $_setSignedInt32(5, v); }
   @$pb.TagNumber(6)
   $core.bool hasNumberOfLike() => $_has(5);
   @$pb.TagNumber(6)
   void clearNumberOfLike() => clearField(6);
 }
 
-class VideosResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'VideosResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pr12er.protos'), createEmptyInstance: create)
+class GetVideosResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetVideosResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pr12er.protos'), createEmptyInstance: create)
     ..pc<Video>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'videos', $pb.PbFieldType.PM, subBuilder: Video.create)
     ..hasRequiredFields = false
   ;
 
-  VideosResponse._() : super();
-  factory VideosResponse({
+  GetVideosResponse._() : super();
+  factory GetVideosResponse({
     $core.Iterable<Video>? videos,
   }) {
     final _result = create();
@@ -146,57 +146,57 @@ class VideosResponse extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory VideosResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory VideosResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory GetVideosResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetVideosResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  VideosResponse clone() => VideosResponse()..mergeFromMessage(this);
+  GetVideosResponse clone() => GetVideosResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  VideosResponse copyWith(void Function(VideosResponse) updates) => super.copyWith((message) => updates(message as VideosResponse)) as VideosResponse; // ignore: deprecated_member_use
+  GetVideosResponse copyWith(void Function(GetVideosResponse) updates) => super.copyWith((message) => updates(message as GetVideosResponse)) as GetVideosResponse; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static VideosResponse create() => VideosResponse._();
-  VideosResponse createEmptyInstance() => create();
-  static $pb.PbList<VideosResponse> createRepeated() => $pb.PbList<VideosResponse>();
+  static GetVideosResponse create() => GetVideosResponse._();
+  GetVideosResponse createEmptyInstance() => create();
+  static $pb.PbList<GetVideosResponse> createRepeated() => $pb.PbList<GetVideosResponse>();
   @$core.pragma('dart2js:noInline')
-  static VideosResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<VideosResponse>(create);
-  static VideosResponse? _defaultInstance;
+  static GetVideosResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetVideosResponse>(create);
+  static GetVideosResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.List<Video> get videos => $_getList(0);
 }
 
-class VideosRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'VideosRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pr12er.protos'), createEmptyInstance: create)
+class GetVideosRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetVideosRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pr12er.protos'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  VideosRequest._() : super();
-  factory VideosRequest() => create();
-  factory VideosRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory VideosRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  GetVideosRequest._() : super();
+  factory GetVideosRequest() => create();
+  factory GetVideosRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetVideosRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  VideosRequest clone() => VideosRequest()..mergeFromMessage(this);
+  GetVideosRequest clone() => GetVideosRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  VideosRequest copyWith(void Function(VideosRequest) updates) => super.copyWith((message) => updates(message as VideosRequest)) as VideosRequest; // ignore: deprecated_member_use
+  GetVideosRequest copyWith(void Function(GetVideosRequest) updates) => super.copyWith((message) => updates(message as GetVideosRequest)) as GetVideosRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static VideosRequest create() => VideosRequest._();
-  VideosRequest createEmptyInstance() => create();
-  static $pb.PbList<VideosRequest> createRepeated() => $pb.PbList<VideosRequest>();
+  static GetVideosRequest create() => GetVideosRequest._();
+  GetVideosRequest createEmptyInstance() => create();
+  static $pb.PbList<GetVideosRequest> createRepeated() => $pb.PbList<GetVideosRequest>();
   @$core.pragma('dart2js:noInline')
-  static VideosRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<VideosRequest>(create);
-  static VideosRequest? _defaultInstance;
+  static GetVideosRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetVideosRequest>(create);
+  static GetVideosRequest? _defaultInstance;
 }
 

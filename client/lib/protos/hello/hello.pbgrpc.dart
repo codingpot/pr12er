@@ -21,10 +21,11 @@ class Pr12erServiceClient extends $grpc.Client {
           ($0.HelloRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.HelloResponse.fromBuffer(value));
   static final _$getVideos =
-      $grpc.ClientMethod<$1.VideosRequest, $1.VideosResponse>(
+      $grpc.ClientMethod<$1.GetVideosRequest, $1.GetVideosResponse>(
           '/pr12er.protos.Pr12erService/GetVideos',
-          ($1.VideosRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $1.VideosResponse.fromBuffer(value));
+          ($1.GetVideosRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $1.GetVideosResponse.fromBuffer(value));
 
   Pr12erServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -36,7 +37,8 @@ class Pr12erServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getHello, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.VideosResponse> getVideos($1.VideosRequest request,
+  $grpc.ResponseFuture<$1.GetVideosResponse> getVideos(
+      $1.GetVideosRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getVideos, request, options: options);
   }
@@ -53,13 +55,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.HelloRequest.fromBuffer(value),
         ($0.HelloResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.VideosRequest, $1.VideosResponse>(
+    $addMethod($grpc.ServiceMethod<$1.GetVideosRequest, $1.GetVideosResponse>(
         'GetVideos',
         getVideos_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.VideosRequest.fromBuffer(value),
-        ($1.VideosResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $1.GetVideosRequest.fromBuffer(value),
+        ($1.GetVideosResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.HelloResponse> getHello_Pre(
@@ -67,13 +69,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
     return getHello(call, await request);
   }
 
-  $async.Future<$1.VideosResponse> getVideos_Pre(
-      $grpc.ServiceCall call, $async.Future<$1.VideosRequest> request) async {
+  $async.Future<$1.GetVideosResponse> getVideos_Pre($grpc.ServiceCall call,
+      $async.Future<$1.GetVideosRequest> request) async {
     return getVideos(call, await request);
   }
 
   $async.Future<$0.HelloResponse> getHello(
       $grpc.ServiceCall call, $0.HelloRequest request);
-  $async.Future<$1.VideosResponse> getVideos(
-      $grpc.ServiceCall call, $1.VideosRequest request);
+  $async.Future<$1.GetVideosResponse> getVideos(
+      $grpc.ServiceCall call, $1.GetVideosRequest request);
 }
