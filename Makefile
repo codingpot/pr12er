@@ -45,12 +45,6 @@ gen.dart:
 			$(PROTO_FILES)
 
 
-# This will fail if files are modified.
-# This will ensure generated files are always up to date.
-test.gen: gen.go gen.dart
-	echo "success"
-
-
 clean:
 	rm -rf ./client/lib/protos
 	rm -rf ./server/pkg/pr12er/*.pb.go
