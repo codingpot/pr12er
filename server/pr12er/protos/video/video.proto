@@ -4,16 +4,16 @@ package pr12er.protos;
 option go_package = "pkg/protos;pr12er";
 
 enum Category {
-    UNKOWN = 0;
-    VISION = 1;
-    NLP = 2;
-    OCR = 3;
-    AUDIO = 4;
-    RS = 5;
+    CATEGORY_UNSPECIFIED = 0;
+    CATEGORY_VISION = 1;
+    CATEGORY_NLP = 2;
+    CATEGORY_OCR = 3;
+    CATEGORY_AUDIO = 4;
+    CATEGORY_RS = 5;
 }
   
 message Video {
-    uint32 id = 1;
+    int32 id = 1;
     string title = 2;
     string link = 3;
     string presenter = 4;

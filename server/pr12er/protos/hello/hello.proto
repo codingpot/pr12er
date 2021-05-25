@@ -15,5 +15,5 @@ message HelloResponse {
 
 service Pr12erService {
   rpc GetHello(HelloRequest) returns (HelloResponse);
-  rpc GetVideos(VideosRequest) returns (VideosResponse);
+  rpc GetVideos(GetVideosRequest) returns (GetVideosResponse);
 }
