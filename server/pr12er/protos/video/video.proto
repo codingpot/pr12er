@@ -1,0 +1,27 @@
+enum Category {
+    UNKOWN = 0;
+    VISION = 1;
+    NLP = 2;
+    OCR = 3;
+    AUDIO = 4;
+    RS = 5;
+}
+  
+message Video {
+    required uint32 id = 1;
+    required string title = 2;
+    required string link = 3;
+    required string presenter = 4;
+    required Category category = 5;
+    required uint32 number_of_like = 6;
+}
+
+message VideosResponse {  
+    repeated Video videos = 1;
+}
+
+message VideosRequest {}
+
+service Pr12erVideoFetchService {
+    rpc GetVideos(VideosRequest) returns (VideosResponse);
+}
