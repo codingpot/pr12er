@@ -11,6 +11,7 @@ import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
 import 'hello.pb.dart' as $0;
+import '../video/video.pb.dart' as $1;
 export 'hello.pb.dart';
 
 class Pr12erServiceClient extends $grpc.Client {
@@ -19,6 +20,11 @@ class Pr12erServiceClient extends $grpc.Client {
           '/pr12er.protos.Pr12erService/GetHello',
           ($0.HelloRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.HelloResponse.fromBuffer(value));
+  static final _$getVideos =
+      $grpc.ClientMethod<$1.VideosRequest, $1.VideosResponse>(
+          '/pr12er.protos.Pr12erService/GetVideos',
+          ($1.VideosRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $1.VideosResponse.fromBuffer(value));
 
   Pr12erServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -28,6 +34,11 @@ class Pr12erServiceClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.HelloResponse> getHello($0.HelloRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getHello, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.VideosResponse> getVideos($1.VideosRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getVideos, request, options: options);
   }
 }
 
@@ -42,6 +53,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.HelloRequest.fromBuffer(value),
         ($0.HelloResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.VideosRequest, $1.VideosResponse>(
+        'GetVideos',
+        getVideos_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.VideosRequest.fromBuffer(value),
+        ($1.VideosResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.HelloResponse> getHello_Pre(
@@ -49,6 +67,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
     return getHello(call, await request);
   }
 
+  $async.Future<$1.VideosResponse> getVideos_Pre(
+      $grpc.ServiceCall call, $async.Future<$1.VideosRequest> request) async {
+    return getVideos(call, await request);
+  }
+
   $async.Future<$0.HelloResponse> getHello(
       $grpc.ServiceCall call, $0.HelloRequest request);
+  $async.Future<$1.VideosResponse> getVideos(
+      $grpc.ServiceCall call, $1.VideosRequest request);
 }
