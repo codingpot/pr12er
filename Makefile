@@ -44,7 +44,6 @@ gen.dart:
 			--dart_out=grpc:./client/lib/protos \
 			$(PROTO_FILES)
 
-
 clean:
 	rm -rf ./client/lib/protos
 	rm -rf ./server/pkg/pr12er/*.pb.go
