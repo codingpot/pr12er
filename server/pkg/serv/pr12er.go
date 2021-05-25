@@ -4,16 +4,14 @@ import (
 	"fmt"
 	"log"
 
-	pb "github.com/codingpot/pr12er/server/pkg/protos/hello"
-
 	"golang.org/x/net/context"
 )
 
 type Server struct {
-	pb.Pr12ErServiceServer
+	pr12er.Pr12ErServiceServer
 }
 
-func (s *Server) GetHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
+func (s *Server) GetHello(ctx context.Context, in *pr12er.HelloRequest) (*pr12er.HelloResponse, error) {
 	log.Printf("Get Request Hello! body: %s", in.Body)
-	return &pb.HelloResponse{Body: fmt.Sprintf("Hello %s", in.Body)}, nil
+	return &pr12er.HelloResponse{Body: fmt.Sprintf("Hello %s", in.Body)}, nil
 }

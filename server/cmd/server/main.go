@@ -7,8 +7,6 @@ import (
 
 	"github.com/codingpot/pr12er/server/pkg/serv"
 
-	pb "github.com/codingpot/pr12er/server/pkg/protos/hello"
-
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
@@ -24,7 +22,7 @@ func main() {
 
 	grpcServer := grpc.NewServer()
 
-	pb.RegisterPr12ErServiceServer(grpcServer, &s)
+	pr12er.RegisterPr12ErServiceServer(grpcServer, &s)
 	reflection.Register(grpcServer)
 
 	if err := grpcServer.Serve(lis); err != nil {
