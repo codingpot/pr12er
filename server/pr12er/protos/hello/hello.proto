@@ -3,7 +3,7 @@ package pr12er.protos;
 
 option go_package = "pkg/protos;pr12er";
 
-import "server/pr12er/protos/video/video.proto";
+import "video/video.proto";
 
 message HelloRequest {
   string body = 1;
