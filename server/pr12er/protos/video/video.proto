@@ -21,8 +21,8 @@ message Video {
     int32 number_of_like = 6;
 }
 
-message VideosResponse {  
+message GetVideosResponse {  
     repeated Video videos = 1;
 }
 
-message VideosRequest {}
+message GetVideosRequest {}
