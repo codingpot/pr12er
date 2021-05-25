@@ -30,16 +30,19 @@ gen.all: gen.go gen.dart
 gen.go:
 	mkdir -p ./server/pkg/protos/
 	protoc \
-    --proto_path=server/pr12er/protos \
-    --go_out=server/pkg/protos \
+    --proto_path=server/pkg/pr12er \
+    --go_out=server/pkg/pr12er \
     --go_opt=paths=source_relative \
-    --go-grpc_out=server/pkg/protos \
+    --go-grpc_out=server/pkg/pr12er \
     --go-grpc_opt=paths=source_relative \
     $(PROTO_FILES)
 
 gen.dart:
 	mkdir -p ./client/lib/protos/ && \
-		protoc --proto_path=server/pr12er/protos --dart_out=grpc:./client/lib/protos $(PROTO_FILES)
+		protoc \
+			--proto_path=server/pkg/pr12er \
+			--dart_out=grpc:./client/lib/protos \
+			$(PROTO_FILES)
 
 
 # This will fail if files are modified.
@@ -51,4 +54,4 @@ test.gen: gen.go gen.dart
 
 clean:
 	rm -rf ./client/lib/protos
-	rm -rf ./server/pkg/protos/
+	rm -rf ./server/pkg/pr12er/*.pb.go
