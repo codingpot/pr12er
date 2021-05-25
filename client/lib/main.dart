@@ -35,6 +35,7 @@ class _ClientState extends State<Client> {
             children: [
               Text(_result),
               TextField(
+                key: ValueKey("input-box"),
                 controller: myController,
               ),
               Row(

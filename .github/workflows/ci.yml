@@ -21,6 +21,7 @@ jobs:
         with:
           channel: "stable"
       - run: flutter pub get
+      - run: flutter test
       - run: flutter build apk
 
   go-build:
@@ -33,5 +34,6 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: "1.16"
+      - run: go test -v --race ./...
       - run: go build -o server cmd/server/main.go
       - run: go build -o client cmd/client/main.go
