@@ -343,6 +343,29 @@ metadata: <
   presenter: "Terry TaeWoong Um"
 >
 metadata: <
+  id: 26
+  title: "Notes for CVPR 2017 (3 Papers)"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1702.08690"
+    authors: "Weifeng Ge"
+    authors: "Yizhou Yu"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1612.04844"
+    authors: "Kenneth Marino"
+    authors: "Ruslan Salakhutdinov"
+    authors: "Abhinav Gupta"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ZdPBkPGfRSk"
+  >
+  keywords: "Transfer Learning"
+  keywords: "Graph Networks"
+  keywords: "Classification"
+  keywords: "Network Compression"
+  presenter: "Taegyun Jeon"
+>
+metadata: <
   id: 27
   title: "GloVe: Global Vectors for Word Representation"
   paper_metadata: <
@@ -439,6 +462,47 @@ metadata: <
   presenter: "Jinwon Lee"
 >
 metadata: <
+  id: 34
+  title: "Inception and Xception (4 Papers)"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1409.4842"
+    authors: "Christian Szegedy"
+    authors: "Wei Liu"
+    authors: "Yangqing Jia"
+    authors: "Pierre Sermanet"
+    authors: "Scott Reed"
+    authors: "Dragomir Anguelov"
+    authors: "Dumitru Erhan"
+    authors: "Vincent Vanhoucke"
+    authors: "Andrew Rabinovich"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1512.00567"
+    authors: "Christian Szegedy"
+    authors: "Vincent Vanhoucke"
+    authors: "Sergey Ioffe"
+    authors: "Jonathon Shlens"
+    authors: "Zbigniew Wojna"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1602.07261"
+    authors: "Christian Szegedy"
+    authors: "Sergey Ioffe"
+    authors: "Vincent Vanhoucke"
+    authors: "Alex Alemi"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1610.02357"
+    authors: "François Chollet"
+  >
+  video_metadata: <
+    url: "https://youtu.be/V0dLhyg5_Dw"
+  >
+  keywords: "CNN"
+  keywords: "Classification"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
   id: 35
   title: "Understanding Black-box Predictions via Influence Functions"
   paper_metadata: <
@@ -479,6 +543,29 @@ metadata: <
   keywords: "Question Answering"
   keywords: "Text Classification"
   presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 38
+  title: "Explaining and Harnessing Adversarial Examples (2 Papers)"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1412.6572"
+    authors: "Ian J. Goodfellow"
+    authors: "Jonathon Shlens"
+    authors: "Christian Szegedy"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1702.02284"
+    authors: "Sandy Huang"
+    authors: "Nicolas Papernot"
+    authors: "Ian Goodfellow"
+    authors: "Yan Duan"
+    authors: "Pieter Abbeel"
+  >
+  video_metadata: <
+    url: "https://youtu.be/7hRO2bS810M"
+  >
+  keywords: "Adversarial Attack"
+  presenter: "Kiho Suh"
 >
 metadata: <
   id: 39
@@ -563,6 +650,49 @@ metadata: <
   presenter: "Jinwon Lee"
 >
 metadata: <
+  id: 45
+  title: "DeepLab: Semantic Image Segmentation (5 Papers)"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1606.00915"
+    authors: "Liang-Chieh Chen"
+    authors: "George Papandreou"
+    authors: "Iasonas Kokkinos"
+    authors: "Kevin Murphy"
+    authors: "Alan L. Yuille"
+  >
+  paper_metadata: <
+    url: "https://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Long_Fully_Convolutional_Networks_2015_CVPR_paper.html"
+    authors: "Jonathan Long"
+    authors: "Evan Shelhamer"
+    authors: "Trevor Darrell"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1511.07122"
+    authors: "Fisher Yu"
+    authors: "Vladlen Koltun"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1612.01105"
+    authors: "Hengshuang Zhao"
+    authors: "Jianping Shi"
+    authors: "Xiaojuan Qi"
+    authors: "Xiaogang Wang"
+    authors: "Jiaya Jia"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.05587"
+    authors: "Liang-Chieh Chen"
+    authors: "George Papandreou"
+    authors: "Florian Schroff"
+    authors: "Hartwig Adam"
+  >
+  video_metadata: <
+    url: "https://youtu.be/JiC78rUF4iI"
+  >
+  keywords: "Segmentation"
+  presenter: "Taeoh Kim"
+>
+metadata: <
   id: 46
   title: "Deep Knowledge Tracing"
   paper_metadata: <
@@ -645,6 +775,16 @@ metadata: <
   keywords: "Generative Models"
   keywords: "GANs"
   presenter: "Seungil Kim"
+>
+metadata: <
+  id: 52
+  title: "Mastering the Game of Go without Human Knowledge"
+  paper_metadata: <
+    url: "https://www.nature.com/articles/nature24270"
+    authors: "David Silver"
+  >
+  keywords: "Reinforcement Learning"
+  presenter: "Junbum Cha"
 >
 metadata: <
   id: 53
@@ -895,6 +1035,21 @@ metadata: <
   presenter: "Taesu Kim"
 >
 metadata: <
+  id: 71
+  title: "Categorical Reparameterization with Gumbel Softmax"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1611.01144"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1611.00712"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ty3SciyoIyk"
+  >
+  keywords: "Optimization"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
   id: 72
   title: "Deep Compression"
   paper_metadata: <
@@ -1023,6 +1178,33 @@ metadata: <
   presenter: "Seungil Kim"
 >
 metadata: <
+  id: 81
+  title: "Machine Theory of Mind"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.07740"
+  >
+  keywords: "Reinforcement Learning"
+  presenter: "Ji-Hoon Kim"
+>
+metadata: <
+  id: 82
+  title: "Introduction to Speech Separation"
+
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1804.03619"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1804.04121"
+  >
+  video_metadata: <
+    url: "https://youtu.be/OgNSFKeHy8k"
+  >
+  keywords: "Audio/Speech"
+  keywords: "Speech Separation"
+  keywords: "Vision and Language/Text"
+  presenter: "Taesu Kim"
+>
+metadata: <
   id: 83
   title: "Non-Local Neural Networks"
   paper_metadata: <
@@ -1146,6 +1328,15 @@ metadata: <
   keywords: "Audio/Speech"
   keywords: "Audio Style Transfer"
   presenter: "Seungil Kim"
+>
+metadata: <
+  id: 93
+  title: "Playing Hard Exploration Games by Watching YouTube"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1805.07848"
+  >
+  keywords: "Reinforcement Learning"
+  presenter: "Ji-Hoon Kim"
 >
 metadata: <
   id: 94
@@ -1741,6 +1932,16 @@ metadata: <
   presenter: "MinGuk Kang"
 >
 metadata: <
+  id: 137
+  title: "MINE: Mutual Information Neural Estimation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.04062"
+  >
+  keywords: "Generative Models"
+  keywords: "Disentangled Representation"
+  presenter: "Jae Duk Seo"
+>
+metadata: <
   id: 138
   title: "Mixture Density Networks"
   paper_metadata: <
@@ -1796,6 +1997,22 @@ metadata: <
   presenter: "Taekmin Kim"
 >
 metadata: <
+  id: 142
+  title: "Wasserstein GAN"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1701.07875"
+  >
+   paper_metadata: <
+    url: "https://arxiv.org/abs/1704.00028"
+  >
+  video_metadata: <
+    url: "https://youtu.be/tKQwlf-DAl0"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
   id: 143
   title: "Recurrent World Models Facilitate Policy Evolution"
   paper_metadata: <
@@ -1807,6 +2024,22 @@ metadata: <
   >
   keywords: "Reinforcement Learning"
   presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 144
+  title: "SqueezeNext: Hardware-Aware Neural Network Design"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1803.10615"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1602.07360"
+  >
+  video_metadata: <
+    url: "https://youtu.be/WReWeADJ3Pw"
+  >
+  keywords: "Compression"
+  keywords: "Classification"
+  presenter: "Jinwon Lee"
 >
 metadata: <
   id: 145
@@ -2017,6 +2250,20 @@ metadata: <
   presenter: "Sunghoon Joo"
 >
 metadata: <
+  id: 160
+  title: "GLoMo: Unsupervised Learning of Transferable Relational Graph"
+  paper_metadata: <
+    url: "http://papers.nips.cc/paper/8110-glomo-unsupervised-learning-of-transferable-relational-graphs"
+  >
+  video_metadata: <
+    url: "https://youtu.be/V9KusGzsx10"
+  >
+  keywords: "NLP"
+  keywords: "Transfer Learning"
+  keywords: "Graph"
+  presenter: "Doyup Lee"
+>
+metadata: <
   id: 161
   title: "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context"
   paper_metadata: <
@@ -2043,6 +2290,29 @@ metadata: <
   >
   keywords: "Self-supervised Learning"
   presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 163
+  title: "CNN Attention Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1704.06904"
+  >
+   paper_metadata: <
+    url: "https://arxiv.org/abs/1807.06514"
+  >
+   paper_metadata: <
+    url: "https://arxiv.org/abs/1807.06521"
+  >
+   paper_metadata: <
+    url: "https://arxiv.org/abs/1709.01507"
+  >
+  video_metadata: <
+    url: "https://youtu.be/Dvi5_YC8Yts"
+  >
+  keywords: "CNN"
+  keywords: "Attention"
+  keywords: "Classification"
+  presenter: "Taeoh Kim"
 >
 metadata: <
   id: 164
@@ -2132,6 +2402,22 @@ metadata: <
   presenter: "Jinwon Lee"
 >
 metadata: <
+  id: 170
+  title: "Deep Residual Learning for Image Recognition"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1512.03385"
+  >
+   paper_metadata: <
+    url: "https://arxiv.org/abs/1603.05027"
+  >
+  video_metadata: <
+    url: "https://youtu.be/7fSgqlC7Wdo"
+  >
+  keywords: "CNN"
+  keywords: "Classification"
+  presenter: "Yeong Seok Kim"
+>
+metadata: <
   id: 171
   title: "Large-Margin Softmax Loss for Convolutional Neural Networks"
   paper_metadata: <
@@ -2215,6 +2501,23 @@ metadata: <
   presenter: "Doyup Lee"
 >
 metadata: <
+  id: 177
+  title: "Framing U-Net via Deep Convolutional Framelets"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1708.08333"
+  >
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1707.00372"
+  >
+  video_metadata: <
+    url: "https://youtu.be/KSJcQlEKI0Q"
+  >
+  keywords: "CNN"
+  keywords: "Image Restoration"
+  keywords: "Medical"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
   id: 178
   title: "Graph Convolutional Networks"
   paper_metadata: <
@@ -2272,6 +2575,16 @@ metadata: <
   keywords: "Generalization"
   keywords: "Transfer Learning"
   presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 182
+  title: "Deep Learning Ensemble Methods"
+  video_metadata: <
+    url: "https://youtu.be/twhZ3j_VCa0"
+  >
+  keywords: "Generalization"
+  keywords: "Regularization"
+  presenter: "Jiwon Jung"
 >
 metadata: <
   id: 183
@@ -2428,6 +2741,16 @@ metadata: <
   presenter: "Taesu Kim"
 >
 metadata: <
+  id: 194
+  title: "Once for All: Train One Network and Specialize it for Efficient Deployment"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1908.09791"
+  >
+  keywords: "Network Compression"
+  keywords: "NAS"
+  presenter: "Taekmin Kim"
+>
+metadata: <
   id: 195
   title: "MixMatch: A Holistic Approach to Semi-Supervised Learning"
   paper_metadata: <
@@ -2468,6 +2791,17 @@ metadata: <
   >
   keywords: "Network Compression"
   presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 198
+  title: "TSM: Temporal Shift Module for Efficient Video Understanding"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1811.08383"
+  >
+  keywords: "Video Understanding"
+  keywords: "Classification"
+  keywords: "Detection"
+  presenter: "Young Seok Kim"
 >
 metadata: <
   id: 199
