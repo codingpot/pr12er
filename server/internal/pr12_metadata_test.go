@@ -8,7 +8,7 @@ import (
 	"google.golang.org/protobuf/encoding/prototext"
 )
 
-func TestEmbededFileCanBeRead(t *testing.T) {
+func TestEmbeddedFileCanBeRead(t *testing.T) {
 	var metadataDump pr12er.MetadataDump
 	err := prototext.Unmarshal(PR12MetadataProtoText, &metadataDump)
 	assert.NoError(t, err)
