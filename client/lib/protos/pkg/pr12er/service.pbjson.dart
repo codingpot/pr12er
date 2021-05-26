@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: service.proto
+//  source: pkg/pr12er/service.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
@@ -32,12 +32,12 @@ final $typed_data.Uint8List helloResponseDescriptor = $convert.base64Decode('Cg1
 const GetVideosResponse$json = const {
   '1': 'GetVideosResponse',
   '2': const [
-    const {'1': 'videos', '3': 1, '4': 3, '5': 11, '6': '.pr12er.protos.Video', '10': 'videos'},
+    const {'1': 'videos', '3': 1, '4': 3, '5': 11, '6': '.pkg.pr12er.Video', '10': 'videos'},
   ],
 };
 
 /// Descriptor for `GetVideosResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getVideosResponseDescriptor = $convert.base64Decode('ChFHZXRWaWRlb3NSZXNwb25zZRIsCgZ2aWRlb3MYASADKAsyFC5wcjEyZXIucHJvdG9zLlZpZGVvUgZ2aWRlb3M=');
+final $typed_data.Uint8List getVideosResponseDescriptor = $convert.base64Decode('ChFHZXRWaWRlb3NSZXNwb25zZRIpCgZ2aWRlb3MYASADKAsyES5wa2cucHIxMmVyLlZpZGVvUgZ2aWRlb3M=');
 @$core.Deprecated('Use getVideosRequestDescriptor instead')
 const GetVideosRequest$json = const {
   '1': 'GetVideosRequest',

@@ -32,7 +32,7 @@ func NewPr12ErServiceClient(cc grpc.ClientConnInterface) Pr12ErServiceClient {
 
 func (c *pr12ErServiceClient) GetHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error) {
 	out := new(HelloResponse)
-	err := c.cc.Invoke(ctx, "/pr12er.protos.Pr12erService/GetHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pkg.pr12er.Pr12erService/GetHello", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *pr12ErServiceClient) GetHello(ctx context.Context, in *HelloRequest, op
 
 func (c *pr12ErServiceClient) GetVideos(ctx context.Context, in *GetVideosRequest, opts ...grpc.CallOption) (*GetVideosResponse, error) {
 	out := new(GetVideosResponse)
-	err := c.cc.Invoke(ctx, "/pr12er.protos.Pr12erService/GetVideos", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pkg.pr12er.Pr12erService/GetVideos", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Pr12ErService_GetHello_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pr12er.protos.Pr12erService/GetHello",
+		FullMethod: "/pkg.pr12er.Pr12erService/GetHello",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(Pr12ErServiceServer).GetHello(ctx, req.(*HelloRequest))
@@ -108,7 +108,7 @@ func _Pr12ErService_GetVideos_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pr12er.protos.Pr12erService/GetVideos",
+		FullMethod: "/pkg.pr12er.Pr12erService/GetVideos",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(Pr12ErServiceServer).GetVideos(ctx, req.(*GetVideosRequest))
@@ -120,7 +120,7 @@ func _Pr12ErService_GetVideos_Handler(srv interface{}, ctx context.Context, dec 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Pr12ErService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pr12er.protos.Pr12erService",
+	ServiceName: "pkg.pr12er.Pr12erService",
 	HandlerType: (*Pr12ErServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -133,5 +133,5 @@ var Pr12ErService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "service.proto",
+	Metadata: "pkg/pr12er/service.proto",
 }

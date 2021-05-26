@@ -1,7 +1,6 @@
 import 'package:grpc/grpc.dart';
 
-import 'protos/service.pb.dart';
-import 'protos/service.pbgrpc.dart';
+import 'protos/pkg/pr12er/service.pbgrpc.dart';
 
 class GreeterService extends Pr12erServiceBase {
   @override
@@ -10,7 +9,8 @@ class GreeterService extends Pr12erServiceBase {
   }
 
   @override
-  Future<GetVideosResponse> getVideos(ServiceCall call,GetVideosRequest request) async {
+  Future<GetVideosResponse> getVideos(
+      ServiceCall call, GetVideosRequest request) async {
     return GetVideosResponse();
   }
 }

@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: service.proto
+//  source: pkg/pr12er/service.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
@@ -16,12 +16,12 @@ export 'service.pb.dart';
 class Pr12erServiceClient extends $grpc.Client {
   static final _$getHello =
       $grpc.ClientMethod<$0.HelloRequest, $0.HelloResponse>(
-          '/pr12er.protos.Pr12erService/GetHello',
+          '/pkg.pr12er.Pr12erService/GetHello',
           ($0.HelloRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.HelloResponse.fromBuffer(value));
   static final _$getVideos =
       $grpc.ClientMethod<$0.GetVideosRequest, $0.GetVideosResponse>(
-          '/pr12er.protos.Pr12erService/GetVideos',
+          '/pkg.pr12er.Pr12erService/GetVideos',
           ($0.GetVideosRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.GetVideosResponse.fromBuffer(value));
@@ -44,7 +44,7 @@ class Pr12erServiceClient extends $grpc.Client {
 }
 
 abstract class Pr12erServiceBase extends $grpc.Service {
-  $core.String get $name => 'pr12er.protos.Pr12erService';
+  $core.String get $name => 'pkg.pr12er.Pr12erService';
 
   Pr12erServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.HelloRequest, $0.HelloResponse>(

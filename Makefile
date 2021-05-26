@@ -30,19 +30,23 @@ gen.all: gen.go gen.dart
 gen.go:
 	mkdir -p ./server/pkg/protos/
 	protoc \
-    --proto_path=server/pkg/pr12er \
-    --go_out=server/pkg/pr12er \
+    --proto_path=server \
+    --go_out=server \
     --go_opt=paths=source_relative \
-    --go-grpc_out=server/pkg/pr12er \
+    --go-grpc_out=server \
     --go-grpc_opt=paths=source_relative \
     $(PROTO_FILES)
 
 gen.dart:
 	mkdir -p ./client/lib/protos/ && \
 		protoc \
-			--proto_path=server/pkg/pr12er \
+			--proto_path=server \
 			--dart_out=grpc:./client/lib/protos \
 			$(PROTO_FILES)
+
+test: gen.all
+	cd server && go test ./...
+	cd client && flutter test
 
 clean:
 	rm -rf ./client/lib/protos

@@ -1,6 +1,6 @@
 import 'package:grpc/grpc.dart';
 
-import 'protos/service.pbgrpc.dart';
+import 'protos/pkg/pr12er/service.pbgrpc.dart';
 
 class GrpcMsgSender {
   ClientChannel channel = ClientChannel(
