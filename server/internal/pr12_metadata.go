@@ -5,4 +5,4 @@ import (
 )
 
 //go:embed pr12_metadata.pbtxt
-var PR12MetadataYAML []byte
+var PR12MetadataProtoText []byte
