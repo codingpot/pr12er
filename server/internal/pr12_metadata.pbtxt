@@ -1,0 +1,2591 @@
+metadata: <
+  id: 1
+  title: "Generative Adversarial Nets"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1406.2661"
+    authors: "_Ian J. Goodfellow et al., NIPS 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/L3hz57whyNw"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
+  id: 2
+  title: "Deformable Convolutional Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.06211"
+    authors: "_Jifeng Dai et al., CVPR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/RRwaz0fBQ0Y"
+  >
+  keywords: "CNN"
+  keywords: "Detection"
+  presenter: "Terry TaeWoong Um"
+>
+metadata: <
+  id: 3
+  title: "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1406.1078"
+    authors: "_Kyunghyun Cho et al., EMNLP 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/_Dp8u97_rQ0"
+  >
+  keywords: "NLP"
+  keywords: "RNN"
+  keywords: "Machine Translation"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 4
+  title: "Image Super-Resolution using Deep Convolutional Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1501.00092"
+    authors: "_Chao Dong et al., CVPR 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/1jGr_OFyfa0"
+  >
+  keywords: "Image Restoration"
+  presenter: "Taegyun Jeon"
+>
+metadata: <
+  id: 5
+  title: "Playing Atari with Deep Reinforcement Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1312.5602"
+    authors: "_Volodymyr Mnih et al., NIPS 2013 Workshop_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/V7_cNTfm2i8"
+  >
+  keywords: "Reinforcement Learning"
+  presenter: "Sunghun Kim"
+>
+metadata: <
+  id: 6
+  title: "Neural Turing Machines"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1410.5401"
+    authors: "_Alex Graves et al., Arxiv 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/2wbDiZCWQtY"
+  >
+  keywords: "Memory Networks"
+  presenter: "Kiho Suh"
+>
+metadata: <
+  id: 7
+  title: "Deep Photo Style Transfer"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.07511"
+    authors: "_Fujun Luan et al., CVPR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/YF6nLVDlznE"
+  >
+  keywords: "Style Transfer"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 8
+  title: "Reverse Classification Accuracy: Predicting Segmentation Performance in the Absence of Ground Truth"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1702.03407"
+    authors: "_Vanya V. Valindria et al., IEEE Transactions on Medical Imaging, 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/jbnjzyJDldA"
+  >
+  keywords: "Medical"
+  keywords: "Segmentation"
+  presenter: "Dongjun Jung"
+>
+metadata: <
+  id: 9
+  title: "Distilling the Knowledge in a Neural Network"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1503.02531"
+    authors: "_Geoffrey Hinton et al., NIPS 2014 Workshop_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/tOItokBZSfU"
+  >
+  keywords: "Network Compression"
+  keywords: "Transfer Learning"
+  presenter: "Young Jae Choung"
+>
+metadata: <
+  id: 10
+  title: "Auto-Encoding Variational Bayes"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1312.6114"
+    authors: "_Diederik P Kingma and Max Welling, ICLR 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/KYA-GEhObIs"
+  >
+  keywords: "Generative Models"
+  keywords: "VAEs"
+  keywords: "Disentangled Representation"
+  presenter: "Junbum Cha"
+>
+metadata: <
+  id: 11
+  title: "Spatial Transformer Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1506.02025"
+    authors: "_Max Jaderberg et al., NIPS 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/Rv3osRZWGbg"
+  >
+  keywords: "CNN"
+  keywords: "Attention"
+  presenter: "Jiyang Kang"
+>
+metadata: <
+  id: 12
+  title: "Faster R-CNN: Towards Real-time Object Detection with Region Proposal Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1506.01497"
+    authors: "_Shaoqing Ren et al., NIPS 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/kcPAGIgBGRs"
+  >
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 13
+  title: "Domain Adversarial Training of Neural Network"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1505.07818"
+    authors: "_Yaroslav Ganin et al., JMLR 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/n2J7giHrS-Y"
+  >
+  keywords: "Domain Adaptation"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
+  id: 14
+  title: "On Human Motion Prediction using RNNs"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1705.02445"
+    authors: "_Julieta Martinez et al., CVPR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/Y1loN3Sc4Dk"
+  >
+  keywords: "RNN"
+  keywords: "Human/Body/Face"
+  keywords: "Video/Motion"
+  presenter: "Terry TaeWoong Um"
+>
+metadata: <
+  id: 15
+  title: "Convolutional Neural Networks for Sentence Classification"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1408.5882"
+    authors: "_Yoon Kim, EMNLP 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/IRB2vXSet2E"
+  >
+  keywords: "NLP"
+  keywords: "Text Classification"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 16
+  title: "You Only Look Once: Unified, Real-time Object Detection"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1506.02640"
+    authors: "_Joseph Redmon et al., CVPR 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/eTDcoeqj1_w"
+  >
+  keywords: "Detection"
+  presenter: "Taegyun Jeon"
+>
+metadata: <
+  id: 17
+  title: "Neural Architecture Search with Reinforcement Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1611.01578"
+    authors: "_Barret Zoph and Quoc V. Le, ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/XP3vyVrrt3Q"
+  >
+  keywords: "Neural Architecture Search"
+  keywords: "Reinforcement Learning"
+  presenter: "Kiho Suh"
+>
+metadata: <
+  id: 18
+  title: "A Simple Neural Network Module for Relational Reasoning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.01427"
+    authors: "_Adam Santoro et al., NIPS 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/Lb1PVpFp9F8"
+  >
+  keywords: "Relational Reasoning"
+  presenter: "Sunghun Kim"
+>
+metadata: <
+  id: 19
+  title: "Continuous Control with Deep Reinforcement Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1509.02971"
+    authors: "_Timothy P. Lillicrap et al., Arxiv 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/h2WSVBAC1t4"
+  >
+  keywords: "Reinforcement Learning"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 20
+  title: "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1502.01852"
+    authors: "_Kaiming He et al., ICCV 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/absOinFeGv0"
+  >
+  keywords: "CNN"
+  keywords: "Classification"
+  presenter: "Jiyang Kang"
+>
+metadata: <
+  id: 21
+  title: "Batch Normalization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1502.03167"
+    authors: "_Sergey Loffe and Christian Szegedy, ICML 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/TDx8iZHwFtM"
+  >
+  keywords: "Classification"
+  keywords: "Normalization"
+  presenter: "Young Jae Choung"
+>
+metadata: <
+  id: 22
+  title: "InfoGAN"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1606.03657"
+    authors: "_Xi Chen at al., NIPS 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/_4jbgniqt_Q"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  keywords: "Disentangled Representation"
+  presenter: "Junbum Cha"
+>
+metadata: <
+  id: 23
+  title: "YOLO9000: Better, Faster, Stronger"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1612.08242"
+    authors: "_Joseph Redmon and Ali Farhadi, CVPR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/6fdclSGgeio"
+  >
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 24
+  title: "Pixel Recurrent Neural Network"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1601.06759"
+    authors: "_Aaron van den Oord et al., ICML 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/BvcwEz4VPIQ"
+  >
+  keywords: "Generative Models"
+  keywords: "Autoregressive Models"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
+  id: 25
+  title: "Learning with Side Information through Modality Hallucination"
+  paper_metadata: <
+    url: "http://openaccess.thecvf.com/content_cvpr_2016/html/Hoffman_Learning_With_Side_CVPR_2016_paper.html"
+    authors: "_Judy Hoffman et al., CVPR 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/KdRo7ATNs9g"
+  >
+  keywords: "Multimodal"
+  keywords: "Detection"
+  presenter: "Terry TaeWoong Um"
+>
+metadata: <
+  id: 27
+  title: "GloVe: Global Vectors for Word Representation"
+  paper_metadata: <
+    url: "https://www.aclweb.org/anthology/D14-1162"
+    authors: "_Jeffrey Pennington et al., EMNLP 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/uZ2GtEe-50E"
+  >
+  keywords: "NLP"
+  keywords: "Representation"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 28
+  title: "Densely Connected Convolutional Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1608.06993"
+    authors: "_Gao Huang et al., CVPR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/fe2Vn0mwALI"
+  >
+  keywords: "CNN"
+  keywords: "Classification"
+  presenter: "Sunghun Kim"
+>
+metadata: <
+  id: 29
+  title: "Apprenticeship Learning via Inverse Reinforcement Learning"
+  paper_metadata: <
+    url: "https://dl.acm.org/citation.cfm?id=1015430"
+    authors: "_Pieter Abbeel and Andrew Y. Ng, ICML 2004_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/AXi4s3aFN6M"
+  >
+  keywords: "Reinforcement Learning"
+  presenter: "Kiho Suh"
+>
+metadata: <
+  id: 30
+  title: "Photo-Realistic Single Image Super Resolution Using a Generative Adversarial Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1609.04802"
+    authors: "_Christian Ledig et al., CVPR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/nGPMKnoJTcI"
+  >
+  keywords: "GANs"
+  keywords: "Image Restoration"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 31
+  title: "Learning to Learn by Gradient Descent by Gradient Descent"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1606.04474"
+    authors: "_Marcin Andrychowicz et al., NIPS 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/p55H46RiZ6k"
+  >
+  keywords: "Meta-Learning"
+  keywords: "Optimization"
+  presenter: "Junbum Cha"
+>
+metadata: <
+  id: 32
+  title: "Deep Visual-Semantic Alignments for Generating Image Descriptions"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1412.2306"
+    authors: "_Andrej Karpathy and Li Fei Fei, CVPR 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/Q-Cm7nw85iE"
+  >
+  keywords: "Vision and Language/Text"
+  presenter: "Jiyang Kang"
+>
+metadata: <
+  id: 33
+  title: "PVANet: Lightweight Deep Neural Networks for Real-time Object Detection"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1611.08588"
+    authors: "_Sanghoon Hong et al., NIPS 2016 Workshop_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/TYDGTnxUGHQ"
+  >
+  keywords: "Detection"
+  keywords: "Network Compression"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 35
+  title: "Understanding Black-box Predictions via Influence Functions"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.04730"
+    authors: "_Pang Wei Koh and Percy Liang, ICML 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/xlmlY8WHjkU"
+  >
+  keywords: "Explainable AI"
+  presenter: "Terry TaeWoong Um"
+>
+metadata: <
+  id: 36
+  title: "Learning to Remember Rate Events"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.03129"
+    authors: "_Lukasz Kaiser et al., ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/S_fbBYbXypc"
+  >
+  keywords: "Few Shot Learning"
+  keywords: "Memory Networks"
+  presenter: "Taegyun Jeon"
+>
+metadata: <
+  id: 37
+  title: "Ask Me Anything: Dynamic Memory Networks for Natural Language Processing"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1506.07285"
+    authors: "_Ankit Kumar et al., ICML 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/oxSrjuspQEs"
+  >
+  keywords: "NLP"
+  keywords: "Question Answering"
+  keywords: "Text Classification"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 39
+  title: "Dropout as a Bayesian Approximation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1506.02142"
+    authors: "_Yarin Gal and Zoubin Ghahramani, ICML 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/aU91bDGmy7I"
+  >
+  keywords: "Bayesian ML"
+  presenter: "Junbum Cha"
+>
+metadata: <
+  id: 40
+  title: "WaveNet: A Generative Model for Raw Audio"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1609.03499"
+    authors: "_Aaron van den Oord et al., Arxiv 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/GyQnex_DK2k"
+  >
+  keywords: "Generative Models"
+  keywords: "Autoregressive Models"
+  keywords: "Audio/Speech Generation"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 41
+  title: "Show and Tell: A Neural Image Caption Generator"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1411.4555"
+    authors: "_Oriol Vinyals et al., CVPR 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/BrmCnoYhQb4"
+  >
+  keywords: "Vision and Language/Text"
+  presenter: "Jiyang Kang"
+>
+metadata: <
+  id: 42
+  title: "Adam: A Method for Stochastic Optimization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1412.6980"
+    authors: "_Diederik P. Kingma and Jimmy Ba, ICLR 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/KN120w3PZIA"
+  >
+  keywords: "Optimization"
+  presenter: "Ji-Hoon Kim"
+>
+metadata: <
+  id: 43
+  title: "HyperNetworks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1412.6980"
+    authors: "_David Ha et al., ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/-tUQXSdEsMk"
+  >
+  keywords: "Neural Networks"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 44
+  title: "MobileNet"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1704.04861"
+    authors: "_Andrew G. Howard et al., Arxiv 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/7UoOFKcyIvM"
+  >
+  keywords: "Network Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 46
+  title: "Deep Knowledge Tracing"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1506.05908"
+    authors: "_Chris Piech at al., NIPS 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/8hdY6Jns5-k"
+  >
+  keywords: "Text/Knowledge"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 47
+  title: "Learning Deep Features for Discriminative Localization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1512.04150"
+    authors: "_Bolei Zhou et al., CVPR 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/-Z1NIzLxgRU"
+  >
+  keywords: "Explainable AI"
+  keywords: "Visualization"
+  keywords: "Weakly-Supervised Learning"
+  presenter: "KwangHee Lee"
+>
+metadata: <
+  id: 48
+  title: "Towards Principled Methods for Training Generative Adversarial Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1701.04862"
+    authors: "_Martin Arjovsky and Leon Bottou, ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/RlAgB0Ooxaw"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  presenter: "Ji-Hoon Kim"
+>
+metadata: <
+  id: 49
+  title: "Attention is All You Need"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.03762"
+    authors: "_Ashish Vaswani et al., NIPS 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/6zGgVIlStXs"
+  >
+  keywords: "NLP"
+  keywords: "Attention"
+  keywords: "Representation"
+  presenter: "Kiho Suh"
+>
+metadata: <
+  id: 50
+  title: "Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1506.04214"
+    authors: "_Xingjian Shi et al., NIPS 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/3cFfCM4CXws"
+  >
+  keywords: "CNN-RNN"
+  presenter: "Taegyun Jeon"
+>
+metadata: <
+  id: 51
+  title: "Conditional Generative Adversarial Nets"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1411.1784"
+    authors: "_Mehdi Mirza and Simon Osindero, Arxiv 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/iCgT8G4PkqI"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 53
+  title: "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1610.02391"
+    authors: "_Ramprasaath R. Selvaraju et al., ICCV 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/faGsrPX1yFM"
+  >
+  keywords: "Explainable AI"
+  keywords: "Visualization"
+  keywords: "Weakly-Supervised Learning"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 54
+  title: "ShuffleNet: An Extremely Efficient CNN for Mobile Devices"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1707.01083"
+    authors: "_Xiangyu Zhang et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/pNuBdj53Hbc"
+  >
+  keywords: "Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 55
+  title: "Neural Machine Translation by Jointly Learning to Align and Translate"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1409.0473"
+    authors: "_Dzmitry Bahdanau et al., ICLR 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/upskBSbA9cA"
+  >
+  keywords: "NLP"
+  keywords: "Machine Translation"
+  keywords: "Attention"
+  presenter: "Jiyang Kang"
+>
+metadata: <
+  id: 56
+  title: "Capsule Network"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1710.09829"
+    authors: "_Dynamic Routing Between Capsules by Sara Sabour et al., NIPS 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/_YT_8CT2w_Q"
+  >
+  keywords: "Capsule Network"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
+  id: 57
+  title: "Mask R-CNN"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.06870"
+    authors: "_Kaiming He et al., ICCV 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/RtSZALC9DlU"
+  >
+  keywords: "Detection"
+  keywords: "Segmentation"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 58
+  title: "The Consciousness Prior"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1709.08568"
+    authors: "_Yoshua Bengio, Arxiv 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/7fIAdhl0KYc"
+  >
+  keywords: "RNN"
+  keywords: "NLP"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 59
+  title: "Style Transfer from Non-Parallel Text by Cross-Alignment"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1705.09655"
+    authors: "_Tianxiao Shen et al., NIPS 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/w-P2V2LlrHg"
+  >
+  keywords: "NLP"
+  keywords: "Text Style Transfer"
+  presenter: "Kiho Suh"
+>
+metadata: <
+  id: 60
+  title: "Deep Neural Networks for YouTube Recommendations"
+  paper_metadata: <
+    url: "https://static.googleusercontent.com/media/research.google.com/ko//pubs/archive/45530.pdf"
+    authors: "_Paul Covington et al., ACM Conference on Recommender Systems 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/V6zixdCIOqw"
+  >
+  keywords: "Recommender System"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 61
+  title: "Understanding Deep Learning Requires Rethinking Generalization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1611.03530"
+    authors: "_Chiyuan Zhang et al., ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/UxJNG7ENRNg"
+  >
+  keywords: "Generalization"
+  keywords: "Regularization"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
+  id: 62
+  title: "Deep Learning: A Critical Appraisal"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.00631"
+    authors: "_Gary Marcus, Arxiv 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/6hg5d10SZr0"
+  >
+  keywords: "Generalization"
+  presenter: "Terry TaeWoong Um"
+>
+metadata: <
+  id: 63
+  title: "Peephole: Predicting Network Performance Before Training"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1712.03351"
+    authors: "_Boyang Deng et al., Arxiv 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ZO4bXgdcCQA"
+  >
+  keywords: "NAS"
+  presenter: "Taegyun Jeon"
+>
+metadata: <
+  id: 64
+  title: "Wide & Deep Learning for Recommender Systems"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1606.07792"
+    authors: "_Heng-Tze Cheng et al., ACM Workshop on Deep Learning for Recommender Systems 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/hKoJPqWLrI4"
+  >
+  keywords: "Recommender System"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 65
+  title: "High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.11585"
+    authors: "_Ting-Chun Wang et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/_5ofbwltEKU"
+  >
+  keywords: "GANs"
+  keywords: "Image Translation"
+  presenter: "KwangHee Lee"
+>
+metadata: <
+  id: 66
+  title: "Don't Decay the Learning Rate, Increase the Batch Size"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.00489"
+    authors: "_Samuel L. Smith et al., ICLR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/jFpO-E4RPhQ"
+  >
+  keywords: "Optimization"
+  keywords: "Generalization"
+  presenter: "Junbum Cha"
+>
+metadata: <
+  id: 67
+  title: "Audio Super Resolution using Neural Nets"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1708.00853"
+    authors: "_Volodymyr Kuleshov et al., ICLR 2017 Workshop_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/iqN08EPMjSs"
+  >
+  keywords: "Audio/Speech"
+  keywords: "Speech Enhancement"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 68
+  title: "DeepAR: Probabilistic Forecasting with Autoregressive Recurrent Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1708.00853"
+    authors: "_David Salinas et al., ICML 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/okyo61ZZivA"
+  >
+  keywords: "RNN"
+  keywords: "Autoregressive Models"
+  presenter: "Jiyang Kang"
+>
+metadata: <
+  id: 69
+  title: "Efficient Neural Architecture Search via Parameter Sharing"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.03268"
+    authors: "_Hieu Pham et al., ICML 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/fbCcJaSQPPA"
+  >
+  keywords: "NAS"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 70
+  title: "SafetyNets: Verifiable Execution of Deep Neural Networks on an Untrusted Cloud"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.10268"
+    authors: "_Zahra Ghodsi et al., ICML 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/CtaPFqq8P00"
+  >
+  keywords: "Cloud-based ML"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 72
+  title: "Deep Compression"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1510.00149"
+    authors: "_Song Han et al., ICLR 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/9mFZmpIbMDs"
+  >
+  keywords: "Network Compression"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 73
+  title: "Generative Semantic Manipulation with Contrasting GAN"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1708.00315"
+    authors: "_Xiaodan Liang et al., NIPS 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/U8IpNf1b57w"
+  >
+  keywords: "GANs"
+  keywords: "Image Translation"
+  presenter: "KwangHee Lee"
+>
+metadata: <
+  id: 74
+  title: "ObamaNet: Photo-Realistic Lip-Sync from Text"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.01442"
+    authors: "_Rithesh Kumar et al., NIPS 2017 Workshop_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/A1o6SUsWd98"
+  >
+  keywords: "Vision and Language/Text"
+  keywords: "Text-to-Speech"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 75
+  title: "On Calibriation of Modern Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.04599"
+    authors: "_Chuan Guo et al., ICML 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/odNHEkfJAc4"
+  >
+  keywords: "Generalization"
+  keywords: "Optimization"
+  presenter: "Terry TaeWoong Um"
+>
+metadata: <
+  id: 76
+  title: "Distributed Representations of Sentences and Documents"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1405.4053"
+    authors: "_Quoc V. Le and Tomas Mikolov, ICML 2014_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/NxKpgY6sWOQ"
+  >
+  keywords: "NLP"
+  keywords: "Representation"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 77
+  title: "SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1609.05473"
+    authors: "_Lantao Yu et al., AAAI 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/BXODIP3QjJI"
+  >
+  keywords: "NLP"
+  keywords: "GANs"
+  keywords: "Text Generation"
+  keywords: "Reinforcement Learning"
+  presenter: "Kiho Suh"
+>
+metadata: <
+  id: 78
+  title: "Net2Net: Accelerating Learning via Knowledge Transfer"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1511.05641"
+    authors: "_Tianqi Chen et al., ICLR 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/btsZOMsyH_o"
+  >
+  keywords: "Network Compression"
+  keywords: "Transfer Learning"
+  presenter: "Junbum Cha"
+>
+metadata: <
+  id: 79
+  title: "Synthesizing Audio with Generative Adversarial Networks (Adversarial Audio Synthesis)"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.04208"
+    authors: "_Chris Donahue et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/UXVKSSXdwb8"
+  >
+  keywords: "Audio/Speech"
+  keywords: "Audio/Speech Generation"
+  keywords: "GANs"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 80
+  title: "Practical Bayesian Optimization of Machine Learning Algorithms"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1206.2944"
+    authors: "_Jasper Snoek et al., NIPS 2012_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/MnHCe8tGjQ8"
+  >
+  keywords: "Hyperparameter Optimization"
+  keywords: "Bayesian ML"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 83
+  title: "Non-Local Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.07971"
+    authors: "_Xiaolong Wang et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ZM153wo3baA"
+  >
+  keywords: "CNN"
+  keywords: "Attention"
+  keywords: "Classification"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 84
+  title: "MegDet: A Large Mini-Batch Object Detector"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.07240"
+    authors: "_Chao Peng et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/nkYFEoKQBH0"
+  >
+  keywords: "Detection"
+  presenter: "Taegyun Jeon"
+>
+metadata: <
+  id: 85
+  title: "In-Datacenter Performance Analysis of a Tensor Processing Unit"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1704.04760"
+    authors: "_Norman P. Jouppi et al., ISCA 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/7WhWkhFAIO4"
+  >
+  keywords: "Hardware"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 86
+  title: "Curriculum Learning"
+  paper_metadata: <
+    url: "https://dl.acm.org/citation.cfm?id=1553380"
+    authors: "_Yoshua Bengio et al., ICML 2009_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/fQtuWEuwXrA"
+  >
+  keywords: "Optimization"
+  presenter: "Junbum Cha"
+>
+metadata: <
+  id: 87
+  title: "Spectral Normalization for Generative Adversarial Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.05957"
+    authors: "_Takeru Miyato et al., ICLR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/iXSYqohGQhM"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  presenter: "Jaejun Yoo"
+>
+metadata: <
+  id: 88
+  title: "Deep Variational Bayes Filters"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1605.06432"
+    authors: "_Maximilian Karl et al., ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/uM0rQtL6_AA"
+  >
+  keywords: "Generative Models"
+  keywords: "Latent Space Models"
+  keywords: "Bayesian ML"
+  presenter: "Terry TaeWoong Um"
+>
+metadata: <
+  id: 89
+  title: "Beyond Word Importance: Contextual Decomposition to Extract Interactions"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.05453"
+    authors: "_W. James Murdoch et al., ICLR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/5whGIpoLoq4"
+  >
+  keywords: "NLP"
+  keywords: "Explainable AI"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 90
+  title: "Representation Learning by Learning to Count"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1708.06734"
+    authors: "_Mehdi Noroozi et al., ICCV 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/T7i_YKN2EY8"
+  >
+  keywords: "Self-supervised Learning"
+  keywords: "Classification"
+  presenter: "Kiho Suh"
+>
+metadata: <
+  id: 91
+  title: "A Unversal Music Translation Network"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1805.07848"
+    authors: "_Noam Mor et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/v1GbxpKqH8Q"
+  >
+  keywords: "Audio/Speech"
+  keywords: "Audio Style Transfer"
+  presenter: "Seungil Kim"
+>
+metadata: <
+  id: 94
+  title: "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.03400"
+    authors: "_Chelsea Finn et al., ICML 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/fxJXXKZb-ik"
+  >
+  keywords: "Meta-Learning"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 95
+  title: "Modularity Matters: Learning Invariant Relational Reasoning Tasks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1806.06765"
+    authors: "_Jason Jo et al., Arxiv 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/dAGI3mlOmfw"
+  >
+  keywords: "Relational Reasoning"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 96
+  title: "Taskonomy: Disentangling Task Transfer Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1804.08328"
+    authors: "_Amir Zamir et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/WjUGrzBIDv0"
+  >
+  keywords: "Transfer Learning"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 97
+  title: "Learning Representations for Counterfactual Inference"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1605.03661"
+    authors: "_Fredrik D. Johansson et al., ICML 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/l-pcG77Hr58"
+  >
+  keywords: "Counterfactual Inference"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 98
+  title: "MegaDepth: Leraning Single-View Depth Prediction from Internet Photos"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1804.00607"
+    authors: "_Zhengqi Li and Noah Snavely, CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/tGbMWAFMMBQ"
+  >
+  keywords: "3D Single-View"
+  presenter: "KwangHee Lee"
+>
+metadata: <
+  id: 99
+  title: "MRNet-Product2Vec: A Multi-Task Recurrent Neural Network for Product Embeddings"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1709.07534"
+    authors: "_Arijit Biswas et al., ECML-PKDD 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/cpCS7LBRkRU"
+  >
+  keywords: "NLP"
+  keywords: "Representation"
+  presenter: "Keunbong Kwak"
+>
+metadata: <
+  id: 100
+  title: "SeedNet: Automatic Seed Generation With Deep Reinforcement Learning for Robust Interactive Segmentation"
+  paper_metadata: <
+    url: "http://openaccess.thecvf.com/content_cvpr_2018/html/Song_SeedNet_Automatic_Seed_CVPR_2018_paper.html"
+    authors: "_Gwangmo Song et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ksTkCecBTCY"
+  >
+  keywords: "Segmentation"
+  keywords: "Reinforcement Learning"
+  presenter: "KwangHee Lee"
+>
+metadata: <
+  id: 101
+  title: "Deep Feature Consistent Variational Autoencoder"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1610.00291"
+    authors: "_Xianxu Hou et al., WACV 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/FfBp6xJqZVA"
+  >
+  keywords: "Generative Models"
+  keywords: "VAEs"
+  keywords: "Disentangled Representation"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 102
+  title: "Everybody Dance Now"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1808.07371"
+    authors: "_Caroline Chan et al., ICCV 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/_onRnCb_h3Q"
+  >
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Human/Body/Face"
+  keywords: "Video/Motion"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 103
+  title: "Visualizing Data using t-SNE"
+  paper_metadata: <
+    url: "http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf"
+    authors: "_Laurens van der Maaten and Geoffrey Hinton, JMLR 2008_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/zpJwm7f7EXs"
+  >
+  keywords: "Data Visualization"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 104
+  title: "Video-to-Video Synthesis"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1808.06601"
+    authors: "_Ting-Chen Wang et al., NeurIPS (NIPS) 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/WxeeqxqnRyE"
+  >
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Video/Motion"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 105
+  title: "MNasNet: Platform-Aware Neural Architecture Search for Mobile"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1807.11626"
+    authors: "_Mingxing Tan et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/4uDZxefPd-I"
+  >
+  keywords: "NAS"
+  keywords: "Compression"
+  presenter: "Taekmin Kim"
+>
+metadata: <
+  id: 106
+  title: "Learning to Explain: An Information-Theoretic Perspective on Model Interpretation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.07814"
+    authors: "_Jianbo Chen et al., ICML 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/id_CmUaTWpg"
+  >
+  keywords: "Explainable AI"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 107
+  title: "Image Inpainting for Irregular Holes using Partial Convolutions"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1804.07723"
+    authors: "_Guilin Liu et al., ECCV 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/BhZN6AqfylA"
+  >
+  keywords: "Image Restoration"
+  presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 108
+  title: "MobileNetV2: Inverted Residuals and Linear Bottlenecks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.04381"
+    authors: "_Mark Sandler et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/mT5Y-Zumbbw"
+  >
+  keywords: "Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 109
+  title: "Large Scale GAN Training for High Fidelity Naturel Image Synthesis"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1809.11096"
+    authors: "_Andrew Brock et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/1f0faOeqDQ0"
+  >
+  keywords: "GANs"
+  presenter: "Yeoung Seok Kim"
+>
+metadata: <
+  id: 110
+  title: "SNIP: An Anaylsis of Scale Invariance in Object Detection"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.08189"
+    authors: "_Bharat Singh and Larry S. Davis et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/nimHWHxjBJ8"
+  >
+  keywords: "Detection"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 111
+  title: "EVA2: Exploiting Temporal Redundancy in Live Computer Vision"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1803.06312"
+    authors: "_Mark Buckler et al., ISCA 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/uwRz7PjVtB0"
+  >
+  keywords: "Compression"
+  keywords: "Hardware"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 112
+  title: "Independent Component Analysis"
+  paper_metadata: <
+    url: "https://ieeexplore.ieee.org/document/761722"
+    authors: "_Aapo Hyvarinen, IEEE Transactions on Neural Networks 1999_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/mLSPA76qSuU"
+  >
+  keywords: "Dimension Reduction"
+  presenter: "Jae Duk Seo"
+>
+metadata: <
+  id: 113
+  title: "The Perception Distortion Tradeoff"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.06077"
+    authors: "_Yochai Blau and Tomer Michaeli, CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/6Yid4dituqo"
+  >
+  keywords: "Image Restoration"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 114
+  title: "Recycle-GAN: Unsupervised Video Retargeting"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1808.05174"
+    authors: "_Aayush Bansal et al., ECCV 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/eMZXUqmp_PU"
+  >
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Video/Motion"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 115
+  title: "Unsupervised Anomaly Detection with Generative Adversarial Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.05921"
+    authors: "_Thomas Schlegl et al., IPMI 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/R0H0gqtnMyA"
+  >
+  keywords: "GANs"
+  keywords: "Anomaly Detection"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 116
+  title: "Glow: Generative Flow with Invertable 1x1 Convolutions"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1807.03039"
+    authors: "_Diederik P. Kingma and Prafulla Dhariwal, NeurIPS (NIPS) 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/6OVH1i2BVAE"
+  >
+  keywords: "Generative Models"
+  keywords: "Normalizing Flow Models"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 117
+  title: "PeerNets: Exploiting Peer Wisdom Against Adversarial Attacks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1806.00088"
+    authors: "_Jan Svoboda et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/VQsG_Yk9KuQ"
+  >
+  keywords: "Adversarial Attack"
+  presenter: "Taekmin Kim"
+>
+metadata: <
+  id: 118
+  title: "Black-box Attacks with Limited Queries and Information"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1804.08598"
+    authors: "_Andrew Ilyas et al., ICML 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/AMPpOFtg3Q4"
+  >
+  keywords: "Adversarial Attack"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 119
+  title: "Active Learning for Convolutional Neural Networks: A Core-Set Approach"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1708.00489"
+    authors: "_Ozan Sener and Silvio Savarese, ICLR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/3ROQis3hxPs"
+  >
+  keywords: "Active Learning"
+  keywords: "Classification"
+  presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 120
+  title: "ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1807.11164"
+    authors: "_Ningning Ma et al., ECCV 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/lrU6uXiJ_9Y"
+  >
+  keywords: "Compression"
+  keywords: "Classification"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 121
+  title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1810.04805"
+    authors: "_Jacob Devlin et al., Arxiv 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/GK4IO3qOnLc"
+  >
+  keywords: "NLP"
+  keywords: "Representation"
+  presenter: "Young Seok Kim"
+>
+metadata: <
+  id: 122
+  title: "CAN: Creative Adversarial Networks, Generating Art by Learning About Style and Deviating from Style Norms"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.07068"
+    authors: "_Ahmed Elgammal et al., ICCC 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/TB7izZIWYyw"
+  >
+  keywords: "GANs"
+  keywords: "Style Transfer"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 123
+  title: "Partial Convolution based Padding"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1811.11718"
+    authors: "_Guilin Liu et al., Arxiv 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/IKHzc7sGCxQ"
+  >
+  keywords: "CNN"
+  keywords: "Classification"
+  keywords: "Segmentation"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 124
+  title: "Stacked Denoising Autoencoders"
+  paper_metadata: <
+    url: "http://www.jmlr.org/papers/volume11/vincent10a/vincent10a.pdf"
+    authors: "_Pascal Vincent et al., JMLR 2010_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/saJcr74ldvs"
+  >
+  keywords: "Self-supervised Learning"
+  keywords: "Autoencoders"
+  presenter: "Jae Duk Seo"
+>
+metadata: <
+  id: 125
+  title: "Energy-based Generative Adversarial Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1609.03126"
+    authors: "_Junbo Zhao et al., ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/8PoewOpK6b4"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 126
+  title: "DensePose: Dense Human Pose Estimation in the Wild"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.00434"
+    authors: "_Riza Alp Guler et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/-bvMCbk_FT8"
+  >
+  keywords: "Segmentation"
+  keywords: "Pose"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 127
+  title: "FaceNet"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1503.03832"
+    authors: "_Florian Schroff et al., CVPR 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/0k3X-9y_9S8"
+  >
+  keywords: "Human/Body/Face"
+  keywords: "Metric Learning"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 128
+  title: "TimbreTron: A WaveNet(CycleGAN(CQT(Audio))) Pipeline for Musical Timbre Transfer"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1811.09620"
+    authors: "_Sicong Huang et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/5eofa6SksKU"
+  >
+  keywords: "Audio/Speech"
+  keywords: "Audio/Speech Style-Transfer"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 129
+  title: "Horovod: Fast and Easy Distributed Deep Learning in TensorFlow"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.05799"
+    authors: "_Alexander Sergeev and Mike Del Balso, Arxiv 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/8zQECRiONAo"
+  >
+  keywords: "Distributed Training"
+  presenter: "Taekmin Kim"
+>
+metadata: <
+  id: 130
+  title: "Generative Adversarial Imitation Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1606.03476"
+    authors: "_Jonathan Ho and Stefano Ermon, NIPS 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/XHmRsgFrCTM"
+  >
+  keywords: "Imitation Learning"
+  keywords: "Reinforcement Learning"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 131
+  title: "A Style-Based Generator Architecture for Generative Adversarial Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1812.04948"
+    authors: "_Tero Karras et al, CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/TWzEbMrH59o"
+  >
+  keywords: "GANs"
+  keywords: "Style-Transfer"
+  presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 132
+  title: "SSD: Single Shot MultiBox Detector"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1512.02325"
+    authors: "_Wei Liu et al, ECCV 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ej1ISEoAK5g"
+  >
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 133
+  title: "Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.02677"
+    authors: "_Priya Goyal et al, Arxiv 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/g3McZgloCJo"
+  >
+  keywords: "Distributed Training"
+  presenter: "Young Seok Kim"
+>
+metadata: <
+  id: 134
+  title: "How Does Batch Normalization Help Optimization?"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1805.11604"
+    authors: "_Shibani Santurkar et al, NeurIPS (NIPS) 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/hiN0IMM50FM"
+  >
+  keywords: "Optimization"
+  keywords: "Normalization"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 135
+  title: "Photo Wake-Up: 3D Character Animation from a Single Photo"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1812.02246"
+    authors: "_Chung-Yi Weng et al, CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/LSlBoNNbULg"
+  >
+  keywords: "3D Multi-View"
+  keywords: "Human/Body/Pose"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 136
+  title: "Self-Supervised Generative Adversarial Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1811.11212"
+    authors: "_Ting Chen et al, CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/_wpDP-6afM4"
+  >
+  keywords: "Self-supervised Learning"
+  keywords: "Generative Models"
+  keywords: "GANs"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 138
+  title: "Mixture Density Networks"
+  paper_metadata: <
+    url: "https://publications.aston.ac.uk/id/eprint/373/1/NCRG_94_004.pdf"
+    authors: "_Christopher M. Bishop, 1994_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/VORJQQUphuw"
+  >
+  keywords: "Neural Networks"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 139
+  title: "Fully Convolutional Siemese Networks for Object Tracking"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1606.09549"
+    authors: "_Luca Bertinetto et al., ECCV 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/dv5yUl6Lw1g"
+  >
+  keywords: "Video/Motion"
+  keywords: "Metric Learning"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 140
+  title: "Training Set Debugging using Trusted Items"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.08019"
+    authors: "_Xuezhou Zhang et al., AAAI 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/_2l2UFIF08Q"
+  >
+  keywords: "Explainable AI"
+  keywords: "Generalization"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 141
+  title: "Auto-DeepLab: Hierarchical Neural Architecture Search for Semantic Image Segmentation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1901.02985"
+    authors: "_Chenxi Liu et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ltlhQXHGzgE"
+  >
+  keywords: "NAS"
+  keywords: "Segmentation"
+  presenter: "Taekmin Kim"
+>
+metadata: <
+  id: 143
+  title: "Recurrent World Models Facilitate Policy Evolution"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1803.10122"
+    authors: "_David Ha and Jurgen Schmidhuber, NeurIPS (NIPS) 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/APjGjwBR6o8"
+  >
+  keywords: "Reinforcement Learning"
+  presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 145
+  title: "Language Models are Unsupervised Multitask Learners (OpenAI GPT-2)"
+  paper_metadata: <
+    url: "https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf"
+    authors: "_Alec Radford et al., OpenAI Blog 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/f5zULULWUwM"
+  >
+  keywords: "NLP"
+  keywords: "Representation"
+  presenter: "Young Seok Kim"
+>
+metadata: <
+  id: 146
+  title: "CornerNet: Detecting Objects as Paired Keypoints"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1808.01244"
+    authors: "_Hei Law and Jia Deng, ECCV 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/6OYmOtivQY8"
+  >
+  keywords: "Detection"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 147
+  title: "Learning Deep Structure-Preserving Image-Text Embeddings"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1511.06078"
+    authors: "_Liwei Wang et al., CVPR 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/7lyxexSjshc"
+  >
+  keywords: "Metric Learning"
+  keywords: "Vision and Language/Text"
+  keywords: "Multimodal"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 148
+  title: "Deep Anomaly Detection using Geometric Transformations"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1805.10917"
+    authors: "_Izhak Golan and Ran El-Yaniv, NeurIPS (NIPS) 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/TgJuUxtLO3s"
+  >
+  keywords: "Anomaly Detection"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 149
+  title: "Perceptual Losses for Real-Time Style Transfer and Super-Resolution"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1603.08155"
+    authors: "_Justin Johnson et al., ECCV 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/OKDaGzeUz4U"
+  >
+  keywords: "Style-Transfer"
+  keywords: "Image Restoration"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 150
+  title: "ImageNet-trained CNNs are Biased Towards Textures"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1811.12231"
+    authors: "_Robert Geirhos et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/oBapZTL8LsE"
+  >
+  keywords: "Generalization"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 151
+  title: "The Unreasonable Effectiveness of Deep Features as a Perceptual Metric"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.03924"
+    authors: "_Richard Zhang et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/VDeJFb5jt5M"
+  >
+  keywords: "Metric Learning"
+  keywords: "Image Restoration"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 152
+  title: "StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.09020"
+    authors: "_Yunjey Choi et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/i3-rTEFpyv0"
+  >
+  keywords: "GANs"
+  keywords: "Image Translation"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 153
+  title: "SNAIL: A Simple Neural Attentive Meta-Learner"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1707.03141"
+    authors: "_Nikhil Mishra et al., ICLR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/zGrwpa5-_0Y"
+  >
+  keywords: "Meta-Learning"
+  presenter: "Taekmin Kim"
+>
+metadata: <
+  id: 154
+  title: "Semantic Image Synthesis with Spatially-Adaptive Normalization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1903.07291"
+    authors: "_Taesung Park et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/1nJf35TSYtE"
+  >
+  keywords: "GANs"
+  keywords: "Image Translation"
+  presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 155
+  title: "Exploring Randomly Wired Neural Networks for Image Recognition"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1904.01569"
+    authors: "_Saining Xie et al., ICCV 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/qnGm1h365tc"
+  >
+  keywords: "CNN"
+  keywords: "NAS"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 156
+  title: "ChannelNets: Compact and Efficient CNN via Channel-Wise Convolutions"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1809.01330"
+    authors: "_Hongyang Gao et al., NeurIPS (NIPS) 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/oZbKWOBfNhk"
+  >
+  keywords: "Compression"
+  keywords: "Classification"
+  presenter: "Young Seok Kim"
+>
+metadata: <
+  id: 157
+  title: "Best of Both Worlds: Human-Machine Collaboration for Object Annotation"
+  paper_metadata: <
+    url: "https://ieeexplore.ieee.org/document/7298824"
+    authors: "_Olga Russakovsky et al., CVPR 2015_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/JbXdn44myP4"
+  >
+  keywords: "Detection"
+  keywords: "Data Annotation"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 158
+  title: "FOTS: Fast Oriented Text Spotting with a Unified Network"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1801.01671"
+    authors: "_Xuebo Liu et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/hOFViMbYnrs"
+  >
+  keywords: "OCR"
+  keywords: "Detection"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 159
+  title: "SIFA: Towards Cross-Modality Domain Adaptation for Medical Image Segmentation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1901.08211"
+    authors: "_Cheng Chen et al., AAAI 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/sR7hBJGpwQo"
+  >
+  keywords: "Domain Adaptation"
+  keywords: "Segmentation"
+  keywords: "Medical"
+  presenter: "Sunghoon Joo"
+>
+metadata: <
+  id: 161
+  title: "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1901.02860"
+    authors: "_Zihang Dai et al., ACL 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/lSTljZy8ag4"
+  >
+  keywords: "NLP"
+  keywords: "Attention"
+  keywords: "Representation"
+  presenter: "Sungnam Park"
+>
+metadata: <
+  id: 162
+  title: "DeepPermNet: Visual Permutation Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1704.02729"
+    authors: "_Rodrigo Santa Cruz et al., CVPR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/AqStpR29lTA"
+  >
+  keywords: "Self-supervised Learning"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 164
+  title: "InfoVAE: Balancing Learning and Inference in Variational Autoencoders"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1706.02262"
+    authors: "_Shengjia Zhao et al., Arxiv 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/29QcXLoYC60"
+  >
+  keywords: "VAEs"
+  keywords: "Disentangled Representation"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 165
+  title: "Few-Shot Adversarial Learning of Realistic Neural Talking Head Models"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1905.08233"
+    authors: "_Egor Zakharov et al., Arxiv 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/4pY_6VG4npc"
+  >
+  keywords: "Few-Shot Learning"
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Human/Body/Face"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 166
+  title: "NAS-FPN: Learning Scalable Feature Pyramid Architecture for Object Detection"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1904.07392"
+    authors: "_Golnaz Ghiasi et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/FAAt0jejWOA"
+  >
+  keywords: "NAS"
+  keywords: "Detection"
+  presenter: "Taekmin Kim"
+>
+metadata: <
+  id: 167
+  title: "Interpretability Beyond Feature Attribution: Testing with Concept Activation Vector (TCAV)"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.11279"
+    authors: "_Been Kim et al., ICML 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/-y0oghbEHMM"
+  >
+  keywords: "Explainable AI"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 168
+  title: "Few Shot Unsupervised Image to Image Translation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1905.01723"
+    authors: "_Ming-Yu Liu et al., ICCV 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ANwAhuOeaiE"
+  >
+  keywords: "Few-Shot Learning"
+  keywords: "GANs"
+  keywords: "Image Translation"
+  presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 169
+  title: "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1905.11946"
+    authors: "_Mingxing Tan et al., ICML 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/Vhz0quyvR7I"
+  >
+  keywords: "CNN"
+  keywords: "NAS"
+  keywords: "Classification"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 171
+  title: "Large-Margin Softmax Loss for Convolutional Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1612.02295"
+    authors: "_Weiyang Liu et al., ICML 2016_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/7TugLIfExKM"
+  >
+  keywords: "Metric Learning"
+  keywords: "Classification"
+  keywords: "Human/Body/Face"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 172
+  title: "Generalized Intersection over Union: A Metric and A Loss for Bounding Box Regression"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1902.09630"
+    authors: "_Hamid Rezatofighi et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ENZBhDx0kqM"
+  >
+  keywords: "Detection"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 173
+  title: "Automatic Chemical Design Using a Data-Driven Continuous Representation of Molecules"
+  paper_metadata: <
+    url: "https://pubs.acs.org/doi/full/10.1021/acscentsci.7b00572"
+    authors: "_Rafael Gomez-Bombarelli et al., ACS Central Science 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/hk4e8ZCkNWg"
+  >
+  keywords: "VAEs"
+  keywords: "Medical"
+  presenter: "Sunghoon Joo"
+>
+metadata: <
+  id: 174
+  title: "Restricted Boltzmann Machine for Deep Belief Nets"
+  paper_metadata: <
+    url: "https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf"
+    authors: "_Geoffrey E. Hinton et al., Neural Computation 2006_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/yqFDyX4ErSI"
+  >
+  keywords: "Neural Network"
+  keywords: "Generative Models"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 175
+  title: "XLNet: Generalized Autoregressive Pretraining for Language Understanding"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1906.08237"
+    authors: "_Zhilin Yang et al., Arxiv 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/koj9BKiu1rU"
+  >
+  keywords: "NLP"
+  keywords: "Representation"
+  presenter: "Sungnam Park"
+>
+metadata: <
+  id: 176
+  title: "Combating Label Noise in Deep Learning Using Abstention"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1905.10964"
+    authors: "_Sunil Thulasidasan et al., ICML 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ihbEF6WGlrA"
+  >
+  keywords: "Generalization"
+  presenter: "Doyup Lee"
+>
+metadata: <
+  id: 178
+  title: "Graph Convolutional Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1609.02907"
+    authors: "_Thomas N. Kipf and MAx Welling, ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/uqBsvoOY8jM"
+  >
+  keywords: "Graph Networks"
+  keywords: "Semi-supervised Learning"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 179
+  title: "M3D-GAN: Multi-Modal Multi-Domain Translation with Universal Attention"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1907.04378"
+    authors: "_Shuang Ma et al., ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/CpRGaFPIZnw"
+  >
+  keywords: "Multimodal"
+  keywords: "Attention"
+  keywords: "Image Translation"
+  keywords: "Text-to-Speech"
+  keywords: "Vision and Language/Text"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 180
+  title: "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1803.03635"
+    authors: "_Jonathan Frankle and Michael Carbin, ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/dkNmYu610r8"
+  >
+  keywords: "Network Compression"
+  presenter: "Taekmin Kim"
+>
+metadata: <
+  id: 181
+  title: "Data Shapley: Equitable Valuation of Data for Machine Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1904.02868"
+    authors: "_Amirata Ghorbani and James Zou, ICML 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/YdCXbBDuVuE"
+  >
+  keywords: "Explainable ML"
+  keywords: "Generalization"
+  keywords: "Transfer Learning"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 183
+  title: "MixNet: Mixed Depthwise Convolutional Kernels"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1907.09595"
+    authors: "_Mingxing Tan and Quoc V. Le, BMVC 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/252YxqpHzsg"
+  >
+  keywords: "NAS"
+  keywords: "Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 184
+  title: "And the Bit Goes Down: Revisiting the Quantization of Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1907.05686"
+    authors: "_Pierre Stock et al., Arxiv 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/FPLvzxH8geY"
+  >
+  keywords: "Compression"
+  presenter: "Young Seok Kim"
+>
+metadata: <
+  id: 185
+  title: "RetinaFace: Single-stage Dense Face Localisation in the Wild"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1905.00641"
+    authors: "_Jiankang Deng et al., Arxiv 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/DkcHEnxkXpM"
+  >
+  keywords: "Human/Body/Face"
+  keywords: "Detection"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 186
+  title: "Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1703.06868"
+    authors: "_Xun Huang et al., ICCV 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/16BGnsIyh6M"
+  >
+  keywords: "Style-Transfer"
+  keywords: "Normalization"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 187
+  title: "MorphNet: Fast & Simple Resource-Constrained Structure Learning of Deep Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.06798"
+    authors: "_Ariel Gordon et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/vUNAJsO2G98"
+  >
+  keywords: "NAS"
+  keywords: "Compression"
+  presenter: "Sunghoon Joo"
+>
+metadata: <
+  id: 188
+  title: "Online Meta-Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1902.08438"
+    authors: "_Chelsea Finn et al., ICML 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/vUNAJsO2G98"
+  >
+  keywords: "Meta-Learning"
+  keywords: "Continual Learning"
+  presenter: "Doyup Lee"
+>
+metadata: <
+  id: 189
+  title: "Unsupervised Data Augmentation for Consistency Training"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1904.12848"
+    authors: "_Qizhe Xie et al., Arxiv 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/YiKn93Ud4dA"
+  >
+  keywords: "Semi-supervised Learning"
+  keywords: "Generalization"
+  presenter: "Sungnam Park"
+>
+metadata: <
+  id: 190
+  title: "A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1610.02136"
+    authors: "_Dan Hendrycks and Kevin Gimpel, ICLR 2017_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/xaABseUoHAI"
+  >
+  keywords: "Anomaly Detection"
+  keywords: "Generalization"
+  presenter: "MinGuk Kang"
+>
+metadata: <
+  id: 191
+  title: "Learning Adversarially Fair and Transferable Representations"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1802.06309"
+    authors: "_David Madras et al., ICML 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/cgolskL-_WM"
+  >
+  keywords: "ML Fairness"
+  presenter: "Byung-Hak Kim"
+>
+metadata: <
+  id: 192
+  title: "MoCoGAN: Decomposing Motion and Content for Video Generation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1707.04993"
+    authors: "_Sergey Tulyakov et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/9uNFtnRa_JU"
+  >
+  keywords: "Generative Models"
+  keywords: "GANs"
+  keywords: "Video/Motion"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 193
+  title: "NISP: Pruning Networks using Neuron Importance Score Propagation"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1711.05908"
+    authors: "_Ruichi Yu et al., CVPR 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/3KoqN_yYhmI"
+  >
+  keywords: "Network Compression"
+  presenter: "Taesu Kim"
+>
+metadata: <
+  id: 195
+  title: "MixMatch: A Holistic Approach to Semi-Supervised Learning"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1905.02249"
+    authors: "_David Berthelot et al., NeurIPS (NIPS) 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/ud863JQmUW0"
+  >
+  keywords: "Semi-supervised Learning"
+  keywords: "Generalization"
+  presenter: "Jinsung Yoon"
+>
+metadata: <
+  id: 196
+  title: "Stand-Alone Self-Attention in Vision Models"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1906.05909"
+    authors: "_Prajit Ramachandran et al., NeurIPS (NIPS) 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/6hadVw4Sy2M"
+  >
+  keywords: "Attention"
+  keywords: "Classification"
+  keywords: "Detection"
+  presenter: "Jiwon Jung"
+>
+metadata: <
+  id: 197
+  title: "One Ticket to Win Them All: Generalizing Lottery Ticket Initialization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1906.02773"
+    authors: "_Ari S. Morcos et al., NeurIPS (NIPS) 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/YmTNpF2OOjA"
+  >
+  keywords: "Network Compression"
+  presenter: "Jinwon Lee"
+>
+metadata: <
+  id: 199
+  title: "SNIPER : Efficient Multi-Scale Training"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1805.09300"
+    authors: "_Bharat Singh et al., NeurIPS (NIPS) 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/EkndN7svgUk"
+  >
+  keywords: "Detection"
+  presenter: "Jaewon Lee"
+>
+metadata: <
+  id: 200
+  title: "Online Model Distillation for Efficient Video Inference"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1812.02699"
+    authors: "_Ravi Teja Mullapudi et al., ICCV 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/BHEncY-f548"
+  >
+  keywords: "Video/Motion"
+  keywords: "Compression"
+  keywords: "Segmentation"
+  presenter: "Soyeon Kim"
+>
+metadata: <
+  id: 201
+  title: "Bag of Tricks for Image Classification with Convolutional Neural Networks"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1812.01187"
+    authors: "_Tong He et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/D-baIgejA4M"
+  >
+  keywords: "Classification"
+  presenter: "Jiyang Kang"
+>
+metadata: <
+  id: 202
+  title: "Modeling Task Relationships in Multi-task Learning with Multi-gate Mixture-of-Experts"
+  paper_metadata: <
+    url: "https://www.kdd.org/kdd2018/accepted-papers/view/modeling-task-relationships-in-multi-task-learning-with-multi-gate-mixture-"
+    authors: "_Jiaqi Ma et al., KDD 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/iR7T3lH20gI"
+  >
+  keywords: "Recommender System"
+  presenter: "Sungnam Park"
+>
+metadata: <
+  id: 203
+  title: "Class-Balanced Loss Based on Effective Number of Samples"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1901.05555"
+    authors: "_Yin Cui et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/3hL0uVtJrXM"
+  >
+  keywords: "Imbalanced Data"
+  presenter: "Sunghoon Joo"
+>
+metadata: <
+  id: 204
+  title: "Learning Deep Representations by Mutual Information Estimation and Maximization"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1808.06670"
+    authors: "_R Devon Hjelm et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/YNicvevmByo"
+  >
+  keywords: "Self-supervised Learning"
+  presenter: "Seongok Ryu"
+>
+metadata: <
+  id: 205
+  title: "A Closer Look at Few-shot Classification"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1904.04232"
+    authors: "_Wei-Yu Chen et al., ICLR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/yyqZ1K5u2_8"
+  >
+  keywords: "Few-shot Learning"
+  presenter: "Taeoh Kim"
+>
+metadata: <
+  id: 206
+  title: "PointRCNN: 3D Object Proposal Generation and Detection from Point Cloud"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1812.04244"
+    authors: "_Shaoshuai Shi et al., CVPR 2019_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/sFN_EgCsNzM"
+  >
+  keywords: "3D Multi-view"
+  keywords: "3D Detection"
+  presenter: "Doyeop Lee"
+>
+metadata: <
+  id: 207
+  title: "YOLOv3: An Incremental Improvement"
+  paper_metadata: <
+    url: "https://arxiv.org/abs/1804.02767"
+    authors: "_Joseph Redmon and Ali Farhadi, Arxiv 2018_"
+  >
+  video_metadata: <
+    url: "https://youtu.be/HMgcvgRrDcA"
+  >
+  keywords: "Detection"
+  presenter: "Jinwon Lee"
+>
