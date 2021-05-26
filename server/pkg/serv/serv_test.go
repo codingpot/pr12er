@@ -17,3 +17,16 @@ func TestGetHello(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "Hello World", resp.GetBody())
 }
+
+func TestGetVideos(t *testing.T) {
+	t.Skip("Remove this when GetVideos() implemented")
+
+	s := Server{}
+	req := pr12er.GetVideosRequest{}
+	resp, err := s.GetVideos(context.Background(), &req)
+
+	assert.NoError(t, err)
+
+	t.Log("it should return non empty video list.")
+	assert.Greater(t, 0, len(resp.Videos))
+}
