@@ -15,3 +15,16 @@ func TestEmbeddedFileCanBeRead(t *testing.T) {
 	assert.Equal(t, int32(1), metadataDump.Metadata[0].Id)
 	assert.Equal(t, "Jaejun Yoo", metadataDump.Metadata[0].Presenter)
 }
+
+func TestEmbeddedFileAreSortedWithoutMissingData(t *testing.T) {
+	var metadataDump pr12er.MetadataDump
+	err := prototext.Unmarshal(PR12MetadataProtoText, &metadataDump)
+	assert.NoError(t, err)
+
+	for idx, md := range metadataDump.GetMetadata() {
+		if idx > 0 {
+			prevMD := metadataDump.GetMetadata()[idx-1]
+			assert.Equal(t, prevMD.Id+1, md.GetId())
+		}
+	}
+}
