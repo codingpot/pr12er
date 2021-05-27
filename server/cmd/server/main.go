@@ -31,7 +31,7 @@ func main() {
 	pr12er.RegisterPr12ErServiceServer(grpcServer, &s)
 
 	healthServer := health.NewServer()
-	healthServer.SetServingStatus("grpc.health.v1.pr12erservice", grpc_health_v1.HealthCheckResponse_SERVING)
+	healthServer.SetServingStatus("grpc.health.v1.Health", grpc_health_v1.HealthCheckResponse_SERVING)
 	grpc_health_v1.RegisterHealthServer(grpcServer, healthServer)
 
 	reflection.Register(grpcServer)
