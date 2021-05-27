@@ -37,3 +37,10 @@ spec:
             - containerPort: 9000
               name: grpc
               protocol: TCP
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10m
+            limits:
+              cpu: 1000m
+              memory: 2Gi
