@@ -51,7 +51,7 @@ jobs:
         working-directory: server
 
     steps:
-      - run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+      - run: echo $DOCKER_KKWEON_PASSWORD | docker login -u $DOCKER_KKWEON_USERNAME --password-stdin
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_KKWEON_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_KKWEON_PASSWORD }}
