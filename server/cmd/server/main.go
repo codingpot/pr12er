@@ -15,7 +15,7 @@ import (
 
 func main() {
 
-	fmt.Printf("Grpc server start! ver: %s\n", env.Nversion)
+	fmt.Printf("gRPC server(version: %s) is listening at 0.0.0.0:%s\n", env.Nversion, env.ServiceAddress)
 
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", env.ServicePort))
 	if err != nil {
