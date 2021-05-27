@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta16
+kind: Config
+metadata:
+  name: pr-er
+build:
+  artifacts:
+  - image: server
+    context: server
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - k8s/ingress.yaml
+    - k8s/server.yaml

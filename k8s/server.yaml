@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: server
+  name: server
+spec:
+  ports:
+    - name: grpc
+      port: 9000
+      protocol: TCP
+      targetPort: grpc
+  selector:
+    app: server
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: server
+  name: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - image: server
+          name: server
+          ports:
+            - containerPort: 9000
+              name: grpc
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 1G
+              memory: 1G
