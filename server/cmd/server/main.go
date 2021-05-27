@@ -6,16 +6,16 @@ import (
 	"net"
 
 	"github.com/codingpot/pr12er/server/pkg/env"
+	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/codingpot/pr12er/server/pkg/serv"
 
-	pb "github.com/codingpot/pr12er/server/pkg/protos/hello"
-
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 func main() {
 
-	fmt.Printf("gRPC server(version: %s) is listening at 0.0.0.0:%s\n", env.Nversion, env.ServiceAddress)
+	fmt.Printf("gRPC server(version: %s) is listening at 0.0.0.0:%s\n", env.Nversion, env.ServicePort)
 
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", env.ServicePort))
 	if err != nil {
@@ -26,7 +26,8 @@ func main() {
 
 	grpcServer := grpc.NewServer()
 
-	pb.RegisterPr12ErServiceServer(grpcServer, &s)
+	pr12er.RegisterPr12ErServiceServer(grpcServer, &s)
+	reflection.Register(grpcServer)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)

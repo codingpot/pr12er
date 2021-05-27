@@ -19,6 +19,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type Pr12ErServiceClient interface {
 	GetHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
+	GetVideos(ctx context.Context, in *GetVideosRequest, opts ...grpc.CallOption) (*GetVideosResponse, error)
 }
 
 type pr12ErServiceClient struct {
@@ -31,7 +32,16 @@ func NewPr12ErServiceClient(cc grpc.ClientConnInterface) Pr12ErServiceClient {
 
 func (c *pr12ErServiceClient) GetHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error) {
 	out := new(HelloResponse)
-	err := c.cc.Invoke(ctx, "/pr12er.protos.Pr12erService/GetHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pkg.pr12er.Pr12erService/GetHello", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pr12ErServiceClient) GetVideos(ctx context.Context, in *GetVideosRequest, opts ...grpc.CallOption) (*GetVideosResponse, error) {
+	out := new(GetVideosResponse)
+	err := c.cc.Invoke(ctx, "/pkg.pr12er.Pr12erService/GetVideos", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,6 +53,7 @@ func (c *pr12ErServiceClient) GetHello(ctx context.Context, in *HelloRequest, op
 // for forward compatibility
 type Pr12ErServiceServer interface {
 	GetHello(context.Context, *HelloRequest) (*HelloResponse, error)
+	GetVideos(context.Context, *GetVideosRequest) (*GetVideosResponse, error)
 	mustEmbedUnimplementedPr12ErServiceServer()
 }
 
@@ -52,6 +63,9 @@ type UnimplementedPr12ErServiceServer struct {
 
 func (UnimplementedPr12ErServiceServer) GetHello(context.Context, *HelloRequest) (*HelloResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetHello not implemented")
+}
+func (UnimplementedPr12ErServiceServer) GetVideos(context.Context, *GetVideosRequest) (*GetVideosResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetVideos not implemented")
 }
 func (UnimplementedPr12ErServiceServer) mustEmbedUnimplementedPr12ErServiceServer() {}
 
@@ -76,10 +90,28 @@ func _Pr12ErService_GetHello_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pr12er.protos.Pr12erService/GetHello",
+		FullMethod: "/pkg.pr12er.Pr12erService/GetHello",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(Pr12ErServiceServer).GetHello(ctx, req.(*HelloRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Pr12ErService_GetVideos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideosRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Pr12ErServiceServer).GetVideos(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pkg.pr12er.Pr12erService/GetVideos",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Pr12ErServiceServer).GetVideos(ctx, req.(*GetVideosRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -88,14 +120,18 @@ func _Pr12ErService_GetHello_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Pr12ErService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pr12er.protos.Pr12erService",
+	ServiceName: "pkg.pr12er.Pr12erService",
 	HandlerType: (*Pr12ErServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetHello",
 			Handler:    _Pr12ErService_GetHello_Handler,
 		},
+		{
+			MethodName: "GetVideos",
+			Handler:    _Pr12ErService_GetVideos_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "hello/hello.proto",
+	Metadata: "pkg/pr12er/service.proto",
 }

@@ -1,11 +1,17 @@
 import 'package:grpc/grpc.dart';
-import 'package:pr12er/protos/pr12er.pb.dart';
-import 'package:pr12er/protos/pr12er.pbgrpc.dart';
+
+import 'protos/pkg/pr12er/service.pbgrpc.dart';
 
 class GreeterService extends Pr12erServiceBase {
   @override
   Future<HelloResponse> getHello(ServiceCall call, HelloRequest request) async {
     return HelloResponse()..body = 'Hello, ${request.body}';
+  }
+
+  @override
+  Future<GetVideosResponse> getVideos(
+      ServiceCall call, GetVideosRequest request) async {
+    return GetVideosResponse();
   }
 }
 

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grpc/grpc.dart';
-import 'package:pr12er/protos/pr12er.pb.dart';
-import 'package:pr12er/protos/pr12er.pbgrpc.dart';
+import 'service.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,7 +23,7 @@ class Client extends StatefulWidget {
 }
 
 class _ClientState extends State<Client> {
-  String result = "";
+  String _result = "";
   final myController = TextEditingController();
 
   @override
@@ -35,16 +33,20 @@ class _ClientState extends State<Client> {
         child: Center(
           child: Column(
             children: [
+              Text(_result),
               TextField(
+                key: ValueKey("input-box"),
                 controller: myController,
               ),
               Row(
                 children: [
                   Expanded(
                       child: OutlinedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             // print(myController.text);
-                            _callGrpc(myController.text);
+                            final body = await GrpcMsgSender()
+                                .sendMessage(myController.text);
+                            setState(() => _result = body);
                           },
                           child: const Text('Click Me')))
                 ],
@@ -52,20 +54,5 @@ class _ClientState extends State<Client> {
             ],
           ),
         ));
-  }
-
-  Future<void> _callGrpc(String message) async {
-    final channel = ClientChannel(
-      'localhost', // Use your IP address where the server is running
-      port: 9000,
-      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
-    );
-    final stub = Pr12erServiceClient(channel);
-
-    var request = HelloRequest()..body = message;
-    var response = await stub.getHello(request);
-    result = response.body;
-    print(result);
-    await channel.shutdown();
   }
 }

@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2beta16
+kind: Config
+metadata:
+  name: pr12er
+
+profiles:
+  - name: kkweon-raspberry
+    activation:
+      - kubeContext: raspberry
+    deploy:
+      kubectl:
+        manifests:
+          - k8s/kkweon-raspberry/*.yaml
+    build:
+      artifacts:
+        - image: kkweon/pr12er-server
+          context: server
+          docker:
+            dockerfile: Dockerfile.raspberry

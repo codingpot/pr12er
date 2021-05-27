@@ -1,0 +1,22 @@
+syntax = "proto3";
+package pkg.pr12er;
+
+option go_package = "github.com/codingpot/server/pkg/pr12er";
+
+enum Category {
+  CATEGORY_UNSPECIFIED = 0;
+  CATEGORY_VISION = 1;
+  CATEGORY_NLP = 2;
+  CATEGORY_OCR = 3;
+  CATEGORY_AUDIO = 4;
+  CATEGORY_RS = 5;
+}
+
+message Video {
+  int32 id = 1;
+  string title = 2;
+  string link = 3;
+  string presenter = 4;
+  Category category = 5;
+  int32 number_of_like = 6;
+}

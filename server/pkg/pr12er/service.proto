@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pkg.pr12er;
+
+option go_package = "github.com/codingpot/server/pkg/pr12er";
+
+import "pkg/pr12er/messages.proto";
+
+message HelloRequest { string body = 1; }
+
+message HelloResponse { string body = 1; }
+
+message GetVideosResponse { repeated Video videos = 1; }
+
+message GetVideosRequest {}
+
+service Pr12erService {
+  rpc GetHello(HelloRequest) returns (HelloResponse);
+  rpc GetVideos(GetVideosRequest) returns (GetVideosResponse);
+}

@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  flutter-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build apk
+
+  go-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "1.16"
+      - run: go test -v --race ./...
+      - run: go build -o server cmd/server/main.go
+      - run: go build -o client cmd/client/main.go
+
+  deploy-to-raspberry:
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+
+    needs:
+      - go-build
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+
+      - uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_KKWEON_USERNAME }}
+          password: ${{ secrets.DOCKER_KKWEON_PASSWORD }}
+
+      - uses: docker/build-push-action@v2
+        with:
+          context: ./server
+          file: ./server/Dockerfile.raspberry
+          platforms: linux/amd64,linux/arm/v7
+          push: true
+          tags: kkweon/pr12er-server:latest,kkweon/pr12er-server:${{ github.sha }}
+
+      - run: |
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+
+          kubectl apply -f k8s/kkweon-raspberry
+          kubectl set image deployments/server server=kkweon/pr12er-server:${{ github.sha }}
+          kubectl rollout status deployment server
