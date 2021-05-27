@@ -4,9 +4,8 @@ import 'protos/pkg/pr12er/service.pbgrpc.dart';
 
 class GrpcMsgSender {
   ClientChannel channel = ClientChannel(
-    'localhost', // Use your IP address where the server is running
-    port: 9000,
-    options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+    'raspberry.kkweon.dev',
+    port: 443,
   );
 
   static final GrpcMsgSender _singleton = new GrpcMsgSender._internal();
