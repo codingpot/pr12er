@@ -51,6 +51,7 @@ jobs:
         working-directory: server
 
     steps:
+      - uses: actions/checkout@v2
       - run: echo $DOCKER_KKWEON_PASSWORD | docker login -u $DOCKER_KKWEON_USERNAME --password-stdin
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_KKWEON_USERNAME }}
