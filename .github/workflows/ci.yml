@@ -59,9 +59,10 @@ jobs:
       - uses: docker/build-push-action@v2
         with:
           context: ./server
+          file: ./server/Dockerfile.raspberry
           platforms: linux/amd64,linux/arm/v7
           push: true
-          tags: kkweon/pr12er-server:latest,kkweon/pr12er-server:${{ github.sha}}
+          tags: kkweon/pr12er-server:latest,kkweon/pr12er-server:${{ github.sha }}
 
       - run: |
           curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
