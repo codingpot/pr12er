@@ -41,7 +41,7 @@ jobs:
   deploy-to-raspberry:
     runs-on: ubuntu-latest
 
-    if: github.ref == "refs/heads/main"
+    if: github.ref == 'refs/heads/main'
 
     needs:
       - go-build
