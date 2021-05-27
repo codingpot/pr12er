@@ -58,11 +58,12 @@ jobs:
           password: ${{ secrets.DOCKER_KKWEON_PASSWORD }}
 
       - shell: bash
-        run: echo "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}" > ./kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}" | base64 -d > ~/.kube/config
 
       - uses: hiberbee/github-action-skaffold@latest
         with:
           skaffold-version: "1.24.1"
           command: run
           kube-context: raspberry
-          kubeconfig: ./kubeconfig
