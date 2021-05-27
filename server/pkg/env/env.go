@@ -12,7 +12,7 @@ var (
 	Nversion = "pr12er-" + Version
 	Debug, _ = strconv.ParseBool(getEnvVar("DEBUG", "false"))
 
-	ServiceAddress = getEnvVar("PR12ER_GRPC_PORT", "9000")
+	ServicePort = getEnvVar("PR12ER_GRPC_PORT", "9000")
 )
 
 func getEnvVar(key, fallbackValue string) string {
