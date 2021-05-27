@@ -37,3 +37,30 @@ jobs:
       - run: go test -v --race ./...
       - run: go build -o server cmd/server/main.go
       - run: go build -o client cmd/client/main.go
+
+  deploy-to-raspberry:
+    runs-on: ubuntu-latest
+
+    if: github.ref == "refs/heads/main"
+
+    needs:
+      - go-build
+
+    defaults:
+      run:
+        working-directory: server
+
+    steps:
+      - run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_KKWEON_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_KKWEON_PASSWORD }}
+
+      - shell: bash
+        run: echo "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}" > ./kubeconfig
+
+      - uses: hiberbee/github-action-skaffold@latest
+        with:
+          command: run
+          kube-context: raspberry
+          kubeconfig: ./kubeconfig
