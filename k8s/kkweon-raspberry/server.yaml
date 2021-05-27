@@ -32,6 +32,7 @@ spec:
     spec:
       containers:
         - image: kkweon/pr12er-server
+          imagePullPolicy: Always
           name: server
           ports:
             - containerPort: 9000
