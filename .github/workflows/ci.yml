@@ -65,6 +65,6 @@ jobs:
       - uses: daisaru11/setup-cd-tools@v1
         with:
           kubectl: "1.21.1"
-          skaffold-version: "1.24.1"
+          skaffold: "1.24.1"
 
       - run: skaffold run
