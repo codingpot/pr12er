@@ -46,10 +46,6 @@ jobs:
     needs:
       - go-build
 
-    defaults:
-      run:
-        working-directory: server
-
     steps:
       - uses: actions/checkout@v2
       - uses: docker/login-action@v1
@@ -57,14 +53,21 @@ jobs:
           username: ${{ secrets.DOCKER_KKWEON_USERNAME }}
           password: ${{ secrets.DOCKER_KKWEON_PASSWORD }}
 
-      - shell: bash
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+      - run: |
+          docker build -t kkweon/pr12er-server:latest \
+                       -t kkweon/pr12er-server:${{ github.sha }} \
+                       -f Dockerfile.raspberry ./server
+          docker push kkweon/pr12er-server:latest
+          docker push kkweon/pr12er-server:${{ github.sha }}
 
-      - uses: daisaru11/setup-cd-tools@v1
+      - uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}"
         with:
-          kubectl: "1.21.1"
-          skaffold: "1.24.1"
+          args: apply -f k8s/kkweon-raspberry
 
-      - run: skaffold run
+      - uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}"
+        with:
+          args: set image deployments/server server=kkweon/pr12er-server:${{ github.sha }}
