@@ -12,7 +12,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=7 go build -o server cmd/server/ma
 
 # Start fresh from a smaller image
 FROM arm32v7/alpine:latest
-RUN apk add ca-certificates
 
 COPY --from=builder /app/server /app/server
 
