@@ -56,7 +56,7 @@ jobs:
       - run: |
           docker build -t kkweon/pr12er-server:latest \
                        -t kkweon/pr12er-server:${{ github.sha }} \
-                       -f Dockerfile.raspberry ./server
+                       -f ./server/Dockerfile.raspberry ./server
           docker push kkweon/pr12er-server:latest
           docker push kkweon/pr12er-server:${{ github.sha }}
 
