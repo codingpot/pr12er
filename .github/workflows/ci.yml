@@ -62,7 +62,7 @@ jobs:
           mkdir -p $HOME/.kube
           echo "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}" | base64 -d > $HOME/.kube/config
 
-      - uses: setup-cd-tools
+      - uses: daisaru11/setup-cd-tools@v1
         with:
           kubectl: "1.21.1"
           skaffold-version: "1.24.1"
