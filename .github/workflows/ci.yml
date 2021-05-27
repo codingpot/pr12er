@@ -72,3 +72,4 @@ jobs:
 
           kubectl apply -f k8s/kkweon-raspberry
           kubectl set image deployments/server server=kkweon/pr12er-server:${{ github.sha }}
+          kubectl rollout status deployment server
