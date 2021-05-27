@@ -31,13 +31,9 @@ spec:
         app: server
     spec:
       containers:
-        - image: server
+        - image: kkweon/pr12er-server
           name: server
           ports:
             - containerPort: 9000
               name: grpc
               protocol: TCP
-          resources:
-            limits:
-              cpu: 1G
-              memory: 1G

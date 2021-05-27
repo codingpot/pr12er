@@ -4,9 +4,11 @@ metadata:
   name: ingress
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    ingress.kubernetes.io/protocol: h2c
     kubernetes.io/ingress.class: traefik
     traefik.frontend.rule.type: PathPrefixStrip
     traefik.ingress.kubernetes.io/redirect-entry-point: https
+
 spec:
   tls:
     - hosts:
