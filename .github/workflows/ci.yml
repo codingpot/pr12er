@@ -54,7 +54,8 @@ jobs:
           password: ${{ secrets.DOCKER_KKWEON_PASSWORD }}
 
       - run: |
-          docker build -t kkweon/pr12er-server:latest \
+          docker build --platform linux/arm/v7 \
+                       -t kkweon/pr12er-server:latest \
                        -t kkweon/pr12er-server:${{ github.sha }} \
                        -f ./server/Dockerfile.raspberry ./server
           docker push kkweon/pr12er-server:latest
