@@ -4,10 +4,11 @@ on:
   # Trigger the workflow on the new 'v*' tag created
   push:
     branches: [main, feature/*]
-  pull_request:
-  workflow_dispatch:
     tags:
       - "v*"
+  pull_request:
+  workflow_dispatch:
+
 
 jobs:
   docker:
