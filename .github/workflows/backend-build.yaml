@@ -17,12 +17,12 @@ jobs:
 
       - name: Docker meta
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v2.4.0
+        uses: crazy-max/ghaction-docker-meta@v3.3.0
         with:
           images: ghcr.io/codingpot/pr12er
           tags: |
             type=semver,pattern={{version}}
-            type=sha
+            type=sha,prefix={{branch}}-
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
