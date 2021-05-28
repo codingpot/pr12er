@@ -45,3 +45,14 @@ spec:
             limits:
               cpu: 1000m
               memory: 2Gi
+
+          readinessProbe:
+            exec:
+              command: ["/bin/grpc_health_probe", "--addr=:9000"]
+            initialDelaySeconds: 10
+
+          livenessProbe:
+            exec:
+              command: ["/bin/grpc_health_probe", "--addr=:9000"]
+            initialDelaySeconds: 20
+            periodSeconds: 60

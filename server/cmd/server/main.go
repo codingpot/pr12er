@@ -10,6 +10,8 @@ import (
 	"github.com/codingpot/pr12er/server/pkg/serv"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/health"
+	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/reflection"
 )
 
@@ -27,6 +29,11 @@ func main() {
 	grpcServer := grpc.NewServer()
 
 	pr12er.RegisterPr12ErServiceServer(grpcServer, &s)
+
+	healthServer := health.NewServer()
+	healthServer.SetServingStatus("grpc.health.v1.Health", grpc_health_v1.HealthCheckResponse_SERVING)
+	grpc_health_v1.RegisterHealthServer(grpcServer, healthServer)
+
 	reflection.Register(grpcServer)
 
 	if err := grpcServer.Serve(lis); err != nil {

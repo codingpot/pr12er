@@ -1,5 +1,9 @@
 FROM golang:alpine AS builder
 
+RUN apk --no-cache add ca-certificates && GRPC_HEALTH_PROBE_VERSION=v0.4.2 && \
+  wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/${GRPC_HEALTH_PROBE_VERSION}/grpc_health_probe-linux-arm && \
+  chmod +x /bin/grpc_health_probe
+
 WORKDIR /app
 
 COPY go.mod go.sum ./
@@ -13,6 +17,8 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=7 go build -o server cmd/server/ma
 # Start fresh from a smaller image
 FROM arm32v7/alpine:latest
 
+COPY --from=builder /bin/grpc_health_probe /bin/grpc_health_probe
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /app/server /app/server
 
 # This container exposes port 8080 to the outside world
