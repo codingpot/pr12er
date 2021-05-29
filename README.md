@@ -2,6 +2,7 @@
 
 [![Protoc](https://github.com/codingpot/pr12er/actions/workflows/protoc.yml/badge.svg)](https://github.com/codingpot/pr12er/actions/workflows/protoc.yml)
 [![CI](https://github.com/codingpot/pr12er/actions/workflows/ci.yml/badge.svg)](https://github.com/codingpot/pr12er/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/codingpot/pr12er/branch/main/graph/badge.svg?token=Vnfds9mPla)](https://codecov.io/gh/codingpot/pr12er)
 
 <div align="center">
 <img src="./pr12er_diagram.svg" width="80%">
