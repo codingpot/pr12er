@@ -15,21 +15,21 @@ class GreeterService extends Pr12erServiceBase {
     List<Video> videos = <Video>[
       Video(
           id: 1,
-          link: "",
+          link: "L3hz57whyNw",
           numberOfLike: 10,
           presenter: "유재준",
           title: "Generative Adversarial Nets",
           category: Category.CATEGORY_VISION),
       Video(
           id: 1,
-          link: "",
+          link: "RRwaz0fBQ0Y",
           numberOfLike: 10,
           presenter: "엄태웅",
           title: "Deformable Convolutional Networks",
           category: Category.CATEGORY_VISION),
       Video(
           id: 1,
-          link: "",
+          link: "_Dp8u97_rQ0",
           numberOfLike: 10,
           presenter: "곽근봉",
           title:
@@ -37,7 +37,7 @@ class GreeterService extends Pr12erServiceBase {
           category: Category.CATEGORY_NLP),
       Video(
           id: 1,
-          link: "",
+          link: "1jGr_OFyfa0",
           numberOfLike: 10,
           presenter: "전태균",
           title:
@@ -45,28 +45,28 @@ class GreeterService extends Pr12erServiceBase {
           category: Category.CATEGORY_VISION),
       Video(
           id: 1,
-          link: "",
+          link: "V7_cNTfm2i8",
           numberOfLike: 10,
           presenter: "김성훈",
           title: "Playing Atari with Deep Reinforcement Learning",
           category: Category.CATEGORY_UNSPECIFIED),
       Video(
           id: 1,
-          link: "",
+          link: "2wbDiZCWQtY",
           numberOfLike: 10,
           presenter: "서기호",
           title: "Neural Turing Machines",
           category: Category.CATEGORY_UNSPECIFIED),
       Video(
           id: 1,
-          link: "",
+          link: "YF6nLVDlznE",
           numberOfLike: 10,
           presenter: "김승일",
           title: "Deep Photo Style Transfer",
           category: Category.CATEGORY_VISION),
       Video(
           id: 1,
-          link: "",
+          link: "jbnjzyJDldA",
           numberOfLike: 10,
           presenter: "정동준",
           title:
@@ -74,21 +74,21 @@ class GreeterService extends Pr12erServiceBase {
           category: Category.CATEGORY_VISION),
       Video(
           id: 1,
-          link: "",
+          link: "tOItokBZSfU",
           numberOfLike: 10,
           presenter: "정영재",
           title: "Distilling the Knowledge in a Neural Network",
           category: Category.CATEGORY_UNSPECIFIED),
       Video(
           id: 1,
-          link: "",
+          link: "KYA-GEhObIs",
           numberOfLike: 10,
           presenter: "차준범",
           title: "Auto-Encoding Variational Bayes",
           category: Category.CATEGORY_VISION),
       Video(
           id: 1,
-          link: "",
+          link: "kcPAGIgBGRs",
           numberOfLike: 10,
           presenter: "이진원",
           title:
@@ -96,7 +96,7 @@ class GreeterService extends Pr12erServiceBase {
           category: Category.CATEGORY_VISION),
       Video(
           id: 1,
-          link: "",
+          link: "n2J7giHrS-Y",
           numberOfLike: 10,
           presenter: "유재준",
           title: "Domain Adversarial Training of Neural Network",
