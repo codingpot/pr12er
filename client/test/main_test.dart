@@ -3,14 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pr12er/main.dart';
 
 void main() {
-  testWidgets('MainWidget has a input field and button',
-      (WidgetTester tester) async {
+  testWidgets('MainWidget has a load view', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
 
-    final inputBox = find.byKey(ValueKey("input-box"));
-    expect(inputBox, findsOneWidget);
+    final loadView = find.byType(CircularProgressIndicator);
+    expect(loadView, findsOneWidget);
 
-    final button = find.text("Click Me");
-    expect(button, findsOneWidget);
+    final titleFinder = find.text('pr12errrrrrrrrrrrrrrrrrrr');
+    expect(titleFinder, findsOneWidget);s
   });
 }
