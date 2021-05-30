@@ -1,11 +1,19 @@
 import 'package:grpc/grpc.dart';
+import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
 import 'protos/pkg/pr12er/service.pbgrpc.dart';
 
 class GrpcMsgSender {
+  // ClientChannel channel = ClientChannel(
+  //   'raspberry.kkweon.dev',
+  //   port: 443,
+  // );
+
+  // for test-server connection
   ClientChannel channel = ClientChannel(
-    'raspberry.kkweon.dev',
-    port: 443,
+    'localhost',
+    port: 9000,
+    options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
   );
 
   static final GrpcMsgSender _singleton = new GrpcMsgSender._internal();
@@ -21,5 +29,14 @@ class GrpcMsgSender {
     var response = await stub.getHello(request);
 
     return response.body;
+  }
+
+  Future<List<Video>> getVideos() async {
+    final stub = Pr12erServiceClient(channel);
+
+    var request = GetVideosRequest();
+    var response = await stub.getVideos(request);
+
+    return response.videos;
   }
 }
