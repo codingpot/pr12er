@@ -21,6 +21,7 @@ class Video extends $pb.GeneratedMessage {
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'presenter')
     ..e<Category>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'category', $pb.PbFieldType.OE, defaultOrMaker: Category.CATEGORY_UNSPECIFIED, valueOf: Category.valueOf, enumValues: Category.values)
     ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfLike', $pb.PbFieldType.O3)
+    ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'keywords')
     ..hasRequiredFields = false
   ;
 
@@ -32,6 +33,7 @@ class Video extends $pb.GeneratedMessage {
     $core.String? presenter,
     Category? category,
     $core.int? numberOfLike,
+    $core.Iterable<$core.String>? keywords,
   }) {
     final _result = create();
     if (id != null) {
@@ -51,6 +53,9 @@ class Video extends $pb.GeneratedMessage {
     }
     if (numberOfLike != null) {
       _result.numberOfLike = numberOfLike;
+    }
+    if (keywords != null) {
+      _result.keywords.addAll(keywords);
     }
     return _result;
   }
@@ -128,5 +133,8 @@ class Video extends $pb.GeneratedMessage {
   $core.bool hasNumberOfLike() => $_has(5);
   @$pb.TagNumber(6)
   void clearNumberOfLike() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.List<$core.String> get keywords => $_getList(6);
 }
 

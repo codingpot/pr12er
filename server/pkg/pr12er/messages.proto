@@ -19,4 +19,5 @@ message Video {
   string presenter = 4;
   Category category = 5;
   int32 number_of_like = 6;
+  repeated string keywords = 7;
 }
