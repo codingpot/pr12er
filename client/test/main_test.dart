@@ -10,6 +10,6 @@ void main() {
     expect(loadView, findsOneWidget);
 
     final titleFinder = find.text('pr12errrrrrrrrrrrrrrrrrrr');
-    expect(titleFinder, findsOneWidget);s
+    expect(titleFinder, findsOneWidget);
   });
 }
