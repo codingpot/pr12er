@@ -33,8 +33,9 @@ const Video$json = const {
     const {'1': 'presenter', '3': 4, '4': 1, '5': 9, '10': 'presenter'},
     const {'1': 'category', '3': 5, '4': 1, '5': 14, '6': '.pkg.pr12er.Category', '10': 'category'},
     const {'1': 'number_of_like', '3': 6, '4': 1, '5': 5, '10': 'numberOfLike'},
+    const {'1': 'keywords', '3': 7, '4': 3, '5': 9, '10': 'keywords'},
   ],
 };
 
 /// Descriptor for `Video`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoBVIMbnVtYmVyT2ZMaWtl');
+final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoBVIMbnVtYmVyT2ZMaWtlEhoKCGtleXdvcmRzGAcgAygJUghrZXl3b3Jkcw==');
