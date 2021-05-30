@@ -58,7 +58,7 @@ class _ClientState extends State<Client> {
         builder: (context, AsyncSnapshot snapshot) {
           if (!snapshot.hasData) {
             return Center(child: CircularProgressIndicator());
-          } else {
+          }
             return ListView.builder(
                 padding: const EdgeInsets.all(8),
                 itemCount: snapshot.data.length,
@@ -70,7 +70,7 @@ class _ClientState extends State<Client> {
                       "현재 키워드 지원(X)",
                       snapshot.data[index].category);
                 });
-          }
+          
         });
   }
 
