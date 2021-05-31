@@ -1340,7 +1340,8 @@ metadata:  {
   video_metadata:  {
     url:  "https://youtu.be/pAH3KhVnADE"
   }
-  keywords:  "Distibuted Training"
+  keywords:  "Distributed Training"
+  presenter: "Jiyang Kang"
 }
 metadata:  {
   id:  93
