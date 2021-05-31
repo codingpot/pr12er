@@ -47,18 +47,16 @@ func getDummyData() pr12er.GetVideosResponse {
 				Link:         "https://youtu.be/_Dp8u97_rQ0",
 				NumberOfLike: 10,
 				Presenter:    "곽근봉",
-				Title:
-				"Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
-				Category: pr12er.Category_CATEGORY_NLP,
+				Title:        "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
+				Category:     pr12er.Category_CATEGORY_NLP,
 			},
 			{
 				Id:           4,
 				Link:         "https://youtu.be/1jGr_OFyfa0",
 				NumberOfLike: 10,
 				Presenter:    "전태균",
-				Title:
-				"Image Super-Resolution using Deep Convolutional Neural Networks",
-				Category: pr12er.Category_CATEGORY_VISION,
+				Title:        "Image Super-Resolution using Deep Convolutional Neural Networks",
+				Category:     pr12er.Category_CATEGORY_VISION,
 			},
 			{
 				Id:           5,
