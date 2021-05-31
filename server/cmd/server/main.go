@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net"
 
 	"github.com/codingpot/pr12er/server/pkg/env"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/codingpot/pr12er/server/pkg/serv"
+	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"
@@ -15,11 +15,14 @@ import (
 )
 
 func main() {
-	log.Printf("gRPC server(version: %s) is listening at 0.0.0.0:%s\n", env.Nversion, env.ServicePort)
+	log.WithFields(log.Fields{
+		"Nversion":    env.Nversion,
+		"ServicePort": env.ServicePort,
+	}).Printf("gRPC server is listening at 0.0.0.0:%s", env.ServicePort)
 
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", env.ServicePort))
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		log.WithError(err).Fatalf("failed to listen")
 	}
 
 	s := serv.Server{}
@@ -35,6 +38,6 @@ func main() {
 	reflection.Register(grpcServer)
 
 	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %s", err)
+		log.WithError(err).Fatalf("failed to serve")
 	}
 }

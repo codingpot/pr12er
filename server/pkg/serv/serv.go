@@ -3,9 +3,9 @@ package serv
 import (
 	"context"
 	"fmt"
-	"log"
 
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	log "github.com/sirupsen/logrus"
 )
 
 type Server struct {

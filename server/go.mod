@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.5.1
 	golang.org/x/net v0.0.0-20210521195947-fe42d452be8f
 	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
