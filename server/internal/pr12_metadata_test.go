@@ -17,10 +17,7 @@ func TestEmbeddedFileCanBeRead(t *testing.T) {
 }
 
 func TestEmbeddedFileAreSortedWithoutMissingData(t *testing.T) {
-	var metadataDump pr12er.MetadataDump
-	err := prototext.Unmarshal(PR12MetadataProtoText, &metadataDump)
-	assert.NoError(t, err)
-
+	metadataDump := ReadPR12MetadataProtoText()
 	for idx, md := range metadataDump.GetMetadata() {
 		if idx > 0 {
 			prevMD := metadataDump.GetMetadata()[idx-1]
