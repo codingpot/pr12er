@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:pr12er/utils/extractor.dart';
 
 class DetailApp extends StatelessWidget {
   late String url;
 
   DetailApp(String url) {
-    this.url = url;
+    this.url = Extractor.extractYoutubeId(url);
   }
 
   @override

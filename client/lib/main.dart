@@ -64,19 +64,22 @@ class _ClientState extends State<Client> {
               padding: const EdgeInsets.all(8),
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) {
-                return getTile(
-                    index,
-                    snapshot.data[index].title,
-                    snapshot.data[index].presenter,
-                    "현재 키워드 지원(X)",
-                    snapshot.data[index].category,
-                    snapshot.data[index].link);
+                return getTile(index,
+                    title: snapshot.data[index].title,
+                    presenter: snapshot.data[index].presenter,
+                    keyword: "현재 키워드 지원(X)",
+                    category: snapshot.data[index].category,
+                    url: snapshot.data[index].link);
               });
         });
   }
 
-  Widget getTile(int index, String title, String presenter, String keyword,
-      Category category, String url) {
+  Widget getTile(int index,
+      {String title = "",
+      String presenter = "",
+      String keyword = "",
+      Category category = Category.CATEGORY_UNSPECIFIED,
+      String url = ""}) {
     return Card(
       child: ListTile(
         leading: Column(
