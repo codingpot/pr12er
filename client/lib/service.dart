@@ -4,17 +4,9 @@ import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'protos/pkg/pr12er/service.pbgrpc.dart';
 
 class GrpcMsgSender {
-  // ClientChannel channel = ClientChannel(
-  //   'raspberry.kkweon.dev',
-  //   port: 443,
-  // );
-
-  // for test-server connection
-  ClientChannel channel = ClientChannel(
-    'localhost',
-    port: 9000,
-    options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
-  );
+  // Use _getLocalhostChannel(port: 9000) to use the localhost version.
+  // NOTE: localhost only works in iOS.
+  ClientChannel channel = _getKkweonRaspberryChannel();
 
   static final GrpcMsgSender _singleton = new GrpcMsgSender._internal();
 
@@ -39,4 +31,19 @@ class GrpcMsgSender {
 
     return response.videos;
   }
+}
+
+ClientChannel _getKkweonRaspberryChannel() {
+  return ClientChannel(
+    'raspberry.kkweon.dev',
+    port: 443,
+  );
+}
+
+ClientChannel _getLocalhostChannel({required int port}) {
+  return ClientChannel(
+    'localhost',
+    port: port,
+    options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+  );
 }
