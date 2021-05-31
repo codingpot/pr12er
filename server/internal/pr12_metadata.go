@@ -1,6 +1,8 @@
 package internal
 
 import (
+
+	// embed is used to embed PR12Metadata.
 	_ "embed"
 
 	"github.com/codingpot/pr12er/server/pkg/pr12er"

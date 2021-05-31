@@ -24,3 +24,6 @@ linters:
     - wsl
     - gofumpt
     - golint
+    - scopelint
+    - interfacer
+    - maligned
