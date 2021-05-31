@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'detail.dart';
 import 'service.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
@@ -59,23 +60,26 @@ class _ClientState extends State<Client> {
           if (!snapshot.hasData) {
             return Center(child: CircularProgressIndicator());
           }
-            return ListView.builder(
-                padding: const EdgeInsets.all(8),
-                itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return getTile(
-                      index,
-                      snapshot.data[index].title,
-                      snapshot.data[index].presenter,
-                      "현재 키워드 지원(X)",
-                      snapshot.data[index].category);
-                });
-          
+          return ListView.builder(
+              padding: const EdgeInsets.all(8),
+              itemCount: snapshot.data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return getTile(index,
+                    title: snapshot.data[index].title,
+                    presenter: snapshot.data[index].presenter,
+                    keyword: "현재 키워드 지원(X)",
+                    category: snapshot.data[index].category,
+                    url: snapshot.data[index].link);
+              });
         });
   }
 
-  Widget getTile(int index, String title, String presenter, String keyword,
-      Category category) {
+  Widget getTile(int index,
+      {String title = "",
+      String presenter = "",
+      String keyword = "",
+      Category category = Category.CATEGORY_UNSPECIFIED,
+      String url = ""}) {
     return Card(
       child: ListTile(
         leading: Column(
@@ -98,6 +102,14 @@ class _ClientState extends State<Client> {
         trailing: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [Icon(Icons.favorite_border_outlined)]),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailApp(url),
+            ),
+          );
+        },
       ),
     );
   }
