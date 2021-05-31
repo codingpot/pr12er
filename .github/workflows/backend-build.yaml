@@ -8,16 +8,15 @@ on:
       - "v*"
   workflow_dispatch:
 
-
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-go@v2        
+      - uses: actions/setup-go@v2
         with:
-          go-version: "1.16"      
+          go-version: "1.16"
       - run: cd server && go test -v --race ./...
 
       - name: Docker meta
@@ -43,7 +42,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_IO_TOKEN }}
-
 
       - name: Build and push
         uses: docker/build-push-action@v2
