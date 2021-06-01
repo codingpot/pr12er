@@ -4,11 +4,15 @@ go 1.16
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
+	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
+	github.com/prometheus/client_golang v1.10.0 // indirect
+	github.com/prometheus/common v0.25.0 // indirect
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.5.1
-	golang.org/x/net v0.0.0-20210521195947-fe42d452be8f
-	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
-	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
+	golang.org/x/net v0.0.0-20210525063256-abc453219eb5
+	golang.org/x/sys v0.0.0-20210601080250-7ecdf8ef093b // indirect
+	google.golang.org/genproto v0.0.0-20210601170153-0befbe3492e2 // indirect
 	google.golang.org/grpc v1.38.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
 	google.golang.org/protobuf v1.26.0
