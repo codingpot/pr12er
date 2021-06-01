@@ -18,7 +18,7 @@ ifeq ($(UNAME),Darwin)
 	curl -OL "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/$(PROTOC_ZIP_MACOS)"
 	unzip -o $(PROTOC_ZIP_MACOS) -d $${HOME}/.local && \
 	export PATH="$${PATH}:$${HOME}/.local/bin"
-	rm -f $PROTOC_ZIP
+	rm -f protoc-*.zip
 endif
 ifeq ($(UNAME), Linux)
 	curl -LO "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/$(PROTOC_ZIP_LINUX)" && \
