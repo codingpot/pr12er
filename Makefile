@@ -9,14 +9,20 @@ PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
 GOPATH := ${GOPATH}
 
+PROTOC_ZIP_MACOS := protoc-$(PROTOC_VERSION)-osx-x86_64.zip
+PROTOC_ZIP_LINUX := protoc-$(PROTOC_VERSION)-linux-x86_64.zip
+
 install:
 ifeq ($(PROTOC),)
 ifeq ($(UNAME),Darwin)
-	brew install protobuf
+	curl -OL "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/$(PROTOC_ZIP_MACOS)"
+	unzip -o $(PROTOC_ZIP_MACOS) -d /usr/local bin/protoc
+	unzip -o $(PROTOC_ZIP_MACOS) -d /usr/local 'include/*'
+	rm -f $PROTOC_ZIP
 endif
 ifeq ($(UNAME), Linux)
-	curl -LO "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip" && \
-	unzip protoc-$(PROTOC_VERSION)-linux-x86_64.zip -d $${HOME}/.local && \
+	curl -LO "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/$(PROTOC_ZIP_LINUX)" && \
+	unzip $(PROTOC_ZIP_LINUX) -d $${HOME}/.local && \
 	export PATH="$${PATH}:$${HOME}/.local/bin"
 endif
 endif
