@@ -3,8 +3,9 @@ package serv
 import (
 	"context"
 	"fmt"
-	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"log"
+
+	"github.com/codingpot/pr12er/server/pkg/pr12er"
 )
 
 type Server struct {
@@ -17,12 +18,12 @@ func (s Server) GetHello(_ context.Context, in *pr12er.HelloRequest) (*pr12er.He
 }
 
 func (s Server) GetVideos(_ context.Context, _ *pr12er.GetVideosRequest) (*pr12er.GetVideosResponse, error) {
-	// TODO: Replace it with the actual logic
+	// TODO: Replace it with the actual logic.
 	resp := getDummyData()
 	return &resp, nil
 }
 
-// TODO: Remove when the actual logic is available
+// TODO: Remove when the actual logic is available.
 func getDummyData() pr12er.GetVideosResponse {
 	return pr12er.GetVideosResponse{
 		Videos: []*pr12er.Video{

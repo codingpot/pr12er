@@ -51,3 +51,10 @@ test: gen.all
 clean:
 	rm -rf ./client/lib/protos
 	rm -rf ./server/pkg/pr12er/*.pb.go
+
+format.go:
+	cd server && gci -w . && gofumpt -w -s .
+	make gen.all
+
+lint.go:
+	cd server && golangci-lint run

@@ -1,0 +1,29 @@
+linters:
+  presets:
+    - bugs
+    - comment
+    - complexity
+    - error
+    - format
+    - import
+    - metalinter
+    - module
+    - performance
+    - sql
+    - style
+    - test
+
+  disable:
+    - godox
+    - testpackage
+    - paralleltest
+    - gomnd
+    - gochecknoglobals
+    - nlreturn
+    - exhaustivestruct
+    - wsl
+    - gofumpt
+    - golint
+    - scopelint
+    - interfacer
+    - maligned

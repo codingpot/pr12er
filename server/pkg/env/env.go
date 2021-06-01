@@ -1,14 +1,13 @@
 package env
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
 
 var (
-	Version  = "dev"
+	Version  = "dev" // nolint:revive
 	Nversion = "pr12er-" + Version
 	Debug, _ = strconv.ParseBool(getEnvVar("DEBUG", "false"))
 
@@ -22,12 +21,4 @@ func getEnvVar(key, fallbackValue string) string {
 		}
 	}
 	return fallbackValue
-}
-
-func getEnvRequired(key string) string {
-	val, ok := os.LookupEnv(key)
-	if !ok {
-		panic(fmt.Errorf("environment variable(key: \"%s\") is required", key))
-	}
-	return val
 }
