@@ -16,8 +16,8 @@ install:
 ifeq ($(PROTOC),)
 ifeq ($(UNAME),Darwin)
 	curl -OL "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/$(PROTOC_ZIP_MACOS)"
-	unzip -o $(PROTOC_ZIP_MACOS) -d /usr/local bin/protoc
-	unzip -o $(PROTOC_ZIP_MACOS) -d /usr/local 'include/*'
+	unzip -o $(PROTOC_ZIP_MACOS) -d $${HOME}/.local && \
+	export PATH="$${PATH}:$${HOME}/.local/bin"
 	rm -f $PROTOC_ZIP
 endif
 ifeq ($(UNAME), Linux)
