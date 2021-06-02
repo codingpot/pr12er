@@ -13,9 +13,10 @@ enum Category {
 }
 
 enum Framework {
-  FRAMEWORK_TENSORFLOW = 0;
-  FRAMEWORK_PYTORCH = 1;
-  OTHERS = 2;
+  FRAMEWORK_UNSPECIFIED = 0;
+  FRAMEWORK_TENSORFLOW = 1;
+  FRAMEWORK_PYTORCH = 2;
+  FRAMEWORK_OTHERS = 3;
 }
 
 message Video {
