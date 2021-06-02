@@ -11,9 +11,14 @@ message HelloResponse { string body = 1; }
 
 message GetVideosResponse { repeated Video videos = 1; }
 
-message GetVideosRequest {}
+message GetVideosRequest { }
+
+message GetDetailsResponse { Detail detail = 1; }
+
+message GetDetailsRequest { string paper_title = 1; }
 
 service Pr12erService {
   rpc GetHello(HelloRequest) returns (HelloResponse);
   rpc GetVideos(GetVideosRequest) returns (GetVideosResponse);
+  rpc GetDetails(GetDetailsRequest) returns (GetDetailsResponse);
 }

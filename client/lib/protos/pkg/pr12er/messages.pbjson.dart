@@ -23,6 +23,18 @@ const Category$json = const {
 
 /// Descriptor for `Category`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List categoryDescriptor = $convert.base64Decode('CghDYXRlZ29yeRIYChRDQVRFR09SWV9VTlNQRUNJRklFRBAAEhMKD0NBVEVHT1JZX1ZJU0lPThABEhAKDENBVEVHT1JZX05MUBACEhAKDENBVEVHT1JZX09DUhADEhIKDkNBVEVHT1JZX0FVRElPEAQSDwoLQ0FURUdPUllfUlMQBQ==');
+@$core.Deprecated('Use frameworkDescriptor instead')
+const Framework$json = const {
+  '1': 'Framework',
+  '2': const [
+    const {'1': 'FRAMEWORK_TENSORFLOW', '2': 0},
+    const {'1': 'FRAMEWORK_PYTORCH', '2': 1},
+    const {'1': 'OTHERS', '2': 2},
+  ],
+};
+
+/// Descriptor for `Framework`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List frameworkDescriptor = $convert.base64Decode('CglGcmFtZXdvcmsSGAoURlJBTUVXT1JLX1RFTlNPUkZMT1cQABIVChFGUkFNRVdPUktfUFlUT1JDSBABEgoKBk9USEVSUxAC');
 @$core.Deprecated('Use videoDescriptor instead')
 const Video$json = const {
   '1': 'Video',
@@ -39,3 +51,58 @@ const Video$json = const {
 
 /// Descriptor for `Video`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoBVIMbnVtYmVyT2ZMaWtlEhoKCGtleXdvcmRzGAcgAygJUghrZXl3b3Jkcw==');
+@$core.Deprecated('Use detailDescriptor instead')
+const Detail$json = const {
+  '1': 'Detail',
+  '2': const [
+    const {'1': 'paper', '3': 1, '4': 1, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'paper'},
+    const {'1': 'repositories', '3': 2, '4': 3, '5': 11, '6': '.pkg.pr12er.Repository', '10': 'repositories'},
+    const {'1': 'methods', '3': 3, '4': 3, '5': 11, '6': '.pkg.pr12er.Method', '10': 'methods'},
+    const {'1': 'relevant_papers', '3': 4, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'relevantPapers'},
+    const {'1': 'same_author_papers', '3': 5, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'sameAuthorPapers'},
+  ],
+};
+
+/// Descriptor for `Detail`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List detailDescriptor = $convert.base64Decode('CgZEZXRhaWwSJwoFcGFwZXIYASABKAsyES5wa2cucHIxMmVyLlBhcGVyUgVwYXBlchI6CgxyZXBvc2l0b3JpZXMYAiADKAsyFi5wa2cucHIxMmVyLlJlcG9zaXRvcnlSDHJlcG9zaXRvcmllcxIsCgdtZXRob2RzGAMgAygLMhIucGtnLnByMTJlci5NZXRob2RSB21ldGhvZHMSOgoPcmVsZXZhbnRfcGFwZXJzGAQgAygLMhEucGtnLnByMTJlci5QYXBlclIOcmVsZXZhbnRQYXBlcnMSPwoSc2FtZV9hdXRob3JfcGFwZXJzGAUgAygLMhEucGtnLnByMTJlci5QYXBlclIQc2FtZUF1dGhvclBhcGVycw==');
+@$core.Deprecated('Use paperDescriptor instead')
+const Paper$json = const {
+  '1': 'Paper',
+  '2': const [
+    const {'1': 'paper_id', '3': 1, '4': 1, '5': 9, '10': 'paperId'},
+    const {'1': 'arxiv_id', '3': 2, '4': 1, '5': 9, '10': 'arxivId'},
+    const {'1': 'absract', '3': 3, '4': 1, '5': 9, '10': 'absract'},
+    const {'1': 'pub_date', '3': 4, '4': 1, '5': 9, '10': 'pubDate'},
+    const {'1': 'authors', '3': 5, '4': 3, '5': 9, '10': 'authors'},
+  ],
+};
+
+/// Descriptor for `Paper`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List paperDescriptor = $convert.base64Decode('CgVQYXBlchIZCghwYXBlcl9pZBgBIAEoCVIHcGFwZXJJZBIZCghhcnhpdl9pZBgCIAEoCVIHYXJ4aXZJZBIYCgdhYnNyYWN0GAMgASgJUgdhYnNyYWN0EhkKCHB1Yl9kYXRlGAQgASgJUgdwdWJEYXRlEhgKB2F1dGhvcnMYBSADKAlSB2F1dGhvcnM=');
+@$core.Deprecated('Use repositoryDescriptor instead')
+const Repository$json = const {
+  '1': 'Repository',
+  '2': const [
+    const {'1': 'is_official', '3': 1, '4': 1, '5': 8, '10': 'isOfficial'},
+    const {'1': 'url', '3': 2, '4': 1, '5': 9, '10': 'url'},
+    const {'1': 'owner', '3': 3, '4': 1, '5': 9, '10': 'owner'},
+    const {'1': 'framework', '3': 4, '4': 1, '5': 14, '6': '.pkg.pr12er.Framework', '10': 'framework'},
+    const {'1': 'number_of_stars', '3': 5, '4': 1, '5': 5, '10': 'numberOfStars'},
+    const {'1': 'description', '3': 6, '4': 1, '5': 9, '10': 'description'},
+  ],
+};
+
+/// Descriptor for `Repository`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List repositoryDescriptor = $convert.base64Decode('CgpSZXBvc2l0b3J5Eh8KC2lzX29mZmljaWFsGAEgASgIUgppc09mZmljaWFsEhAKA3VybBgCIAEoCVIDdXJsEhQKBW93bmVyGAMgASgJUgVvd25lchIzCglmcmFtZXdvcmsYBCABKA4yFS5wa2cucHIxMmVyLkZyYW1ld29ya1IJZnJhbWV3b3JrEiYKD251bWJlcl9vZl9zdGFycxgFIAEoBVINbnVtYmVyT2ZTdGFycxIgCgtkZXNjcmlwdGlvbhgGIAEoCVILZGVzY3JpcHRpb24=');
+@$core.Deprecated('Use methodDescriptor instead')
+const Method$json = const {
+  '1': 'Method',
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'full_name', '3': 2, '4': 1, '5': 9, '10': 'fullName'},
+    const {'1': 'description', '3': 3, '4': 1, '5': 9, '10': 'description'},
+  ],
+};
+
+/// Descriptor for `Method`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List methodDescriptor = $convert.base64Decode('CgZNZXRob2QSEgoEbmFtZRgBIAEoCVIEbmFtZRIbCglmdWxsX25hbWUYAiABKAlSCGZ1bGxOYW1lEiAKC2Rlc2NyaXB0aW9uGAMgASgJUgtkZXNjcmlwdGlvbg==');

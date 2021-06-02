@@ -138,3 +138,373 @@ class Video extends $pb.GeneratedMessage {
   $core.List<$core.String> get keywords => $_getList(6);
 }
 
+class Detail extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Detail', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..aOM<Paper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paper', subBuilder: Paper.create)
+    ..pc<Repository>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repositories', $pb.PbFieldType.PM, subBuilder: Repository.create)
+    ..pc<Method>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methods', $pb.PbFieldType.PM, subBuilder: Method.create)
+    ..pc<Paper>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'relevantPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
+    ..pc<Paper>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sameAuthorPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
+    ..hasRequiredFields = false
+  ;
+
+  Detail._() : super();
+  factory Detail({
+    Paper? paper,
+    $core.Iterable<Repository>? repositories,
+    $core.Iterable<Method>? methods,
+    $core.Iterable<Paper>? relevantPapers,
+    $core.Iterable<Paper>? sameAuthorPapers,
+  }) {
+    final _result = create();
+    if (paper != null) {
+      _result.paper = paper;
+    }
+    if (repositories != null) {
+      _result.repositories.addAll(repositories);
+    }
+    if (methods != null) {
+      _result.methods.addAll(methods);
+    }
+    if (relevantPapers != null) {
+      _result.relevantPapers.addAll(relevantPapers);
+    }
+    if (sameAuthorPapers != null) {
+      _result.sameAuthorPapers.addAll(sameAuthorPapers);
+    }
+    return _result;
+  }
+  factory Detail.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Detail.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Detail clone() => Detail()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Detail copyWith(void Function(Detail) updates) => super.copyWith((message) => updates(message as Detail)) as Detail; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Detail create() => Detail._();
+  Detail createEmptyInstance() => create();
+  static $pb.PbList<Detail> createRepeated() => $pb.PbList<Detail>();
+  @$core.pragma('dart2js:noInline')
+  static Detail getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Detail>(create);
+  static Detail? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Paper get paper => $_getN(0);
+  @$pb.TagNumber(1)
+  set paper(Paper v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPaper() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPaper() => clearField(1);
+  @$pb.TagNumber(1)
+  Paper ensurePaper() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.List<Repository> get repositories => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.List<Method> get methods => $_getList(2);
+
+  @$pb.TagNumber(4)
+  $core.List<Paper> get relevantPapers => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.List<Paper> get sameAuthorPapers => $_getList(4);
+}
+
+class Paper extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Paper', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arxivId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absract')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubDate')
+    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authors')
+    ..hasRequiredFields = false
+  ;
+
+  Paper._() : super();
+  factory Paper({
+    $core.String? paperId,
+    $core.String? arxivId,
+    $core.String? absract,
+    $core.String? pubDate,
+    $core.Iterable<$core.String>? authors,
+  }) {
+    final _result = create();
+    if (paperId != null) {
+      _result.paperId = paperId;
+    }
+    if (arxivId != null) {
+      _result.arxivId = arxivId;
+    }
+    if (absract != null) {
+      _result.absract = absract;
+    }
+    if (pubDate != null) {
+      _result.pubDate = pubDate;
+    }
+    if (authors != null) {
+      _result.authors.addAll(authors);
+    }
+    return _result;
+  }
+  factory Paper.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Paper.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Paper clone() => Paper()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Paper copyWith(void Function(Paper) updates) => super.copyWith((message) => updates(message as Paper)) as Paper; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Paper create() => Paper._();
+  Paper createEmptyInstance() => create();
+  static $pb.PbList<Paper> createRepeated() => $pb.PbList<Paper>();
+  @$core.pragma('dart2js:noInline')
+  static Paper getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Paper>(create);
+  static Paper? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get paperId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set paperId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPaperId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPaperId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get arxivId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set arxivId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasArxivId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearArxivId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get absract => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set absract($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasAbsract() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAbsract() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get pubDate => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set pubDate($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasPubDate() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPubDate() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.List<$core.String> get authors => $_getList(4);
+}
+
+class Repository extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Repository', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isOfficial')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'url')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'owner')
+    ..e<Framework>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'framework', $pb.PbFieldType.OE, defaultOrMaker: Framework.FRAMEWORK_TENSORFLOW, valueOf: Framework.valueOf, enumValues: Framework.values)
+    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfStars', $pb.PbFieldType.O3)
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+    ..hasRequiredFields = false
+  ;
+
+  Repository._() : super();
+  factory Repository({
+    $core.bool? isOfficial,
+    $core.String? url,
+    $core.String? owner,
+    Framework? framework,
+    $core.int? numberOfStars,
+    $core.String? description,
+  }) {
+    final _result = create();
+    if (isOfficial != null) {
+      _result.isOfficial = isOfficial;
+    }
+    if (url != null) {
+      _result.url = url;
+    }
+    if (owner != null) {
+      _result.owner = owner;
+    }
+    if (framework != null) {
+      _result.framework = framework;
+    }
+    if (numberOfStars != null) {
+      _result.numberOfStars = numberOfStars;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    return _result;
+  }
+  factory Repository.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Repository.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Repository clone() => Repository()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Repository copyWith(void Function(Repository) updates) => super.copyWith((message) => updates(message as Repository)) as Repository; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Repository create() => Repository._();
+  Repository createEmptyInstance() => create();
+  static $pb.PbList<Repository> createRepeated() => $pb.PbList<Repository>();
+  @$core.pragma('dart2js:noInline')
+  static Repository getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Repository>(create);
+  static Repository? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get isOfficial => $_getBF(0);
+  @$pb.TagNumber(1)
+  set isOfficial($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIsOfficial() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIsOfficial() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get url => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set url($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUrl() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUrl() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get owner => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set owner($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasOwner() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearOwner() => clearField(3);
+
+  @$pb.TagNumber(4)
+  Framework get framework => $_getN(3);
+  @$pb.TagNumber(4)
+  set framework(Framework v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasFramework() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearFramework() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get numberOfStars => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set numberOfStars($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasNumberOfStars() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearNumberOfStars() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get description => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set description($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasDescription() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearDescription() => clearField(6);
+}
+
+class Method extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Method', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fullName')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+    ..hasRequiredFields = false
+  ;
+
+  Method._() : super();
+  factory Method({
+    $core.String? name,
+    $core.String? fullName,
+    $core.String? description,
+  }) {
+    final _result = create();
+    if (name != null) {
+      _result.name = name;
+    }
+    if (fullName != null) {
+      _result.fullName = fullName;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    return _result;
+  }
+  factory Method.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Method.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Method clone() => Method()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Method copyWith(void Function(Method) updates) => super.copyWith((message) => updates(message as Method)) as Method; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Method create() => Method._();
+  Method createEmptyInstance() => create();
+  static $pb.PbList<Method> createRepeated() => $pb.PbList<Method>();
+  @$core.pragma('dart2js:noInline')
+  static Method getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Method>(create);
+  static Method? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get name => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set name($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get fullName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set fullName($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasFullName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFullName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get description => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set description($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasDescription() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDescription() => clearField(3);
+}
+

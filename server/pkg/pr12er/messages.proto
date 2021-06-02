@@ -12,6 +12,12 @@ enum Category {
   CATEGORY_RS = 5;
 }
 
+enum Framework {
+  FRAMEWORK_TENSORFLOW = 0;
+  FRAMEWORK_PYTORCH = 1;
+  OTHERS = 2;
+}
+
 message Video {
   int32 id = 1;
   string title = 2;
@@ -20,4 +26,35 @@ message Video {
   Category category = 5;
   int32 number_of_like = 6;
   repeated string keywords = 7;
+}
+
+message Detail {
+  Paper paper = 1;
+  repeated Repository repositories = 2;
+  repeated Method methods = 3;
+  repeated Paper relevant_papers = 4;
+  repeated Paper same_author_papers = 5;
+}
+
+message Paper {
+  string paper_id = 1;
+  string arxiv_id = 2;
+  string absract = 3;
+  string pub_date = 4;
+  repeated string authors = 5;
+}
+
+message Repository {
+  bool is_official = 1;
+  string url = 2;
+  string owner = 3;
+  Framework framework = 4;
+  int32 number_of_stars = 5;
+  string description = 6;
+}
+
+message Method {
+  string name = 1;
+  string full_name = 2;
+  string description = 3;
 }

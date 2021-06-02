@@ -32,3 +32,20 @@ class Category extends $pb.ProtobufEnum {
   const Category._($core.int v, $core.String n) : super(v, n);
 }
 
+class Framework extends $pb.ProtobufEnum {
+  static const Framework FRAMEWORK_TENSORFLOW = Framework._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'FRAMEWORK_TENSORFLOW');
+  static const Framework FRAMEWORK_PYTORCH = Framework._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'FRAMEWORK_PYTORCH');
+  static const Framework OTHERS = Framework._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'OTHERS');
+
+  static const $core.List<Framework> values = <Framework> [
+    FRAMEWORK_TENSORFLOW,
+    FRAMEWORK_PYTORCH,
+    OTHERS,
+  ];
+
+  static final $core.Map<$core.int, Framework> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static Framework? valueOf($core.int value) => _byValue[value];
+
+  const Framework._($core.int v, $core.String n) : super(v, n);
+}
+
