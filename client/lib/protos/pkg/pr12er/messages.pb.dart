@@ -140,31 +140,26 @@ class Video extends $pb.GeneratedMessage {
 
 class Detail extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Detail', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
-    ..aOM<Paper>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paper', subBuilder: Paper.create)
-    ..pc<Repository>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repositories', $pb.PbFieldType.PM, subBuilder: Repository.create)
-    ..pc<Method>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methods', $pb.PbFieldType.PM, subBuilder: Method.create)
-    ..pc<Paper>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'relevantPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
-    ..pc<Paper>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sameAuthorPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperId', $pb.PbFieldType.O3)
+    ..pc<Paper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paper', $pb.PbFieldType.PM, subBuilder: Paper.create)
+    ..pc<Paper>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'relevantPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
+    ..pc<Paper>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sameAuthorPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
     ..hasRequiredFields = false
   ;
 
   Detail._() : super();
   factory Detail({
-    Paper? paper,
-    $core.Iterable<Repository>? repositories,
-    $core.Iterable<Method>? methods,
+    $core.int? paperId,
+    $core.Iterable<Paper>? paper,
     $core.Iterable<Paper>? relevantPapers,
     $core.Iterable<Paper>? sameAuthorPapers,
   }) {
     final _result = create();
+    if (paperId != null) {
+      _result.paperId = paperId;
+    }
     if (paper != null) {
-      _result.paper = paper;
-    }
-    if (repositories != null) {
-      _result.repositories.addAll(repositories);
-    }
-    if (methods != null) {
-      _result.methods.addAll(methods);
+      _result.paper.addAll(paper);
     }
     if (relevantPapers != null) {
       _result.relevantPapers.addAll(relevantPapers);
@@ -196,27 +191,22 @@ class Detail extends $pb.GeneratedMessage {
   static Detail? _defaultInstance;
 
   @$pb.TagNumber(1)
-  Paper get paper => $_getN(0);
+  $core.int get paperId => $_getIZ(0);
   @$pb.TagNumber(1)
-  set paper(Paper v) { setField(1, v); }
+  set paperId($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaper() => $_has(0);
+  $core.bool hasPaperId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaper() => clearField(1);
-  @$pb.TagNumber(1)
-  Paper ensurePaper() => $_ensure(0);
+  void clearPaperId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<Repository> get repositories => $_getList(1);
+  $core.List<Paper> get paper => $_getList(1);
 
   @$pb.TagNumber(3)
-  $core.List<Method> get methods => $_getList(2);
+  $core.List<Paper> get relevantPapers => $_getList(2);
 
   @$pb.TagNumber(4)
-  $core.List<Paper> get relevantPapers => $_getList(3);
-
-  @$pb.TagNumber(5)
-  $core.List<Paper> get sameAuthorPapers => $_getList(4);
+  $core.List<Paper> get sameAuthorPapers => $_getList(3);
 }
 
 class Paper extends $pb.GeneratedMessage {
@@ -226,6 +216,8 @@ class Paper extends $pb.GeneratedMessage {
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absract')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubDate')
     ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authors')
+    ..pc<Repository>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repositories', $pb.PbFieldType.PM, subBuilder: Repository.create)
+    ..pc<Method>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methods', $pb.PbFieldType.PM, subBuilder: Method.create)
     ..hasRequiredFields = false
   ;
 
@@ -236,6 +228,8 @@ class Paper extends $pb.GeneratedMessage {
     $core.String? absract,
     $core.String? pubDate,
     $core.Iterable<$core.String>? authors,
+    $core.Iterable<Repository>? repositories,
+    $core.Iterable<Method>? methods,
   }) {
     final _result = create();
     if (paperId != null) {
@@ -252,6 +246,12 @@ class Paper extends $pb.GeneratedMessage {
     }
     if (authors != null) {
       _result.authors.addAll(authors);
+    }
+    if (repositories != null) {
+      _result.repositories.addAll(repositories);
+    }
+    if (methods != null) {
+      _result.methods.addAll(methods);
     }
     return _result;
   }
@@ -314,6 +314,12 @@ class Paper extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(5)
   $core.List<$core.String> get authors => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $core.List<Repository> get repositories => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $core.List<Method> get methods => $_getList(6);
 }
 
 class Repository extends $pb.GeneratedMessage {

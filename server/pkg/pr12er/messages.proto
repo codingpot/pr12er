@@ -30,11 +30,10 @@ message Video {
 }
 
 message Detail {
-  Paper paper = 1;
-  repeated Repository repositories = 2;
-  repeated Method methods = 3;
-  repeated Paper relevant_papers = 4;
-  repeated Paper same_author_papers = 5;
+  int32 paper_id = 1;
+  repeated Paper paper = 2;
+  repeated Paper relevant_papers = 3;
+  repeated Paper same_author_papers = 4;
 }
 
 message Paper {
@@ -43,6 +42,8 @@ message Paper {
   string absract = 3;
   string pub_date = 4;
   repeated string authors = 5;
+  repeated Repository repositories = 6;
+  repeated Method methods = 7;  
 }
 
 message Repository {
