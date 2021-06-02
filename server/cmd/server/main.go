@@ -13,7 +13,6 @@ import (
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/sirupsen/logrus"
 	log "github.com/sirupsen/logrus"
 
 	"google.golang.org/grpc"
@@ -24,10 +23,10 @@ import (
 )
 
 var (
-	logrusLogger *logrus.Logger
+	logrusLogger *log.Logger
 	customFunc   grpc_logrus.CodeToLevel
 	logrusOpts   []grpc_logrus.Option
-	logrusEntry  *logrus.Entry
+	logrusEntry  *log.Entry
 )
 
 var (
@@ -45,16 +44,16 @@ func initPrometheus() {
 }
 
 func initGrpcLogrus() {
-	logrusLogger = logrus.New()
-	customFunc = func(code codes.Code) logrus.Level {
+	logrusLogger = log.New()
+	customFunc = func(code codes.Code) log.Level {
 		if code == codes.OK {
-			return logrus.InfoLevel
+			return log.InfoLevel
 		}
-		return logrus.ErrorLevel
+		return log.ErrorLevel
 	}
 
 	// Logrus entry is used, allowing pre-definition of certain fields by the user.
-	logrusEntry = logrus.NewEntry(logrusLogger)
+	logrusEntry = log.NewEntry(logrusLogger)
 	// Shared options for the logger, with a custom gRPC code to log level function.
 	logrusOpts = []grpc_logrus.Option{
 		grpc_logrus.WithLevels(customFunc),
