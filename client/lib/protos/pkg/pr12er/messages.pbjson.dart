@@ -27,14 +27,15 @@ final $typed_data.Uint8List categoryDescriptor = $convert.base64Decode('CghDYXRl
 const Framework$json = const {
   '1': 'Framework',
   '2': const [
-    const {'1': 'FRAMEWORK_TENSORFLOW', '2': 0},
-    const {'1': 'FRAMEWORK_PYTORCH', '2': 1},
-    const {'1': 'OTHERS', '2': 2},
+    const {'1': 'FRAMEWORK_UNSPECIFIED', '2': 0},
+    const {'1': 'FRAMEWORK_TENSORFLOW', '2': 1},
+    const {'1': 'FRAMEWORK_PYTORCH', '2': 2},
+    const {'1': 'FRAMEWORK_OTHERS', '2': 3},
   ],
 };
 
 /// Descriptor for `Framework`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List frameworkDescriptor = $convert.base64Decode('CglGcmFtZXdvcmsSGAoURlJBTUVXT1JLX1RFTlNPUkZMT1cQABIVChFGUkFNRVdPUktfUFlUT1JDSBABEgoKBk9USEVSUxAC');
+final $typed_data.Uint8List frameworkDescriptor = $convert.base64Decode('CglGcmFtZXdvcmsSGQoVRlJBTUVXT1JLX1VOU1BFQ0lGSUVEEAASGAoURlJBTUVXT1JLX1RFTlNPUkZMT1cQARIVChFGUkFNRVdPUktfUFlUT1JDSBACEhQKEEZSQU1FV09SS19PVEhFUlMQAw==');
 @$core.Deprecated('Use videoDescriptor instead')
 const Video$json = const {
   '1': 'Video',

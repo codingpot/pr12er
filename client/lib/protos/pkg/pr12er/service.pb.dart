@@ -226,17 +226,17 @@ class GetDetailsResponse extends $pb.GeneratedMessage {
 
 class GetDetailsRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetDetailsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperTitle')
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'videoId', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   GetDetailsRequest._() : super();
   factory GetDetailsRequest({
-    $core.String? paperTitle,
+    $core.int? videoId,
   }) {
     final _result = create();
-    if (paperTitle != null) {
-      _result.paperTitle = paperTitle;
+    if (videoId != null) {
+      _result.videoId = videoId;
     }
     return _result;
   }
@@ -262,12 +262,12 @@ class GetDetailsRequest extends $pb.GeneratedMessage {
   static GetDetailsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get paperTitle => $_getSZ(0);
+  $core.int get videoId => $_getIZ(0);
   @$pb.TagNumber(1)
-  set paperTitle($core.String v) { $_setString(0, v); }
+  set videoId($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaperTitle() => $_has(0);
+  $core.bool hasVideoId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaperTitle() => clearField(1);
+  void clearVideoId() => clearField(1);
 }
 
