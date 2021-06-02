@@ -56,7 +56,7 @@ final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxI
 const Detail$json = const {
   '1': 'Detail',
   '2': const [
-    const {'1': 'paper_id', '3': 1, '4': 1, '5': 5, '10': 'paperId'},
+    const {'1': 'pr_id', '3': 1, '4': 1, '5': 5, '10': 'prId'},
     const {'1': 'paper', '3': 2, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'paper'},
     const {'1': 'relevant_papers', '3': 3, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'relevantPapers'},
     const {'1': 'same_author_papers', '3': 4, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'sameAuthorPapers'},
@@ -64,7 +64,7 @@ const Detail$json = const {
 };
 
 /// Descriptor for `Detail`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List detailDescriptor = $convert.base64Decode('CgZEZXRhaWwSGQoIcGFwZXJfaWQYASABKAVSB3BhcGVySWQSJwoFcGFwZXIYAiADKAsyES5wa2cucHIxMmVyLlBhcGVyUgVwYXBlchI6Cg9yZWxldmFudF9wYXBlcnMYAyADKAsyES5wa2cucHIxMmVyLlBhcGVyUg5yZWxldmFudFBhcGVycxI/ChJzYW1lX2F1dGhvcl9wYXBlcnMYBCADKAsyES5wa2cucHIxMmVyLlBhcGVyUhBzYW1lQXV0aG9yUGFwZXJz');
+final $typed_data.Uint8List detailDescriptor = $convert.base64Decode('CgZEZXRhaWwSEwoFcHJfaWQYASABKAVSBHBySWQSJwoFcGFwZXIYAiADKAsyES5wa2cucHIxMmVyLlBhcGVyUgVwYXBlchI6Cg9yZWxldmFudF9wYXBlcnMYAyADKAsyES5wa2cucHIxMmVyLlBhcGVyUg5yZWxldmFudFBhcGVycxI/ChJzYW1lX2F1dGhvcl9wYXBlcnMYBCADKAsyES5wa2cucHIxMmVyLlBhcGVyUhBzYW1lQXV0aG9yUGFwZXJz');
 @$core.Deprecated('Use paperDescriptor instead')
 const Paper$json = const {
   '1': 'Paper',

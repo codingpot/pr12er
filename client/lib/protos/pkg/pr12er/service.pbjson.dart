@@ -59,9 +59,9 @@ final $typed_data.Uint8List getDetailsResponseDescriptor = $convert.base64Decode
 const GetDetailsRequest$json = const {
   '1': 'GetDetailsRequest',
   '2': const [
-    const {'1': 'video_id', '3': 1, '4': 1, '5': 5, '10': 'videoId'},
+    const {'1': 'pr_id', '3': 1, '4': 1, '5': 5, '10': 'prId'},
   ],
 };
 
 /// Descriptor for `GetDetailsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getDetailsRequestDescriptor = $convert.base64Decode('ChFHZXREZXRhaWxzUmVxdWVzdBIZCgh2aWRlb19pZBgBIAEoBVIHdmlkZW9JZA==');
+final $typed_data.Uint8List getDetailsRequestDescriptor = $convert.base64Decode('ChFHZXREZXRhaWxzUmVxdWVzdBITCgVwcl9pZBgBIAEoBVIEcHJJZA==');

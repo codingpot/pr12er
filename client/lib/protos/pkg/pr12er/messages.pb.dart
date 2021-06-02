@@ -140,7 +140,7 @@ class Video extends $pb.GeneratedMessage {
 
 class Detail extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Detail', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperId', $pb.PbFieldType.O3)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prId', $pb.PbFieldType.O3)
     ..pc<Paper>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paper', $pb.PbFieldType.PM, subBuilder: Paper.create)
     ..pc<Paper>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'relevantPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
     ..pc<Paper>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sameAuthorPapers', $pb.PbFieldType.PM, subBuilder: Paper.create)
@@ -149,14 +149,14 @@ class Detail extends $pb.GeneratedMessage {
 
   Detail._() : super();
   factory Detail({
-    $core.int? paperId,
+    $core.int? prId,
     $core.Iterable<Paper>? paper,
     $core.Iterable<Paper>? relevantPapers,
     $core.Iterable<Paper>? sameAuthorPapers,
   }) {
     final _result = create();
-    if (paperId != null) {
-      _result.paperId = paperId;
+    if (prId != null) {
+      _result.prId = prId;
     }
     if (paper != null) {
       _result.paper.addAll(paper);
@@ -191,13 +191,13 @@ class Detail extends $pb.GeneratedMessage {
   static Detail? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get paperId => $_getIZ(0);
+  $core.int get prId => $_getIZ(0);
   @$pb.TagNumber(1)
-  set paperId($core.int v) { $_setSignedInt32(0, v); }
+  set prId($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaperId() => $_has(0);
+  $core.bool hasPrId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaperId() => clearField(1);
+  void clearPrId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.List<Paper> get paper => $_getList(1);

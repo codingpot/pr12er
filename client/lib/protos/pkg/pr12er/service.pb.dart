@@ -226,17 +226,17 @@ class GetDetailsResponse extends $pb.GeneratedMessage {
 
 class GetDetailsRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetDetailsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'videoId', $pb.PbFieldType.O3)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prId', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   GetDetailsRequest._() : super();
   factory GetDetailsRequest({
-    $core.int? videoId,
+    $core.int? prId,
   }) {
     final _result = create();
-    if (videoId != null) {
-      _result.videoId = videoId;
+    if (prId != null) {
+      _result.prId = prId;
     }
     return _result;
   }
@@ -262,12 +262,12 @@ class GetDetailsRequest extends $pb.GeneratedMessage {
   static GetDetailsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get videoId => $_getIZ(0);
+  $core.int get prId => $_getIZ(0);
   @$pb.TagNumber(1)
-  set videoId($core.int v) { $_setSignedInt32(0, v); }
+  set prId($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasVideoId() => $_has(0);
+  $core.bool hasPrId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearVideoId() => clearField(1);
+  void clearPrId() => clearField(1);
 }
 
