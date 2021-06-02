@@ -30,7 +30,7 @@ message Video {
 }
 
 message Detail {
-  int32 paper_id = 1;
+  int32 pr_id = 1;
   repeated Paper paper = 2;
   repeated Paper relevant_papers = 3;
   repeated Paper same_author_papers = 4;
