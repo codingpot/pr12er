@@ -25,6 +25,12 @@ class Pr12erServiceClient extends $grpc.Client {
           ($0.GetVideosRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.GetVideosResponse.fromBuffer(value));
+  static final _$getDetails =
+      $grpc.ClientMethod<$0.GetDetailsRequest, $0.GetDetailsResponse>(
+          '/pkg.pr12er.Pr12erService/GetDetails',
+          ($0.GetDetailsRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.GetDetailsResponse.fromBuffer(value));
 
   Pr12erServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -40,6 +46,12 @@ class Pr12erServiceClient extends $grpc.Client {
       $0.GetVideosRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getVideos, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.GetDetailsResponse> getDetails(
+      $0.GetDetailsRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getDetails, request, options: options);
   }
 }
 
@@ -61,6 +73,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.GetVideosRequest.fromBuffer(value),
         ($0.GetVideosResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetDetailsRequest, $0.GetDetailsResponse>(
+        'GetDetails',
+        getDetails_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.GetDetailsRequest.fromBuffer(value),
+        ($0.GetDetailsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.HelloResponse> getHello_Pre(
@@ -73,8 +92,15 @@ abstract class Pr12erServiceBase extends $grpc.Service {
     return getVideos(call, await request);
   }
 
+  $async.Future<$0.GetDetailsResponse> getDetails_Pre($grpc.ServiceCall call,
+      $async.Future<$0.GetDetailsRequest> request) async {
+    return getDetails(call, await request);
+  }
+
   $async.Future<$0.HelloResponse> getHello(
       $grpc.ServiceCall call, $0.HelloRequest request);
   $async.Future<$0.GetVideosResponse> getVideos(
       $grpc.ServiceCall call, $0.GetVideosRequest request);
+  $async.Future<$0.GetDetailsResponse> getDetails(
+      $grpc.ServiceCall call, $0.GetDetailsRequest request);
 }
