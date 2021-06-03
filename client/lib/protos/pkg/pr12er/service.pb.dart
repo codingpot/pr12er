@@ -175,3 +175,99 @@ class GetVideosRequest extends $pb.GeneratedMessage {
   static GetVideosRequest? _defaultInstance;
 }
 
+class GetDetailsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetDetailsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..aOM<$1.Detail>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'detail', subBuilder: $1.Detail.create)
+    ..hasRequiredFields = false
+  ;
+
+  GetDetailsResponse._() : super();
+  factory GetDetailsResponse({
+    $1.Detail? detail,
+  }) {
+    final _result = create();
+    if (detail != null) {
+      _result.detail = detail;
+    }
+    return _result;
+  }
+  factory GetDetailsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetDetailsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetDetailsResponse clone() => GetDetailsResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetDetailsResponse copyWith(void Function(GetDetailsResponse) updates) => super.copyWith((message) => updates(message as GetDetailsResponse)) as GetDetailsResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetDetailsResponse create() => GetDetailsResponse._();
+  GetDetailsResponse createEmptyInstance() => create();
+  static $pb.PbList<GetDetailsResponse> createRepeated() => $pb.PbList<GetDetailsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetDetailsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetDetailsResponse>(create);
+  static GetDetailsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $1.Detail get detail => $_getN(0);
+  @$pb.TagNumber(1)
+  set detail($1.Detail v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDetail() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDetail() => clearField(1);
+  @$pb.TagNumber(1)
+  $1.Detail ensureDetail() => $_ensure(0);
+}
+
+class GetDetailsRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetDetailsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prId', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  GetDetailsRequest._() : super();
+  factory GetDetailsRequest({
+    $core.int? prId,
+  }) {
+    final _result = create();
+    if (prId != null) {
+      _result.prId = prId;
+    }
+    return _result;
+  }
+  factory GetDetailsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetDetailsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetDetailsRequest clone() => GetDetailsRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetDetailsRequest copyWith(void Function(GetDetailsRequest) updates) => super.copyWith((message) => updates(message as GetDetailsRequest)) as GetDetailsRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetDetailsRequest create() => GetDetailsRequest._();
+  GetDetailsRequest createEmptyInstance() => create();
+  static $pb.PbList<GetDetailsRequest> createRepeated() => $pb.PbList<GetDetailsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetDetailsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetDetailsRequest>(create);
+  static GetDetailsRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get prId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set prId($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPrId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPrId() => clearField(1);
+}
+
