@@ -73,7 +73,7 @@ jobs:
           sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
           mkdir -p $HOME/.kube
           echo "${{ secrets.KKWEON_RASPBERRY_KUBECONFIG }}" | base64 -d > $HOME/.kube/config
-          kubectl --version
+          kubectl version
 
           kubectl apply -f k8s/kkweon-raspberry
           kubectl set image deployments/server server=kkweon/pr12er-server:${{ github.sha }}
