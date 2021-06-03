@@ -63,6 +63,8 @@ test.go: lint.go
 .PHONY: format.go
 format.go:
 	cd server && gci -w . && gofumpt -w -s .
+	# regenerate as generated files should not be edited.
+	make gen.all
 
 .PHONY: lint.go
 lint.go:
