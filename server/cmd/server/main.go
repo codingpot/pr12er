@@ -31,6 +31,7 @@ func main() {
 	s := serv.Server{}
 
 	logNewEntry := log.NewEntry(log.New())
+
 	grpcServer := grpc.NewServer(
 		grpc.ChainUnaryInterceptor(
 			grpc_ctxtags.UnaryServerInterceptor(grpc_ctxtags.WithFieldExtractor(grpc_ctxtags.CodeGenRequestFieldExtractor)),
