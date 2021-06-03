@@ -19,8 +19,6 @@ func TestGetHello(t *testing.T) {
 }
 
 func TestGetVideos(t *testing.T) {
-	t.Skip("Remove this when GetVideos() implemented")
-
 	s := Server{}
 	req := pr12er.GetVideosRequest{}
 	resp, err := s.GetVideos(context.Background(), &req)
@@ -28,5 +26,5 @@ func TestGetVideos(t *testing.T) {
 	assert.NoError(t, err)
 
 	t.Log("it should return non empty video list.")
-	assert.Greater(t, 0, len(resp.Videos))
+	assert.Greater(t, len(resp.Videos), 0)
 }

@@ -1,48 +1,47 @@
-.PHONY: install gen.go gen.dart test.gen clean
 .DEFAULT_GOAL := gen.all
 
-PROTOC := $(shell which protoc)
-PROTOC_GEN_GO := $(shell which protoc-gen-go)
 PROTOC_VERSION := 3.17.0
 PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
+PROTOC_URL := $(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/
 PROTO_FILES := $(shell find . -name "*.proto" -type f)
 UNAME := $(shell uname)
-GOPATH := ${GOPATH}
 
 PROTOC_ZIP_MACOS := protoc-$(PROTOC_VERSION)-osx-x86_64.zip
 PROTOC_ZIP_LINUX := protoc-$(PROTOC_VERSION)-linux-x86_64.zip
 
-install:
-ifeq ($(PROTOC),)
 ifeq ($(UNAME),Darwin)
-	curl -OL "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/$(PROTOC_ZIP_MACOS)"
-	unzip -o $(PROTOC_ZIP_MACOS) -d $${HOME}/.local && \
-	export PATH="$${PATH}:$${HOME}/.local/bin"
-	rm -f protoc-*.zip
+	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_MACOS)
+	PROTOC_FILE := $(PROTOC_ZIP_MACOS)
 endif
 ifeq ($(UNAME), Linux)
-	curl -LO "$(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/$(PROTOC_ZIP_LINUX)" && \
-	unzip $(PROTOC_ZIP_LINUX) -d $${HOME}/.local && \
+	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_LINUX)
+	PROTOC_FILE := $(PROTOC_ZIP_LINUX)
+endif
+
+.PHONY: install
+install:
+	curl -OL $(PROTOC_FULL_URL)
+	unzip -o $(PROTOC_FILE) -d $${HOME}/.local
 	export PATH="$${PATH}:$${HOME}/.local/bin"
-endif
-endif
-#ifeq ($(PROTOC_GEN_GO),)
+	rm -f protoc-*.zip
 	(cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | xargs go install)
-#endif
 	pub global activate protoc_plugin
 
+.PHONY: gen.all
 gen.all: gen.go gen.dart
 
+.PHONY: gen.go
 gen.go:
 	mkdir -p ./server/pkg/protos/
 	protoc \
-    --proto_path=server \
-    --go_out=server \
-    --go_opt=paths=source_relative \
-    --go-grpc_out=server \
-    --go-grpc_opt=paths=source_relative \
-    $(PROTO_FILES)
+	--proto_path=server \
+	--go_out=server \
+	--go_opt=paths=source_relative \
+	--go-grpc_out=server \
+	--go-grpc_opt=paths=source_relative \
+	$(PROTO_FILES)
 
+.PHONY: gen.dart
 gen.dart:
 	mkdir -p ./client/lib/protos/ && \
 		protoc \
@@ -50,17 +49,28 @@ gen.dart:
 			--dart_out=grpc:./client/lib/protos \
 			$(PROTO_FILES)
 
-test: gen.all
-	cd server && go test ./...
+.PHONY: test
+test: test.go test.dart
+
+.PHONY: test.dart
+test.dart:
 	cd client && flutter test
 
+.PHONY: test.go
+test.go: lint.go
+	cd server && go test ./...
+
+.PHONY: format.go
+format.go:
+	cd server && gci -w . && gofumpt -w -s .
+	# regenerate as generated files should not be edited.
+	make gen.all
+
+.PHONY: lint.go
+lint.go:
+	cd server && golangci-lint run
+
+.PHONY: clean
 clean:
 	rm -rf ./client/lib/protos
 	rm -rf ./server/pkg/pr12er/*.pb.go
-
-format.go:
-	cd server && gci -w . && gofumpt -w -s .
-	make gen.all
-
-lint.go:
-	cd server && golangci-lint run

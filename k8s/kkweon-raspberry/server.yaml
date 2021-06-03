@@ -10,6 +10,10 @@ spec:
       port: 9000
       protocol: TCP
       targetPort: grpc
+    - name: http
+      port: 9093
+      protocol: TCP
+      targetPort: http
   selector:
     app: server
   type: ClusterIP
@@ -37,6 +41,9 @@ spec:
           ports:
             - containerPort: 9000
               name: grpc
+              protocol: TCP
+            - containerPort: 9093
+              name: http
               protocol: TCP
           resources:
             requests:
