@@ -16,6 +16,7 @@ func TestNewPrometheusServer(t *testing.T) {
 	ts := httptest.NewServer(promServer.Mux)
 	defer ts.Close()
 
+	// nolint: noctx
 	res, err := http.Get(ts.URL + "/metrics")
 	assert.NoError(t, err)
 
