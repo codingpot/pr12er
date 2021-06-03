@@ -16,4 +16,4 @@ profiles:
         - image: kkweon/pr12er-server
           context: server
           docker:
-            dockerfile: Dockerfile.raspberry
+            dockerfile: deploy/Dockerfile.raspberry
