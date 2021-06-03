@@ -11,7 +11,8 @@ var (
 	Nversion = "pr12er-" + Version
 	Debug, _ = strconv.ParseBool(getEnvVar("DEBUG", "false"))
 
-	ServicePort = getEnvVar("PR12ER_GRPC_PORT", "9000")
+	ServicePort    = getEnvVar("PR12ER_GRPC_PORT", "9000")
+	PrometheusPort = getEnvVar("PR12ER_PROMETHEUS_PORT", "9092")
 )
 
 func getEnvVar(key, fallbackValue string) string {
