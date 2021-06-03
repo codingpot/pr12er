@@ -53,6 +53,12 @@ spec:
               cpu: 1000m
               memory: 2Gi
 
+          env:
+            - name: PR12ER_GRPC_PORT
+              value: "9000"
+            - name: PR12ER_PROMETHEUS_PORT
+              value: "9093"
+
           readinessProbe:
             exec:
               command: ["/bin/grpc_health_probe", "--addr=:9000"]
