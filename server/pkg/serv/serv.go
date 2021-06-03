@@ -5,7 +5,6 @@ import (
 	"fmt"
 
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
-	log "github.com/sirupsen/logrus"
 )
 
 type Server struct {
@@ -13,7 +12,6 @@ type Server struct {
 }
 
 func (s Server) GetHello(_ context.Context, in *pr12er.HelloRequest) (*pr12er.HelloResponse, error) {
-	log.Printf("Get Request Hello! body: %s", in.Body)
 	return &pr12er.HelloResponse{Body: fmt.Sprintf("Hello %s", in.Body)}, nil
 }
 
