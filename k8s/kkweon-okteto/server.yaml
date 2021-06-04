@@ -5,18 +5,13 @@ metadata:
     app: server
   name: server
 spec:
+  selector:
+    app: server
   ports:
     - name: grpc
       port: 9000
       protocol: TCP
       targetPort: grpc
-    - name: http
-      port: 9093
-      protocol: TCP
-      targetPort: http-metrics
-  selector:
-    app: server
-  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
