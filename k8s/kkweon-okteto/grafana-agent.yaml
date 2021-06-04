@@ -6,6 +6,7 @@ data:
   agent.yaml: |
     server:
       http_listen_port: 12345
+      http_path_prefix: /grafana-agent/
     prometheus:
       wal_directory: /tmp/grafana-agent-wal
       global:
@@ -42,22 +43,43 @@ data:
         target_config:
           sync_period: 10s
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: grafana-agent
+  name: grafana-agent
+spec:
+  ports:
+    - name: http-metrics
+      port: 12345
+      targetPort: http-metrics
+  selector:
+    app: grafana-agent
+  type: ClusterIP
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: grafana-agent
   name: grafana-agent
   namespace: kkweon
 spec:
   minReadySeconds: 10
   replicas: 1
-  revisionHistoryLimit: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
-      name: grafana-agent
+      app: grafana-agent
   template:
     metadata:
       labels:
-        name: grafana-agent
+        app: grafana-agent
     spec:
       containers:
         - args:
