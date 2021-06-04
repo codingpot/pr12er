@@ -6,7 +6,7 @@ import 'protos/pkg/pr12er/service.pbgrpc.dart';
 class GrpcMsgSender {
   // Use _getLocalhostChannel(port: 9000) to use the localhost version.
   // NOTE: localhost only works in iOS.
-  ClientChannel channel = _getKkweonRaspberryChannel();
+  ClientChannel channel = _getKkweonOktetoChannel();
 
   static final GrpcMsgSender _singleton = new GrpcMsgSender._internal();
 
@@ -33,9 +33,9 @@ class GrpcMsgSender {
   }
 }
 
-ClientChannel _getKkweonRaspberryChannel() {
+ClientChannel _getKkweonOktetoChannel() {
   return ClientChannel(
-    'raspberry.kkweon.dev',
+    'ingress-kkweon.cloud.okteto.net',
     port: 443,
   );
 }
