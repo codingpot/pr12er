@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := gen.all
 
-PROTOC_VERSION := 3.17.0
+PROTOC_VERSION := 3.17.2
 PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
 PROTOC_URL := $(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/
 PROTO_FILES := $(shell find . -name "*.proto" -type f)
@@ -8,14 +8,17 @@ UNAME := $(shell uname)
 
 PROTOC_ZIP_MACOS := protoc-$(PROTOC_VERSION)-osx-x86_64.zip
 PROTOC_ZIP_LINUX := protoc-$(PROTOC_VERSION)-linux-x86_64.zip
+PROTOC_ZIP_WINDOWS := protoc-$(PROTOC_VERSION)-win64.zip
 
 ifeq ($(UNAME),Darwin)
 	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_MACOS)
 	PROTOC_FILE := $(PROTOC_ZIP_MACOS)
-endif
-ifeq ($(UNAME), Linux)
+else ifeq ($(UNAME), Linux)
 	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_LINUX)
 	PROTOC_FILE := $(PROTOC_ZIP_LINUX)
+else ifeq($(UNAME), Windows)
+	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_WINDOWS)
+	PROTOC_FILE := $(PROTOC_ZIP_WINDOWS)
 endif
 
 .PHONY: install
@@ -24,7 +27,7 @@ install:
 	unzip -o $(PROTOC_FILE) -d $${HOME}/.local
 	export PATH="$${PATH}:$${HOME}/.local/bin"
 	rm -f protoc-*.zip
-	(cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | xargs go install)
+	(cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install)
 	pub global activate protoc_plugin
 
 .PHONY: gen.all
