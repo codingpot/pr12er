@@ -6,7 +6,7 @@ on:
       - opened
   pull_request:
     types:
-      - ready_for_review
+      - opened
 
 jobs:
   notify-discord:
@@ -18,10 +18,22 @@ jobs:
       - uses: "Ilshidur/action-discord@0.3.0"
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ github.event_name == 'pull_request' }}
         with:
-          args: >-
-            ${{ github.event_name }} was created at
+          args: |-
+            A new PR {{ EVENT_PAYLOAD.pull_request.title }}
 
-            ```json
-            {{ EVENT_PAYLOAD }}
-            ```
+            by {{ EVENT_PAYLOAD.sender}}
+
+            at {{ EVENT_PAYLOAD.pull_request.html_url }}
+      - uses: "Ilshidur/action-discord@0.3.0"
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ github.event_name == 'issues' }}
+        with:
+          args: |-
+            A new issue {{ EVENT_PAYLOAD.issues.title }}
+
+            by {{ EVENT_PAYLOAD.sender}}
+
+            at {{ EVENT_PAYLOAD.issues.html_url }}
