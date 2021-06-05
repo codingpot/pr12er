@@ -1,12 +1,12 @@
-name: Discord Notifications
+name: Discord Notification
 
 on:
   issues:
     types:
-      - created
+      - opened
   pull_request:
     types:
-      - created
+      - ready_for_review
 
 jobs:
   notify-discord:
