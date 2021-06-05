@@ -12,7 +12,7 @@ on:
       - created
 
 jobs:
-  greeting:
+  notify-discord:
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -22,4 +22,9 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          args: "${{ github.event_name }} was created at {{ EVENT_PAYLOAD.repository.url }}"
+          args: >-
+            ${{ github.event_name }} was created at
+
+            ```json
+            {{ EVENT_PAYLOAD }}
+            ```
