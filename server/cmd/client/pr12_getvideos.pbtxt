@@ -1,0 +1,1623 @@
+videos: {
+  id: 1
+  title: "Generative Adversarial Nets"
+  link: "https://youtu.be/L3hz57whyNw"
+  presenter: "Jaejun Yoo"
+  keywords: "Generative Models"
+  keywords: "GANs"
+}
+videos: {
+  id: 2
+  title: "Deformable Convolutional Networks"
+  link: "https://youtu.be/RRwaz0fBQ0Y"
+  presenter: "Terry TaeWoong Um"
+  keywords: "CNN"
+  keywords: "Detection"
+}
+videos: {
+  id: 3
+  title: "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation"
+  link: "https://youtu.be/_Dp8u97_rQ0"
+  presenter: "Keunbong Kwak"
+  keywords: "NLP"
+  keywords: "RNN"
+  keywords: "Machine Translation"
+}
+videos: {
+  id: 4
+  title: "Image Super-Resolution using Deep Convolutional Neural Networks"
+  link: "https://youtu.be/1jGr_OFyfa0"
+  presenter: "Taegyun Jeon"
+  keywords: "Image Restoration"
+}
+videos: {
+  id: 5
+  title: "Playing Atari with Deep Reinforcement Learning"
+  link: "https://youtu.be/V7_cNTfm2i8"
+  presenter: "Sunghun Kim"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 6
+  title: "Neural Turing Machines"
+  link: "https://youtu.be/2wbDiZCWQtY"
+  presenter: "Kiho Suh"
+  keywords: "Memory Networks"
+}
+videos: {
+  id: 7
+  title: "Deep Photo Style Transfer"
+  link: "https://youtu.be/YF6nLVDlznE"
+  presenter: "Seungil Kim"
+  keywords: "Style Transfer"
+}
+videos: {
+  id: 8
+  title: "Reverse Classification Accuracy: Predicting Segmentation Performance in the Absence of Ground Truth"
+  link: "https://youtu.be/jbnjzyJDldA"
+  presenter: "Dongjun Jung"
+  keywords: "Medical"
+  keywords: "Segmentation"
+}
+videos: {
+  id: 9
+  title: "Distilling the Knowledge in a Neural Network"
+  link: "https://youtu.be/tOItokBZSfU"
+  presenter: "Young Jae Choung"
+  keywords: "Network Compression"
+  keywords: "Transfer Learning"
+}
+videos: {
+  id: 10
+  title: "Auto-Encoding Variational Bayes"
+  link: "https://youtu.be/KYA-GEhObIs"
+  presenter: "Junbum Cha"
+  keywords: "Generative Models"
+  keywords: "VAEs"
+  keywords: "Disentangled Representation"
+}
+videos: {
+  id: 11
+  title: "Spatial Transformer Networks"
+  link: "https://youtu.be/Rv3osRZWGbg"
+  presenter: "Jiyang Kang"
+  keywords: "CNN"
+  keywords: "Attention"
+}
+videos: {
+  id: 12
+  title: "Faster R-CNN: Towards Real-time Object Detection with Region Proposal Networks"
+  link: "https://youtu.be/kcPAGIgBGRs"
+  presenter: "Jinwon Lee"
+  keywords: "Detection"
+}
+videos: {
+  id: 13
+  title: "Domain Adversarial Training of Neural Network"
+  link: "https://youtu.be/n2J7giHrS-Y"
+  presenter: "Jaejun Yoo"
+  keywords: "Domain Adaptation"
+}
+videos: {
+  id: 14
+  title: "On Human Motion Prediction using RNNs"
+  link: "https://youtu.be/Y1loN3Sc4Dk"
+  presenter: "Terry TaeWoong Um"
+  keywords: "RNN"
+  keywords: "Human/Body/Face"
+  keywords: "Video/Motion"
+}
+videos: {
+  id: 15
+  title: "Convolutional Neural Networks for Sentence Classification"
+  link: "https://youtu.be/IRB2vXSet2E"
+  presenter: "Keunbong Kwak"
+  keywords: "NLP"
+  keywords: "Text Classification"
+}
+videos: {
+  id: 16
+  title: "You Only Look Once: Unified, Real-time Object Detection"
+  link: "https://youtu.be/eTDcoeqj1_w"
+  presenter: "Taegyun Jeon"
+  keywords: "Detection"
+}
+videos: {
+  id: 17
+  title: "Neural Architecture Search with Reinforcement Learning"
+  link: "https://youtu.be/XP3vyVrrt3Q"
+  presenter: "Kiho Suh"
+  keywords: "Neural Architecture Search"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 18
+  title: "A Simple Neural Network Module for Relational Reasoning"
+  link: "https://youtu.be/Lb1PVpFp9F8"
+  presenter: "Sunghun Kim"
+  keywords: "Relational Reasoning"
+}
+videos: {
+  id: 19
+  title: "Continuous Control with Deep Reinforcement Learning"
+  link: "https://youtu.be/h2WSVBAC1t4"
+  presenter: "Seungil Kim"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 20
+  title: "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification"
+  link: "https://youtu.be/absOinFeGv0"
+  presenter: "Jiyang Kang"
+  keywords: "CNN"
+  keywords: "Classification"
+}
+videos: {
+  id: 21
+  title: "Batch Normalization"
+  link: "https://youtu.be/TDx8iZHwFtM"
+  presenter: "Young Jae Choung"
+  keywords: "Classification"
+  keywords: "Normalization"
+}
+videos: {
+  id: 22
+  title: "InfoGAN"
+  link: "https://youtu.be/_4jbgniqt_Q"
+  presenter: "Junbum Cha"
+  keywords: "Generative Models"
+  keywords: "GANs"
+  keywords: "Disentangled Representation"
+}
+videos: {
+  id: 23
+  title: "YOLO9000: Better, Faster, Stronger"
+  link: "https://youtu.be/6fdclSGgeio"
+  presenter: "Jinwon Lee"
+  keywords: "Detection"
+}
+videos: {
+  id: 24
+  title: "Pixel Recurrent Neural Network"
+  link: "https://youtu.be/BvcwEz4VPIQ"
+  presenter: "Jaejun Yoo"
+  keywords: "Generative Models"
+  keywords: "Autoregressive Models"
+}
+videos: {
+  id: 25
+  title: "Learning with Side Information through Modality Hallucination"
+  link: "https://youtu.be/KdRo7ATNs9g"
+  presenter: "Terry TaeWoong Um"
+  keywords: "Multimodal"
+  keywords: "Detection"
+}
+videos: {
+  id: 26
+  title: "Notes for CVPR 2017 (3 Papers)"
+  link: "https://youtu.be/ZdPBkPGfRSk"
+  presenter: "Taegyun Jeon"
+  keywords: "Transfer Learning"
+  keywords: "Graph Networks"
+  keywords: "Classification"
+  keywords: "Network Compression"
+}
+videos: {
+  id: 27
+  title: "GloVe: Global Vectors for Word Representation"
+  link: "https://youtu.be/uZ2GtEe-50E"
+  presenter: "Keunbong Kwak"
+  keywords: "NLP"
+  keywords: "Representation"
+}
+videos: {
+  id: 28
+  title: "Densely Connected Convolutional Networks"
+  link: "https://youtu.be/fe2Vn0mwALI"
+  presenter: "Sunghun Kim"
+  keywords: "CNN"
+  keywords: "Classification"
+}
+videos: {
+  id: 29
+  title: "Apprenticeship Learning via Inverse Reinforcement Learning"
+  link: "https://youtu.be/AXi4s3aFN6M"
+  presenter: "Kiho Suh"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 30
+  title: "Photo-Realistic Single Image Super Resolution Using a Generative Adversarial Networks"
+  link: "https://youtu.be/nGPMKnoJTcI"
+  presenter: "Seungil Kim"
+  keywords: "GANs"
+  keywords: "Image Restoration"
+}
+videos: {
+  id: 31
+  title: "Learning to Learn by Gradient Descent by Gradient Descent"
+  link: "https://youtu.be/p55H46RiZ6k"
+  presenter: "Junbum Cha"
+  keywords: "Meta-Learning"
+  keywords: "Optimization"
+}
+videos: {
+  id: 32
+  title: "Deep Visual-Semantic Alignments for Generating Image Descriptions"
+  link: "https://youtu.be/Q-Cm7nw85iE"
+  presenter: "Jiyang Kang"
+  keywords: "Vision and Language/Text"
+}
+videos: {
+  id: 33
+  title: "PVANet: Lightweight Deep Neural Networks for Real-time Object Detection"
+  link: "https://youtu.be/TYDGTnxUGHQ"
+  presenter: "Jinwon Lee"
+  keywords: "Detection"
+  keywords: "Network Compression"
+}
+videos: {
+  id: 34
+  title: "Inception and Xception (4 Papers)"
+  link: "https://youtu.be/V0dLhyg5_Dw"
+  presenter: "Jaejun Yoo"
+  keywords: "CNN"
+  keywords: "Classification"
+}
+videos: {
+  id: 35
+  title: "Understanding Black-box Predictions via Influence Functions"
+  link: "https://youtu.be/xlmlY8WHjkU"
+  presenter: "Terry TaeWoong Um"
+  keywords: "Explainable AI"
+}
+videos: {
+  id: 36
+  title: "Learning to Remember Rate Events"
+  link: "https://youtu.be/S_fbBYbXypc"
+  presenter: "Taegyun Jeon"
+  keywords: "Few Shot Learning"
+  keywords: "Memory Networks"
+}
+videos: {
+  id: 37
+  title: "Ask Me Anything: Dynamic Memory Networks for Natural Language Processing"
+  link: "https://youtu.be/oxSrjuspQEs"
+  presenter: "Keunbong Kwak"
+  keywords: "NLP"
+  keywords: "Question Answering"
+  keywords: "Text Classification"
+}
+videos: {
+  id: 38
+  title: "Explaining and Harnessing Adversarial Examples (2 Papers)"
+  link: "https://youtu.be/7hRO2bS810M"
+  presenter: "Kiho Suh"
+  keywords: "Adversarial Attack"
+}
+videos: {
+  id: 39
+  title: "Dropout as a Bayesian Approximation"
+  link: "https://youtu.be/aU91bDGmy7I"
+  presenter: "Junbum Cha"
+  keywords: "Bayesian ML"
+}
+videos: {
+  id: 40
+  title: "WaveNet: A Generative Model for Raw Audio"
+  link: "https://youtu.be/GyQnex_DK2k"
+  presenter: "Seungil Kim"
+  keywords: "Generative Models"
+  keywords: "Autoregressive Models"
+  keywords: "Audio/Speech Generation"
+}
+videos: {
+  id: 41
+  title: "Show and Tell: A Neural Image Caption Generator"
+  link: "https://youtu.be/BrmCnoYhQb4"
+  presenter: "Jiyang Kang"
+  keywords: "Vision and Language/Text"
+}
+videos: {
+  id: 42
+  title: "Adam: A Method for Stochastic Optimization"
+  link: "https://youtu.be/KN120w3PZIA"
+  presenter: "Ji-Hoon Kim"
+  keywords: "Optimization"
+}
+videos: {
+  id: 43
+  title: "HyperNetworks"
+  link: "https://youtu.be/-tUQXSdEsMk"
+  presenter: "Taesu Kim"
+  keywords: "Neural Networks"
+}
+videos: {
+  id: 44
+  title: "MobileNet"
+  link: "https://youtu.be/7UoOFKcyIvM"
+  presenter: "Jinwon Lee"
+  keywords: "Network Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+}
+videos: {
+  id: 45
+  title: "DeepLab: Semantic Image Segmentation (5 Papers)"
+  link: "https://youtu.be/JiC78rUF4iI"
+  presenter: "Taeoh Kim"
+  keywords: "Segmentation"
+}
+videos: {
+  id: 46
+  title: "Deep Knowledge Tracing"
+  link: "https://youtu.be/8hdY6Jns5-k"
+  presenter: "Byung-Hak Kim"
+  keywords: "Text/Knowledge"
+}
+videos: {
+  id: 47
+  title: "Learning Deep Features for Discriminative Localization"
+  link: "https://youtu.be/-Z1NIzLxgRU"
+  presenter: "KwangHee Lee"
+  keywords: "Explainable AI"
+  keywords: "Visualization"
+  keywords: "Weakly-Supervised Learning"
+}
+videos: {
+  id: 48
+  title: "Towards Principled Methods for Training Generative Adversarial Networks"
+  link: "https://youtu.be/RlAgB0Ooxaw"
+  presenter: "Ji-Hoon Kim"
+  keywords: "Generative Models"
+  keywords: "GANs"
+}
+videos: {
+  id: 49
+  title: "Attention is All You Need"
+  link: "https://youtu.be/6zGgVIlStXs"
+  presenter: "Kiho Suh"
+  keywords: "NLP"
+  keywords: "Attention"
+  keywords: "Representation"
+}
+videos: {
+  id: 50
+  title: "Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting"
+  link: "https://youtu.be/3cFfCM4CXws"
+  presenter: "Taegyun Jeon"
+  keywords: "CNN-RNN"
+}
+videos: {
+  id: 51
+  title: "Conditional Generative Adversarial Nets"
+  link: "https://youtu.be/iCgT8G4PkqI"
+  presenter: "Seungil Kim"
+  keywords: "Generative Models"
+  keywords: "GANs"
+}
+videos: {
+  id: 52
+  title: "Mastering the Game of Go without Human Knowledge"
+  presenter: "Junbum Cha"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 53
+  title: "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization"
+  link: "https://youtu.be/faGsrPX1yFM"
+  presenter: "Taesu Kim"
+  keywords: "Explainable AI"
+  keywords: "Visualization"
+  keywords: "Weakly-Supervised Learning"
+}
+videos: {
+  id: 54
+  title: "ShuffleNet: An Extremely Efficient CNN for Mobile Devices"
+  link: "https://youtu.be/pNuBdj53Hbc"
+  presenter: "Jinwon Lee"
+  keywords: "Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+}
+videos: {
+  id: 55
+  title: "Neural Machine Translation by Jointly Learning to Align and Translate"
+  link: "https://youtu.be/upskBSbA9cA"
+  presenter: "Jiyang Kang"
+  keywords: "NLP"
+  keywords: "Machine Translation"
+  keywords: "Attention"
+}
+videos: {
+  id: 56
+  title: "Capsule Network"
+  link: "https://youtu.be/_YT_8CT2w_Q"
+  presenter: "Jaejun Yoo"
+  keywords: "Capsule Network"
+}
+videos: {
+  id: 57
+  title: "Mask R-CNN"
+  link: "https://youtu.be/RtSZALC9DlU"
+  presenter: "Taeoh Kim"
+  keywords: "Detection"
+  keywords: "Segmentation"
+}
+videos: {
+  id: 58
+  title: "The Consciousness Prior"
+  link: "https://youtu.be/7fIAdhl0KYc"
+  presenter: "Byung-Hak Kim"
+  keywords: "RNN"
+  keywords: "NLP"
+}
+videos: {
+  id: 59
+  title: "Style Transfer from Non-Parallel Text by Cross-Alignment"
+  link: "https://youtu.be/w-P2V2LlrHg"
+  presenter: "Kiho Suh"
+  keywords: "NLP"
+  keywords: "Text Style Transfer"
+}
+videos: {
+  id: 60
+  title: "Deep Neural Networks for YouTube Recommendations"
+  link: "https://youtu.be/V6zixdCIOqw"
+  presenter: "Keunbong Kwak"
+  keywords: "Recommender System"
+}
+videos: {
+  id: 61
+  title: "Understanding Deep Learning Requires Rethinking Generalization"
+  link: "https://youtu.be/UxJNG7ENRNg"
+  presenter: "Jaejun Yoo"
+  keywords: "Generalization"
+  keywords: "Regularization"
+}
+videos: {
+  id: 62
+  title: "Deep Learning: A Critical Appraisal"
+  link: "https://youtu.be/6hg5d10SZr0"
+  presenter: "Terry TaeWoong Um"
+  keywords: "Generalization"
+}
+videos: {
+  id: 63
+  title: "Peephole: Predicting Network Performance Before Training"
+  link: "https://youtu.be/ZO4bXgdcCQA"
+  presenter: "Taegyun Jeon"
+  keywords: "NAS"
+}
+videos: {
+  id: 64
+  title: "Wide & Deep Learning for Recommender Systems"
+  link: "https://youtu.be/hKoJPqWLrI4"
+  presenter: "Keunbong Kwak"
+  keywords: "Recommender System"
+}
+videos: {
+  id: 65
+  title: "High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs"
+  link: "https://youtu.be/_5ofbwltEKU"
+  presenter: "KwangHee Lee"
+  keywords: "GANs"
+  keywords: "Image Translation"
+}
+videos: {
+  id: 66
+  title: "Don't Decay the Learning Rate, Increase the Batch Size"
+  link: "https://youtu.be/jFpO-E4RPhQ"
+  presenter: "Junbum Cha"
+  keywords: "Optimization"
+  keywords: "Generalization"
+}
+videos: {
+  id: 67
+  title: "Audio Super Resolution using Neural Nets"
+  link: "https://youtu.be/iqN08EPMjSs"
+  presenter: "Seungil Kim"
+  keywords: "Audio/Speech"
+  keywords: "Speech Enhancement"
+}
+videos: {
+  id: 68
+  title: "DeepAR: Probabilistic Forecasting with Autoregressive Recurrent Networks"
+  link: "https://youtu.be/okyo61ZZivA"
+  presenter: "Jiyang Kang"
+  keywords: "RNN"
+  keywords: "Autoregressive Models"
+}
+videos: {
+  id: 69
+  title: "Efficient Neural Architecture Search via Parameter Sharing"
+  link: "https://youtu.be/fbCcJaSQPPA"
+  presenter: "Jinwon Lee"
+  keywords: "NAS"
+}
+videos: {
+  id: 70
+  title: "SafetyNets: Verifiable Execution of Deep Neural Networks on an Untrusted Cloud"
+  link: "https://youtu.be/CtaPFqq8P00"
+  presenter: "Taesu Kim"
+  keywords: "Cloud-based ML"
+}
+videos: {
+  id: 71
+  title: "Categorical Reparameterization with Gumbel Softmax"
+  link: "https://youtu.be/ty3SciyoIyk"
+  presenter: "Jaejun Yoo"
+  keywords: "Optimization"
+}
+videos: {
+  id: 72
+  title: "Deep Compression"
+  link: "https://youtu.be/9mFZmpIbMDs"
+  presenter: "Taeoh Kim"
+  keywords: "Network Compression"
+}
+videos: {
+  id: 73
+  title: "Generative Semantic Manipulation with Contrasting GAN"
+  link: "https://youtu.be/U8IpNf1b57w"
+  presenter: "KwangHee Lee"
+  keywords: "GANs"
+  keywords: "Image Translation"
+}
+videos: {
+  id: 74
+  title: "ObamaNet: Photo-Realistic Lip-Sync from Text"
+  link: "https://youtu.be/A1o6SUsWd98"
+  presenter: "Byung-Hak Kim"
+  keywords: "Vision and Language/Text"
+  keywords: "Text-to-Speech"
+}
+videos: {
+  id: 75
+  title: "On Calibriation of Modern Neural Networks"
+  link: "https://youtu.be/odNHEkfJAc4"
+  presenter: "Terry TaeWoong Um"
+  keywords: "Generalization"
+  keywords: "Optimization"
+}
+videos: {
+  id: 76
+  title: "Distributed Representations of Sentences and Documents"
+  link: "https://youtu.be/NxKpgY6sWOQ"
+  presenter: "Keunbong Kwak"
+  keywords: "NLP"
+  keywords: "Representation"
+}
+videos: {
+  id: 77
+  title: "SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient"
+  link: "https://youtu.be/BXODIP3QjJI"
+  presenter: "Kiho Suh"
+  keywords: "NLP"
+  keywords: "GANs"
+  keywords: "Text Generation"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 78
+  title: "Net2Net: Accelerating Learning via Knowledge Transfer"
+  link: "https://youtu.be/btsZOMsyH_o"
+  presenter: "Junbum Cha"
+  keywords: "Network Compression"
+  keywords: "Transfer Learning"
+}
+videos: {
+  id: 79
+  title: "Synthesizing Audio with Generative Adversarial Networks (Adversarial Audio Synthesis)"
+  link: "https://youtu.be/UXVKSSXdwb8"
+  presenter: "Seungil Kim"
+  keywords: "Audio/Speech"
+  keywords: "Audio/Speech Generation"
+  keywords: "GANs"
+}
+videos: {
+  id: 80
+  title: "Practical Bayesian Optimization of Machine Learning Algorithms"
+  link: "https://youtu.be/MnHCe8tGjQ8"
+  presenter: "Seungil Kim"
+  keywords: "Hyperparameter Optimization"
+  keywords: "Bayesian ML"
+}
+videos: {
+  id: 81
+  title: "Machine Theory of Mind"
+  presenter: "Ji-Hoon Kim"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 82
+  title: "Introduction to Speech Separation"
+  link: "https://youtu.be/OgNSFKeHy8k"
+  presenter: "Taesu Kim"
+  keywords: "Audio/Speech"
+  keywords: "Speech Separation"
+  keywords: "Vision and Language/Text"
+}
+videos: {
+  id: 83
+  title: "Non-Local Neural Networks"
+  link: "https://youtu.be/ZM153wo3baA"
+  presenter: "Taeoh Kim"
+  keywords: "CNN"
+  keywords: "Attention"
+  keywords: "Classification"
+}
+videos: {
+  id: 84
+  title: "MegDet: A Large Mini-Batch Object Detector"
+  link: "https://youtu.be/nkYFEoKQBH0"
+  presenter: "Taegyun Jeon"
+  keywords: "Detection"
+}
+videos: {
+  id: 85
+  title: "In-Datacenter Performance Analysis of a Tensor Processing Unit"
+  link: "https://youtu.be/7WhWkhFAIO4"
+  presenter: "Jinwon Lee"
+  keywords: "Hardware"
+}
+videos: {
+  id: 86
+  title: "Curriculum Learning"
+  link: "https://youtu.be/fQtuWEuwXrA"
+  presenter: "Junbum Cha"
+  keywords: "Optimization"
+}
+videos: {
+  id: 87
+  title: "Spectral Normalization for Generative Adversarial Networks"
+  link: "https://youtu.be/iXSYqohGQhM"
+  presenter: "Jaejun Yoo"
+  keywords: "Generative Models"
+  keywords: "GANs"
+}
+videos: {
+  id: 88
+  title: "Deep Variational Bayes Filters"
+  link: "https://youtu.be/uM0rQtL6_AA"
+  presenter: "Terry TaeWoong Um"
+  keywords: "Generative Models"
+  keywords: "Latent Space Models"
+  keywords: "Bayesian ML"
+}
+videos: {
+  id: 89
+  title: "Beyond Word Importance: Contextual Decomposition to Extract Interactions"
+  link: "https://youtu.be/5whGIpoLoq4"
+  presenter: "Byung-Hak Kim"
+  keywords: "NLP"
+  keywords: "Explainable AI"
+}
+videos: {
+  id: 90
+  title: "Representation Learning by Learning to Count"
+  link: "https://youtu.be/T7i_YKN2EY8"
+  presenter: "Kiho Suh"
+  keywords: "Self-supervised Learning"
+  keywords: "Classification"
+}
+videos: {
+  id: 91
+  title: "A Unversal Music Translation Network"
+  link: "https://youtu.be/v1GbxpKqH8Q"
+  presenter: "Seungil Kim"
+  keywords: "Audio/Speech"
+  keywords: "Audio Style Transfer"
+}
+videos: {
+  id: 92
+  title: "Distributed Training of Neural Networks"
+  link: "https://youtu.be/pAH3KhVnADE"
+  presenter: "Jiyang Kang"
+  keywords: "Distributed Training"
+}
+videos: {
+  id: 93
+  title: "Playing Hard Exploration Games by Watching YouTube"
+  presenter: "Ji-Hoon Kim"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 94
+  title: "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks"
+  link: "https://youtu.be/fxJXXKZb-ik"
+  presenter: "Taesu Kim"
+  keywords: "Meta-Learning"
+}
+videos: {
+  id: 95
+  title: "Modularity Matters: Learning Invariant Relational Reasoning Tasks"
+  link: "https://youtu.be/dAGI3mlOmfw"
+  presenter: "Jinwon Lee"
+  keywords: "Relational Reasoning"
+}
+videos: {
+  id: 96
+  title: "Taskonomy: Disentangling Task Transfer Learning"
+  link: "https://youtu.be/WjUGrzBIDv0"
+  presenter: "Taeoh Kim"
+  keywords: "Transfer Learning"
+}
+videos: {
+  id: 97
+  title: "Learning Representations for Counterfactual Inference"
+  link: "https://youtu.be/l-pcG77Hr58"
+  presenter: "Byung-Hak Kim"
+  keywords: "Counterfactual Inference"
+}
+videos: {
+  id: 98
+  title: "MegaDepth: Leraning Single-View Depth Prediction from Internet Photos"
+  link: "https://youtu.be/tGbMWAFMMBQ"
+  presenter: "KwangHee Lee"
+  keywords: "3D Single-View"
+}
+videos: {
+  id: 99
+  title: "MRNet-Product2Vec: A Multi-Task Recurrent Neural Network for Product Embeddings"
+  link: "https://youtu.be/cpCS7LBRkRU"
+  presenter: "Keunbong Kwak"
+  keywords: "NLP"
+  keywords: "Representation"
+}
+videos: {
+  id: 100
+  title: "SeedNet: Automatic Seed Generation With Deep Reinforcement Learning for Robust Interactive Segmentation"
+  link: "https://youtu.be/ksTkCecBTCY"
+  presenter: "KwangHee Lee"
+  keywords: "Segmentation"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 101
+  title: "Deep Feature Consistent Variational Autoencoder"
+  link: "https://youtu.be/FfBp6xJqZVA"
+  presenter: "MinGuk Kang"
+  keywords: "Generative Models"
+  keywords: "VAEs"
+  keywords: "Disentangled Representation"
+}
+videos: {
+  id: 102
+  title: "Everybody Dance Now"
+  link: "https://youtu.be/_onRnCb_h3Q"
+  presenter: "Byung-Hak Kim"
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Human/Body/Face"
+  keywords: "Video/Motion"
+}
+videos: {
+  id: 103
+  title: "Visualizing Data using t-SNE"
+  link: "https://youtu.be/zpJwm7f7EXs"
+  presenter: "Taeoh Kim"
+  keywords: "Data Visualization"
+}
+videos: {
+  id: 104
+  title: "Video-to-Video Synthesis"
+  link: "https://youtu.be/WxeeqxqnRyE"
+  presenter: "Taesu Kim"
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Video/Motion"
+}
+videos: {
+  id: 105
+  title: "MNasNet: Platform-Aware Neural Architecture Search for Mobile"
+  link: "https://youtu.be/4uDZxefPd-I"
+  presenter: "Taekmin Kim"
+  keywords: "NAS"
+  keywords: "Compression"
+}
+videos: {
+  id: 106
+  title: "Learning to Explain: An Information-Theoretic Perspective on Model Interpretation"
+  link: "https://youtu.be/id_CmUaTWpg"
+  presenter: "Jinsung Yoon"
+  keywords: "Explainable AI"
+}
+videos: {
+  id: 107
+  title: "Image Inpainting for Irregular Holes using Partial Convolutions"
+  link: "https://youtu.be/BhZN6AqfylA"
+  presenter: "Jiwon Jung"
+  keywords: "Image Restoration"
+}
+videos: {
+  id: 108
+  title: "MobileNetV2: Inverted Residuals and Linear Bottlenecks"
+  link: "https://youtu.be/mT5Y-Zumbbw"
+  presenter: "Jinwon Lee"
+  keywords: "Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+}
+videos: {
+  id: 109
+  title: "Large Scale GAN Training for High Fidelity Naturel Image Synthesis"
+  link: "https://youtu.be/1f0faOeqDQ0"
+  presenter: "Yeoung Seok Kim"
+  keywords: "GANs"
+}
+videos: {
+  id: 110
+  title: "SNIP: An Anaylsis of Scale Invariance in Object Detection"
+  link: "https://youtu.be/nimHWHxjBJ8"
+  presenter: "Jaewon Lee"
+  keywords: "Detection"
+}
+videos: {
+  id: 111
+  title: "EVA2: Exploiting Temporal Redundancy in Live Computer Vision"
+  link: "https://youtu.be/uwRz7PjVtB0"
+  presenter: "Soyeon Kim"
+  keywords: "Compression"
+  keywords: "Hardware"
+}
+videos: {
+  id: 112
+  title: "Independent Component Analysis"
+  link: "https://youtu.be/mLSPA76qSuU"
+  presenter: "Jae Duk Seo"
+  keywords: "Dimension Reduction"
+}
+videos: {
+  id: 113
+  title: "The Perception Distortion Tradeoff"
+  link: "https://youtu.be/6Yid4dituqo"
+  presenter: "Taeoh Kim"
+  keywords: "Image Restoration"
+}
+videos: {
+  id: 114
+  title: "Recycle-GAN: Unsupervised Video Retargeting"
+  link: "https://youtu.be/eMZXUqmp_PU"
+  presenter: "Byung-Hak Kim"
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Video/Motion"
+}
+videos: {
+  id: 115
+  title: "Unsupervised Anomaly Detection with Generative Adversarial Networks"
+  link: "https://youtu.be/R0H0gqtnMyA"
+  presenter: "MinGuk Kang"
+  keywords: "GANs"
+  keywords: "Anomaly Detection"
+}
+videos: {
+  id: 116
+  title: "Glow: Generative Flow with Invertable 1x1 Convolutions"
+  link: "https://youtu.be/6OVH1i2BVAE"
+  presenter: "Taesu Kim"
+  keywords: "Generative Models"
+  keywords: "Normalizing Flow Models"
+}
+videos: {
+  id: 117
+  title: "PeerNets: Exploiting Peer Wisdom Against Adversarial Attacks"
+  link: "https://youtu.be/VQsG_Yk9KuQ"
+  presenter: "Taekmin Kim"
+  keywords: "Adversarial Attack"
+}
+videos: {
+  id: 118
+  title: "Black-box Attacks with Limited Queries and Information"
+  link: "https://youtu.be/AMPpOFtg3Q4"
+  presenter: "Jinsung Yoon"
+  keywords: "Adversarial Attack"
+}
+videos: {
+  id: 119
+  title: "Active Learning for Convolutional Neural Networks: A Core-Set Approach"
+  link: "https://youtu.be/3ROQis3hxPs"
+  presenter: "Jiwon Jung"
+  keywords: "Active Learning"
+  keywords: "Classification"
+}
+videos: {
+  id: 120
+  title: "ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design"
+  link: "https://youtu.be/lrU6uXiJ_9Y"
+  presenter: "Jinwon Lee"
+  keywords: "Compression"
+  keywords: "Classification"
+}
+videos: {
+  id: 121
+  title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+  link: "https://youtu.be/GK4IO3qOnLc"
+  presenter: "Young Seok Kim"
+  keywords: "NLP"
+  keywords: "Representation"
+}
+videos: {
+  id: 122
+  title: "CAN: Creative Adversarial Networks, Generating Art by Learning About Style and Deviating from Style Norms"
+  link: "https://youtu.be/TB7izZIWYyw"
+  presenter: "Jaewon Lee"
+  keywords: "GANs"
+  keywords: "Style Transfer"
+}
+videos: {
+  id: 123
+  title: "Partial Convolution based Padding"
+  link: "https://youtu.be/IKHzc7sGCxQ"
+  presenter: "Soyeon Kim"
+  keywords: "CNN"
+  keywords: "Classification"
+  keywords: "Segmentation"
+}
+videos: {
+  id: 124
+  title: "Stacked Denoising Autoencoders"
+  link: "https://youtu.be/saJcr74ldvs"
+  presenter: "Jae Duk Seo"
+  keywords: "Self-supervised Learning"
+  keywords: "Autoencoders"
+}
+videos: {
+  id: 125
+  title: "Energy-based Generative Adversarial Networks"
+  link: "https://youtu.be/8PoewOpK6b4"
+  presenter: "MinGuk Kang"
+  keywords: "Generative Models"
+  keywords: "GANs"
+}
+videos: {
+  id: 126
+  title: "DensePose: Dense Human Pose Estimation in the Wild"
+  link: "https://youtu.be/-bvMCbk_FT8"
+  presenter: "Byung-Hak Kim"
+  keywords: "Segmentation"
+  keywords: "Pose"
+}
+videos: {
+  id: 127
+  title: "FaceNet"
+  link: "https://youtu.be/0k3X-9y_9S8"
+  presenter: "Taeoh Kim"
+  keywords: "Human/Body/Face"
+  keywords: "Metric Learning"
+}
+videos: {
+  id: 128
+  title: "TimbreTron: A WaveNet(CycleGAN(CQT(Audio))) Pipeline for Musical Timbre Transfer"
+  link: "https://youtu.be/5eofa6SksKU"
+  presenter: "Taesu Kim"
+  keywords: "Audio/Speech"
+  keywords: "Audio/Speech Style-Transfer"
+}
+videos: {
+  id: 129
+  title: "Horovod: Fast and Easy Distributed Deep Learning in TensorFlow"
+  link: "https://youtu.be/8zQECRiONAo"
+  presenter: "Taekmin Kim"
+  keywords: "Distributed Training"
+}
+videos: {
+  id: 130
+  title: "Generative Adversarial Imitation Learning"
+  link: "https://youtu.be/XHmRsgFrCTM"
+  presenter: "Jinsung Yoon"
+  keywords: "Imitation Learning"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 131
+  title: "A Style-Based Generator Architecture for Generative Adversarial Networks"
+  link: "https://youtu.be/TWzEbMrH59o"
+  presenter: "Jiwon Jung"
+  keywords: "GANs"
+  keywords: "Style-Transfer"
+}
+videos: {
+  id: 132
+  title: "SSD: Single Shot MultiBox Detector"
+  link: "https://youtu.be/ej1ISEoAK5g"
+  presenter: "Jinwon Lee"
+  keywords: "Detection"
+}
+videos: {
+  id: 133
+  title: "Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour"
+  link: "https://youtu.be/g3McZgloCJo"
+  presenter: "Young Seok Kim"
+  keywords: "Distributed Training"
+}
+videos: {
+  id: 134
+  title: "How Does Batch Normalization Help Optimization?"
+  link: "https://youtu.be/hiN0IMM50FM"
+  presenter: "Jaewon Lee"
+  keywords: "Optimization"
+  keywords: "Normalization"
+}
+videos: {
+  id: 135
+  title: "Photo Wake-Up: 3D Character Animation from a Single Photo"
+  link: "https://youtu.be/LSlBoNNbULg"
+  presenter: "Soyeon Kim"
+  keywords: "3D Multi-View"
+  keywords: "Human/Body/Pose"
+}
+videos: {
+  id: 136
+  title: "Self-Supervised Generative Adversarial Networks"
+  link: "https://youtu.be/_wpDP-6afM4"
+  presenter: "MinGuk Kang"
+  keywords: "Self-supervised Learning"
+  keywords: "Generative Models"
+  keywords: "GANs"
+}
+videos: {
+  id: 137
+  title: "MINE: Mutual Information Neural Estimation"
+  presenter: "Jae Duk Seo"
+  keywords: "Generative Models"
+  keywords: "Disentangled Representation"
+}
+videos: {
+  id: 138
+  title: "Mixture Density Networks"
+  link: "https://youtu.be/VORJQQUphuw"
+  presenter: "Byung-Hak Kim"
+  keywords: "Neural Networks"
+}
+videos: {
+  id: 139
+  title: "Fully Convolutional Siemese Networks for Object Tracking"
+  link: "https://youtu.be/dv5yUl6Lw1g"
+  presenter: "Taeoh Kim"
+  keywords: "Video/Motion"
+  keywords: "Metric Learning"
+}
+videos: {
+  id: 140
+  title: "Training Set Debugging using Trusted Items"
+  link: "https://youtu.be/_2l2UFIF08Q"
+  presenter: "Taesu Kim"
+  keywords: "Explainable AI"
+  keywords: "Generalization"
+}
+videos: {
+  id: 141
+  title: "Auto-DeepLab: Hierarchical Neural Architecture Search for Semantic Image Segmentation"
+  link: "https://youtu.be/ltlhQXHGzgE"
+  presenter: "Taekmin Kim"
+  keywords: "NAS"
+  keywords: "Segmentation"
+}
+videos: {
+  id: 142
+  title: "Wasserstein GAN"
+  link: "https://youtu.be/tKQwlf-DAl0"
+  presenter: "Jinsung Yoon"
+  keywords: "Generative Models"
+  keywords: "GANs"
+}
+videos: {
+  id: 143
+  title: "Recurrent World Models Facilitate Policy Evolution"
+  link: "https://youtu.be/APjGjwBR6o8"
+  presenter: "Jiwon Jung"
+  keywords: "Reinforcement Learning"
+}
+videos: {
+  id: 144
+  title: "SqueezeNext: Hardware-Aware Neural Network Design"
+  link: "https://youtu.be/WReWeADJ3Pw"
+  presenter: "Jinwon Lee"
+  keywords: "Compression"
+  keywords: "Classification"
+}
+videos: {
+  id: 145
+  title: "Language Models are Unsupervised Multitask Learners (OpenAI GPT-2)"
+  link: "https://youtu.be/f5zULULWUwM"
+  presenter: "Young Seok Kim"
+  keywords: "NLP"
+  keywords: "Representation"
+}
+videos: {
+  id: 146
+  title: "CornerNet: Detecting Objects as Paired Keypoints"
+  link: "https://youtu.be/6OYmOtivQY8"
+  presenter: "Jaewon Lee"
+  keywords: "Detection"
+}
+videos: {
+  id: 147
+  title: "Learning Deep Structure-Preserving Image-Text Embeddings"
+  link: "https://youtu.be/7lyxexSjshc"
+  presenter: "Soyeon Kim"
+  keywords: "Metric Learning"
+  keywords: "Vision and Language/Text"
+  keywords: "Multimodal"
+}
+videos: {
+  id: 148
+  title: "Deep Anomaly Detection using Geometric Transformations"
+  link: "https://youtu.be/TgJuUxtLO3s"
+  presenter: "MinGuk Kang"
+  keywords: "Anomaly Detection"
+}
+videos: {
+  id: 149
+  title: "Perceptual Losses for Real-Time Style Transfer and Super-Resolution"
+  link: "https://youtu.be/OKDaGzeUz4U"
+  presenter: "Byung-Hak Kim"
+  keywords: "Style-Transfer"
+  keywords: "Image Restoration"
+}
+videos: {
+  id: 150
+  title: "ImageNet-trained CNNs are Biased Towards Textures"
+  link: "https://youtu.be/oBapZTL8LsE"
+  presenter: "Taeoh Kim"
+  keywords: "Generalization"
+}
+videos: {
+  id: 151
+  title: "The Unreasonable Effectiveness of Deep Features as a Perceptual Metric"
+  link: "https://youtu.be/VDeJFb5jt5M"
+  presenter: "Taesu Kim"
+  keywords: "Metric Learning"
+  keywords: "Image Restoration"
+}
+videos: {
+  id: 152
+  title: "StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation"
+  link: "https://youtu.be/i3-rTEFpyv0"
+  presenter: "Jinsung Yoon"
+  keywords: "GANs"
+  keywords: "Image Translation"
+}
+videos: {
+  id: 153
+  title: "SNAIL: A Simple Neural Attentive Meta-Learner"
+  link: "https://youtu.be/zGrwpa5-_0Y"
+  presenter: "Taekmin Kim"
+  keywords: "Meta-Learning"
+}
+videos: {
+  id: 154
+  title: "Semantic Image Synthesis with Spatially-Adaptive Normalization"
+  link: "https://youtu.be/1nJf35TSYtE"
+  presenter: "Jiwon Jung"
+  keywords: "GANs"
+  keywords: "Image Translation"
+}
+videos: {
+  id: 155
+  title: "Exploring Randomly Wired Neural Networks for Image Recognition"
+  link: "https://youtu.be/qnGm1h365tc"
+  presenter: "Jinwon Lee"
+  keywords: "CNN"
+  keywords: "NAS"
+}
+videos: {
+  id: 156
+  title: "ChannelNets: Compact and Efficient CNN via Channel-Wise Convolutions"
+  link: "https://youtu.be/oZbKWOBfNhk"
+  presenter: "Young Seok Kim"
+  keywords: "Compression"
+  keywords: "Classification"
+}
+videos: {
+  id: 157
+  title: "Best of Both Worlds: Human-Machine Collaboration for Object Annotation"
+  link: "https://youtu.be/JbXdn44myP4"
+  presenter: "Jaewon Lee"
+  keywords: "Detection"
+  keywords: "Data Annotation"
+}
+videos: {
+  id: 158
+  title: "FOTS: Fast Oriented Text Spotting with a Unified Network"
+  link: "https://youtu.be/hOFViMbYnrs"
+  presenter: "Soyeon Kim"
+  keywords: "OCR"
+  keywords: "Detection"
+}
+videos: {
+  id: 159
+  title: "SIFA: Towards Cross-Modality Domain Adaptation for Medical Image Segmentation"
+  link: "https://youtu.be/sR7hBJGpwQo"
+  presenter: "Sunghoon Joo"
+  keywords: "Domain Adaptation"
+  keywords: "Segmentation"
+  keywords: "Medical"
+}
+videos: {
+  id: 160
+  title: "GLoMo: Unsupervised Learning of Transferable Relational Graph"
+  link: "https://youtu.be/V9KusGzsx10"
+  presenter: "Doyup Lee"
+  keywords: "NLP"
+  keywords: "Transfer Learning"
+  keywords: "Graph"
+}
+videos: {
+  id: 161
+  title: "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context"
+  link: "https://youtu.be/lSTljZy8ag4"
+  presenter: "Sungnam Park"
+  keywords: "NLP"
+  keywords: "Attention"
+  keywords: "Representation"
+}
+videos: {
+  id: 162
+  title: "DeepPermNet: Visual Permutation Learning"
+  link: "https://youtu.be/AqStpR29lTA"
+  presenter: "MinGuk Kang"
+  keywords: "Self-supervised Learning"
+}
+videos: {
+  id: 163
+  title: "CNN Attention Networks"
+  link: "https://youtu.be/Dvi5_YC8Yts"
+  presenter: "Taeoh Kim"
+  keywords: "CNN"
+  keywords: "Attention"
+  keywords: "Classification"
+}
+videos: {
+  id: 164
+  title: "InfoVAE: Balancing Learning and Inference in Variational Autoencoders"
+  link: "https://youtu.be/29QcXLoYC60"
+  presenter: "Byung-Hak Kim"
+  keywords: "VAEs"
+  keywords: "Disentangled Representation"
+}
+videos: {
+  id: 165
+  title: "Few-Shot Adversarial Learning of Realistic Neural Talking Head Models"
+  link: "https://youtu.be/4pY_6VG4npc"
+  presenter: "Taesu Kim"
+  keywords: "Few-Shot Learning"
+  keywords: "GANs"
+  keywords: "Image Translation"
+  keywords: "Human/Body/Face"
+}
+videos: {
+  id: 166
+  title: "NAS-FPN: Learning Scalable Feature Pyramid Architecture for Object Detection"
+  link: "https://youtu.be/FAAt0jejWOA"
+  presenter: "Taekmin Kim"
+  keywords: "NAS"
+  keywords: "Detection"
+}
+videos: {
+  id: 167
+  title: "Interpretability Beyond Feature Attribution: Testing with Concept Activation Vector (TCAV)"
+  link: "https://youtu.be/-y0oghbEHMM"
+  presenter: "Jinsung Yoon"
+  keywords: "Explainable AI"
+}
+videos: {
+  id: 168
+  title: "Few Shot Unsupervised Image to Image Translation"
+  link: "https://youtu.be/ANwAhuOeaiE"
+  presenter: "Jiwon Jung"
+  keywords: "Few-Shot Learning"
+  keywords: "GANs"
+  keywords: "Image Translation"
+}
+videos: {
+  id: 169
+  title: "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks"
+  link: "https://youtu.be/Vhz0quyvR7I"
+  presenter: "Jinwon Lee"
+  keywords: "CNN"
+  keywords: "NAS"
+  keywords: "Classification"
+}
+videos: {
+  id: 170
+  title: "Deep Residual Learning for Image Recognition"
+  link: "https://youtu.be/7fSgqlC7Wdo"
+  presenter: "Yeong Seok Kim"
+  keywords: "CNN"
+  keywords: "Classification"
+}
+videos: {
+  id: 171
+  title: "Large-Margin Softmax Loss for Convolutional Neural Networks"
+  link: "https://youtu.be/7TugLIfExKM"
+  presenter: "Jaewon Lee"
+  keywords: "Metric Learning"
+  keywords: "Classification"
+  keywords: "Human/Body/Face"
+}
+videos: {
+  id: 172
+  title: "Generalized Intersection over Union: A Metric and A Loss for Bounding Box Regression"
+  link: "https://youtu.be/ENZBhDx0kqM"
+  presenter: "Soyeon Kim"
+  keywords: "Detection"
+}
+videos: {
+  id: 173
+  title: "Automatic Chemical Design Using a Data-Driven Continuous Representation of Molecules"
+  link: "https://youtu.be/hk4e8ZCkNWg"
+  presenter: "Sunghoon Joo"
+  keywords: "VAEs"
+  keywords: "Medical"
+}
+videos: {
+  id: 174
+  title: "Restricted Boltzmann Machine for Deep Belief Nets"
+  link: "https://youtu.be/yqFDyX4ErSI"
+  presenter: "MinGuk Kang"
+  keywords: "Neural Network"
+  keywords: "Generative Models"
+}
+videos: {
+  id: 175
+  title: "XLNet: Generalized Autoregressive Pretraining for Language Understanding"
+  link: "https://youtu.be/koj9BKiu1rU"
+  presenter: "Sungnam Park"
+  keywords: "NLP"
+  keywords: "Representation"
+}
+videos: {
+  id: 176
+  title: "Combating Label Noise in Deep Learning Using Abstention"
+  link: "https://youtu.be/ihbEF6WGlrA"
+  presenter: "Doyup Lee"
+  keywords: "Generalization"
+}
+videos: {
+  id: 177
+  title: "Framing U-Net via Deep Convolutional Framelets"
+  link: "https://youtu.be/KSJcQlEKI0Q"
+  presenter: "Byung-Hak Kim"
+  keywords: "CNN"
+  keywords: "Image Restoration"
+  keywords: "Medical"
+}
+videos: {
+  id: 178
+  title: "Graph Convolutional Networks"
+  link: "https://youtu.be/uqBsvoOY8jM"
+  presenter: "Taeoh Kim"
+  keywords: "Graph Networks"
+  keywords: "Semi-supervised Learning"
+}
+videos: {
+  id: 179
+  title: "M3D-GAN: Multi-Modal Multi-Domain Translation with Universal Attention"
+  link: "https://youtu.be/CpRGaFPIZnw"
+  presenter: "Taesu Kim"
+  keywords: "Multimodal"
+  keywords: "Attention"
+  keywords: "Image Translation"
+  keywords: "Text-to-Speech"
+  keywords: "Vision and Language/Text"
+}
+videos: {
+  id: 180
+  title: "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks"
+  link: "https://youtu.be/dkNmYu610r8"
+  presenter: "Taekmin Kim"
+  keywords: "Network Compression"
+}
+videos: {
+  id: 181
+  title: "Data Shapley: Equitable Valuation of Data for Machine Learning"
+  link: "https://youtu.be/YdCXbBDuVuE"
+  presenter: "Jinsung Yoon"
+  keywords: "Explainable ML"
+  keywords: "Generalization"
+  keywords: "Transfer Learning"
+}
+videos: {
+  id: 182
+  title: "Deep Learning Ensemble Methods"
+  link: "https://youtu.be/twhZ3j_VCa0"
+  presenter: "Jiwon Jung"
+  keywords: "Generalization"
+  keywords: "Regularization"
+}
+videos: {
+  id: 183
+  title: "MixNet: Mixed Depthwise Convolutional Kernels"
+  link: "https://youtu.be/252YxqpHzsg"
+  presenter: "Jinwon Lee"
+  keywords: "NAS"
+  keywords: "Compression"
+  keywords: "Classification"
+  keywords: "Detection"
+}
+videos: {
+  id: 184
+  title: "And the Bit Goes Down: Revisiting the Quantization of Neural Networks"
+  link: "https://youtu.be/FPLvzxH8geY"
+  presenter: "Young Seok Kim"
+  keywords: "Compression"
+}
+videos: {
+  id: 185
+  title: "RetinaFace: Single-stage Dense Face Localisation in the Wild"
+  link: "https://youtu.be/DkcHEnxkXpM"
+  presenter: "Jaewon Lee"
+  keywords: "Human/Body/Face"
+  keywords: "Detection"
+}
+videos: {
+  id: 186
+  title: "Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization"
+  link: "https://youtu.be/16BGnsIyh6M"
+  presenter: "Soyeon Kim"
+  keywords: "Style-Transfer"
+  keywords: "Normalization"
+}
+videos: {
+  id: 187
+  title: "MorphNet: Fast & Simple Resource-Constrained Structure Learning of Deep Networks"
+  link: "https://youtu.be/vUNAJsO2G98"
+  presenter: "Sunghoon Joo"
+  keywords: "NAS"
+  keywords: "Compression"
+}
+videos: {
+  id: 188
+  title: "Online Meta-Learning"
+  link: "https://youtu.be/vUNAJsO2G98"
+  presenter: "Doyup Lee"
+  keywords: "Meta-Learning"
+  keywords: "Continual Learning"
+}
+videos: {
+  id: 189
+  title: "Unsupervised Data Augmentation for Consistency Training"
+  link: "https://youtu.be/YiKn93Ud4dA"
+  presenter: "Sungnam Park"
+  keywords: "Semi-supervised Learning"
+  keywords: "Generalization"
+}
+videos: {
+  id: 190
+  title: "A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks"
+  link: "https://youtu.be/xaABseUoHAI"
+  presenter: "MinGuk Kang"
+  keywords: "Anomaly Detection"
+  keywords: "Generalization"
+}
+videos: {
+  id: 191
+  title: "Learning Adversarially Fair and Transferable Representations"
+  link: "https://youtu.be/cgolskL-_WM"
+  presenter: "Byung-Hak Kim"
+  keywords: "ML Fairness"
+}
+videos: {
+  id: 192
+  title: "MoCoGAN: Decomposing Motion and Content for Video Generation"
+  link: "https://youtu.be/9uNFtnRa_JU"
+  presenter: "Taeoh Kim"
+  keywords: "Generative Models"
+  keywords: "GANs"
+  keywords: "Video/Motion"
+}
+videos: {
+  id: 193
+  title: "NISP: Pruning Networks using Neuron Importance Score Propagation"
+  link: "https://youtu.be/3KoqN_yYhmI"
+  presenter: "Taesu Kim"
+  keywords: "Network Compression"
+}
+videos: {
+  id: 194
+  title: "Once for All: Train One Network and Specialize it for Efficient Deployment"
+  presenter: "Taekmin Kim"
+  keywords: "Network Compression"
+  keywords: "NAS"
+}
+videos: {
+  id: 195
+  title: "MixMatch: A Holistic Approach to Semi-Supervised Learning"
+  link: "https://youtu.be/ud863JQmUW0"
+  presenter: "Jinsung Yoon"
+  keywords: "Semi-supervised Learning"
+  keywords: "Generalization"
+}
+videos: {
+  id: 196
+  title: "Stand-Alone Self-Attention in Vision Models"
+  link: "https://youtu.be/6hadVw4Sy2M"
+  presenter: "Jiwon Jung"
+  keywords: "Attention"
+  keywords: "Classification"
+  keywords: "Detection"
+}
+videos: {
+  id: 197
+  title: "One Ticket to Win Them All: Generalizing Lottery Ticket Initialization"
+  link: "https://youtu.be/YmTNpF2OOjA"
+  presenter: "Jinwon Lee"
+  keywords: "Network Compression"
+}
+videos: {
+  id: 198
+  title: "TSM: Temporal Shift Module for Efficient Video Understanding"
+  presenter: "Young Seok Kim"
+  keywords: "Video Understanding"
+  keywords: "Classification"
+  keywords: "Detection"
+}
+videos: {
+  id: 199
+  title: "SNIPER : Efficient Multi-Scale Training"
+  link: "https://youtu.be/EkndN7svgUk"
+  presenter: "Jaewon Lee"
+  keywords: "Detection"
+}
+videos: {
+  id: 200
+  title: "Online Model Distillation for Efficient Video Inference"
+  link: "https://youtu.be/BHEncY-f548"
+  presenter: "Soyeon Kim"
+  keywords: "Video/Motion"
+  keywords: "Compression"
+  keywords: "Segmentation"
+}
+videos: {
+  id: 201
+  title: "Bag of Tricks for Image Classification with Convolutional Neural Networks"
+  link: "https://youtu.be/D-baIgejA4M"
+  presenter: "Jiyang Kang"
+  keywords: "Classification"
+}
+videos: {
+  id: 202
+  title: "Modeling Task Relationships in Multi-task Learning with Multi-gate Mixture-of-Experts"
+  link: "https://youtu.be/iR7T3lH20gI"
+  presenter: "Sungnam Park"
+  keywords: "Recommender System"
+}
+videos: {
+  id: 203
+  title: "Class-Balanced Loss Based on Effective Number of Samples"
+  link: "https://youtu.be/3hL0uVtJrXM"
+  presenter: "Sunghoon Joo"
+  keywords: "Imbalanced Data"
+}
+videos: {
+  id: 204
+  title: "Learning Deep Representations by Mutual Information Estimation and Maximization"
+  link: "https://youtu.be/YNicvevmByo"
+  presenter: "Seongok Ryu"
+  keywords: "Self-supervised Learning"
+}
+videos: {
+  id: 205
+  title: "A Closer Look at Few-shot Classification"
+  link: "https://youtu.be/yyqZ1K5u2_8"
+  presenter: "Taeoh Kim"
+  keywords: "Few-shot Learning"
+}
+videos: {
+  id: 206
+  title: "PointRCNN: 3D Object Proposal Generation and Detection from Point Cloud"
+  link: "https://youtu.be/sFN_EgCsNzM"
+  presenter: "Doyeop Lee"
+  keywords: "3D Multi-view"
+  keywords: "3D Detection"
+}
+videos: {
+  id: 207
+  title: "YOLOv3: An Incremental Improvement"
+  link: "https://youtu.be/HMgcvgRrDcA"
+  presenter: "Jinwon Lee"
+  keywords: "Detection"
+}

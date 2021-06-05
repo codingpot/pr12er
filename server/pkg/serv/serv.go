@@ -2,9 +2,13 @@ package serv
 
 import (
 	"context"
+	_ "embed"
 	"fmt"
+	"log"
 
+	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	"google.golang.org/protobuf/encoding/prototext"
 )
 
 type Server struct {
@@ -16,63 +20,31 @@ func (s Server) GetHello(_ context.Context, in *pr12er.HelloRequest) (*pr12er.He
 }
 
 func (s Server) GetVideos(_ context.Context, _ *pr12er.GetVideosRequest) (*pr12er.GetVideosResponse, error) {
-	// TODO: Replace it with the actual logic.
-	resp := getDummyData()
-	return &resp, nil
+	resp, err := getVideosFromDumpedPbtxt()
+	return &resp, err
 }
 
-// TODO: Remove when the actual logic is available.
-func getDummyData() pr12er.GetVideosResponse {
-	return pr12er.GetVideosResponse{
-		Videos: []*pr12er.Video{
-			{
-				Id:           1,
-				Link:         "https://youtu.be/L3hz57whyNw",
-				NumberOfLike: 10,
-				Presenter:    "유재준",
-				Title:        "Generative Adversarial Nets",
-				Category:     pr12er.Category_CATEGORY_VISION,
-			},
-			{
-				Id:           2,
-				Link:         "https://youtu.be/RRwaz0fBQ0Y",
-				NumberOfLike: 10,
-				Presenter:    "엄태웅",
-				Title:        "Deformable Convolutional Networks",
-				Category:     pr12er.Category_CATEGORY_VISION,
-			},
-			{
-				Id:           3,
-				Link:         "https://youtu.be/_Dp8u97_rQ0",
-				NumberOfLike: 10,
-				Presenter:    "곽근봉",
-				Title:        "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
-				Category:     pr12er.Category_CATEGORY_NLP,
-			},
-			{
-				Id:           4,
-				Link:         "https://youtu.be/1jGr_OFyfa0",
-				NumberOfLike: 10,
-				Presenter:    "전태균",
-				Title:        "Image Super-Resolution using Deep Convolutional Neural Networks",
-				Category:     pr12er.Category_CATEGORY_VISION,
-			},
-			{
-				Id:           5,
-				Link:         "https://youtu.be/V7_cNTfm2i8",
-				NumberOfLike: 10,
-				Presenter:    "김성훈",
-				Title:        "Playing Atari with Deep Reinforcement Learning",
-				Category:     pr12er.Category_CATEGORY_UNSPECIFIED,
-			},
-			{
-				Id:           6,
-				Link:         "https://youtu.be/2wbDiZCWQtY",
-				NumberOfLike: 10,
-				Presenter:    "서기호",
-				Title:        "Neural Turing Machines",
-				Category:     pr12er.Category_CATEGORY_UNSPECIFIED,
-			},
-		},
+func getVideosFromDumpedPbtxt() (pr12er.GetVideosResponse, error) {
+	var resp pr12er.GetVideosResponse
+	var metadataDump pr12er.MetadataDump
+	if err := prototext.Unmarshal(internal.PR12MetadataProtoText, &metadataDump); err != nil {
+		log.Fatal(err)
 	}
+
+	resp.Videos = make([]*pr12er.Video, 0, len(metadataDump.Metadata))
+
+	for _, metadata := range metadataDump.Metadata {
+		var video pr12er.Video
+		video.Id = metadata.Id
+		video.Title = metadata.Title
+		if len(metadata.VideoMetadata) > 0 {
+			video.Link = metadata.VideoMetadata[0].Url
+		}
+		video.Presenter = metadata.Presenter
+		// video.Category
+		// video.NumberOfLike
+		video.Keywords = metadata.Keywords
+		resp.Videos = append(resp.Videos, &video)
+	}
+	return resp, nil
 }
