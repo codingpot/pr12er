@@ -1,0 +1,25 @@
+name: Discord Notifications
+
+on:
+  issues:
+    types:
+      - created
+  issue_comment:
+    types:
+      - created
+  pull_request:
+    types:
+      - created
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: "Ilshidur/action-discord@0.3.0"
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: "${{ github.event_name }} was created at {{ EVENT_PAYLOAD.repository.url }}"
