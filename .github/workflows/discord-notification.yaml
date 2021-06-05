@@ -23,7 +23,7 @@ jobs:
           args: |-
             A new PR {{ EVENT_PAYLOAD.pull_request.title }}
 
-            by {{ EVENT_PAYLOAD.sender}}
+            by {{ EVENT_PAYLOAD.sender.login}}
 
             at {{ EVENT_PAYLOAD.pull_request.html_url }}
       - uses: "Ilshidur/action-discord@0.3.0"
@@ -32,8 +32,8 @@ jobs:
         if: ${{ github.event_name == 'issues' }}
         with:
           args: |-
-            A new issue {{ EVENT_PAYLOAD.issues.title }}
+            A new issue {{ EVENT_PAYLOAD.issue.title }}
 
-            by {{ EVENT_PAYLOAD.sender}}
+            by {{ EVENT_PAYLOAD.sender.login}}
 
-            at {{ EVENT_PAYLOAD.issues.html_url }}
+            at {{ EVENT_PAYLOAD.issue.html_url }}
