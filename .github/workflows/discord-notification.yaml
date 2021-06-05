@@ -4,9 +4,6 @@ on:
   issues:
     types:
       - created
-  issue_comment:
-    types:
-      - created
   pull_request:
     types:
       - created
