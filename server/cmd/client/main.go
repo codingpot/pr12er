@@ -40,7 +40,7 @@ func main() {
 
 		respVideosStr := prototext.Format(resp.ProtoReflect().Interface())
 		if err := os.WriteFile("pr12_getvideos.pbtxt", []byte(respVideosStr), 0600); err != nil {
-			log.Fatal(err)
+			log.WithError(err).Fatal("Error on writing file pr12_getvideos.pbtxt")
 		}
 	}
 }
