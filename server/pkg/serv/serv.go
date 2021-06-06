@@ -25,16 +25,13 @@ func (s Server) GetVideos(_ context.Context, _ *pr12er.GetVideosRequest) (*pr12e
 
 func getVideosFromDumpedPbtxt() (*pr12er.GetVideosResponse, error) {
 	var resp pr12er.GetVideosResponse
-	var metadataDump pr12er.MetadataDump
-	if err := prototext.Unmarshal(internal.PR12MetadataProtoText, &metadataDump); err != nil {
-		log.Fatal(err)
-	}
+	metadataDump := internal.ReadPR12MetadataProtoText()
 
 	resp.Videos = make([]*pr12er.Video, 0, len(metadataDump.Metadata))
 
 	for _, metadata := range metadataDump.Metadata {
 		var video pr12er.Video
-		video.Id = metadata.GetId()
+		video.Id = metadata.Id
 		video.Title = metadata.Title
 		if len(metadata.VideoMetadata) > 0 {
 			video.Link = metadata.VideoMetadata[0].Url
@@ -43,5 +40,5 @@ func getVideosFromDumpedPbtxt() (*pr12er.GetVideosResponse, error) {
 		video.Keywords = metadata.Keywords
 		resp.Videos = append(resp.Videos, &video)
 	}
-	return resp, nil
+	return &resp, nil
 }
