@@ -16,7 +16,7 @@ ifeq ($(UNAME),Darwin)
 else ifeq ($(UNAME), Linux)
 	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_LINUX)
 	PROTOC_FILE := $(PROTOC_ZIP_LINUX)
-else ifeq($(UNAME), Windows)
+else ifeq ($(UNAME), Windows)
 	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_WINDOWS)
 	PROTOC_FILE := $(PROTOC_ZIP_WINDOWS)
 endif
@@ -57,7 +57,16 @@ test: test.go test.dart
 
 .PHONY: test.dart
 test.dart:
-	cd client && flutter test
+	cd client && flutter pub run build_runner build && flutter analyze && flutter test
+
+.PHONY: test.dart-e2e
+test.dart-e2e:
+	cd client && flutter drive --target=test_driver/app.dart
+
+.PHONY: format.dart
+format.dart:
+	cd client && flutter format .
+	make gen.dart
 
 .PHONY: test.go
 test.go: lint.go

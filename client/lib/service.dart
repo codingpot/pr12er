@@ -3,43 +3,32 @@ import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
 import 'protos/pkg/pr12er/service.pbgrpc.dart';
 
-class GrpcMsgSender {
+class GrpcClient {
   // Use _getLocalhostChannel(port: 9000) to use the localhost version.
   // NOTE: localhost only works in iOS.
-  ClientChannel channel = _getKkweonOktetoChannel();
-
-  static final GrpcMsgSender _singleton = new GrpcMsgSender._internal();
-
-  factory GrpcMsgSender() => _singleton;
-
-  GrpcMsgSender._internal();
+  final Pr12erServiceClient _client =
+      Pr12erServiceClient(_getKkweonOktetoChannel());
 
   Future<String> sendMessage(String message) async {
-    final stub = Pr12erServiceClient(channel);
-
-    var request = HelloRequest()..body = message;
-    var response = await stub.getHello(request);
+    final request = HelloRequest()..body = message;
+    final response = await _client.getHello(request);
 
     return response.body;
   }
 
   Future<List<Video>> getVideos() async {
-    final stub = Pr12erServiceClient(channel);
-
-    var request = GetVideosRequest();
-    var response = await stub.getVideos(request);
+    final request = GetVideosRequest();
+    final response = await _client.getVideos(request);
 
     return response.videos;
   }
 }
 
 ClientChannel _getKkweonOktetoChannel() {
-  return ClientChannel(
-    'ingress-kkweon.cloud.okteto.net',
-    port: 443,
-  );
+  return ClientChannel('ingress-kkweon.cloud.okteto.net');
 }
 
+// ignore: unused_element
 ClientChannel _getLocalhostChannel({required int port}) {
   return ClientChannel(
     'localhost',
