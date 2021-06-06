@@ -55,9 +55,9 @@ class DetailScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   getHorizontalLine(),
                   const SizedBox(height: 10),
-                  AbstractWidget(),
-                  RepositoryWidget(),
-                  RecommentationWidget(),
+                  // AbstractWidget(),
+                  // RepositoryWidget(),
+                  // RecommentationWidget(),
                 ],
               ),
             )
