@@ -23,7 +23,7 @@ func (s Server) GetVideos(_ context.Context, _ *pr12er.GetVideosRequest) (*pr12e
 	return getVideosFromDumpedPbtxt()
 }
 
-func getVideosFromDumpedPbtxt() (pr12er.GetVideosResponse, error) {
+func getVideosFromDumpedPbtxt() (*pr12er.GetVideosResponse, error) {
 	var resp pr12er.GetVideosResponse
 	var metadataDump pr12er.MetadataDump
 	if err := prototext.Unmarshal(internal.PR12MetadataProtoText, &metadataDump); err != nil {
