@@ -12,7 +12,6 @@ import (
 )
 
 func main() {
-
 	grpcReq := flag.String("grpcCmd", "", "Test specified GRPC request only, or test all the GRPC requests")
 	flag.Parse()
 
