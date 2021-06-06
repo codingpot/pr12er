@@ -40,7 +40,7 @@ func main() {
 		log.Printf("Response from server. Total %d Video(s)", len(resp.Videos))
 
 		respVideosStr := prototext.Format(resp.ProtoReflect().Interface())
-		if err := os.WriteFile("pr12_getvideos.pbtxt", []byte(respVideosStr), 0666); err != nil {
+		if err := os.WriteFile("pr12_getvideos.pbtxt", []byte(respVideosStr), 0600); err != nil {
 			log.Fatal(err)
 		}
 	}
