@@ -35,7 +35,7 @@ func getVideosFromDumpedPbtxt() (pr12er.GetVideosResponse, error) {
 
 	for _, metadata := range metadataDump.Metadata {
 		var video pr12er.Video
-		video.Id = metadata.Id
+		video.Id = metadata.GetId()
 		video.Title = metadata.Title
 		if len(metadata.VideoMetadata) > 0 {
 			video.Link = metadata.VideoMetadata[0].Url
