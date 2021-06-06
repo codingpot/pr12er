@@ -20,8 +20,7 @@ func (s Server) GetHello(_ context.Context, in *pr12er.HelloRequest) (*pr12er.He
 }
 
 func (s Server) GetVideos(_ context.Context, _ *pr12er.GetVideosRequest) (*pr12er.GetVideosResponse, error) {
-	resp, err := getVideosFromDumpedPbtxt()
-	return &resp, err
+	return getVideosFromDumpedPbtxt()
 }
 
 func getVideosFromDumpedPbtxt() (pr12er.GetVideosResponse, error) {
