@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:pr12er/widgets/detail/abstract.dart';
+import 'package:pr12er/widgets/detail/header.dart';
+import 'package:pr12er/widgets/detail/recommendataion.dart';
+import 'package:pr12er/widgets/detail/repository.dart';
 import 'package:pr12er/utils/extractor.dart';
+import 'package:pr12er/widgets/detail/youtube.dart';
 
 class DetailScreenArguments {
   final Video video;
@@ -12,6 +16,15 @@ class DetailScreenArguments {
 class DetailScreen extends StatelessWidget {
   static const String routeName = "detail_app";
 
+  Widget getHorizontalLine() {
+    return const Divider(
+      height: 5,
+      color: Colors.black,
+      indent: 5,
+      endIndent: 5,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final args =
@@ -19,52 +32,38 @@ class DetailScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as DetailScreenArguments;
 
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Text(args.video.title,
-              key: const ValueKey("$routeName/appBar/title")),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: Detail(youtubeId: extractYoutubeId(args.video.link)));
-  }
-}
-
-class Detail extends StatefulWidget {
-  final String youtubeId;
-
-  const Detail({required this.youtubeId});
-
-  @override
-  _DetailState createState() => _DetailState();
-}
-
-class _DetailState extends State<Detail> {
-  late final YoutubePlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = YoutubePlayerController(
-      initialVideoId: widget.youtubeId,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return YoutubePlayerBuilder(
-      player: YoutubePlayer(
-        controller: _controller,
+        title: Text(args.video.title,
+            key: const ValueKey("$routeName/appBar/title")),
       ),
-      builder: (context, player) {
-        return Column(
-          children: [player],
-        );
-      },
+      body: CustomScrollView(
+        slivers: [
+          SliverList(
+              delegate: SliverChildListDelegate([
+            YoutubeWidget(youtubeId: extractYoutubeId(args.video.link)),
+            Container(
+              margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
+              child: Column(
+                children: [
+                  HeaderWidget(),
+                  const SizedBox(height: 10),
+                  getHorizontalLine(),
+                  const SizedBox(height: 10),
+                  AbstractWidget(),
+                  RepositoryWidget(),
+                  RecommentationWidget(),
+                ],
+              ),
+            )
+          ]))
+        ],
+      ),
     );
   }
 }
