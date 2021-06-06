@@ -41,8 +41,6 @@ func getVideosFromDumpedPbtxt() (pr12er.GetVideosResponse, error) {
 			video.Link = metadata.VideoMetadata[0].Url
 		}
 		video.Presenter = metadata.Presenter
-		// video.Category
-		// video.NumberOfLike
 		video.Keywords = metadata.Keywords
 		resp.Videos = append(resp.Videos, &video)
 	}
