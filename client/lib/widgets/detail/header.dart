@@ -16,11 +16,14 @@ class HeaderWidget extends StatelessWidget {
       margin: const EdgeInsets.only(top: 10),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: getPresenterWidgets() +
-              [const SizedBox(width: 25)] +
-              getViewNumbersWidgets() +
-              [const SizedBox(width: 25)] +
-              getDateWidgets()),
+          children: [
+              ...getPresenterWidgets().
+              const SizedBox(width: 25),
+              ...getViewNumbersWidgets(),
+              const SizedBox(width: 25),
+              ...getDateWidgets(),
+          ],
+    ),
     );
   }
 
