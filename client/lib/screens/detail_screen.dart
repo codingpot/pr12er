@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
-import 'package:pr12er/widgets/detail/abstract.dart';
 import 'package:pr12er/widgets/detail/header.dart';
-import 'package:pr12er/widgets/detail/recommendataion.dart';
-import 'package:pr12er/widgets/detail/repository.dart';
 import 'package:pr12er/utils/extractor.dart';
 import 'package:pr12er/widgets/detail/youtube.dart';
 
