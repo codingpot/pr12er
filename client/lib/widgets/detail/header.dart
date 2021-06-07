@@ -4,19 +4,9 @@ import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 // ignore: must_be_immutable
 class HeaderWidget extends StatelessWidget {
   // this is a placeholder
-  // numberOfViews should be replaced in the next PR
-  // by defining numberOfViews in Video proto message
-  int numberOfViews = 0;
-
-  // this is a placeholder
   // didILIkedIt should be replaced in the next future PR
   // after defining user related information
   bool didILikedIt = false;
-
-  // this is a placeholder
-  // date should be replaced in the next future PR
-  // by defining numberOfViews in Video proto message
-  String date = "2017.4.22";
 
   late Video video;
 
@@ -51,7 +41,8 @@ class HeaderWidget extends StatelessWidget {
       const SizedBox(width: 8),
       const Icon(Icons.remove_red_eye),
       const SizedBox(width: 8),
-      Text(numberOfViews.toString(), style: const TextStyle(fontSize: 18)),
+      Text(video.numberOfViews.toString(),
+          style: const TextStyle(fontSize: 18)),
       const SizedBox(width: 15),
       getLikeIcon(),
       const SizedBox(width: 8),
@@ -71,7 +62,7 @@ class HeaderWidget extends StatelessWidget {
     return [
       const Icon(Icons.today),
       const SizedBox(width: 8),
-      Text(date, style: const TextStyle(fontSize: 18))
+      Text(video.publishedDate, style: const TextStyle(fontSize: 18))
     ];
   }
 }
