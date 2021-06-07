@@ -8,7 +8,6 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.frontend.rule.type: PathPrefixStrip
     traefik.ingress.kubernetes.io/redirect-entry-point: https
-
 spec:
   tls:
     - hosts:
