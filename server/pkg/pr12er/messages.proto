@@ -27,6 +27,8 @@ message Video {
   Category category = 5;
   int32 number_of_like = 6;
   repeated string keywords = 7;
+  int32 number_of_views = 8;
+  string published_date = 9;
 }
 
 message Detail {
