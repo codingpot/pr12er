@@ -30,15 +30,23 @@ func getVideosFromDumpedPbtxt() (*pr12er.GetVideosResponse, error) {
 	resp.Videos = make([]*pr12er.Video, 0, len(metadataDump.Metadata))
 
 	for _, metadata := range metadataDump.Metadata {
-		var video pr12er.Video
-		video.Id = metadata.Id
-		video.Title = metadata.Title
-		if len(metadata.VideoMetadata) > 0 {
-			video.Link = metadata.VideoMetadata[0].Url
+		video := &pr12er.Video{
+			Id:           metadata.GetId(),
+			Title:        metadata.GetTitle(),
+			Presenter:    metadata.GetPresenter(),
+			Keywords:     metadata.GetKeywords(),
+
+			// TODO: Update category and number of likes.
+			Category:     pr12er.Category_CATEGORY_UNSPECIFIED,
+			NumberOfLike: 0,
 		}
-		video.Presenter = metadata.Presenter
-		video.Keywords = metadata.Keywords
-		resp.Videos = append(resp.Videos, &video)
+
+		videoMetadata := metadata.GetVideoMetadata()
+		if len(videoMetadata) > 0 {
+			video.Link = videoMetadata[0].Url
+		}
+
+		resp.Videos = append(resp.Videos, video)
 	}
 	return &resp, nil
 }
