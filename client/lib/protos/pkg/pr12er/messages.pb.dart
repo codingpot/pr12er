@@ -22,6 +22,8 @@ class Video extends $pb.GeneratedMessage {
     ..e<Category>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'category', $pb.PbFieldType.OE, defaultOrMaker: Category.CATEGORY_UNSPECIFIED, valueOf: Category.valueOf, enumValues: Category.values)
     ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfLike', $pb.PbFieldType.O3)
     ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'keywords')
+    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfViews', $pb.PbFieldType.O3)
+    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishedDate')
     ..hasRequiredFields = false
   ;
 
@@ -34,6 +36,8 @@ class Video extends $pb.GeneratedMessage {
     Category? category,
     $core.int? numberOfLike,
     $core.Iterable<$core.String>? keywords,
+    $core.int? numberOfViews,
+    $core.String? publishedDate,
   }) {
     final _result = create();
     if (id != null) {
@@ -56,6 +60,12 @@ class Video extends $pb.GeneratedMessage {
     }
     if (keywords != null) {
       _result.keywords.addAll(keywords);
+    }
+    if (numberOfViews != null) {
+      _result.numberOfViews = numberOfViews;
+    }
+    if (publishedDate != null) {
+      _result.publishedDate = publishedDate;
     }
     return _result;
   }
@@ -136,6 +146,24 @@ class Video extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.List<$core.String> get keywords => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $core.int get numberOfViews => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set numberOfViews($core.int v) { $_setSignedInt32(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasNumberOfViews() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearNumberOfViews() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get publishedDate => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set publishedDate($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasPublishedDate() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearPublishedDate() => clearField(9);
 }
 
 class Detail extends $pb.GeneratedMessage {
