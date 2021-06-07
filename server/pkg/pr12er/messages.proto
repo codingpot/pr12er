@@ -27,9 +27,9 @@ message Video {
   string link = 3;
   string presenter = 4;
   Category category = 5;
-  int32 number_of_like = 6;
+  int64 number_of_like = 6;
   repeated string keywords = 7;
-  int32 number_of_views = 8;
+  int64 number_of_views = 8;
   google.protobuf.Timestamp published_date = 9;
 }
 
@@ -55,7 +55,7 @@ message Repository {
   string url = 2;
   string owner = 3;
   Framework framework = 4;
-  int32 number_of_stars = 5;
+  int64 number_of_stars = 5;
   string description = 6;
 }
 

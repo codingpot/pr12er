@@ -45,15 +45,15 @@ const Video$json = const {
     const {'1': 'link', '3': 3, '4': 1, '5': 9, '10': 'link'},
     const {'1': 'presenter', '3': 4, '4': 1, '5': 9, '10': 'presenter'},
     const {'1': 'category', '3': 5, '4': 1, '5': 14, '6': '.pkg.pr12er.Category', '10': 'category'},
-    const {'1': 'number_of_like', '3': 6, '4': 1, '5': 5, '10': 'numberOfLike'},
+    const {'1': 'number_of_like', '3': 6, '4': 1, '5': 3, '10': 'numberOfLike'},
     const {'1': 'keywords', '3': 7, '4': 3, '5': 9, '10': 'keywords'},
-    const {'1': 'number_of_views', '3': 8, '4': 1, '5': 5, '10': 'numberOfViews'},
+    const {'1': 'number_of_views', '3': 8, '4': 1, '5': 3, '10': 'numberOfViews'},
     const {'1': 'published_date', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'publishedDate'},
   ],
 };
 
 /// Descriptor for `Video`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoBVIMbnVtYmVyT2ZMaWtlEhoKCGtleXdvcmRzGAcgAygJUghrZXl3b3JkcxImCg9udW1iZXJfb2Zfdmlld3MYCCABKAVSDW51bWJlck9mVmlld3MSQQoOcHVibGlzaGVkX2RhdGUYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUg1wdWJsaXNoZWREYXRl');
+final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoA1IMbnVtYmVyT2ZMaWtlEhoKCGtleXdvcmRzGAcgAygJUghrZXl3b3JkcxImCg9udW1iZXJfb2Zfdmlld3MYCCABKANSDW51bWJlck9mVmlld3MSQQoOcHVibGlzaGVkX2RhdGUYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUg1wdWJsaXNoZWREYXRl');
 @$core.Deprecated('Use detailDescriptor instead')
 const Detail$json = const {
   '1': 'Detail',
@@ -91,13 +91,13 @@ const Repository$json = const {
     const {'1': 'url', '3': 2, '4': 1, '5': 9, '10': 'url'},
     const {'1': 'owner', '3': 3, '4': 1, '5': 9, '10': 'owner'},
     const {'1': 'framework', '3': 4, '4': 1, '5': 14, '6': '.pkg.pr12er.Framework', '10': 'framework'},
-    const {'1': 'number_of_stars', '3': 5, '4': 1, '5': 5, '10': 'numberOfStars'},
+    const {'1': 'number_of_stars', '3': 5, '4': 1, '5': 3, '10': 'numberOfStars'},
     const {'1': 'description', '3': 6, '4': 1, '5': 9, '10': 'description'},
   ],
 };
 
 /// Descriptor for `Repository`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List repositoryDescriptor = $convert.base64Decode('CgpSZXBvc2l0b3J5Eh8KC2lzX29mZmljaWFsGAEgASgIUgppc09mZmljaWFsEhAKA3VybBgCIAEoCVIDdXJsEhQKBW93bmVyGAMgASgJUgVvd25lchIzCglmcmFtZXdvcmsYBCABKA4yFS5wa2cucHIxMmVyLkZyYW1ld29ya1IJZnJhbWV3b3JrEiYKD251bWJlcl9vZl9zdGFycxgFIAEoBVINbnVtYmVyT2ZTdGFycxIgCgtkZXNjcmlwdGlvbhgGIAEoCVILZGVzY3JpcHRpb24=');
+final $typed_data.Uint8List repositoryDescriptor = $convert.base64Decode('CgpSZXBvc2l0b3J5Eh8KC2lzX29mZmljaWFsGAEgASgIUgppc09mZmljaWFsEhAKA3VybBgCIAEoCVIDdXJsEhQKBW93bmVyGAMgASgJUgVvd25lchIzCglmcmFtZXdvcmsYBCABKA4yFS5wa2cucHIxMmVyLkZyYW1ld29ya1IJZnJhbWV3b3JrEiYKD251bWJlcl9vZl9zdGFycxgFIAEoA1INbnVtYmVyT2ZTdGFycxIgCgtkZXNjcmlwdGlvbhgGIAEoCVILZGVzY3JpcHRpb24=');
 @$core.Deprecated('Use methodDescriptor instead')
 const Method$json = const {
   '1': 'Method',
