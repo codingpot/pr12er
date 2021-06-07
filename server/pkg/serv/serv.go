@@ -2,13 +2,10 @@ package serv
 
 import (
 	"context"
-	_ "embed"
 	"fmt"
-	"log"
 
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
-	"google.golang.org/protobuf/encoding/prototext"
 )
 
 type Server struct {
@@ -31,10 +28,10 @@ func getVideosFromDumpedPbtxt() (*pr12er.GetVideosResponse, error) {
 
 	for _, metadata := range metadataDump.Metadata {
 		video := &pr12er.Video{
-			Id:           metadata.GetId(),
-			Title:        metadata.GetTitle(),
-			Presenter:    metadata.GetPresenter(),
-			Keywords:     metadata.GetKeywords(),
+			Id:        metadata.GetId(),
+			Title:     metadata.GetTitle(),
+			Presenter: metadata.GetPresenter(),
+			Keywords:  metadata.GetKeywords(),
 
 			// TODO: Update category and number of likes.
 			Category:     pr12er.Category_CATEGORY_UNSPECIFIED,
