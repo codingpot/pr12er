@@ -9,6 +9,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/timestamp.pb.dart' as $1;
+
 import 'messages.pbenum.dart';
 
 export 'messages.pbenum.dart';
@@ -23,7 +25,7 @@ class Video extends $pb.GeneratedMessage {
     ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfLike', $pb.PbFieldType.O3)
     ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'keywords')
     ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfViews', $pb.PbFieldType.O3)
-    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishedDate')
+    ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishedDate', subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -37,7 +39,7 @@ class Video extends $pb.GeneratedMessage {
     $core.int? numberOfLike,
     $core.Iterable<$core.String>? keywords,
     $core.int? numberOfViews,
-    $core.String? publishedDate,
+    $1.Timestamp? publishedDate,
   }) {
     final _result = create();
     if (id != null) {
@@ -157,13 +159,15 @@ class Video extends $pb.GeneratedMessage {
   void clearNumberOfViews() => clearField(8);
 
   @$pb.TagNumber(9)
-  $core.String get publishedDate => $_getSZ(8);
+  $1.Timestamp get publishedDate => $_getN(8);
   @$pb.TagNumber(9)
-  set publishedDate($core.String v) { $_setString(8, v); }
+  set publishedDate($1.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasPublishedDate() => $_has(8);
   @$pb.TagNumber(9)
   void clearPublishedDate() => clearField(9);
+  @$pb.TagNumber(9)
+  $1.Timestamp ensurePublishedDate() => $_ensure(8);
 }
 
 class Detail extends $pb.GeneratedMessage {

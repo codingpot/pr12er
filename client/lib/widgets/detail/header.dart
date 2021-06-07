@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
 // ignore: must_be_immutable
@@ -62,7 +63,8 @@ class HeaderWidget extends StatelessWidget {
     return [
       const Icon(Icons.today),
       const SizedBox(width: 8),
-      Text(video.publishedDate, style: const TextStyle(fontSize: 18))
+      Text(DateFormat.yMd().format(video.publishedDate.toDateTime()),
+          style: const TextStyle(fontSize: 18))
     ];
   }
 }

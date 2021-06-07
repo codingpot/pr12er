@@ -3,13 +3,13 @@
 PROTOC_VERSION := 3.17.2
 PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
 PROTOC_URL := $(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/
-PROTO_FILES := $(shell find . -name "*.proto" -type f)
+PROTO_FILES := $(shell find server -name "*.proto" -type f)
+PROTO_THIRDPARTY_FILES := $(shell find thirdparty -name "*.proto" -type f)
 UNAME := $(shell uname)
 
 PROTOC_ZIP_MACOS := protoc-$(PROTOC_VERSION)-osx-x86_64.zip
 PROTOC_ZIP_LINUX := protoc-$(PROTOC_VERSION)-linux-x86_64.zip
 PROTOC_ZIP_WINDOWS := protoc-$(PROTOC_VERSION)-win64.zip
-
 ifeq ($(UNAME),Darwin)
 	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_MACOS)
 	PROTOC_FILE := $(PROTOC_ZIP_MACOS)
@@ -20,6 +20,8 @@ else ifeq ($(UNAME), Windows)
 	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_WINDOWS)
 	PROTOC_FILE := $(PROTOC_ZIP_WINDOWS)
 endif
+
+DART_MOCK_FILES := $(shell find client -name "*.mocks.dart" -type f)
 
 .PHONY: install
 install:
@@ -38,6 +40,7 @@ gen.go:
 	mkdir -p ./server/pkg/protos/
 	protoc \
 	--proto_path=server \
+	--proto_path=thirdparty \
 	--go_out=server \
 	--go_opt=paths=source_relative \
 	--go-grpc_out=server \
@@ -46,18 +49,22 @@ gen.go:
 
 .PHONY: gen.dart
 gen.dart:
-	mkdir -p ./client/lib/protos/ && \
-		protoc \
-			--proto_path=server \
-			--dart_out=grpc:./client/lib/protos \
-			$(PROTO_FILES)
+	mkdir -p ./client/lib/protos/
+	protoc \
+	--proto_path=server \
+	--proto_path=thirdparty \
+	--dart_out=grpc:./client/lib/protos \
+	$(PROTO_FILES) $(PROTO_THIRDPARTY_FILES)
 
 .PHONY: test
 test: test.go test.dart
 
 .PHONY: test.dart
-test.dart:
-	cd client && flutter pub run build_runner build && flutter analyze && flutter test
+test.dart: $(DART_MOCK_FILES)
+	cd client && flutter analyze && flutter test
+
+$(DART_MOCK_FILES): $(DART_MOCK_FILES:.mocks.dart=.dart)
+	cd client && flutter pub run build_runner build
 
 .PHONY: test.dart-e2e
 test.dart-e2e:
