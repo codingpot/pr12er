@@ -6,10 +6,18 @@ import (
 
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type Server struct {
-	pr12er.UnimplementedPr12ErServiceServer
+	pr12er.UnsafePr12ErServiceServer
+}
+
+var _ pr12er.Pr12ErServiceServer = (*Server)(nil)
+
+func (s Server) GetDetails(_ context.Context, _ *pr12er.GetDetailsRequest) (*pr12er.GetDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDetails not implemented")
 }
 
 func (s Server) GetHello(_ context.Context, in *pr12er.HelloRequest) (*pr12er.HelloResponse, error) {
