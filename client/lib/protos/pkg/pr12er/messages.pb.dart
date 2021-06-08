@@ -7,6 +7,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/timestamp.pb.dart' as $1;
@@ -22,9 +23,9 @@ class Video extends $pb.GeneratedMessage {
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'link')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'presenter')
     ..e<Category>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'category', $pb.PbFieldType.OE, defaultOrMaker: Category.CATEGORY_UNSPECIFIED, valueOf: Category.valueOf, enumValues: Category.values)
-    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfLike', $pb.PbFieldType.O3)
+    ..aInt64(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfLike')
     ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'keywords')
-    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfViews', $pb.PbFieldType.O3)
+    ..aInt64(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfViews')
     ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishedDate', subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false
   ;
@@ -36,9 +37,9 @@ class Video extends $pb.GeneratedMessage {
     $core.String? link,
     $core.String? presenter,
     Category? category,
-    $core.int? numberOfLike,
+    $fixnum.Int64? numberOfLike,
     $core.Iterable<$core.String>? keywords,
-    $core.int? numberOfViews,
+    $fixnum.Int64? numberOfViews,
     $1.Timestamp? publishedDate,
   }) {
     final _result = create();
@@ -138,9 +139,9 @@ class Video extends $pb.GeneratedMessage {
   void clearCategory() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.int get numberOfLike => $_getIZ(5);
+  $fixnum.Int64 get numberOfLike => $_getI64(5);
   @$pb.TagNumber(6)
-  set numberOfLike($core.int v) { $_setSignedInt32(5, v); }
+  set numberOfLike($fixnum.Int64 v) { $_setInt64(5, v); }
   @$pb.TagNumber(6)
   $core.bool hasNumberOfLike() => $_has(5);
   @$pb.TagNumber(6)
@@ -150,9 +151,9 @@ class Video extends $pb.GeneratedMessage {
   $core.List<$core.String> get keywords => $_getList(6);
 
   @$pb.TagNumber(8)
-  $core.int get numberOfViews => $_getIZ(7);
+  $fixnum.Int64 get numberOfViews => $_getI64(7);
   @$pb.TagNumber(8)
-  set numberOfViews($core.int v) { $_setSignedInt32(7, v); }
+  set numberOfViews($fixnum.Int64 v) { $_setInt64(7, v); }
   @$pb.TagNumber(8)
   $core.bool hasNumberOfViews() => $_has(7);
   @$pb.TagNumber(8)
@@ -360,7 +361,7 @@ class Repository extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'url')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'owner')
     ..e<Framework>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'framework', $pb.PbFieldType.OE, defaultOrMaker: Framework.FRAMEWORK_UNSPECIFIED, valueOf: Framework.valueOf, enumValues: Framework.values)
-    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfStars', $pb.PbFieldType.O3)
+    ..aInt64(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'numberOfStars')
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
     ..hasRequiredFields = false
   ;
@@ -371,7 +372,7 @@ class Repository extends $pb.GeneratedMessage {
     $core.String? url,
     $core.String? owner,
     Framework? framework,
-    $core.int? numberOfStars,
+    $fixnum.Int64? numberOfStars,
     $core.String? description,
   }) {
     final _result = create();
@@ -453,9 +454,9 @@ class Repository extends $pb.GeneratedMessage {
   void clearFramework() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.int get numberOfStars => $_getIZ(4);
+  $fixnum.Int64 get numberOfStars => $_getI64(4);
   @$pb.TagNumber(5)
-  set numberOfStars($core.int v) { $_setSignedInt32(4, v); }
+  set numberOfStars($fixnum.Int64 v) { $_setInt64(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasNumberOfStars() => $_has(4);
   @$pb.TagNumber(5)
