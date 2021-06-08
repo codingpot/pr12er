@@ -41,7 +41,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
 
-    if: ${{ needs.build_and_release.new_release_published }}
+    if: ${{ needs.build_and_release.outputs.new_release_published }}
 
     needs:
       - build_and_release
