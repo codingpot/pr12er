@@ -3,7 +3,7 @@ import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
 // ignore: must_be_immutable
 class PaperAbstractWidget extends StatelessWidget {
-  late Paper paperAbstract;
+  late Detail paperAbstract;
 
   PaperAbstractWidget({Key? key, required this.paperAbstract})
       : super(key: key);

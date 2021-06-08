@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
+import 'package:pr12er/service.dart';
 import 'package:pr12er/widgets/detail/abstract.dart';
 import 'package:pr12er/widgets/detail/header.dart';
 import 'package:pr12er/utils/extractor.dart';
 import 'package:pr12er/widgets/detail/youtube.dart';
+import 'package:provider/provider.dart';
 
 class DetailScreenArguments {
   final Video video;
-  final Paper paper;
 
-  DetailScreenArguments(this.video, this.paper);
+  DetailScreenArguments(this.video);
 }
 
 class DetailScreen extends StatelessWidget {
@@ -54,7 +55,19 @@ class DetailScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   getHorizontalLine(),
                   const SizedBox(height: 10),
-                  PaperAbstractWidget(paperAbstract: args.paper),
+                  FutureBuilder<Detail>(
+                    future:
+                        context.read<GrpcClient>().getDetails(args.video.id),
+                    builder: (context, AsyncSnapshot<Detail> snapshot) {
+                      if (!snapshot.hasData) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+
+                      return PaperAbstractWidget(paperAbstract: snapshot.data!);
+                    },
+                  )
+                  // PaperAbstractWidget(paperAbstract: paper),
+                  // context.read<GrpcClient>().getDetails()
                 ],
               ),
             )
