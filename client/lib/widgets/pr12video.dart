@@ -30,7 +30,7 @@ class PR12Video extends StatelessWidget {
                 textAlign: TextAlign.start,
               ),
               const SizedBox(width: 20),
-              Text(video.keywords.sublist(0, 1)[0],
+              Text(getKeywords(video.keywords),
                   style: const TextStyle(fontStyle: FontStyle.italic),
                   overflow: TextOverflow.ellipsis)
             ])),
@@ -44,6 +44,14 @@ class PR12Video extends StatelessWidget {
       ),
     );
   }
+}
+
+String getKeywords(List<String> keywords) {
+  if (keywords.isEmpty) {
+    return "";
+  }
+
+  return keywords[0];
 }
 
 List<Widget> getCategoryWidgets(Category category) {
