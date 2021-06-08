@@ -1,6 +1,8 @@
 syntax = "proto3";
 package pkg.pr12er;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/codingpot/server/pkg/pr12er";
 
 enum Category {
@@ -28,7 +30,7 @@ message Video {
   int32 number_of_like = 6;
   repeated string keywords = 7;
   int32 number_of_views = 8;
-  string published_date = 9;
+  google.protobuf.Timestamp published_date = 9;
 }
 
 message Detail {
@@ -45,7 +47,7 @@ message Paper {
   string pub_date = 4;
   repeated string authors = 5;
   repeated Repository repositories = 6;
-  repeated Method methods = 7;  
+  repeated Method methods = 7;
 }
 
 message Repository {

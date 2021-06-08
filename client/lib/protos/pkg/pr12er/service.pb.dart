@@ -9,7 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'messages.pb.dart' as $1;
+import 'messages.pb.dart' as $2;
 
 class HelloRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'HelloRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
@@ -107,13 +107,13 @@ class HelloResponse extends $pb.GeneratedMessage {
 
 class GetVideosResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetVideosResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
-    ..pc<$1.Video>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'videos', $pb.PbFieldType.PM, subBuilder: $1.Video.create)
+    ..pc<$2.Video>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'videos', $pb.PbFieldType.PM, subBuilder: $2.Video.create)
     ..hasRequiredFields = false
   ;
 
   GetVideosResponse._() : super();
   factory GetVideosResponse({
-    $core.Iterable<$1.Video>? videos,
+    $core.Iterable<$2.Video>? videos,
   }) {
     final _result = create();
     if (videos != null) {
@@ -143,7 +143,7 @@ class GetVideosResponse extends $pb.GeneratedMessage {
   static GetVideosResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$1.Video> get videos => $_getList(0);
+  $core.List<$2.Video> get videos => $_getList(0);
 }
 
 class GetVideosRequest extends $pb.GeneratedMessage {
@@ -177,13 +177,13 @@ class GetVideosRequest extends $pb.GeneratedMessage {
 
 class GetDetailsResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetDetailsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
-    ..aOM<$1.Detail>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'detail', subBuilder: $1.Detail.create)
+    ..aOM<$2.Detail>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'detail', subBuilder: $2.Detail.create)
     ..hasRequiredFields = false
   ;
 
   GetDetailsResponse._() : super();
   factory GetDetailsResponse({
-    $1.Detail? detail,
+    $2.Detail? detail,
   }) {
     final _result = create();
     if (detail != null) {
@@ -213,15 +213,15 @@ class GetDetailsResponse extends $pb.GeneratedMessage {
   static GetDetailsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $1.Detail get detail => $_getN(0);
+  $2.Detail get detail => $_getN(0);
   @$pb.TagNumber(1)
-  set detail($1.Detail v) { setField(1, v); }
+  set detail($2.Detail v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasDetail() => $_has(0);
   @$pb.TagNumber(1)
   void clearDetail() => clearField(1);
   @$pb.TagNumber(1)
-  $1.Detail ensureDetail() => $_ensure(0);
+  $2.Detail ensureDetail() => $_ensure(0);
 }
 
 class GetDetailsRequest extends $pb.GeneratedMessage {

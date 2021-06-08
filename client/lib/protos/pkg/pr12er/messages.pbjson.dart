@@ -48,12 +48,12 @@ const Video$json = const {
     const {'1': 'number_of_like', '3': 6, '4': 1, '5': 5, '10': 'numberOfLike'},
     const {'1': 'keywords', '3': 7, '4': 3, '5': 9, '10': 'keywords'},
     const {'1': 'number_of_views', '3': 8, '4': 1, '5': 5, '10': 'numberOfViews'},
-    const {'1': 'published_date', '3': 9, '4': 1, '5': 9, '10': 'publishedDate'},
+    const {'1': 'published_date', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'publishedDate'},
   ],
 };
 
 /// Descriptor for `Video`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoBVIMbnVtYmVyT2ZMaWtlEhoKCGtleXdvcmRzGAcgAygJUghrZXl3b3JkcxImCg9udW1iZXJfb2Zfdmlld3MYCCABKAVSDW51bWJlck9mVmlld3MSJQoOcHVibGlzaGVkX2RhdGUYCSABKAlSDXB1Ymxpc2hlZERhdGU=');
+final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoBVIMbnVtYmVyT2ZMaWtlEhoKCGtleXdvcmRzGAcgAygJUghrZXl3b3JkcxImCg9udW1iZXJfb2Zfdmlld3MYCCABKAVSDW51bWJlck9mVmlld3MSQQoOcHVibGlzaGVkX2RhdGUYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUg1wdWJsaXNoZWREYXRl');
 @$core.Deprecated('Use detailDescriptor instead')
 const Detail$json = const {
   '1': 'Detail',
