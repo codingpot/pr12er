@@ -17,23 +17,23 @@ class PR12Video extends StatelessWidget {
         leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: getCategoryWidgets(video.category)),
-        title: Text(video.title),
+        title: Text(
+          video.title,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 3,
+        ),
         subtitle: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Row(children: [
-              Column(children: [Text(video.presenter)]),
-              Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Column(children: [
-                    Text(
-                      video.keywords.join(", "),
-                      style: const TextStyle(fontStyle: FontStyle.italic),
-                    )
-                  ]))
+              Text(
+                video.presenter,
+                textAlign: TextAlign.start,
+              ),
+              const SizedBox(width: 20),
+              Text(video.keywords.sublist(0, 1)[0],
+                  style: const TextStyle(fontStyle: FontStyle.italic),
+                  overflow: TextOverflow.ellipsis)
             ])),
-        trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [Icon(Icons.favorite_border_outlined)]),
         onTap: () {
           Navigator.pushNamed(
             context,
