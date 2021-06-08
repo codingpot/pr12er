@@ -1,4 +1,5 @@
-.idea
+.idea/
 .DS_Store
-.vscode
+.vscode/
 /client/test/**/*_test.mocks.dart
+.devcontainer/

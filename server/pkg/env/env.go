@@ -2,24 +2,20 @@ package env
 
 import (
 	"os"
-	"strconv"
 	"strings"
 )
 
 var (
-	Version  = "dev" // nolint:revive
-	Nversion = "pr12er-" + Version
-	Debug, _ = strconv.ParseBool(getEnvVar("DEBUG", "false"))
-
-	ServicePort    = getEnvVar("PR12ER_GRPC_PORT", "9000")
+	// ServicePort is the main port.
+	ServicePort = getEnvVar("PR12ER_GRPC_PORT", "9000")
+	// PrometheusPort is the port for Prometheus metrics (/metrics).
 	PrometheusPort = getEnvVar("PR12ER_PROMETHEUS_PORT", "9092")
 )
 
 func getEnvVar(key, fallbackValue string) string {
-	if val, ok := os.LookupEnv(key); ok {
-		if val != "" {
-			return strings.TrimSpace(val)
-		}
+	val := strings.TrimSpace(os.Getenv(key))
+	if val == "" {
+		return fallbackValue
 	}
-	return fallbackValue
+	return val
 }

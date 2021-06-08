@@ -18,10 +18,7 @@ import (
 )
 
 func main() {
-	log.WithFields(log.Fields{
-		"Nversion":    env.Nversion,
-		"ServicePort": env.ServicePort,
-	}).Print("gRPC server is listening")
+	log.WithField("ServicePort", env.ServicePort).Print("gRPC server is listening")
 
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", env.ServicePort))
 	if err != nil {
