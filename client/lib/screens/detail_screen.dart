@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
+import 'package:pr12er/widgets/detail/abstract.dart';
 import 'package:pr12er/widgets/detail/header.dart';
 import 'package:pr12er/utils/extractor.dart';
 import 'package:pr12er/widgets/detail/youtube.dart';
 
 class DetailScreenArguments {
   final Video video;
+  final Paper paper;
 
-  DetailScreenArguments(this.video);
+  DetailScreenArguments(this.video, this.paper);
 }
 
 class DetailScreen extends StatelessWidget {
@@ -52,6 +54,7 @@ class DetailScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   getHorizontalLine(),
                   const SizedBox(height: 10),
+                  PaperAbstractWidget(paperAbstract: args.paper),
                 ],
               ),
             )

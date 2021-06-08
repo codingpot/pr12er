@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
-class AbstractWidget extends StatelessWidget {
-  const AbstractWidget({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class PaperAbstractWidget extends StatelessWidget {
+  late Paper paperAbstract;
+
+  PaperAbstractWidget({Key? key, required this.paperAbstract})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: const Text('hello world'),
+    );
   }
 }
