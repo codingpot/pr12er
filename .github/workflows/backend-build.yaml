@@ -53,13 +53,9 @@ jobs:
         with:
           images: ghcr.io/codingpot/pr12er
           tags: |
-            # <image>:1
             type=raw,value=${{ needs.build_and_release.outputs.new_release_major_version }}
-            # <image>:1.2
             type=raw,value=${{ needs.build_and_release.outputs.new_release_major_version }}.${{ needs.build_and_release.outputs.new_release_minor_version }}
-            # <image>:1.2.3
             type=raw,value=${{ needs.build_and_release.outputs.new_release_version }}
-            # <image>:latest
             type=raw,value=latest
 
       - name: Set up QEMU
