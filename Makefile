@@ -31,8 +31,12 @@ install:
 	unzip -o $(PROTOC_FILE) -d $${HOME}/.local
 	export PATH="$${PATH}:$${HOME}/.local/bin"
 	rm -f protoc-*.zip
-	(cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install)
+	make install.go
 	pub global activate protoc_plugin
+
+.PHONY: install.go
+install.go:
+	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install
 
 .PHONY: gen.all
 gen.all: gen.go gen.dart
