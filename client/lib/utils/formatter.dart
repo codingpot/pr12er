@@ -8,5 +8,10 @@ String reformatNumbers(int number) {
     copyNumber /= 1000;
   }
 
-  return copyNumber.toString() + ['', 'K', 'M', 'G', 'T', 'P'][magnitude];
+  String numberString = copyNumber.toString();
+  if (numberString.substring(numberString.length - 2) == ".0") {
+    numberString = numberString.substring(0, numberString.length - 2);
+  }
+
+  return numberString + ['', 'K', 'M', 'G', 'T', 'P'][magnitude];
 }
