@@ -31,7 +31,6 @@ dependencies:
   provider: ^5.0.0
   youtube_player_flutter: ^8.0.0
   fixnum: ^1.0.0
-  sprintf: ^4.0.0  
 
 dev_dependencies:
   build_runner: ^2.0.4

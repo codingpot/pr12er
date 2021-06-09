@@ -1,5 +1,3 @@
-import 'package:sprintf/sprintf.dart';
-
 String reformatNumbers(int number) {
   int copyNumber = number;
   int magnitude = 0;
@@ -10,8 +8,5 @@ String reformatNumbers(int number) {
     copyNumber ~/= 1000;
   }
 
-  return sprintf('%d%s', [
-    copyNumber,
-    ['', 'K', 'M', 'G', 'T', 'P'][magnitude]
-  ]);
+  return copyNumber.toString() + ['', 'K', 'M', 'G', 'T', 'P'][magnitude];
 }
