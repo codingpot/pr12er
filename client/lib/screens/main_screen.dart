@@ -15,7 +15,14 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.search),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                // do something
+              },
+            )
+          ],
           title: const Text(appName),
         ),
         body: PRVideos());
