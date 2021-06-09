@@ -7,7 +7,7 @@ import 'package:pr12er/screens/main_screen.dart';
 import 'package:pr12er/service.dart';
 import 'package:provider/provider.dart';
 
-import 'main_screen_test.mocks.dart';
+import 'main_screen_test_with_mocks.mocks.dart';
 
 Widget setup(Widget widget, GrpcClient grpcClient) {
   return Provider(

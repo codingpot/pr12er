@@ -21,7 +21,9 @@ else ifeq ($(UNAME), Windows)
 	PROTOC_FILE := $(PROTOC_ZIP_WINDOWS)
 endif
 
-DART_MOCK_FILES := $(shell find client -name "*.mocks.dart" -type f)
+# Mock 이 필요한 파일
+DART_MOCK_SRCS := $(shell find client -name "*_with_mocks.dart" -type f)
+DART_MOCK_TARGETS := $(DART_MOCK_SRCS:%_with_mocks.dart=%_with_mocks.mocks.dart)
 
 .PHONY: install
 install:
@@ -60,10 +62,10 @@ gen.dart:
 test: test.go test.dart
 
 .PHONY: test.dart
-test.dart: $(DART_MOCK_FILES)
+test.dart: $(DART_MOCK_TARGETS)
 	cd client && flutter analyze && flutter test
 
-$(DART_MOCK_FILES): $(DART_MOCK_FILES:.mocks.dart=.dart)
+$(DART_MOCK_TARGETS): $(DART_MOCK_SRCS)
 	cd client && flutter pub run build_runner build
 
 .PHONY: test.dart-e2e
