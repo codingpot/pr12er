@@ -60,6 +60,6 @@ jobs:
 
       - uses: okteto/namespace@master
         with:
-          name: kkweon
+          namespace: kkweon
 
       - uses: okteto/pipeline@master
