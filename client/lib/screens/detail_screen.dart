@@ -79,7 +79,10 @@ class DetailScreen extends StatelessWidget {
                               const SizedBox(height: 10),
                               getHorizontalLine(),
                               const SizedBox(height: 10),
-                              RepositoryWidget()
+                              RepositoryWidget(
+                                repositories:
+                                    snapshot.data!.paper[0].repositories,
+                              )
                             ]);
                           },
                         )

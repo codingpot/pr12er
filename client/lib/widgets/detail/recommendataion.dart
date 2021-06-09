@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
 class RecommentationWidget extends StatelessWidget {
@@ -8,6 +9,8 @@ class RecommentationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Paper> refPapers = getReferencePapers(detail);
+
     return Container(
       padding: const EdgeInsets.only(left: 5, right: 5),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -21,28 +24,32 @@ class RecommentationWidget extends StatelessWidget {
             height: 150,
             child: ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: 2,
+                itemCount: refPapers.length,
                 itemBuilder: (BuildContext context, int index) =>
-                    getItemCard(index)))
+                    getItemCard(refPapers[index])))
       ]),
     );
   }
 
-  Widget getItemCard(index) {
-    if (index == 0) {
-      return const Card(
-          child: ListTile(
-        title: Text(
-            'On distinguishability criteria for estimating generative models'),
-        subtitle: Text('Ian J. Goodfellow | 21 May, 2015'),
-      ));
-    } else {
-      return const Card(
-          child: ListTile(
-        title: Text(
-            'Learning to Efficiently Sample from Diffusion Probabilistic Models'),
-        subtitle: Text('Daniel Watson | 7 June, 2021'),
-      ));
+  Widget getItemCard(Paper paper) {
+    return Card(
+        child: ListTile(
+            title: Text(paper.title),
+            subtitle: Text(
+                "${paper.authors[0]}  |  ${DateFormat.yMd().format(paper.pubDate.toDateTime())}")));
+  }
+
+  List<Paper> getReferencePapers(Detail detail) {
+    final List<Paper> papers = <Paper>[];
+
+    if (detail.sameAuthorPapers.isNotEmpty) {
+      papers.add(detail.sameAuthorPapers[0]);
     }
+
+    if (detail.relevantPapers.isNotEmpty) {
+      papers.add(detail.relevantPapers[0]);
+    }
+
+    return papers;
   }
 }
