@@ -3,6 +3,7 @@ module github.com/codingpot/pr12er/server
 go 1.16
 
 require (
+	github.com/daixiang0/gci v0.2.8 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/prometheus/client_golang v1.10.0
@@ -16,4 +17,5 @@ require (
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
 	google.golang.org/protobuf v1.26.0
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	mvdan.cc/gofumpt v0.1.1 // indirect
 )

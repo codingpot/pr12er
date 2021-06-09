@@ -17,10 +17,9 @@ type Server struct {
 var _ pr12er.Pr12ErServiceServer = (*Server)(nil)
 
 func (s Server) GetDetails(_ context.Context, in *pr12er.GetDetailsRequest) (*pr12er.GetDetailsResponse, error) {
-
 	resp := &pr12er.GetDetailsResponse{
 		Detail: &pr12er.Detail{
-			Paper: []*pr12er.Paper {
+			Paper: []*pr12er.Paper{
 				{
 					PaperId: "1",
 					Absract: "We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1/2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference networks during either training or generation of samples. Experiments demonstrate the potential of the framework through qualitative and quantitative evaluation of the generated samples.",
@@ -44,14 +43,14 @@ func (s Server) GetDetails(_ context.Context, in *pr12er.GetDetailsRequest) (*pr
 					},
 				},
 			},
-			SameAuthorPapers: []*pr12er.Paper {
+			SameAuthorPapers: []*pr12er.Paper{
 				{
 					Title:   "On distinguishability criteria for estimating generative models",
 					Authors: []string{"Ian J. Goodfellow"},
 					PubDate: timestamppb.New(time.Date(2015, 5, 21, 0, 0, 0, 0, time.UTC)),
 				},
 			},
-			RelevantPapers: []*pr12er.Paper {
+			RelevantPapers: []*pr12er.Paper{
 				{
 					Title:   "Learning to Efficiently Sample from Diffusion Probabilistic Models",
 					Authors: []string{"Daniel Watson"},
