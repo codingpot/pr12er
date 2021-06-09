@@ -18,11 +18,10 @@ class RepositoryWidget extends StatelessWidget {
             height: 150,
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    childAspectRatio: 6.5 / 2,
-                    crossAxisSpacing: 0,
-                    mainAxisSpacing: 20),
-                itemCount: 2,
+                  maxCrossAxisExtent: 200,
+                  childAspectRatio: 6.5 / 2,
+                ),
+                itemCount: 4,
                 itemBuilder: (BuildContext context, int index) =>
                     getItemCard(index)))
       ]),
@@ -38,7 +37,7 @@ class RepositoryWidget extends StatelessWidget {
           backgroundColor: Colors.transparent,
         ),
         title: Text(
-          'owner',
+          'goodfeli',
           overflow: TextOverflow.clip,
         ),
       ));
@@ -49,7 +48,11 @@ class RepositoryWidget extends StatelessWidget {
           backgroundImage: AssetImage('images/pytorch-logo.png'),
           backgroundColor: Colors.transparent,
         ),
-        title: Text('owner'),
+        title: Text(
+          'eriklindernoren',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
       ));
     }
   }
