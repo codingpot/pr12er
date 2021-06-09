@@ -12,37 +12,47 @@ class PR12Video extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
-        key: ValueKey("ListTile-$index"),
-        leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: getCategoryWidgets(video.category)),
-        title: Text(
-          video.title,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 3,
+        child: Stack(
+      children: [
+        ListTile(
+          key: ValueKey("ListTile-$index"),
+          leading: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: getCategoryWidgets(video.category)),
+          title: Text(
+            video.title,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 3,
+          ),
+          subtitle: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(children: [
+                Text(
+                  video.presenter,
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(width: 20),
+                Text(getKeywords(video.keywords),
+                    style: const TextStyle(fontStyle: FontStyle.italic),
+                    overflow: TextOverflow.ellipsis)
+              ])),
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              DetailScreen.routeName,
+              arguments: DetailScreenArguments(video),
+            );
+          },
         ),
-        subtitle: Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Row(children: [
-              Text(
-                video.presenter,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(width: 20),
-              Text(getKeywords(video.keywords),
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  overflow: TextOverflow.ellipsis)
-            ])),
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            DetailScreen.routeName,
-            arguments: DetailScreenArguments(video),
-          );
-        },
-      ),
-    );
+        Positioned(
+            right: 3,
+            child: Icon(
+              Icons.bookmark,
+              size: 30,
+              color: Colors.blue,
+            ))
+      ],
+    ));
   }
 }
 
