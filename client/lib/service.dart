@@ -1,3 +1,4 @@
+import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
@@ -21,6 +22,13 @@ class GrpcClient {
     final response = await _client.getVideos(request);
 
     return response.videos;
+  }
+
+  Future<Detail> getDetails(int videoId) async {
+    final request = GetDetailsRequest(prId: videoId);
+    final response = await _client.getDetails(request);
+
+    return response.detail;
   }
 }
 
