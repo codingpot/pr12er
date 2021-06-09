@@ -36,7 +36,7 @@ install:
 
 .PHONY: install.go
 install.go:
-	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install
+	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install && go mod tidy
 
 .PHONY: gen.all
 gen.all: gen.go gen.dart
@@ -99,3 +99,4 @@ lint.go:
 clean:
 	rm -rf ./client/lib/protos
 	rm -rf ./server/pkg/pr12er/*.pb.go
+	find ./client/test/ -name *.mocks.dart -delete
