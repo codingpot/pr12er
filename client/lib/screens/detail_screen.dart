@@ -87,8 +87,6 @@ class DetailScreen extends StatelessWidget {
                             ]);
                           },
                         )
-                        // PaperAbstractWidget(paperAbstract: paper),
-                        // context.read<GrpcClient>().getDetails()
                       ],
                     ),
                   )
