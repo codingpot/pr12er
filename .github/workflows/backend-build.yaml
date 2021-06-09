@@ -51,12 +51,11 @@ jobs:
     needs:
       - release
 
-    if: ${{ needs.release.outputs.new_release_published }}
+    if: ${{ needs.release.outputs.new_release_published == 'true' }}
 
     steps:
       - uses: actions/checkout@v2
       - name: Docker meta
-        if: ${{ needs.release.outputs.new_release_published }}
         id: docker_meta
         uses: docker/metadata-action@v3
         with:
@@ -83,7 +82,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
-        if: ${{ needs.release.outputs.new_release_published }}
         uses: docker/build-push-action@v2
         with:
           context: ./server
