@@ -21,7 +21,9 @@ else ifeq ($(UNAME), Windows)
 	PROTOC_FILE := $(PROTOC_ZIP_WINDOWS)
 endif
 
-DART_MOCK_FILES := $(shell find client -name "*.mocks.dart" -type f)
+# Mock 이 필요한 파일
+DART_MOCK_SRCS := $(shell find client -name "*_with_mocks.dart" -type f)
+DART_MOCK_TARGETS := $(DART_MOCK_SRCS:%_with_mocks.dart=%_with_mocks.mocks.dart)
 
 .PHONY: install
 install:
@@ -29,8 +31,12 @@ install:
 	unzip -o $(PROTOC_FILE) -d $${HOME}/.local
 	export PATH="$${PATH}:$${HOME}/.local/bin"
 	rm -f protoc-*.zip
-	(cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install)
+	make install.go
 	pub global activate protoc_plugin
+
+.PHONY: install.go
+install.go:
+	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install && go mod tidy
 
 .PHONY: gen.all
 gen.all: gen.go gen.dart
@@ -60,10 +66,10 @@ gen.dart:
 test: test.go test.dart
 
 .PHONY: test.dart
-test.dart: $(DART_MOCK_FILES)
+test.dart: $(DART_MOCK_TARGETS)
 	cd client && flutter analyze && flutter test
 
-$(DART_MOCK_FILES): $(DART_MOCK_FILES:.mocks.dart=.dart)
+$(DART_MOCK_TARGETS): $(DART_MOCK_SRCS)
 	cd client && flutter pub run build_runner build
 
 .PHONY: test.dart-e2e
@@ -93,3 +99,4 @@ lint.go:
 clean:
 	rm -rf ./client/lib/protos
 	rm -rf ./server/pkg/pr12er/*.pb.go
+	find ./client/test/ -name *.mocks.dart -delete

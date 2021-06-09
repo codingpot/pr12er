@@ -1,5 +1,5 @@
 .idea/
 .DS_Store
 .vscode/
-/client/test/**/*_test.mocks.dart
+/client/test/**/*.mocks.dart
 .devcontainer/

@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/daixiang0/gci v0.2.8 // indirect
+	github.com/daixiang0/gci v0.2.8
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/prometheus/client_golang v1.10.0
@@ -18,4 +19,5 @@ require (
 	google.golang.org/protobuf v1.26.0
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	mvdan.cc/gofumpt v0.1.1 // indirect
+	mvdan.cc/gofumpt v0.1.1
 )
