@@ -3,9 +3,9 @@ import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
 // ignore: must_be_immutable
 class PaperAbstractWidget extends StatelessWidget {
-  late Detail detail;
+  late Paper paper;
 
-  PaperAbstractWidget({Key? key, required this.detail}) : super(key: key);
+  PaperAbstractWidget({Key? key, required this.paper}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class PaperAbstractWidget extends StatelessWidget {
               Container(
                   height: 100,
                   child: Text(
-                    detail.paper[0].absract,
+                    paper.absract,
                     overflow: TextOverflow.fade,
                     softWrap: true,
                     style: const TextStyle(

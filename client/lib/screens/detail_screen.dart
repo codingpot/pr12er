@@ -71,7 +71,8 @@ class DetailScreen extends StatelessWidget {
                             }
 
                             return Column(children: [
-                              PaperAbstractWidget(detail: snapshot.data!),
+                              PaperAbstractWidget(
+                                  paper: snapshot.data!.paper[0]),
                               const SizedBox(height: 10),
                               getHorizontalLine(),
                               const SizedBox(height: 10),
