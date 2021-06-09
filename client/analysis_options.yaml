@@ -3,3 +3,4 @@ analyzer:
   exclude:
     - lib/**/*.pb*.dart
     - lib/test-server.dart
+    - test/**/*.mocks.dart
