@@ -17,9 +17,7 @@ class _DetailState extends State<YoutubeWidget> {
   void initState() {
     super.initState();
 
-    _controller = YoutubePlayerController(
-      initialVideoId: widget.youtubeId,
-    );
+    _controller = YoutubePlayerController(initialVideoId: widget.youtubeId);
   }
 
   @override

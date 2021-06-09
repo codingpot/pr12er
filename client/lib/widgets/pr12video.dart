@@ -12,38 +12,56 @@ class PR12Video extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
-        key: ValueKey("ListTile-$index"),
-        leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: getCategoryWidgets(video.category)),
-        title: Text(video.title),
-        subtitle: Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Row(children: [
-              Column(children: [Text(video.presenter)]),
-              Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Column(children: [
-                    Text(
-                      video.keywords.join(", "),
-                      style: const TextStyle(fontStyle: FontStyle.italic),
-                    )
-                  ]))
-            ])),
-        trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [Icon(Icons.favorite_border_outlined)]),
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            DetailScreen.routeName,
-            arguments: DetailScreenArguments(video),
-          );
-        },
-      ),
-    );
+        child: Stack(
+      children: [
+        ListTile(
+          key: ValueKey("ListTile-$index"),
+          leading: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: getCategoryWidgets(video.category)),
+          title: Text(
+            video.title,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 3,
+          ),
+          subtitle: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(children: [
+                Text(
+                  video.presenter,
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(width: 20),
+                Text(getKeywords(video.keywords),
+                    style: const TextStyle(fontStyle: FontStyle.italic),
+                    overflow: TextOverflow.ellipsis)
+              ])),
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              DetailScreen.routeName,
+              arguments: DetailScreenArguments(video),
+            );
+          },
+        ),
+        const Positioned(
+            right: 3,
+            child: Icon(
+              Icons.bookmark,
+              size: 30,
+              color: Colors.blue,
+            ))
+      ],
+    ));
   }
+}
+
+String getKeywords(List<String> keywords) {
+  if (keywords.isEmpty) {
+    return "";
+  }
+
+  return keywords[0];
 }
 
 List<Widget> getCategoryWidgets(Category category) {

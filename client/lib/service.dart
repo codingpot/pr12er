@@ -22,6 +22,13 @@ class GrpcClient {
 
     return response.videos;
   }
+
+  Future<Detail> getDetails(int videoId) async {
+    final request = GetDetailsRequest(prId: videoId);
+    final response = await _client.getDetails(request);
+
+    return response.detail;
+  }
 }
 
 ClientChannel _getKkweonOktetoChannel() {
