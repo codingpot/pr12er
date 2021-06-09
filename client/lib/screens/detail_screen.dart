@@ -4,6 +4,8 @@ import 'package:pr12er/service.dart';
 import 'package:pr12er/widgets/detail/abstract.dart';
 import 'package:pr12er/widgets/detail/header.dart';
 import 'package:pr12er/utils/extractor.dart';
+import 'package:pr12er/widgets/detail/recommendataion.dart';
+import 'package:pr12er/widgets/detail/repository.dart';
 import 'package:pr12er/widgets/detail/youtube.dart';
 import 'package:provider/provider.dart';
 
@@ -42,36 +44,54 @@ class DetailScreen extends StatelessWidget {
         title: Text(args.video.title,
             key: const ValueKey("$routeName/appBar/title")),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverList(
-              delegate: SliverChildListDelegate([
-            YoutubeWidget(youtubeId: extractYoutubeId(args.video.link)),
-            Container(
-              margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-              child: Column(
-                children: [
-                  HeaderWidget(video: args.video),
-                  const SizedBox(height: 10),
-                  getHorizontalLine(),
-                  const SizedBox(height: 10),
-                  FutureBuilder<Detail>(
-                    future:
-                        context.read<GrpcClient>().getDetails(args.video.id),
-                    builder: (context, AsyncSnapshot<Detail> snapshot) {
-                      if (!snapshot.hasData) {
-                        return const Center(child: CircularProgressIndicator());
-                      }
+      body: Column(
+        children: [
+          YoutubeWidget(youtubeId: extractYoutubeId(args.video.link)),
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  Container(
+                    margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
+                    child: Column(
+                      children: [
+                        HeaderWidget(video: args.video),
+                        const SizedBox(height: 10),
+                        getHorizontalLine(),
+                        const SizedBox(height: 10),
+                        FutureBuilder<Detail>(
+                          future: context
+                              .read<GrpcClient>()
+                              .getDetails(args.video.id),
+                          builder: (context, AsyncSnapshot<Detail> snapshot) {
+                            if (!snapshot.hasData) {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            }
 
-                      return PaperAbstractWidget(paperAbstract: snapshot.data!);
-                    },
+                            return Column(children: [
+                              PaperAbstractWidget(detail: snapshot.data!),
+                              const SizedBox(height: 10),
+                              getHorizontalLine(),
+                              const SizedBox(height: 10),
+                              RecommentationWidget(detail: snapshot.data!),
+                              const SizedBox(height: 10),
+                              getHorizontalLine(),
+                              const SizedBox(height: 10),
+                              RepositoryWidget()
+                            ]);
+                          },
+                        )
+                        // PaperAbstractWidget(paperAbstract: paper),
+                        // context.read<GrpcClient>().getDetails()
+                      ],
+                    ),
                   )
-                  // PaperAbstractWidget(paperAbstract: paper),
-                  // context.read<GrpcClient>().getDetails()
-                ],
-              ),
-            )
-          ]))
+                ]))
+              ],
+            ),
+          ),
         ],
       ),
     );
