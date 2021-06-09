@@ -72,17 +72,18 @@ const Paper$json = const {
   '1': 'Paper',
   '2': const [
     const {'1': 'paper_id', '3': 1, '4': 1, '5': 9, '10': 'paperId'},
-    const {'1': 'arxiv_id', '3': 2, '4': 1, '5': 9, '10': 'arxivId'},
-    const {'1': 'absract', '3': 3, '4': 1, '5': 9, '10': 'absract'},
-    const {'1': 'pub_date', '3': 4, '4': 1, '5': 9, '10': 'pubDate'},
-    const {'1': 'authors', '3': 5, '4': 3, '5': 9, '10': 'authors'},
-    const {'1': 'repositories', '3': 6, '4': 3, '5': 11, '6': '.pkg.pr12er.Repository', '10': 'repositories'},
-    const {'1': 'methods', '3': 7, '4': 3, '5': 11, '6': '.pkg.pr12er.Method', '10': 'methods'},
+    const {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
+    const {'1': 'arxiv_id', '3': 3, '4': 1, '5': 9, '10': 'arxivId'},
+    const {'1': 'absract', '3': 4, '4': 1, '5': 9, '10': 'absract'},
+    const {'1': 'pub_date', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'pubDate'},
+    const {'1': 'authors', '3': 6, '4': 3, '5': 9, '10': 'authors'},
+    const {'1': 'repositories', '3': 7, '4': 3, '5': 11, '6': '.pkg.pr12er.Repository', '10': 'repositories'},
+    const {'1': 'methods', '3': 8, '4': 3, '5': 11, '6': '.pkg.pr12er.Method', '10': 'methods'},
   ],
 };
 
 /// Descriptor for `Paper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paperDescriptor = $convert.base64Decode('CgVQYXBlchIZCghwYXBlcl9pZBgBIAEoCVIHcGFwZXJJZBIZCghhcnhpdl9pZBgCIAEoCVIHYXJ4aXZJZBIYCgdhYnNyYWN0GAMgASgJUgdhYnNyYWN0EhkKCHB1Yl9kYXRlGAQgASgJUgdwdWJEYXRlEhgKB2F1dGhvcnMYBSADKAlSB2F1dGhvcnMSOgoMcmVwb3NpdG9yaWVzGAYgAygLMhYucGtnLnByMTJlci5SZXBvc2l0b3J5UgxyZXBvc2l0b3JpZXMSLAoHbWV0aG9kcxgHIAMoCzISLnBrZy5wcjEyZXIuTWV0aG9kUgdtZXRob2Rz');
+final $typed_data.Uint8List paperDescriptor = $convert.base64Decode('CgVQYXBlchIZCghwYXBlcl9pZBgBIAEoCVIHcGFwZXJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSGQoIYXJ4aXZfaWQYAyABKAlSB2FyeGl2SWQSGAoHYWJzcmFjdBgEIAEoCVIHYWJzcmFjdBI1CghwdWJfZGF0ZRgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSB3B1YkRhdGUSGAoHYXV0aG9ycxgGIAMoCVIHYXV0aG9ycxI6CgxyZXBvc2l0b3JpZXMYByADKAsyFi5wa2cucHIxMmVyLlJlcG9zaXRvcnlSDHJlcG9zaXRvcmllcxIsCgdtZXRob2RzGAggAygLMhIucGtnLnByMTJlci5NZXRob2RSB21ldGhvZHM=');
 @$core.Deprecated('Use repositoryDescriptor instead')
 const Repository$json = const {
   '1': 'Repository',

@@ -245,21 +245,23 @@ class Detail extends $pb.GeneratedMessage {
 class Paper extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Paper', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arxivId')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absract')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubDate')
-    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authors')
-    ..pc<Repository>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repositories', $pb.PbFieldType.PM, subBuilder: Repository.create)
-    ..pc<Method>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methods', $pb.PbFieldType.PM, subBuilder: Method.create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arxivId')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absract')
+    ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubDate', subBuilder: $1.Timestamp.create)
+    ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authors')
+    ..pc<Repository>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repositories', $pb.PbFieldType.PM, subBuilder: Repository.create)
+    ..pc<Method>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methods', $pb.PbFieldType.PM, subBuilder: Method.create)
     ..hasRequiredFields = false
   ;
 
   Paper._() : super();
   factory Paper({
     $core.String? paperId,
+    $core.String? title,
     $core.String? arxivId,
     $core.String? absract,
-    $core.String? pubDate,
+    $1.Timestamp? pubDate,
     $core.Iterable<$core.String>? authors,
     $core.Iterable<Repository>? repositories,
     $core.Iterable<Method>? methods,
@@ -267,6 +269,9 @@ class Paper extends $pb.GeneratedMessage {
     final _result = create();
     if (paperId != null) {
       _result.paperId = paperId;
+    }
+    if (title != null) {
+      _result.title = title;
     }
     if (arxivId != null) {
       _result.arxivId = arxivId;
@@ -319,40 +324,51 @@ class Paper extends $pb.GeneratedMessage {
   void clearPaperId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get arxivId => $_getSZ(1);
+  $core.String get title => $_getSZ(1);
   @$pb.TagNumber(2)
-  set arxivId($core.String v) { $_setString(1, v); }
+  set title($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasArxivId() => $_has(1);
+  $core.bool hasTitle() => $_has(1);
   @$pb.TagNumber(2)
-  void clearArxivId() => clearField(2);
+  void clearTitle() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get absract => $_getSZ(2);
+  $core.String get arxivId => $_getSZ(2);
   @$pb.TagNumber(3)
-  set absract($core.String v) { $_setString(2, v); }
+  set arxivId($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasAbsract() => $_has(2);
+  $core.bool hasArxivId() => $_has(2);
   @$pb.TagNumber(3)
-  void clearAbsract() => clearField(3);
+  void clearArxivId() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get pubDate => $_getSZ(3);
+  $core.String get absract => $_getSZ(3);
   @$pb.TagNumber(4)
-  set pubDate($core.String v) { $_setString(3, v); }
+  set absract($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPubDate() => $_has(3);
+  $core.bool hasAbsract() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPubDate() => clearField(4);
+  void clearAbsract() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.List<$core.String> get authors => $_getList(4);
+  $1.Timestamp get pubDate => $_getN(4);
+  @$pb.TagNumber(5)
+  set pubDate($1.Timestamp v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasPubDate() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPubDate() => clearField(5);
+  @$pb.TagNumber(5)
+  $1.Timestamp ensurePubDate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $core.List<Repository> get repositories => $_getList(5);
+  $core.List<$core.String> get authors => $_getList(5);
 
   @$pb.TagNumber(7)
-  $core.List<Method> get methods => $_getList(6);
+  $core.List<Repository> get repositories => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $core.List<Method> get methods => $_getList(7);
 }
 
 class Repository extends $pb.GeneratedMessage {
