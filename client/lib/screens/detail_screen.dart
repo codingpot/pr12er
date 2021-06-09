@@ -94,6 +94,12 @@ class DetailScreen extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        child: const Icon(Icons.email),
+      ),
     );
   }
 }
