@@ -8,9 +8,6 @@ import (
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"google.golang.org/protobuf/types/known/timestamppb"
-
-	// "google.golang.org/grpc/codes"
-	// "google.golang.org/grpc/status"
 )
 
 type Server struct {
