@@ -6,9 +6,20 @@ on:
       - main
 
 jobs:
-  build_and_release:
+  build:
     runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "1.16"
+      - run: cd server && go test -v --race ./...
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
     outputs:
       # Whether a new release was published (true or false)
       new_release_published: ${{ steps.semantic.outputs.new_release_published }}
@@ -27,10 +38,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
-        with:
-          go-version: "1.16"
-      - run: cd server && go test -v --race ./...
       - uses: cycjimmy/semantic-release-action@v2
         id: semantic
         with:
@@ -41,10 +48,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
 
-    if: ${{ needs.build_and_release.outputs.new_release_published }}
-
     needs:
-      - build_and_release
+      - release
     steps:
       - uses: actions/checkout@v2
       - name: Docker meta
@@ -53,9 +58,9 @@ jobs:
         with:
           images: ghcr.io/codingpot/pr12er
           tags: |
-            type=raw,value=${{ needs.build_and_release.outputs.new_release_major_version }}
-            type=raw,value=${{ needs.build_and_release.outputs.new_release_major_version }}.${{ needs.build_and_release.outputs.new_release_minor_version }}
-            type=raw,value=${{ needs.build_and_release.outputs.new_release_version }}
+            type=raw,value=${{ needs.release.outputs.new_release_major_version }}
+            type=raw,value=${{ needs.release.outputs.new_release_major_version }}.${{ needs.release.outputs.new_release_minor_version }}
+            type=raw,value=${{ needs.release.outputs.new_release_version }}
             type=raw,value=latest
 
       - name: Set up QEMU
