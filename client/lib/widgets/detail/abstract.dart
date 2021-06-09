@@ -21,6 +21,7 @@ class PaperAbstractWidget extends StatelessWidget {
                   style: TextStyle(fontFamily: 'PermanentMarker', fontSize: 25),
                 )),
             Stack(alignment: Alignment.bottomCenter, children: [
+              // ignore: sized_box_for_whitespace
               Container(
                   height: 100,
                   child: Text(
@@ -31,9 +32,8 @@ class PaperAbstractWidget extends StatelessWidget {
                       fontSize: 17,
                     ),
                   )),
-              Positioned(
-                  bottom: -10,
-                  child: const Icon(Icons.keyboard_arrow_down, size: 50))
+              const Positioned(
+                  bottom: -10, child: Icon(Icons.keyboard_arrow_down, size: 50))
             ])
           ],
         ));

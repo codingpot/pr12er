@@ -44,7 +44,7 @@ class PR12Video extends StatelessWidget {
             );
           },
         ),
-        Positioned(
+        const Positioned(
             right: 3,
             child: Icon(
               Icons.bookmark,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
+// ignore: must_be_immutable
 class RepositoryWidget extends StatelessWidget {
   late List<Repository> repositories;
 
@@ -8,7 +9,7 @@ class RepositoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Repository> visibleRepositories = getSubsetRepositories(4);
+    final List<Repository> visibleRepositories = getSubsetRepositories(4);
 
     return Container(
       padding: const EdgeInsets.only(left: 5, right: 5),
@@ -19,6 +20,7 @@ class RepositoryWidget extends StatelessWidget {
               "Repositories",
               style: TextStyle(fontFamily: 'PermanentMarker', fontSize: 25),
             )),
+        // ignore: sized_box_for_whitespace
         Container(
             height: 150,
             child: GridView.builder(

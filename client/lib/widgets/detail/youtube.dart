@@ -17,12 +17,7 @@ class _DetailState extends State<YoutubeWidget> {
   void initState() {
     super.initState();
 
-    _controller = YoutubePlayerController(
-        initialVideoId: widget.youtubeId,
-        flags: const YoutubePlayerFlags(
-          enableCaption: true,
-          captionLanguage: 'ko',
-        ));
+    _controller = YoutubePlayerController(initialVideoId: widget.youtubeId);
   }
 
   @override

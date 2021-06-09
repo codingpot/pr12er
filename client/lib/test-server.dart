@@ -1,9 +1,10 @@
+// ignore: file_names
+import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart';
-import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/protos/google/protobuf/timestamp.pb.dart';
+import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
 import 'protos/pkg/pr12er/service.pbgrpc.dart';
-import 'package:fixnum/fixnum.dart';
 
 class GreeterService extends Pr12erServiceBase {
   @override
@@ -14,7 +15,7 @@ class GreeterService extends Pr12erServiceBase {
   @override
   Future<GetVideosResponse> getVideos(
       ServiceCall call, GetVideosRequest request) async {
-    List<Video> videos = <Video>[
+    final List<Video> videos = <Video>[
       Video(
           id: 1,
           link: "https://youtu.be/L3hz57whyNw",
@@ -118,7 +119,8 @@ class GreeterService extends Pr12erServiceBase {
           category: Category.CATEGORY_VISION),
     ];
 
-    GetVideosResponse response = GetVideosResponse(videos: videos);
+    final GetVideosResponse response = GetVideosResponse(videos: videos);
+    // ignore: avoid_print
     print(response);
     return response;
   }
@@ -163,6 +165,7 @@ class GreeterService extends Pr12erServiceBase {
       )
     ]));
 
+    // ignore: avoid_print
     print(response);
 
     return response;
@@ -176,5 +179,6 @@ Future<void> main(List<String> args) async {
     CodecRegistry(codecs: const [GzipCodec(), IdentityCodec()]),
   );
   await server.serve(port: 9000);
+  // ignore: avoid_print
   print('Server listening on port ${server.port}...');
 }

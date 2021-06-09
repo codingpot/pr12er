@@ -17,7 +17,7 @@ class MainScreen extends StatelessWidget {
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               onPressed: () {
                 // do something
               },

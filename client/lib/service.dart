@@ -1,4 +1,3 @@
-import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 

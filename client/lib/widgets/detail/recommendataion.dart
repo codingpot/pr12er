@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
+// ignore: must_be_immutable
 class RecommentationWidget extends StatelessWidget {
   late Detail detail;
 
@@ -9,7 +10,7 @@ class RecommentationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Paper> refPapers = getReferencePapers(detail);
+    final List<Paper> refPapers = getReferencePapers(detail);
 
     return Container(
       padding: const EdgeInsets.only(left: 5, right: 5),
@@ -20,6 +21,7 @@ class RecommentationWidget extends StatelessWidget {
               "Recommendations",
               style: TextStyle(fontFamily: 'PermanentMarker', fontSize: 25),
             )),
+        // ignore: sized_box_for_whitespace
         Container(
             height: 150,
             child: ListView.builder(
