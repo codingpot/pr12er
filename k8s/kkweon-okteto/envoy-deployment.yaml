@@ -1,0 +1,73 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: envoy
+  annotations:
+    dev.okteto.com/generate-host: "true"
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  rules:
+    - host: this-name-does-not-matter
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: envoy
+                port:
+                  name: envoy
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: envoy
+  name: envoy
+spec:
+  ports:
+    - name: envoy
+      port: 8080
+      protocol: TCP
+      targetPort: envoy
+    - name: admin
+      port: 9000
+      protocol: TCP
+      targetPort: admin
+  selector:
+    app: envoy
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: envoy
+  name: envoy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: envoy
+  template:
+    metadata:
+      labels:
+        app: envoy
+    spec:
+      containers:
+        - image: envoyproxy/envoy-alpine:v1.18-latest
+          name: envoy-distroless
+          ports:
+            - containerPort: 9000
+              name: admin
+            - containerPort: 8080
+              name: envoy
+          volumeMounts:
+            - mountPath: /etc/envoy/envoy.yaml
+              subPath: envoy.yaml
+              name: envoy-config
+      volumes:
+        - name: envoy-config
+          configMap:
+            name: envoy-config
