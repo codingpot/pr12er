@@ -67,6 +67,13 @@ spec:
             - mountPath: /etc/envoy/envoy.yaml
               subPath: envoy.yaml
               name: envoy-config
+          readinessProbe:
+            httpGet:
+              port: envoy
+              httpHeaders:
+                - name: x-envoy-livenessprobe
+                  value: healthz
+              path: /healthz
       volumes:
         - name: envoy-config
           configMap:

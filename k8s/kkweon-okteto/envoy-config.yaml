@@ -25,6 +25,15 @@ data:
                         typed_config:
                           "@type": type.googleapis.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog
                     http_filters:
+                      - name: envoy.filters.http.health_check
+                        typed_config:
+                          "@type": type.googleapis.com/envoy.extensions.filters.http.health_check.v3.HealthCheck
+                          pass_through_mode: false
+                          headers:
+                          - name: ":path"
+                            exact_match: "/healthz"
+                          - name: "x-envoy-livenessprobe"
+                            exact_match: "healthz"
                       - name: envoy.filters.http.grpc_web
                       - name: envoy.filters.http.cors
                       - name: envoy.filters.http.router
@@ -52,6 +61,7 @@ data:
         - name: grpc_service
           connect_timeout: 0.25s
           type: logical_dns
+          http2_protocol_options: {}
           lb_policy: round_robin
           load_assignment:
             cluster_name: cluster_0
@@ -62,6 +72,12 @@ data:
                         socket_address:
                           address: server
                           port_value: 9000
+          health_checks:
+            timeout: 1s
+            interval: 10s
+            unhealthy_threshold: 2
+            healthy_threshold: 2
+            grpc_health_check: {}
 kind: ConfigMap
 metadata:
   name: envoy-config
