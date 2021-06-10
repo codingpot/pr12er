@@ -44,7 +44,7 @@ message Paper {
   string paper_id = 1;
   string title = 2;
   string arxiv_id = 3;
-  string absract = 4;
+  string abstract = 4;
   google.protobuf.Timestamp pub_date = 5;
   repeated string authors = 6;
   repeated Repository repositories = 7;

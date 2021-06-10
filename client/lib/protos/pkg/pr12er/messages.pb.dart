@@ -247,7 +247,7 @@ class Paper extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperId')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arxivId')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'absract')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'abstract')
     ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubDate', subBuilder: $1.Timestamp.create)
     ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authors')
     ..pc<Repository>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'repositories', $pb.PbFieldType.PM, subBuilder: Repository.create)
@@ -260,7 +260,7 @@ class Paper extends $pb.GeneratedMessage {
     $core.String? paperId,
     $core.String? title,
     $core.String? arxivId,
-    $core.String? absract,
+    $core.String? abstract,
     $1.Timestamp? pubDate,
     $core.Iterable<$core.String>? authors,
     $core.Iterable<Repository>? repositories,
@@ -276,8 +276,8 @@ class Paper extends $pb.GeneratedMessage {
     if (arxivId != null) {
       _result.arxivId = arxivId;
     }
-    if (absract != null) {
-      _result.absract = absract;
+    if (abstract != null) {
+      _result.abstract = abstract;
     }
     if (pubDate != null) {
       _result.pubDate = pubDate;
@@ -342,13 +342,13 @@ class Paper extends $pb.GeneratedMessage {
   void clearArxivId() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get absract => $_getSZ(3);
+  $core.String get abstract => $_getSZ(3);
   @$pb.TagNumber(4)
-  set absract($core.String v) { $_setString(3, v); }
+  set abstract($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasAbsract() => $_has(3);
+  $core.bool hasAbstract() => $_has(3);
   @$pb.TagNumber(4)
-  void clearAbsract() => clearField(4);
+  void clearAbstract() => clearField(4);
 
   @$pb.TagNumber(5)
   $1.Timestamp get pubDate => $_getN(4);

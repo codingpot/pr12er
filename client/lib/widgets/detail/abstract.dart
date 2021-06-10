@@ -25,7 +25,7 @@ class PaperAbstractWidget extends StatelessWidget {
               Container(
                   height: 100,
                   child: Text(
-                    paper.absract,
+                    paper.abstract,
                     overflow: TextOverflow.fade,
                     softWrap: true,
                     style: const TextStyle(
