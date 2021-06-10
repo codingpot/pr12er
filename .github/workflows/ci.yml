@@ -84,7 +84,7 @@ jobs:
         with:
           channel: "stable"
       - run: flutter pub get
-      - run: flutter build web
+      - run: flutter build web --release
       - uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
