@@ -23,6 +23,11 @@ data:
             - targets:
                 # this should match service/server:http-metrics.
               - server:9093
+        - job_name: envoy
+          metrics_path: /stats/prometheus
+          static_configs:
+          - targets:
+            - envoy:9000
     integrations:
       prometheus_remote_write:
       - url: https://prometheus-blocks-prod-us-central1.grafana.net/api/prom/push
