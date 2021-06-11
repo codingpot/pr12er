@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+// import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class YoutubeWidget extends StatefulWidget {
   final String youtubeId;
@@ -22,15 +23,13 @@ class _DetailState extends State<YoutubeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayerBuilder(
-      player: YoutubePlayer(
-        controller: _controller,
+    return YoutubePlayerControllerProvider(
+      // Provides controller to all the widget below it.
+      controller: _controller,
+      child: const YoutubePlayerIFrame(
+        // ignore: avoid_redundant_argument_values
+        aspectRatio: 16 / 9,
       ),
-      builder: (context, player) {
-        return Column(
-          children: [player],
-        );
-      },
     );
   }
 }
