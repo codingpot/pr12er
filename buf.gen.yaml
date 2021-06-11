@@ -1,0 +1,13 @@
+version: v1beta1
+plugins:
+  - name: go
+    out: server
+    opt:
+      - paths=source_relative
+  - name: go-grpc
+    out: server
+    opt:
+      - paths=source_relative
+  - name: dart
+    out: client/lib/protos
+    opt: grpc

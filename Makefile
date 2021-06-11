@@ -3,14 +3,12 @@
 PROTOC_VERSION := 3.17.2
 PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
 PROTOC_URL := $(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/
-PROTO_FILES := $(shell find server -name "*.proto" -type f)
-PROTO_THIRDPARTY_FILES := $(shell find thirdparty -name "*.proto" -type f)
 UNAME := $(shell uname)
 
 PROTOC_ZIP_MACOS := protoc-$(PROTOC_VERSION)-osx-x86_64.zip
 PROTOC_ZIP_LINUX := protoc-$(PROTOC_VERSION)-linux-x86_64.zip
 PROTOC_ZIP_WINDOWS := protoc-$(PROTOC_VERSION)-win64.zip
-ifeq ($(UNAME),Darwin)
+ifeq ($(UNAME), Darwin)
 	PROTOC_FULL_URL := $(PROTOC_URL)/$(PROTOC_ZIP_MACOS)
 	PROTOC_FILE := $(PROTOC_ZIP_MACOS)
 else ifeq ($(UNAME), Linux)
@@ -25,11 +23,14 @@ endif
 DART_MOCK_SRCS := $(shell find client -name "*_with_mocks.dart" -type f)
 DART_MOCK_TARGETS := $(DART_MOCK_SRCS:%_with_mocks.dart=%_with_mocks.mocks.dart)
 
+BIN_INSTALL_DIR := $$HOME/.local/bin
+BUF_VERSION := 0.43.2
+
 .PHONY: install
-install:
+install: install.buf
 	curl -OL $(PROTOC_FULL_URL)
-	unzip -o $(PROTOC_FILE) -d $${HOME}/.local
-	export PATH="$${PATH}:$${HOME}/.local/bin"
+	unzip -o $(PROTOC_FILE) -d $(BIN_INSTALL_DIR)/../
+	export PATH="$${PATH}:$(BIN_INSTALL_DIR)"
 	rm -f protoc-*.zip
 	make install.go
 	pub global activate protoc_plugin
@@ -38,29 +39,19 @@ install:
 install.go:
 	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install && go mod tidy
 
+.PHONY: install.buf
+install.buf:
+	mkdir -p "$(BIN_INSTALL_DIR)"
+	curl -sSL "https://github.com/bufbuild/buf/releases/download/v$(BUF_VERSION)/buf-$(shell uname -s)-$(shell uname -m)" -o "$(BIN_INSTALL_DIR)/buf"
+	chmod +x "$(BIN_INSTALL_DIR)/buf"
+
+.PHONY: uninstall.buf
+uninstall.buf:
+	rm -f $(BIN_INSTALL_DIR)/buf
+
 .PHONY: gen.all
-gen.all: gen.go gen.dart
-
-.PHONY: gen.go
-gen.go:
-	mkdir -p ./server/pkg/protos/
-	protoc \
-	--proto_path=server \
-	--proto_path=thirdparty \
-	--go_out=server \
-	--go_opt=paths=source_relative \
-	--go-grpc_out=server \
-	--go-grpc_opt=paths=source_relative \
-	$(PROTO_FILES)
-
-.PHONY: gen.dart
-gen.dart:
-	mkdir -p ./client/lib/protos/
-	protoc \
-	--proto_path=server \
-	--proto_path=thirdparty \
-	--dart_out=grpc:./client/lib/protos \
-	$(PROTO_FILES) $(PROTO_THIRDPARTY_FILES)
+gen.all:
+	buf generate
 
 .PHONY: test
 test: test.go test.dart
@@ -79,7 +70,7 @@ test.dart-e2e:
 .PHONY: format.dart
 format.dart:
 	cd client && flutter format .
-	make gen.dart
+	make gen.all
 
 .PHONY: test.go
 test.go: lint.go
