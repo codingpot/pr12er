@@ -17,3 +17,18 @@ profiles:
           context: server
           docker:
             dockerfile: deploy/Dockerfile.raspberry
+
+  - name: minikube
+    activation:
+      - kubeContext: minikube
+    deploy:
+      kubectl:
+        manifests:
+          - ./k8s/kkweon-okteto/*.yaml
+
+    build:
+      artifacts:
+        - image: okteto.dev/codingpot-pr12er-server
+          context: server
+          docker:
+            dockerfile: deploy/Dockerfile

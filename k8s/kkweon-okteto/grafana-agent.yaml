@@ -47,7 +47,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana-agent
-  namespace: kkweon
 spec:
   minReadySeconds: 10
   replicas: 1
@@ -74,6 +73,13 @@ spec:
           volumeMounts:
             - mountPath: /etc/agent
               name: grafana-agent
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100mi
+            requests:
+              cpu: 100m
+              memory: 100mi
       volumes:
         - configMap:
             name: grafana-agent

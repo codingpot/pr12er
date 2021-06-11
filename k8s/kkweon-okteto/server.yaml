@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - image: okteto.dev/codingpot-pr12er-server
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           name: server
           ports:
             - containerPort: 9000
