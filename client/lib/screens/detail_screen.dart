@@ -46,7 +46,10 @@ class DetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          YoutubeWidget(youtubeId: extractYoutubeId(args.video.link)),
+          LimitedBox(
+            maxHeight: 350,
+            child: YoutubeWidget(youtubeId: extractYoutubeId(args.video.link)),
+          ),
           Expanded(
             child: CustomScrollView(
               slivers: [
