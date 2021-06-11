@@ -59,7 +59,7 @@ class DetailScreen extends StatelessWidget {
                     margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
                     child: Column(
                       children: [
-                        HeaderWidget(video: args.video),
+                        FittedBox(child: HeaderWidget(video: args.video)),
                         const SizedBox(height: 10),
                         getHorizontalLine(),
                         const SizedBox(height: 10),
