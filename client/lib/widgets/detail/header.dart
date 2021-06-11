@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
-import 'package:pr12er/utils/formatter.dart';
 
 // ignore: must_be_immutable
 class HeaderWidget extends StatelessWidget {
@@ -43,12 +42,12 @@ class HeaderWidget extends StatelessWidget {
       const SizedBox(width: 8),
       const Icon(Icons.remove_red_eye),
       const SizedBox(width: 8),
-      Text(reformatNumbers(video.numberOfViews.toInt()),
+      Text(NumberFormat.compact().format(video.numberOfViews),
           style: const TextStyle(fontSize: 18)),
       const SizedBox(width: 15),
       getLikeIcon(),
       const SizedBox(width: 8),
-      Text(reformatNumbers(video.numberOfLike.toInt()),
+      Text(NumberFormat.compact().format(video.numberOfLike),
           style: const TextStyle(fontSize: 18)),
     ];
   }
