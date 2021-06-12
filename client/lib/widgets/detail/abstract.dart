@@ -14,24 +14,25 @@ class PaperAbstractWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-                margin: const EdgeInsets.only(bottom: 10),
-                child: const Text(
-                  "Abstract",
-                  style: TextStyle(fontFamily: 'PermanentMarker', fontSize: 25),
-                )),
+            const Text(
+              "Abstract",
+              style: TextStyle(fontFamily: 'PermanentMarker', fontSize: 25),
+            ),
             Stack(alignment: Alignment.bottomCenter, children: [
               // ignore: sized_box_for_whitespace
-              Container(
-                  height: 100,
-                  child: Text(
-                    paper.abstract,
-                    overflow: TextOverflow.fade,
-                    softWrap: true,
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ),
-                  )),
+              Card(
+                  child: Container(
+                      padding:
+                          const EdgeInsets.only(top: 15, left: 15, right: 15),
+                      height: 150,
+                      child: Text(
+                        paper.abstract,
+                        overflow: TextOverflow.fade,
+                        softWrap: true,
+                        style: const TextStyle(
+                          fontSize: 17,
+                        ),
+                      ))),
               const Positioned(
                   bottom: -10, child: Icon(Icons.keyboard_arrow_down, size: 50))
             ])
