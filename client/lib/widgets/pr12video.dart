@@ -24,22 +24,17 @@ class PR12Video extends StatelessWidget {
       ),
       contentPadding: const EdgeInsets.all(20),
       subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(children: [
-            Text(
-              video.presenter,
-              textAlign: TextAlign.start,
-            ),
-          ]),
+          Text(
+            video.presenter,
+            textAlign: TextAlign.start,
+          ),
           const SizedBox(height: 10),
-          Row(
-            children: [
-              Text(
-                getKeywords(video.keywords),
-                style: const TextStyle(fontStyle: FontStyle.italic),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
+          Text(
+            getKeywords(video.keywords),
+            style: const TextStyle(fontStyle: FontStyle.italic),
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),
