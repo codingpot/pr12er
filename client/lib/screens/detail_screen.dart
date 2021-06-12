@@ -18,15 +18,6 @@ class DetailScreenArguments {
 class DetailScreen extends StatelessWidget {
   static const String routeName = "detail_app";
 
-  Widget getHorizontalLine() {
-    return const Divider(
-      height: 5,
-      color: Colors.black,
-      indent: 5,
-      endIndent: 5,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final args =
@@ -60,9 +51,7 @@ class DetailScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         FittedBox(child: HeaderWidget(video: args.video)),
-                        const SizedBox(height: 10),
-                        getHorizontalLine(),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 15),
                         FutureBuilder<Detail>(
                           future: context
                               .read<GrpcClient>()
@@ -76,13 +65,9 @@ class DetailScreen extends StatelessWidget {
                             return Column(children: [
                               PaperAbstractWidget(
                                   paper: snapshot.data!.paper[0]),
-                              const SizedBox(height: 10),
-                              getHorizontalLine(),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 15),
                               RecommentationWidget(detail: snapshot.data!),
-                              const SizedBox(height: 10),
-                              getHorizontalLine(),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 15),
                               RepositoryWidget(
                                 repositories:
                                     snapshot.data!.paper[0].repositories,
