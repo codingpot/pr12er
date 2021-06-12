@@ -12,56 +12,55 @@ class PR12Video extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: Stack(
-      children: [
-        ListTile(
-          key: ValueKey("ListTile-$index"),
-          leading: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: getCategoryWidgets(video.category)),
-          title: Text(
-            video.title,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3,
+        child: ListTile(
+      key: ValueKey("ListTile-$index"),
+      leading: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: getCategoryWidgets(video.category)),
+      title: Text(
+        video.title,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 3,
+      ),
+      contentPadding: const EdgeInsets.all(20),
+      subtitle: Column(
+        children: [
+          Row(children: [
+            Text(
+              video.presenter,
+              textAlign: TextAlign.start,
+            ),
+          ]),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Text(
+                getKeywords(video.keywords),
+                style: const TextStyle(fontStyle: FontStyle.italic),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           ),
-          subtitle: Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Row(children: [
-                Text(
-                  video.presenter,
-                  textAlign: TextAlign.start,
-                ),
-                const SizedBox(width: 20),
-                Text(getKeywords(video.keywords),
-                    style: const TextStyle(fontStyle: FontStyle.italic),
-                    overflow: TextOverflow.ellipsis)
-              ])),
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              DetailScreen.routeName,
-              arguments: DetailScreenArguments(video),
-            );
-          },
-        ),
-        const Positioned(
-            right: 3,
-            child: Icon(
-              Icons.bookmark,
-              size: 30,
-              color: Colors.blue,
-            ))
-      ],
+        ],
+      ),
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          DetailScreen.routeName,
+          arguments: DetailScreenArguments(video),
+        );
+      },
+      trailing: const Icon(
+        Icons.bookmark,
+        size: 23,
+        color: Colors.blue,
+      ),
     ));
   }
 }
 
 String getKeywords(List<String> keywords) {
-  if (keywords.isEmpty) {
-    return "";
-  }
-
-  return keywords[0];
+  return keywords.join(", ");
 }
 
 List<Widget> getCategoryWidgets(Category category) {
