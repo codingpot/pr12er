@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pr12er/widgets/pr12video.dart';
+import 'package:pr12er/widgets/main/pr12video.dart';
+import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
 
 import '../protos/pkg/pr12er/messages.pb.dart';
@@ -10,6 +11,7 @@ const appName = 'PR12er';
 
 class MainScreen extends StatelessWidget {
   static const String routeName = "main_screen";
+  VideoSearchDelegate videoSearchDelegate = VideoSearchDelegate();
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +22,21 @@ class MainScreen extends StatelessWidget {
               icon: const Icon(Icons.search),
               onPressed: () {
                 // do something
+                showSearch(context: context, delegate: videoSearchDelegate);
               },
             )
           ],
           title: const Text(appName),
         ),
-        body: PRVideos());
+        body: PRVideos(videoSearchDelegate: videoSearchDelegate));
   }
 }
 
 class PRVideos extends StatelessWidget {
+  late VideoSearchDelegate videoSearchDelegate;
+
+  PRVideos({Key? key, required this.videoSearchDelegate}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Video>>(
@@ -38,6 +45,9 @@ class PRVideos extends StatelessWidget {
           if (!snapshot.hasData) {
             return const Center(child: CircularProgressIndicator());
           }
+
+          videoSearchDelegate.dataRef = snapshot.data!;
+
           return ListView.builder(
               padding: const EdgeInsets.all(8),
               itemCount: snapshot.data!.length,
