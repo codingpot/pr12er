@@ -9,6 +9,7 @@ import '../service.dart';
 
 const appName = 'PR12er';
 
+// ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
   static const String routeName = "main_screen";
   VideoSearchDelegate videoSearchDelegate = VideoSearchDelegate();
@@ -32,6 +33,7 @@ class MainScreen extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class PRVideos extends StatelessWidget {
   late VideoSearchDelegate videoSearchDelegate;
 
