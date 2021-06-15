@@ -22,7 +22,7 @@ enum Framework {
 }
 
 message Video {
-  int32 id = 1;
+  int32 pr_id = 1;
   string title = 2;
   string link = 3;
   string presenter = 4;
