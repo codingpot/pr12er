@@ -18,7 +18,7 @@ export 'messages.pbenum.dart';
 
 class Video extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Video', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', $pb.PbFieldType.O3)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prId', $pb.PbFieldType.O3)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'link')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'presenter')
@@ -32,7 +32,7 @@ class Video extends $pb.GeneratedMessage {
 
   Video._() : super();
   factory Video({
-    $core.int? id,
+    $core.int? prId,
     $core.String? title,
     $core.String? link,
     $core.String? presenter,
@@ -43,8 +43,8 @@ class Video extends $pb.GeneratedMessage {
     $1.Timestamp? publishedDate,
   }) {
     final _result = create();
-    if (id != null) {
-      _result.id = id;
+    if (prId != null) {
+      _result.prId = prId;
     }
     if (title != null) {
       _result.title = title;
@@ -94,13 +94,13 @@ class Video extends $pb.GeneratedMessage {
   static Video? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get id => $_getIZ(0);
+  $core.int get prId => $_getIZ(0);
   @$pb.TagNumber(1)
-  set id($core.int v) { $_setSignedInt32(0, v); }
+  set prId($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasPrId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearPrId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get title => $_getSZ(1);
