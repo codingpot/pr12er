@@ -40,7 +40,7 @@ final $typed_data.Uint8List frameworkDescriptor = $convert.base64Decode('CglGcmF
 const Video$json = const {
   '1': 'Video',
   '2': const [
-    const {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
+    const {'1': 'pr_id', '3': 1, '4': 1, '5': 5, '10': 'prId'},
     const {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'link', '3': 3, '4': 1, '5': 9, '10': 'link'},
     const {'1': 'presenter', '3': 4, '4': 1, '5': 9, '10': 'presenter'},
@@ -53,7 +53,7 @@ const Video$json = const {
 };
 
 /// Descriptor for `Video`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxIOCgJpZBgBIAEoBVICaWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhIKBGxpbmsYAyABKAlSBGxpbmsSHAoJcHJlc2VudGVyGAQgASgJUglwcmVzZW50ZXISMAoIY2F0ZWdvcnkYBSABKA4yFC5wa2cucHIxMmVyLkNhdGVnb3J5UghjYXRlZ29yeRIkCg5udW1iZXJfb2ZfbGlrZRgGIAEoA1IMbnVtYmVyT2ZMaWtlEhoKCGtleXdvcmRzGAcgAygJUghrZXl3b3JkcxImCg9udW1iZXJfb2Zfdmlld3MYCCABKANSDW51bWJlck9mVmlld3MSQQoOcHVibGlzaGVkX2RhdGUYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUg1wdWJsaXNoZWREYXRl');
+final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxITCgVwcl9pZBgBIAEoBVIEcHJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSEgoEbGluaxgDIAEoCVIEbGluaxIcCglwcmVzZW50ZXIYBCABKAlSCXByZXNlbnRlchIwCghjYXRlZ29yeRgFIAEoDjIULnBrZy5wcjEyZXIuQ2F0ZWdvcnlSCGNhdGVnb3J5EiQKDm51bWJlcl9vZl9saWtlGAYgASgDUgxudW1iZXJPZkxpa2USGgoIa2V5d29yZHMYByADKAlSCGtleXdvcmRzEiYKD251bWJlcl9vZl92aWV3cxgIIAEoA1INbnVtYmVyT2ZWaWV3cxJBCg5wdWJsaXNoZWRfZGF0ZRgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSDXB1Ymxpc2hlZERhdGU=');
 @$core.Deprecated('Use detailDescriptor instead')
 const Detail$json = const {
   '1': 'Detail',

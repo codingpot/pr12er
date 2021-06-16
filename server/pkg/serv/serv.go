@@ -89,7 +89,7 @@ func getVideosFromDumpedPbtxt() (*pr12er.GetVideosResponse, error) {
 
 	for _, metadata := range metadataDump.Metadata {
 		video := &pr12er.Video{
-			Id:        metadata.GetId(),
+			PrId:      metadata.GetId(),
 			Title:     metadata.GetTitle(),
 			Presenter: metadata.GetPresenter(),
 			Keywords:  metadata.GetKeywords(),
