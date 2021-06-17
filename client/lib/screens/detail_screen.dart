@@ -18,10 +18,9 @@ class DetailScreenArguments {
   DetailScreenArguments(this.video);
 }
 
-// ignore: must_be_immutable
 class DetailScreen extends StatelessWidget {
   static const String routeName = "detail_app";
-  late Detail? detail;
+  late final Detail? detail;
 
   @override
   Widget build(BuildContext context) {
@@ -96,15 +95,15 @@ class DetailScreen extends StatelessWidget {
           final String subject = "[논문공유] ${args.video.title}";
           final StringBuffer message = StringBuffer();
 
-          message.writeln('Youtube Link');
+          message.writeln('YouTube Link');
           message.writeln('\t- ${args.video.link}');
 
           if (detail != null) {
-            message.writeln('paper');
+            message.writeln('\nPaper');
             message.writeln('\t- title: ${detail!.paper[0].title}');
             message.writeln('\t- link: https://arxiv.org/abs/${detail!.paper[0].arxivId}');
 
-            message.writeln('Abstract');
+            message.writeln('abstract');
             message.writeln('\t- ${detail!.paper[0].abstract}');
 
             message.writeln('repositories');
@@ -112,7 +111,7 @@ class DetailScreen extends StatelessWidget {
               message.writeln('\t- ${repo.owner}: ${repo.url}');
             }
 
-            message.writeln('recommended papers');
+            message.writeln('\nRecommended Papers');
             for (final paper in detail!.relevantPapers) {
               message.writeln('\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
             }
