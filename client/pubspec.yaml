@@ -30,7 +30,7 @@ dependencies:
   intl: ^0.17.0
   protobuf: ^2.0.0
   provider: ^5.0.0
-  share: ^2.0.4
+  share_plus: ^2.1.4
   youtube_player_flutter: ^8.0.0
   youtube_player_iframe: ^2.0.0
 

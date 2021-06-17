@@ -10,7 +10,7 @@ import 'package:pr12er/widgets/detail/recommendataion.dart';
 import 'package:pr12er/widgets/detail/repository.dart';
 import 'package:pr12er/widgets/detail/youtube.dart';
 import 'package:provider/provider.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 
 class DetailScreenArguments {
   final Video video;
