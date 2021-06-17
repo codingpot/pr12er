@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/service.dart';
@@ -8,6 +10,7 @@ import 'package:pr12er/widgets/detail/recommendataion.dart';
 import 'package:pr12er/widgets/detail/repository.dart';
 import 'package:pr12er/widgets/detail/youtube.dart';
 import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 
 class DetailScreenArguments {
   final Video video;
@@ -17,6 +20,7 @@ class DetailScreenArguments {
 
 class DetailScreen extends StatelessWidget {
   static const String routeName = "detail_app";
+  late Detail? detail;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +66,8 @@ class DetailScreen extends StatelessWidget {
                                   child: CircularProgressIndicator());
                             }
 
+                            detail = snapshot.data;
+
                             return Column(children: [
                               PaperAbstractWidget(
                                   paper: snapshot.data!.paper[0]),
@@ -86,7 +92,37 @@ class DetailScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add your onPressed code here!
+          final String subject = "[논문공유] ${args.video.title}";
+          final StringBuffer message = StringBuffer();
+
+          message.writeln('Youtube Link');
+          message.writeln('\t- ${args.video.link}');
+
+          if (detail != null) {
+            message.writeln('paper');
+            message.writeln('\t- title: ${detail!.paper[0].title}');
+            message.writeln('\t- link: https://arxiv.org/abs/${detail!.paper[0].arxivId}');
+
+            message.writeln('Abstract');
+            message.writeln('\t- ${detail!.paper[0].abstract}');
+
+            message.writeln('repositories');
+            for (final repo in detail!.paper[0].repositories) {
+              message.writeln('\t- ${repo.owner}: ${repo.url}');
+            }
+
+            message.writeln('recommended papers');
+            for (final paper in detail!.relevantPapers) {
+              message.writeln('\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
+            }
+            for (final paper in detail!.sameAuthorPapers) {
+              message.writeln('\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
+            }
+          }
+
+          log(message.toString());
+
+          Share.share(message.toString(), subject: subject);
         },
         child: const Icon(Icons.email),
       ),
