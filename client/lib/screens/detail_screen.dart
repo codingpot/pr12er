@@ -18,6 +18,7 @@ class DetailScreenArguments {
   DetailScreenArguments(this.video);
 }
 
+// ignore: must_be_immutable
 class DetailScreen extends StatelessWidget {
   static const String routeName = "detail_app";
   late Detail? detail;
