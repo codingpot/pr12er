@@ -46,19 +46,12 @@ func main() {
 		}
 	}
 
-	f, err := os.Create("test.pbtxt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	marshalOption := prototext.MarshalOptions{Multiline: true}
 	bytes, err := marshalOption.Marshal(&mappingTable)
 	if err != nil {
-		log.Fatal(err)
+		log.Panic(err)
 	}
-
-	_, err = f.Write(bytes)
-	if err != nil {
-		log.Fatal(err)
+	if err = ioutil.WriteFile("test.pbtxt", bytes, 0644); err != nil {
+		log.Panic(err)
 	}
 }
