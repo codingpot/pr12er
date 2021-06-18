@@ -1,11 +1,12 @@
-package mapping_table
+package mappingtable
 
 import (
+	"log"
+	"os"
+
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"google.golang.org/protobuf/encoding/prototext"
-	"log"
-	"os"
 )
 
 var apiKeyPools = []string{
@@ -25,7 +26,7 @@ func main() {
 		apiKey := apiKeyPools[idx/100]
 
 		mappingTableRow := &pr12er.MappingTableRow{
-			PrId:      metadata.GetId(),
+			PrId: metadata.GetId(),
 		}
 
 		videoMetadata := metadata.GetVideoMetadata()
@@ -34,12 +35,12 @@ func main() {
 		}
 
 		mappingTableRow.PaperArxivId = make([]string, 0, 1)
-		mappingTableRow.PaperArxivId = append(mappingTableRow.PaperArxivId, searchArxivId(apiKey, metadata.GetTitle()))
+		mappingTableRow.PaperArxivId = append(mappingTableRow.PaperArxivId, searchArxivID(apiKey, metadata.GetTitle()))
 
 		mappingTable.Rows = append(mappingTable.Rows, mappingTableRow)
 	}
 
-	f, err := os.Create("mapping_table.pbtxt")
+	f, err := os.Create("mappingtable.pbtxt")
 	if err != nil {
 		log.Fatal(err)
 	}

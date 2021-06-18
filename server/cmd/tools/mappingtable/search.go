@@ -1,12 +1,12 @@
-package mapping_table
+package mappingtable
 
 import (
 	"context"
-	"fmt"
-	"google.golang.org/api/customsearch/v1"
-	"google.golang.org/api/option"
 	"log"
 	"strings"
+
+	"google.golang.org/api/customsearch/v1"
+	"google.golang.org/api/option"
 )
 
 func getLastBitsFrom(url string) string {
@@ -14,7 +14,7 @@ func getLastBitsFrom(url string) string {
 	return url[index+1:]
 }
 
-func searchArxivId(apiKey string, query string) string {
+func searchArxivID(apiKey string, query string) string {
 	ctx := context.Background()
 	customSearchService, err := customsearch.NewService(ctx, option.WithAPIKey(apiKey))
 	if err != nil {
@@ -22,7 +22,7 @@ func searchArxivId(apiKey string, query string) string {
 	}
 
 	const cx = "4fae55326ddbe865c"
-	resp, err := customSearchService.Cse.List().Cx(cx).Q(fmt.Sprintf("%s", query)).Do()
+	resp, err := customSearchService.Cse.List().Cx(cx).Q(query).Do()
 	if err != nil {
 		log.Fatal(err)
 	}
