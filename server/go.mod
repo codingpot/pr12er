@@ -8,8 +8,6 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
-	github.com/orijtech/arxiv v0.0.0-20180404200544-d693f8446e6b
-	github.com/orijtech/otils v0.0.1 // indirect
 	github.com/prometheus/client_golang v1.10.0
 	github.com/prometheus/common v0.25.0 // indirect
 	github.com/sirupsen/logrus v1.8.1

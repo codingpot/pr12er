@@ -9,12 +9,12 @@ import (
 	"google.golang.org/api/option"
 )
 
-func getLastBitsFrom(url string) string {
+func GetLastBitsFrom(url string) string {
 	index := strings.LastIndex(url, "/")
 	return url[index+1:]
 }
 
-func searchArxivID(apiKey string, query string) string {
+func SearchArxivID(apiKey string, query string) string {
 	ctx := context.Background()
 	customSearchService, err := customsearch.NewService(ctx, option.WithAPIKey(apiKey))
 	if err != nil {
@@ -30,5 +30,5 @@ func searchArxivID(apiKey string, query string) string {
 	if len(resp.Items) == 0 {
 		return "null"
 	}
-	return getLastBitsFrom(resp.Items[0].Link)
+	return GetLastBitsFrom(resp.Items[0].Link)
 }

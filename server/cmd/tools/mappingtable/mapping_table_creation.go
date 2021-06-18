@@ -1,9 +1,10 @@
-package mappingtable
+package main
 
 import (
 	"log"
 	"os"
 
+	"github.com/codingpot/pr12er/server/cmd/tools/mappingtable/mappingtable"
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"google.golang.org/protobuf/encoding/prototext"
@@ -31,16 +32,20 @@ func main() {
 
 		videoMetadata := metadata.GetVideoMetadata()
 		if len(videoMetadata) > 0 {
-			mappingTableRow.YoutubeVideoId = getLastBitsFrom(videoMetadata[0].Url)
+			mappingTableRow.YoutubeVideoId = mappingtable.GetLastBitsFrom(videoMetadata[0].Url)
 		}
 
 		mappingTableRow.PaperArxivId = make([]string, 0, 1)
-		mappingTableRow.PaperArxivId = append(mappingTableRow.PaperArxivId, searchArxivID(apiKey, metadata.GetTitle()))
+		mappingTableRow.PaperArxivId = append(mappingTableRow.PaperArxivId, mappingtable.SearchArxivID(apiKey, metadata.GetTitle()))
 
 		mappingTable.Rows = append(mappingTable.Rows, mappingTableRow)
+
+		if idx == 0 {
+			break
+		}
 	}
 
-	f, err := os.Create("mappingtable.pbtxt")
+	f, err := os.Create("test.pbtxt")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -8,14 +8,14 @@ import (
 
 func TestGetYoutubeID(t *testing.T) {
 	youtubeLink := "https://youtu.be/L3hz57whyNw"
-	youtubeID := getLastBitsFrom(youtubeLink)
+	youtubeID := GetLastBitsFrom(youtubeLink)
 
 	assert.Equal(t, "L3hz57whyNw", youtubeID)
 }
 
 func TestGetArxivID(t *testing.T) {
 	arxivLink := "https://arxiv.org/abs/1406.2661"
-	arxivID := getLastBitsFrom(arxivLink)
+	arxivID := GetLastBitsFrom(arxivLink)
 
 	assert.Equal(t, "1406.2661", arxivID)
 }
