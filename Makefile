@@ -27,7 +27,7 @@ BIN_INSTALL_DIR := $$HOME/.local/bin
 BUF_VERSION := 0.43.2
 
 .PHONY: install
-install: install.buf ## install buf, protoc, go
+install: install.buf ## install buf, protoc, protoc-gen for Go & Dart
 	curl -OL $(PROTOC_FULL_URL)
 	unzip -o $(PROTOC_FILE) -d $(BIN_INSTALL_DIR)/../
 	export PATH="$${PATH}:$(BIN_INSTALL_DIR)"
