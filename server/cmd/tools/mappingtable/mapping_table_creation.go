@@ -1,13 +1,12 @@
 package main
 
 import (
-	"log"
-	"os"
-
 	"github.com/codingpot/pr12er/server/cmd/tools/mappingtable/mappingtable"
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"google.golang.org/protobuf/encoding/prototext"
+	"io/ioutil"
+	"log"
 )
 
 var apiKeyPools = []string{
