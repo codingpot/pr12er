@@ -1,47 +1,18 @@
-package main
+package mapping_table
 
 import (
-	"fmt"
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
-	"log"
-	"net/http"
-	"os"
-
-	"google.golang.org/api/customsearch/v1"
-	"google.golang.org/api/googleapi/transport"
 	"google.golang.org/protobuf/encoding/prototext"
+	"log"
+	"os"
 )
 
-const (
-	apiKey = "AIzaSyAD82dBdxsWujXYfAWFWI8MulwyUYsY5zM"
-	cx     = "4fae55326ddbe865c"
-	query  = "hello world"
-)
-
-func search() {
-	client := &http.Client{Transport: &transport.APIKey{Key: apiKey}}
-
-	svc, err := customsearch.New(client)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	resp, err := svc.Cse.List(query).Cx(cx).Q(query).Do()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	for i, result := range resp.Items {
-		fmt.Printf("#%d: %s\n", i+1, result.Title)
-		fmt.Printf("\t%s\n", result.Snippet)
-	}
-}
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
+var apiKeyPools = []string{
+	"api-key #1",
+	"api-key #2",
+	"api-key #3",
+	"api-key #4",
 }
 
 func main() {
@@ -50,25 +21,37 @@ func main() {
 	mappingTable := pr12er.MappingTable{}
 	mappingTable.Rows = make([]*pr12er.MappingTableRow, 0, len(metadataDump.Metadata))
 
-	for _, metadata := range metadataDump.Metadata {
+	for idx, metadata := range metadataDump.Metadata {
+		apiKey := apiKeyPools[idx/100]
+
 		mappingTableRow := &pr12er.MappingTableRow{
 			PrId:      metadata.GetId(),
 		}
 
 		videoMetadata := metadata.GetVideoMetadata()
 		if len(videoMetadata) > 0 {
-			mappingTableRow.YoutubeVideoId = videoMetadata[0].Url
+			mappingTableRow.YoutubeVideoId = getLastBitsFrom(videoMetadata[0].Url)
 		}
+
+		mappingTableRow.PaperArxivId = make([]string, 0, 1)
+		mappingTableRow.PaperArxivId = append(mappingTableRow.PaperArxivId, searchArxivId(apiKey, metadata.GetTitle()))
 
 		mappingTable.Rows = append(mappingTable.Rows, mappingTableRow)
 	}
 
-	f, err := os.Create("test.pbtxt")
-	check(err)
+	f, err := os.Create("mapping_table.pbtxt")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	bytes, err := prototext.Marshal(&mappingTable)
-	check(err)
+	marshalOption := prototext.MarshalOptions{Multiline: true}
+	bytes, err := marshalOption.Marshal(&mappingTable)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	_, err = f.Write(bytes)
-	check(err)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
