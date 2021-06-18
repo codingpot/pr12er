@@ -73,8 +73,7 @@ format.dart: ## format dart files
 	make gen.all
 
 .PHONY: test.go
-test.go: ## test go files
-	$(MAKE) lint.go
+test.go: lint.go ## test go files
 	cd server && go test ./...
 
 .PHONY: format.go
