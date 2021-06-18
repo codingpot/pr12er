@@ -14,10 +14,6 @@ message MappingTableRow {
   int32 pr_id = 1;
   repeated string paper_arxiv_id = 2;
   string youtube_video_id = 3;
-
-// TODO: define Override, it will be used to override existing information
-//  repeated Override overrides = 4;
-
 }
 
 message Database {
