@@ -10,8 +10,6 @@ var (
 	ServicePort = getEnvVar("PR12ER_GRPC_PORT", "9000")
 	// PrometheusPort is the port for Prometheus metrics (/metrics).
 	PrometheusPort = getEnvVar("PR12ER_PROMETHEUS_PORT", "9092")
-	// GoogleSearchAPIKey is the api key for calling searchArxivID function.
-	GoogleSearchAPIKey = getEnvVar("GOOGLE_SEARCH_API_KEY", "NONE")
 )
 
 func getEnvVar(key, fallbackValue string) string {
