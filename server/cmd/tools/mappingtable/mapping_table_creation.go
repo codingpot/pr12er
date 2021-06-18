@@ -1,12 +1,13 @@
 package main
 
 import (
+	"io/ioutil"
+	"log"
+
 	"github.com/codingpot/pr12er/server/cmd/tools/mappingtable/mappingtable"
 	"github.com/codingpot/pr12er/server/internal"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"google.golang.org/protobuf/encoding/prototext"
-	"io/ioutil"
-	"log"
 )
 
 var apiKeyPools = []string{
@@ -50,7 +51,7 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
-	if err = ioutil.WriteFile("test.pbtxt", bytes, 0644); err != nil {
+	if err = ioutil.WriteFile("test.pbtxt", bytes, 0o644); err != nil {
 		log.Panic(err)
 	}
 }
