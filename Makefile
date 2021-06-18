@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := gen.all
+.DEFAULT_GOAL := help
 
 PROTOC_VERSION := 3.17.2
 PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
