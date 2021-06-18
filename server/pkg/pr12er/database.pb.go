@@ -75,7 +75,7 @@ type MappingTableRow struct {
 
 	PrId           int32    `protobuf:"varint,1,opt,name=pr_id,json=prId,proto3" json:"pr_id,omitempty"`
 	PaperArxivId   []string `protobuf:"bytes,2,rep,name=paper_arxiv_id,json=paperArxivId,proto3" json:"paper_arxiv_id,omitempty"`
-	YoutubeVideoId string   `protobuf:"bytes,3,opt,name=youtube_video_id,json=youtubeVideoId,proto3" json:"youtube_video_id,omitempty"` //  repeated Override overrides = 4;
+	YoutubeVideoId string   `protobuf:"bytes,3,opt,name=youtube_video_id,json=youtubeVideoId,proto3" json:"youtube_video_id,omitempty"`
 }
 
 func (x *MappingTableRow) Reset() {

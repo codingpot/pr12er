@@ -51,7 +51,7 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
-	if err = ioutil.WriteFile("test.pbtxt", bytes, 0o644); err != nil {
+	if err = ioutil.WriteFile("test.pbtxt", bytes, 0o600); err != nil {
 		log.Panic(err)
 	}
 }
