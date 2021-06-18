@@ -35,8 +35,9 @@ func main() {
 			mappingTableRow.YoutubeVideoId = mappingtable.GetLastBitsFrom(videoMetadata[0].Url)
 		}
 
+		arxivID := mappingtable.SearchArxivID(apiKey, metadata.GetTitle())
 		mappingTableRow.PaperArxivId = make([]string, 0, 1)
-		mappingTableRow.PaperArxivId = append(mappingTableRow.PaperArxivId, mappingtable.SearchArxivID(apiKey, metadata.GetTitle()))
+		mappingTableRow.PaperArxivId = append(mappingTableRow.PaperArxivId, arxivID)
 
 		mappingTable.Rows = append(mappingTable.Rows, mappingTableRow)
 
