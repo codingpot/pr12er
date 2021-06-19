@@ -14,9 +14,9 @@ class PaperAbstractWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               "Abstract",
-              style: TextStyle(fontFamily: 'PermanentMarker', fontSize: 25),
+              style: Theme.of(context).textTheme.headline1,
             ),
             Stack(alignment: Alignment.bottomCenter, children: [
               // ignore: sized_box_for_whitespace

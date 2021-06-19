@@ -45,10 +45,10 @@ class PR12Video extends StatelessWidget {
           arguments: DetailScreenArguments(video),
         );
       },
-      trailing: const Icon(
+      trailing: Icon(
         Icons.bookmark,
         size: 23,
-        color: Colors.blue,
+        color: Theme.of(context).accentColor,
       ),
     ));
   }
