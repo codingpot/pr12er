@@ -15,3 +15,11 @@ func TestFetchArxivPapersInfo(t *testing.T) {
 	actualType := fmt.Sprintf("%T", papers)
 	assert.Equal(t, expectedType, actualType)
 }
+
+func TestFetchYouTubeVideoInfo(t *testing.T) {
+	video := fetchYouTubeVideoInfo("L3hz57whyNw")
+
+	expectedType := "*pr12er.YouTubeVideo"
+	actualType := fmt.Sprintf("%T", video)
+	assert.Equal(t, expectedType, actualType)
+}
