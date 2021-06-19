@@ -49,13 +49,15 @@ func fetchArxivPapersInfo(paperArxivId []string) []*pr12er.Paper {
 func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 	var youTubeVideo *pr12er.YouTubeVideo
 
+	// api info: https://developers.google.com/youtube/v3/docs/videos/list
 	// part: id, snippet, contentDetails, fileDetails,
 	//       liveStreamingDetails, player, processingDetails, recordingDetails,
 	//       statistics, status, suggestions, topicDetails
 
 	// contentDetails.duration: "PT35M5S"
-	// snippet.publishedAt:
+	// snippet.publishedAt: 2017-04-16T14:24:02Z
 	// snippet.localized.title: "title": "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)"
+	// statistics.viewCount likeCount, dislikeCount, favoriteCount, commentCount
 
 	return youTubeVideo
 }
