@@ -20,7 +20,7 @@ class HeaderWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ...getPresenterWidgets(),
+          ...getPresenterWidgets(context),
           const SizedBox(width: 25),
           ...getViewNumbersWidgets(),
           const SizedBox(width: 25),
@@ -52,11 +52,9 @@ class HeaderWidget extends StatelessWidget {
     ];
   }
 
-  List<Widget> getPresenterWidgets() {
+  List<Widget> getPresenterWidgets(BuildContext context) {
     return [
-      Text(video.presenter,
-          style: const TextStyle(
-              color: Colors.black54, fontSize: 18, fontStyle: FontStyle.italic))
+      Text(video.presenter, style: Theme.of(context).textTheme.subtitle1)
     ];
   }
 

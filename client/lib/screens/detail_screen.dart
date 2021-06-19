@@ -101,7 +101,8 @@ class DetailScreen extends StatelessWidget {
           if (detail != null) {
             message.writeln('\nPaper');
             message.writeln('\t- title: ${detail!.paper[0].title}');
-            message.writeln('\t- link: https://arxiv.org/abs/${detail!.paper[0].arxivId}');
+            message.writeln(
+                '\t- link: https://arxiv.org/abs/${detail!.paper[0].arxivId}');
 
             message.writeln('abstract');
             message.writeln('\t- ${detail!.paper[0].abstract}');
@@ -113,10 +114,12 @@ class DetailScreen extends StatelessWidget {
 
             message.writeln('\nRecommended Papers');
             for (final paper in detail!.relevantPapers) {
-              message.writeln('\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
+              message.writeln(
+                  '\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
             }
             for (final paper in detail!.sameAuthorPapers) {
-              message.writeln('\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
+              message.writeln(
+                  '\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
             }
           }
 

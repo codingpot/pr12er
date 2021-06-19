@@ -17,9 +17,9 @@ class RecommentationWidget extends StatelessWidget {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
             margin: const EdgeInsets.only(bottom: 10),
-            child: const Text(
+            child: Text(
               "Recommendations",
-              style: TextStyle(fontFamily: 'PermanentMarker', fontSize: 25),
+              style: Theme.of(context).textTheme.headline1,
             )),
         // ignore: sized_box_for_whitespace
         Container(

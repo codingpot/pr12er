@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pr12er/custom_theme.dart';
 import 'package:pr12er/widgets/main/pr12video.dart';
 import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,12 @@ class MainScreen extends StatelessWidget {
                 // do something
                 showSearch(context: context, delegate: videoSearchDelegate);
               },
+            ),
+            Consumer<CustomTheme>(
+              builder: (context, theme, _child) => IconButton(
+                  key: const ValueKey("icon-theme-toggle-button"),
+                  onPressed: () => theme.toggleMode(),
+                  icon: theme.icon),
             )
           ],
           title: const Text(appName),
