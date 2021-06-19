@@ -17,7 +17,11 @@ package cmd
 
 import (
 	"fmt"
+	"log"
+	"os"
 
+	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cobra"
 )
 
@@ -37,38 +41,44 @@ $ metadata-manager --mapping-file mapping_table.pbtxt
 	Run: generateMetadata,
 }
 
+func fetchArxivPapersInfo(paperArxivId []string) []*pr12er.Paper {
+	papers := make([]*pr12er.Paper, len(paperArxivId))
+	return papers
+}
+
+func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
+	var youTubeVideo *pr12er.YouTubeVideo
+	return youTubeVideo
+}
+
+func fetchPrVideo(prRow pr12er.MappingTableRow) *pr12er.PrVideo {
+	var prVideo *pr12er.PrVideo
+
+	prVideo.Papers = fetchArxivPapersInfo(prRow.PaperArxivId)
+	prVideo.Video = fetchYouTubeVideoInfo(prRow.YoutubeVideoId)
+	return prVideo
+}
+
 func generateMetadata(cmd *cobra.Command, args []string) {
 	fmt.Println("genMeta called", mappingFile)
 
-	// init metadata
-	//unmarshal mapping file
+	//read file and unmarshal mapping file
+	b, err := os.ReadFile(mappingFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	mappingTable := pr12er.MappingTable{}
+	if err := proto.Unmarshal(b, &mappingTable); err != nil {
+		log.Fatal(err)
+	}
 
 	// loop and make Database
-	/*
-		message Database {
-		  map<int32, PrVideo> pr_id_to_video = 1;
-		}
-
-		// PR영상의 하나의 레코드
-		message PrVideo {
-		  int32 pr_id = 1;
-		  // 관련도에 따라 정렬
-		  repeated Paper papers = 2;
-		  YouTubeVideo video = 3;
-		}
-
-		// 유튜브 1편에 대한 정보
-		// `pkg.pr12er.Video` 생성하기 위해 사용됩니다.
-		message YouTubeVideo {
-		  string video_id = 1;
-		  string video_title = 2;
-		  int64 number_of_likes = 3;
-		  int64 number_of_views = 4;
-		  google.protobuf.Timestamp published_date = 5;
-		  string uploader = 6;
-		}
-	*/
-	// 1.
+	database := &pr12er.Database{}
+	for i, prRow := range mappingTable.Rows {
+		_ = i
+		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(*prRow)
+	}
 
 }
 
