@@ -29,9 +29,6 @@ class PaperAbstractWidget extends StatelessWidget {
                         paper.abstract,
                         overflow: TextOverflow.fade,
                         softWrap: true,
-                        style: const TextStyle(
-                          fontSize: 17,
-                        ),
                       ))),
               const Positioned(
                   bottom: -10, child: Icon(Icons.keyboard_arrow_down, size: 50))

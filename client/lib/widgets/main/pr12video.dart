@@ -33,7 +33,7 @@ class PR12Video extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             getKeywords(video.keywords),
-            style: const TextStyle(fontStyle: FontStyle.italic),
+            style: Theme.of(context).textTheme.subtitle2,
             overflow: TextOverflow.ellipsis,
           ),
         ],

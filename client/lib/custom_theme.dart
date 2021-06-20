@@ -28,7 +28,13 @@ class CustomTheme extends ChangeNotifier {
 
   static ThemeData _themeData(ThemeData baseTheme, ColorScheme colorScheme) {
     final textTheme = baseTheme.textTheme
-        .copyWith(headline1: _kHeadline1)
+        .copyWith(
+            headline1: _kHeadline1,
+            // main_screen에서 키워드에 사용됨
+            subtitle2: TextStyle(
+                fontSize: 14,
+                color: colorScheme.onSurface.withAlpha(150),
+                fontStyle: FontStyle.italic))
         .apply(displayColor: colorScheme.onBackground);
 
     return baseTheme.copyWith(colorScheme: colorScheme, textTheme: textTheme);
