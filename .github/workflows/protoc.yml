@@ -18,4 +18,6 @@ jobs:
         with:
           go-version: 1.16
       - run: make install gen.all
-      - run: git diff-index --quiet HEAD -- || git diff-index HEAD -- && echo "::warning::there's diff in generated files. Check your protoc versions."
+      - run: |
+          git update-index --refresh
+          git diff-index --quiet HEAD -- || git diff HEAD -- && echo "::warning::there's diff in generated files. Check your protoc versions."
