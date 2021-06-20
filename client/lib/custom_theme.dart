@@ -14,19 +14,24 @@ const _kHeadline1 = TextStyle(fontFamily: 'PermanentMarker', fontSize: 25);
 class CustomTheme extends ChangeNotifier {
   static ThemeData get lightTheme {
     final themeData = ThemeData();
-
-    return themeData.copyWith(
-        textTheme: themeData.textTheme.copyWith(headline1: _kHeadline1));
+    final colorScheme = themeData.colorScheme
+        .copyWith(onPrimary: Colors.white, onBackground: Colors.black87);
+    return _themeData(themeData, colorScheme);
   }
 
   static ThemeData get darkTheme {
     final themeData = ThemeData.dark();
-    final textTheme = themeData.textTheme;
+    final colorScheme = themeData.colorScheme
+        .copyWith(onPrimary: Colors.white, onBackground: Colors.white);
+    return _themeData(themeData, colorScheme);
+  }
 
-    return themeData.copyWith(
-        textTheme: textTheme.copyWith(
-            headline1: textTheme.headline1?.merge(_kHeadline1) ??
-                _kHeadline1.copyWith(color: Colors.white)));
+  static ThemeData _themeData(ThemeData baseTheme, ColorScheme colorScheme) {
+    final textTheme = baseTheme.textTheme
+        .copyWith(headline1: _kHeadline1)
+        .apply(displayColor: colorScheme.onBackground);
+
+    return baseTheme.copyWith(colorScheme: colorScheme, textTheme: textTheme);
   }
 
   bool _isDarkMode = false;
