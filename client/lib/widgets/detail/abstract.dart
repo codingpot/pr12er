@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
+import 'package:pr12er/widgets/components/expandable_text.dart';
 
 // ignore: must_be_immutable
 class PaperAbstractWidget extends StatelessWidget {
@@ -18,21 +19,7 @@ class PaperAbstractWidget extends StatelessWidget {
               "Abstract",
               style: Theme.of(context).textTheme.headline1,
             ),
-            Stack(alignment: Alignment.bottomCenter, children: [
-              // ignore: sized_box_for_whitespace
-              Card(
-                  child: Container(
-                      padding:
-                          const EdgeInsets.only(top: 15, left: 15, right: 15),
-                      height: 150,
-                      child: Text(
-                        paper.abstract,
-                        overflow: TextOverflow.fade,
-                        softWrap: true,
-                      ))),
-              const Positioned(
-                  bottom: -10, child: Icon(Icons.keyboard_arrow_down, size: 50))
-            ])
+            ExpandableText(text: paper.abstract)
           ],
         ));
   }
