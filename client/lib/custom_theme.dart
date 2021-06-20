@@ -13,31 +13,17 @@ const _kHeadline1 = TextStyle(fontFamily: 'PermanentMarker', fontSize: 25);
 /// ```
 class CustomTheme extends ChangeNotifier {
   static ThemeData get lightTheme {
-    final themeData = ThemeData();
-    final colorScheme = themeData.colorScheme
-        .copyWith(onPrimary: Colors.white, onBackground: Colors.black87);
-    return _themeData(themeData, colorScheme);
+    final colorScheme = ColorScheme.fromSwatch(backgroundColor: Colors.white);
+    final textTheme =
+        Typography.blackMountainView.copyWith(headline1: _kHeadline1);
+    return ThemeData.from(colorScheme: colorScheme, textTheme: textTheme);
   }
 
   static ThemeData get darkTheme {
-    final themeData = ThemeData.dark();
-    final colorScheme = themeData.colorScheme
-        .copyWith(onPrimary: Colors.white, onBackground: Colors.white);
-    return _themeData(themeData, colorScheme);
-  }
-
-  static ThemeData _themeData(ThemeData baseTheme, ColorScheme colorScheme) {
-    final textTheme = baseTheme.textTheme
-        .copyWith(
-            headline1: _kHeadline1,
-            // main_screen에서 키워드에 사용됨
-            subtitle2: TextStyle(
-                fontSize: 14,
-                color: colorScheme.onSurface.withAlpha(150),
-                fontStyle: FontStyle.italic))
-        .apply(displayColor: colorScheme.onBackground);
-
-    return baseTheme.copyWith(colorScheme: colorScheme, textTheme: textTheme);
+    const colorScheme = ColorScheme.dark();
+    final textTheme =
+        Typography.whiteMountainView.copyWith(headline1: _kHeadline1);
+    return ThemeData.from(colorScheme: colorScheme, textTheme: textTheme);
   }
 
   bool _isDarkMode = false;
