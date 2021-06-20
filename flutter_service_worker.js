@@ -22,8 +22,8 @@ const RESOURCES = {
 "assets/images/tf-logo.png": "c14d03d92129a49032b2438eced1d882",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "main.dart.js": "471ab40ddf9dfe0f11d172c893dbe8f1",
-"index.html": "0a7dc84e29da8c7cb017ab67e41a02d5",
-"/": "0a7dc84e29da8c7cb017ab67e41a02d5"
+"index.html": "c26eb73a6912ea38c49b59d96f505b39",
+"/": "c26eb73a6912ea38c49b59d96f505b39"
 };
 
 // The application shell files that are downloaded before a service worker can
