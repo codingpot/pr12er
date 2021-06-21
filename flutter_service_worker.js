@@ -21,9 +21,9 @@ const RESOURCES = {
 "assets/images/pytorch-logo.png": "62989affe3e57077963ec5ac0e902389",
 "assets/images/tf-logo.png": "c14d03d92129a49032b2438eced1d882",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"main.dart.js": "42bd1dad3be8c05946bb0b12964776b5",
-"index.html": "57f6f607096d26d743c5d3227c939991",
-"/": "57f6f607096d26d743c5d3227c939991"
+"main.dart.js": "bc222352bea5cb636885f0f0a4af80ab",
+"index.html": "ea265f04144092a23a9537141778bdc8",
+"/": "ea265f04144092a23a9537141778bdc8"
 };
 
 // The application shell files that are downloaded before a service worker can
