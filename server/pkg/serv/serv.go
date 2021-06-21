@@ -32,18 +32,22 @@ func (s Server) GetDetails(_ context.Context, in *pr12er.GetDetailsRequest) (*pr
 						{
 							Framework: pr12er.Framework_FRAMEWORK_TENSORFLOW,
 							Owner:     "goodfeli",
+							Url:       "https://github.com/tensorflow/tensorflow",
 						},
 						{
 							Framework: pr12er.Framework_FRAMEWORK_PYTORCH,
 							Owner:     "eriklindernoren",
+							Url:       "https://github.com/pytorch/pytorch",
 						},
 						{
 							Framework: pr12er.Framework_FRAMEWORK_TENSORFLOW,
 							Owner:     "google-research",
+							Url:       "https://github.com/tensorflow/tensorflow",
 						},
 						{
 							Framework: pr12er.Framework_FRAMEWORK_PYTORCH,
 							Owner:     "eriklindernoren",
+							Url:       "https://github.com/pytorch/pytorch",
 						},
 					},
 				},

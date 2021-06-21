@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
+import 'package:pr12er/utils/extractor.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class RepositoryWidget extends StatelessWidget {
@@ -30,7 +32,7 @@ class RepositoryWidget extends StatelessWidget {
                 ),
                 itemCount: visibleRepositories.length,
                 itemBuilder: (BuildContext context, int index) =>
-                    getItemCard(visibleRepositories[index])))
+                    getItemCard(context, visibleRepositories[index])))
       ]),
     );
   }
@@ -47,19 +49,35 @@ class RepositoryWidget extends StatelessWidget {
     }
   }
 
-  Widget getItemCard(Repository repository) {
-    return Card(
-        child: ListTile(
-      leading: CircleAvatar(
-        backgroundImage: getImageFramework(repository.framework),
-        backgroundColor: Colors.transparent,
-      ),
-      title: Text(
-        repository.owner,
-        maxLines: 1,
-        overflow: TextOverflow.clip,
-      ),
-    ));
+  Widget getItemCard(BuildContext context, Repository repo) {
+    return GestureDetector(
+      onTap: () async {
+        if (await canLaunch(repo.url)) {
+          await launch(repo.url);
+          return;
+        }
+        ScaffoldMessenger.of(context).removeCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Theme.of(context).colorScheme.error,
+          content: Text("${repo.url} is not a valid URL"),
+          action: SnackBarAction(
+            label: "OK",
+            onPressed: () {},
+            textColor: Theme.of(context).colorScheme.onError,
+          ),
+        ));
+      },
+      child: Card(
+          child: ListTile(
+        leading: CircleAvatar(
+          backgroundImage: getImageFramework(repo.framework),
+          backgroundColor: Colors.transparent,
+        ),
+        title: Text(
+          extractRepoNameFromURL(repo.url),
+        ),
+      )),
+    );
   }
 
   List<Repository> getSubsetRepositories(int size) {
