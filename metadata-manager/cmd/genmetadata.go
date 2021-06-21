@@ -16,13 +16,19 @@ limitations under the License.
 package cmd
 
 import (
+	"context"
+	"errors"
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cobra"
+	"google.golang.org/api/option"
+	"google.golang.org/api/youtube/v3"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 var mappingFile string
@@ -47,7 +53,6 @@ func fetchArxivPapersInfo(paperArxivId []string) []*pr12er.Paper {
 }
 
 func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
-	var youTubeVideo *pr12er.YouTubeVideo
 
 	// api info: https://developers.google.com/youtube/v3/docs/videos/list
 	// part: id, snippet, contentDetails, fileDetails,
@@ -56,10 +61,45 @@ func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 
 	// contentDetails.duration: "PT35M5S"
 	// snippet.publishedAt: 2017-04-16T14:24:02Z
-	// snippet.localized.title: "title": "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)"
+	// snippet.title: "title": "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)"
 	// statistics.viewCount likeCount, dislikeCount, favoriteCount, commentCount
 
-	return youTubeVideo
+	// use the package: https://pkg.go.dev/google.golang.org/api/youtube/v3
+	// using API example: https://bit.ly/3dfFQPd
+
+	apiKey := os.Getenv("YouTubeDataAPIV3Key")
+	if apiKey == "" {
+		log.Fatal(errors.New("no YouTube API Key"))
+	}
+
+	ctx := context.Background()
+	youtubeService, err := youtube.NewService(ctx, option.WithAPIKey(apiKey))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	part := []string{"contentDetails", "snippet", "statistics"}
+	call := youtubeService.Videos.List(part).Id(youTubeVideoId)
+	resp, err := call.Do()
+	if err != nil {
+		log.Fatalf("Error making API call for videos: %v", err.Error())
+	}
+
+	// make video information
+	youTubeVideo := pr12er.YouTubeVideo{}
+	youTubeVideo.VideoId = youTubeVideoId
+	youTubeVideo.VideoTitle = resp.Items[0].Snippet.Title
+
+	ts, err := time.Parse(time.RFC3339, resp.Items[0].Snippet.PublishedAt)
+	if err != nil {
+		log.Fatal(err)
+	}
+	youTubeVideo.PublishedDate = timestamppb.New(ts)
+	youTubeVideo.NumberOfLikes = int64(resp.Items[0].Statistics.LikeCount)
+	youTubeVideo.NumberOfViews = int64(resp.Items[0].Statistics.ViewCount)
+	youTubeVideo.Uploader = resp.Items[0].Snippet.ChannelTitle
+
+	return &youTubeVideo
 }
 
 func fetchPrVideo(prRow pr12er.MappingTableRow) *pr12er.PrVideo {
