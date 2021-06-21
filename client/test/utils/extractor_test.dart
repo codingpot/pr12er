@@ -13,4 +13,16 @@ void main() {
       expect(extractYoutubeId(url), "video-id");
     });
   });
+
+  group("extractRepoNameFromURL", () {
+    test("returns user/name for github URL", () {
+      const url = "https://github.com/codingpot/pr12er";
+      expect(extractRepoNameFromURL(url), "codingpot/pr12er");
+    });
+
+    test("returns the input string for invalid URL", () {
+      const url = "pr12er";
+      expect(extractRepoNameFromURL(url), url);
+    });
+  });
 }
