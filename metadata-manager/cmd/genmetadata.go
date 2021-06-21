@@ -23,6 +23,8 @@ import (
 	"os"
 	"time"
 
+	paperswithcodego "github.com/codingpot/paperswithcode-go/v2"
+	models "github.com/codingpot/paperswithcode-go/v2/models"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cobra"
@@ -47,8 +49,80 @@ $ metadata-manager --mapping-file mapping_table.pbtxt
 	Run: generateMetadata,
 }
 
-func fetchArxivPapersInfo(paperArxivId []string) []*pr12er.Paper {
-	papers := make([]*pr12er.Paper, len(paperArxivId))
+func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.Repository {
+	pr12erRepos := make([]*pr12er.Repository, len(repositories))
+	for _, repo := range repositories {
+		fmt.Println("repo.Framework:", repo.Framework)
+		repo := pr12er.Repository{
+			IsOfficial: repo.IsOfficial,
+			Url:        repo.URL,
+			Owner:      "",
+			// Framework:     repo.Framework,
+			NumberOfStars: int64(repo.Stars),
+			Description:   repo.Description,
+		}
+		pr12erRepos = append(pr12erRepos, &repo)
+	}
+	return pr12erRepos
+}
+
+func transformMethodsForPaper(methods []*models.Method) []*pr12er.Method {
+
+	// Name
+	// FullName
+	// Description
+	pr12erMethods := make([]*pr12er.Method, len(methods))
+	for _, method := range methods {
+		pr12erMethod := pr12er.Method{
+			Name:        method.Name,
+			FullName:    method.FullName,
+			Description: method.Description,
+		}
+		pr12erMethods = append(pr12erMethods, &pr12erMethod)
+	}
+	return pr12erMethods
+}
+
+func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
+	papers := make([]*pr12er.Paper, len(paperArxivIds))
+
+	c := paperswithcodego.NewClient()
+	for _, paperId := range paperArxivIds {
+		p, err := c.PaperGet(paperId)
+		if err != nil {
+			log.Printf("fail to Get paper of the paper id %s\n", paperId)
+		}
+
+		// https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
+		repolist, err := c.PaperRepositoryList(paperId)
+		if err != nil {
+			log.Printf("fail to Get paper repos of the paper id %s\n", paperId)
+		}
+		repositories := transformRepositoriesForPaper(repolist.Results)
+
+		methodlist, err := c.PaperMethodList(paperId)
+		if err != nil {
+			log.Printf("fail to Get paper methods of the paper id %s\n", paperId)
+		}
+		methods := transformMethodsForPaper(methodlist.Results)
+
+		// make paper
+		paper := pr12er.Paper{}
+		paper.PaperId = p.ID
+		paper.Title = p.Title
+		paper.ArxivId = *p.ArxivID
+		paper.Abstract = p.Abstract
+		paper.PubDate = timestamppb.New(time.Time(p.Published))
+		paper.Authors = make([]string, len(p.Authors))
+		paper.Repositories = make([]*pr12er.Repository, repolist.Count)
+		paper.Methods = make([]*pr12er.Method, methodlist.Count)
+		copy(paper.Authors, p.Authors)
+		copy(paper.Repositories, repositories)
+		copy(paper.Methods, methods)
+
+		papers = append(papers, &paper)
+	}
+
 	return papers
 }
 
