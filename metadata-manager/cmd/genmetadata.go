@@ -23,7 +23,7 @@ import (
 	"os"
 	"time"
 
-	paperswithcodego "github.com/codingpot/paperswithcode-go/v2"
+	paperswithcode_go "github.com/codingpot/paperswithcode-go/v2"
 	models "github.com/codingpot/paperswithcode-go/v2/models"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/golang/protobuf/proto"
@@ -84,14 +84,18 @@ func transformMethodsForPaper(methods []*models.Method) []*pr12er.Method {
 }
 
 func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
-	papers := make([]*pr12er.Paper, len(paperArxivIds))
+	pr12erPapers := make([]*pr12er.Paper, len(paperArxivIds))
 
-	c := paperswithcodego.NewClient()
-	for _, paperId := range paperArxivIds {
-		p, err := c.PaperGet(paperId)
+	c := paperswithcode_go.NewClient()
+	for _, ArxivId := range paperArxivIds {
+		params := paperswithcode_go.PaperListParamsDefault()
+		params.ArxivID = ArxivId
+		papers, err := c.PaperList(params)
 		if err != nil {
-			log.Printf("fail to Get paper of the paper id %s\n", paperId)
+			log.Printf("fail to Get paper of the Arxiv id %s\n", ArxivId)
 		}
+
+		paperId := papers.Results[0].ID
 
 		// https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
 		repolist, err := c.PaperRepositoryList(paperId)
@@ -108,22 +112,21 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 
 		// make paper
 		paper := pr12er.Paper{}
-		paper.PaperId = p.ID
-		paper.Title = p.Title
-		paper.ArxivId = *p.ArxivID
-		paper.Abstract = p.Abstract
-		paper.PubDate = timestamppb.New(time.Time(p.Published))
-		paper.Authors = make([]string, len(p.Authors))
+		paper.PaperId = papers.Results[0].ID
+		paper.Title = papers.Results[0].Title
+		paper.ArxivId = ArxivId
+		paper.Abstract = papers.Results[0].Abstract
+		paper.PubDate = timestamppb.New(time.Time(papers.Results[0].Published))
+		paper.Authors = make([]string, len(papers.Results[0].Authors))
 		paper.Repositories = make([]*pr12er.Repository, repolist.Count)
 		paper.Methods = make([]*pr12er.Method, methodlist.Count)
-		copy(paper.Authors, p.Authors)
+		copy(paper.Authors, papers.Results[0].Authors)
 		copy(paper.Repositories, repositories)
 		copy(paper.Methods, methods)
 
-		papers = append(papers, &paper)
+		pr12erPapers = append(pr12erPapers, &paper)
 	}
-
-	return papers
+	return pr12erPapers
 }
 
 func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
