@@ -17,6 +17,9 @@ class _ExpandableTextState extends State<ExpandableText> {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme.subtitle1;
+    const double iconSize = 35;
+
     if (_isExpanded) {
       return Card(
           child: Padding(
@@ -26,11 +29,12 @@ class _ExpandableTextState extends State<ExpandableText> {
           children: [
             Text(
               widget.text,
-              softWrap: true,
+              style: textStyle,
             ),
             IconButton(
+                iconSize: iconSize,
                 onPressed: onPressed,
-                icon: const Icon(Icons.keyboard_arrow_up, size: 50)),
+                icon: const Icon(Icons.keyboard_arrow_up)),
           ],
         ),
       ));
@@ -39,19 +43,19 @@ class _ExpandableTextState extends State<ExpandableText> {
     return Stack(alignment: Alignment.bottomCenter, children: [
       Card(
           child: Container(
-              padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
-              height: 100,
+              padding: const EdgeInsets.all(15),
               child: Text(
                 widget.text,
                 overflow: TextOverflow.fade,
                 maxLines: 3,
-                softWrap: true,
+                style: textStyle,
               ))),
       Positioned(
-          bottom: 10,
+          bottom: iconSize / 3,
           child: IconButton(
+              iconSize: iconSize,
               onPressed: onPressed,
-              icon: const Icon(Icons.keyboard_arrow_down, size: 50)))
+              icon: const Icon(Icons.keyboard_arrow_down)))
     ]);
   }
 
