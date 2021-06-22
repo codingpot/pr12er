@@ -41,4 +41,8 @@ class CustomTheme extends ChangeNotifier {
   Icon get icon => _isDarkMode
       ? const Icon(Icons.dark_mode_outlined)
       : const Icon(Icons.light_mode_outlined);
+
+  Text get text => _isDarkMode
+      ? const Text("다크 모드")
+      : const Text("라이트 모드");
 }
