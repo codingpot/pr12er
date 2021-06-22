@@ -38,7 +38,7 @@ class MainScreen extends StatelessWidget {
                   CheckedPopupMenuItem<VertMenu>(
                     value: VertMenu.themeMode,
                     checked: context.read<CustomTheme>().isDarkMode,
-                    child: Text('다크모드'),
+                    child: const Text('다크모드'),
                   ),
                   const PopupMenuDivider(
                     height: 10,
@@ -57,7 +57,7 @@ class MainScreen extends StatelessWidget {
                       break;
                   }
               },
-              Icon: const Icon(Icons.more_vert),
+              child: const Icon(Icons.more_vert),
             ),
             const SizedBox(width: 15,)
             // IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
