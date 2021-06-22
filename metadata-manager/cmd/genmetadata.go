@@ -26,10 +26,10 @@ import (
 	paperswithcode_go "github.com/codingpot/paperswithcode-go/v2"
 	models "github.com/codingpot/paperswithcode-go/v2/models"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
-	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cobra"
 	"google.golang.org/api/option"
 	"google.golang.org/api/youtube/v3"
+	"google.golang.org/protobuf/encoding/prototext"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
@@ -44,7 +44,7 @@ Then, you can use it as a \server\internal\pr12_metadata.pbtxt
 
 How to use:
 
-$ metadata-manager --mapping-file mapping_table.pbtxt
+$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt
 `,
 	Run: generateMetadata,
 }
@@ -52,7 +52,7 @@ $ metadata-manager --mapping-file mapping_table.pbtxt
 func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.Repository {
 	pr12erRepos := make([]*pr12er.Repository, len(repositories))
 	for _, repo := range repositories {
-		fmt.Println("repo.Framework:", repo.Framework)
+		fmt.Printf("repo %v %v\n:", repo.URL, repo.Framework)
 		repo := pr12er.Repository{
 			IsOfficial: repo.IsOfficial,
 			Url:        repo.URL,
@@ -67,65 +67,72 @@ func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.R
 }
 
 func transformMethodsForPaper(methods []*models.Method) []*pr12er.Method {
-
-	// Name
-	// FullName
-	// Description
 	pr12erMethods := make([]*pr12er.Method, len(methods))
 	for _, method := range methods {
 		pr12erMethod := pr12er.Method{
-			Name:        method.Name,
-			FullName:    method.FullName,
-			Description: method.Description,
+			Name:        (method.Name),
+			FullName:    (method.FullName),
+			Description: (method.Description),
 		}
 		pr12erMethods = append(pr12erMethods, &pr12erMethod)
 	}
 	return pr12erMethods
 }
 
+var c = paperswithcode_go.NewClient()
+
 func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
-	pr12erPapers := make([]*pr12er.Paper, len(paperArxivIds))
+	fmt.Println("paperArxivIds len", len(paperArxivIds))
+	pr12erPapers := make([]*pr12er.Paper, 1)
+	var a = []*pr12er.Paper{}
+	return a
 
-	c := paperswithcode_go.NewClient()
-	for _, ArxivId := range paperArxivIds {
-		params := paperswithcode_go.PaperListParamsDefault()
-		params.ArxivID = ArxivId
-		papers, err := c.PaperList(params)
-		if err != nil {
-			log.Printf("fail to Get paper of the Arxiv id %s\n", ArxivId)
-		}
+	// for _, ArxivId := range paperArxivIds {
+	// 	params := paperswithcode_go.PaperListParamsDefault()
+	// 	params.ArxivID = ArxivId
+	// 	papers, err := c.PaperList(params)
+	// 	if err != nil {
+	// 		log.Printf("fail to Get paper of the Arxiv id %s\n", ArxivId)
+	// 	}
 
-		paperId := papers.Results[0].ID
+	// 	paperId := papers.Results[0].ID
+	// 	fmt.Println("paperId:", paperId)
 
-		// https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
-		repolist, err := c.PaperRepositoryList(paperId)
-		if err != nil {
-			log.Printf("fail to Get paper repos of the paper id %s\n", paperId)
-		}
-		repositories := transformRepositoriesForPaper(repolist.Results)
+	// 	// https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
+	// 	repolist, err := c.PaperRepositoryList(paperId)
+	// 	if err != nil {
+	// 		log.Printf("fail to Get paper repos of the paper id %s\n", paperId)
+	// 	}
+	// 	repositories := transformRepositoriesForPaper(repolist.Results)
+	// 	fmt.Println("ArxivId:", ArxivId)
 
-		methodlist, err := c.PaperMethodList(paperId)
-		if err != nil {
-			log.Printf("fail to Get paper methods of the paper id %s\n", paperId)
-		}
-		methods := transformMethodsForPaper(methodlist.Results)
+	// 	methodlist, err := c.PaperMethodList(paperId)
+	// 	if err != nil {
+	// 		log.Printf("fail to Get paper methods of the paper id %s\n", paperId)
+	// 	}
+	// 	fmt.Println("ArxivId2:", ArxivId)
+	// 	methods := transformMethodsForPaper(methodlist.Results)
 
-		// make paper
-		paper := pr12er.Paper{}
-		paper.PaperId = papers.Results[0].ID
-		paper.Title = papers.Results[0].Title
-		paper.ArxivId = ArxivId
-		paper.Abstract = papers.Results[0].Abstract
-		paper.PubDate = timestamppb.New(time.Time(papers.Results[0].Published))
-		paper.Authors = make([]string, len(papers.Results[0].Authors))
-		paper.Repositories = make([]*pr12er.Repository, repolist.Count)
-		paper.Methods = make([]*pr12er.Method, methodlist.Count)
-		copy(paper.Authors, papers.Results[0].Authors)
-		copy(paper.Repositories, repositories)
-		copy(paper.Methods, methods)
+	// 	// make paper
+	// 	paper := &pr12er.Paper{
+	// 		PaperId:  paperId,
+	// 		Title:    papers.Results[0].Title,
+	// 		ArxivId:  ArxivId,
+	// 		Abstract: papers.Results[0].Abstract,
+	// 		PubDate:  timestamppb.New(time.Time(papers.Results[0].Published)),
+	// 	}
+	// 	fmt.Println("ArxivId3:", ArxivId)
+	// 	paper.Authors = make([]string, len(papers.Results[0].Authors))
+	// 	paper.Repositories = make([]*pr12er.Repository, len(repositories))
+	// 	paper.Methods = make([]*pr12er.Method, len(methods))
+	// 	fmt.Println("ArxivId4:", ArxivId)
+	// 	copy(paper.Authors, papers.Results[0].Authors)
+	// 	copy(paper.Repositories, repositories)
+	// 	copy(paper.Methods, methods)
+	// 	fmt.Println("ArxivId5:", ArxivId)
 
-		pr12erPapers = append(pr12erPapers, &paper)
-	}
+	// 	// pr12erPapers = append(pr12erPapers, paper)
+	// }
 	return pr12erPapers
 }
 
@@ -165,25 +172,38 @@ func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 	// make video information
 	youTubeVideo := pr12er.YouTubeVideo{}
 	youTubeVideo.VideoId = youTubeVideoId
-	youTubeVideo.VideoTitle = resp.Items[0].Snippet.Title
+	if len(resp.Items) > 0 {
+		youTubeVideo.VideoTitle = resp.Items[0].Snippet.Title
 
-	ts, err := time.Parse(time.RFC3339, resp.Items[0].Snippet.PublishedAt)
-	if err != nil {
-		log.Fatal(err)
+		ts, err := time.Parse(time.RFC3339, resp.Items[0].Snippet.PublishedAt)
+		if err != nil {
+			log.Fatal(err)
+		}
+		youTubeVideo.PublishedDate = timestamppb.New(ts)
+		youTubeVideo.NumberOfLikes = int64(resp.Items[0].Statistics.LikeCount)
+		youTubeVideo.NumberOfViews = int64(resp.Items[0].Statistics.ViewCount)
+		youTubeVideo.Uploader = resp.Items[0].Snippet.ChannelTitle
 	}
-	youTubeVideo.PublishedDate = timestamppb.New(ts)
-	youTubeVideo.NumberOfLikes = int64(resp.Items[0].Statistics.LikeCount)
-	youTubeVideo.NumberOfViews = int64(resp.Items[0].Statistics.ViewCount)
-	youTubeVideo.Uploader = resp.Items[0].Snippet.ChannelTitle
 
 	return &youTubeVideo
 }
 
 func fetchPrVideo(prRow pr12er.MappingTableRow) *pr12er.PrVideo {
-	var prVideo *pr12er.PrVideo
+	prVideo := &pr12er.PrVideo{}
 
-	prVideo.Papers = fetchArxivPapersInfo(prRow.PaperArxivId)
+	fmt.Println("a")
+	papers := fetchArxivPapersInfo(prRow.PaperArxivId)
+	prVideo.Papers = make([]*pr12er.Paper, len(papers))
+	fmt.Println("b")
+
+	copy(prVideo.Papers, papers)
+	fmt.Println("c")
+
+	fmt.Println("prRow.YoutubeVideoId", prRow.YoutubeVideoId)
 	prVideo.Video = fetchYouTubeVideoInfo(prRow.YoutubeVideoId)
+	fmt.Println("d")
+
+	fmt.Printf("%+v", prVideo)
 	return prVideo
 }
 
@@ -197,15 +217,24 @@ func generateMetadata(cmd *cobra.Command, args []string) {
 	}
 
 	mappingTable := pr12er.MappingTable{}
-	if err := proto.Unmarshal(b, &mappingTable); err != nil {
+	if err := prototext.Unmarshal(b, &mappingTable); err != nil {
 		log.Fatal(err)
 	}
 
 	// loop and make Database
-	database := &pr12er.Database{}
+	database := &pr12er.Database{
+		PrIdToVideo: make(map[int32]*pr12er.PrVideo),
+	}
 	for i, prRow := range mappingTable.Rows {
-		_ = i
+		fmt.Println("prRow: ", i)
 		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(*prRow)
+	}
+
+	fmt.Println("made database completely")
+	// save as a .pbtxt
+	b = []byte(prototext.Format(database.ProtoReflect().Interface()))
+	if err := os.WriteFile("database.pbtxt", b, 0600); err != nil {
+		log.Fatal(err)
 	}
 
 }
