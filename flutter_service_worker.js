@@ -16,14 +16,14 @@ const RESOURCES = {
 "assets/fonts/DancingScript-Medium.ttf": "2b9b7690ea41eca720fedddff070e153",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/fonts/PermanentMarker-Regular.ttf": "c863f8028c2505f92540e0ba7c379002",
-"assets/NOTICES": "41d711b1951ae36e66d048406a3d5ffc",
+"assets/NOTICES": "84ae69bf1289c757ec22ecaaf56891a5",
 "assets/FontManifest.json": "bc8fcef940d11e4dbe2502b0cc395863",
 "assets/images/pytorch-logo.png": "62989affe3e57077963ec5ac0e902389",
 "assets/images/tf-logo.png": "c14d03d92129a49032b2438eced1d882",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"main.dart.js": "47d44b1d500620e4ad5f48a2434e374e",
-"index.html": "23280f5180a65c5717719747ce69b302",
-"/": "23280f5180a65c5717719747ce69b302"
+"main.dart.js": "31985b0e52f9c0fbb9b54e3c65cbb9c0",
+"index.html": "4c59454233c333fce423d1563b6a6c14",
+"/": "4c59454233c333fce423d1563b6a6c14"
 };
 
 // The application shell files that are downloaded before a service worker can
