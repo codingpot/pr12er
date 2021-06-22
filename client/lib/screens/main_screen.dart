@@ -42,7 +42,6 @@ class MainScreen extends StatelessWidget {
               const PopupMenuItem<VertMenu>(
                   value: VertMenu.issueReport,
                   child: ListTile(
-                      // 투명 아이콘을 설정해서 다크모드 와 텍스트 Alignment 유지
                       leading: Icon(
                         Icons.report,
                       ),
