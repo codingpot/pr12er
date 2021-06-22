@@ -10,10 +10,13 @@ import '../service.dart';
 
 const appName = 'PR12er';
 
+enum VertMenu { themeMode, issueReport }
+
 // ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
   static const String routeName = "main_screen";
   VideoSearchDelegate videoSearchDelegate = VideoSearchDelegate();
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +30,39 @@ class MainScreen extends StatelessWidget {
                 showSearch(context: context, delegate: videoSearchDelegate);
               },
             ),
-            Consumer<CustomTheme>(
-              builder: (context, theme, _child) => IconButton(
-                  key: const ValueKey("icon-theme-toggle-button"),
-                  onPressed: () => theme.toggleMode(),
-                  icon: theme.icon),
-            )
+            const SizedBox(width: 5,),
+            PopupMenuButton(
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<VertMenu>>[
+                  CheckedPopupMenuItem<VertMenu>(
+                    value: VertMenu.themeMode,
+                    checked: context.read<CustomTheme>().isDarkMode,
+                    child: const Text('다크모드'),
+                  ),
+                  const PopupMenuDivider(
+                    height: 10,
+                  ),
+                  const PopupMenuItem<VertMenu>(
+                  value: VertMenu.issueReport,
+                  child: Text('이슈 리포트'),
+                  ),
+                ],
+              onSelected: (value) {
+                  switch (value) {
+                    case VertMenu.themeMode:
+                      context.read<CustomTheme>().toggleMode();
+                      break;
+                    case VertMenu.issueReport:
+                      break;
+                  }
+              },
+              child: const Icon(Icons.more_vert),
+            ),
+            const SizedBox(width: 15,)
+            // IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
           ],
           title: const Text(appName),
         ),
-        body: PRVideos(videoSearchDelegate: videoSearchDelegate));
+        body: PRVideos(videoSearchDelegate: videoSearchDelegate),);
   }
 }
 

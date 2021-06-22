@@ -27,6 +27,9 @@ class CustomTheme extends ChangeNotifier {
   }
 
   bool _isDarkMode = false;
+  bool get isDarkMode {
+    return _isDarkMode;
+  }
 
   void toggleMode() {
     _isDarkMode = !_isDarkMode;
