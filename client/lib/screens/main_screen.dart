@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pr12er/custom_theme.dart';
 import 'package:pr12er/widgets/main/pr12video.dart';
+import 'package:pr12er/widgets/main/report.dart';
 import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../protos/pkg/pr12er/messages.pb.dart';
 import '../service.dart';
@@ -53,6 +55,9 @@ class MainScreen extends StatelessWidget {
                   context.read<CustomTheme>().toggleMode();
                   break;
                 case VertMenu.issueReport:
+                  showMaterialModalBottomSheet(
+                      context: context,
+                      builder: (context) => const ReportWidget());
                   break;
               }
             },
