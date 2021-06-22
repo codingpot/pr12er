@@ -33,11 +33,11 @@ class MainScreen extends StatelessWidget {
           ),
           PopupMenuButton(
             itemBuilder: (BuildContext context) => <PopupMenuEntry<VertMenu>>[
-              CheckedPopupMenuItem<VertMenu>(
-                value: VertMenu.themeMode,
-                checked: context.read<CustomTheme>().isDarkMode,
-                child: const Text('다크모드'),
-              ),
+              PopupMenuItem<VertMenu>(
+                  value: VertMenu.themeMode,
+                  child: ListTile(
+                      leading: context.read<CustomTheme>().icon,
+                      title: const Text("다크 모드"))),
               const PopupMenuDivider(height: 5),
               const PopupMenuItem<VertMenu>(
                   value: VertMenu.issueReport,
@@ -45,7 +45,6 @@ class MainScreen extends StatelessWidget {
                       // 투명 아이콘을 설정해서 다크모드 와 텍스트 Alignment 유지
                       leading: Icon(
                         Icons.report,
-                        color: Colors.transparent,
                       ),
                       title: Text("이슈 리포트"))),
             ],
