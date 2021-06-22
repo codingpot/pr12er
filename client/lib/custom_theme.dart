@@ -26,7 +26,7 @@ class CustomTheme extends ChangeNotifier {
     return ThemeData.from(colorScheme: colorScheme, textTheme: textTheme);
   }
 
-  bool isDarkMode = false;
+  bool get isDarkMode = false;
 
   void toggleMode() {
     isDarkMode = !isDarkMode;

@@ -12,7 +12,7 @@ import '../service.dart';
 
 const appName = 'PR12er';
 
-enum VertMenu { title, themeMode, issueReport }
+enum VertMenu { themeMode, issueReport }
 
 // ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
@@ -38,14 +38,14 @@ class MainScreen extends StatelessWidget {
                   CheckedPopupMenuItem<VertMenu>(
                     value: VertMenu.themeMode,
                     checked: context.read<CustomTheme>().isDarkMode,
-                    child: const Center(child: Text('다크모드')),
+                    child: Text('다크모드'),
                   ),
                   const PopupMenuDivider(
                     height: 10,
                   ),
                   const PopupMenuItem<VertMenu>(
                   value: VertMenu.issueReport,
-                  child: Center(child: Text('이슈 리포트')),
+                  child: Text('이슈 리포트'),
                   ),
                 ],
               onSelected: (value) {
@@ -54,11 +54,10 @@ class MainScreen extends StatelessWidget {
                       context.read<CustomTheme>().toggleMode();
                       break;
                     case VertMenu.issueReport:
-                      log('이슈 리포트 클릭');
                       break;
                   }
               },
-              child: const Icon(Icons.more_vert),
+              Icon: const Icon(Icons.more_vert),
             ),
             const SizedBox(width: 15,)
             // IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
