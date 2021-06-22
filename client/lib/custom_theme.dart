@@ -26,16 +26,16 @@ class CustomTheme extends ChangeNotifier {
     return ThemeData.from(colorScheme: colorScheme, textTheme: textTheme);
   }
 
-  bool _isDarkMode = false;
+  bool isDarkMode = false;
 
   void toggleMode() {
-    _isDarkMode = !_isDarkMode;
+    isDarkMode = !isDarkMode;
     notifyListeners();
   }
 
-  ThemeMode get themeMode => _isDarkMode ? ThemeMode.dark : ThemeMode.light;
+  ThemeMode get themeMode => isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
-  Icon get icon => _isDarkMode
+  Icon get icon => isDarkMode
       ? const Icon(Icons.dark_mode_outlined)
       : const Icon(Icons.light_mode_outlined);
 }
