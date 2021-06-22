@@ -37,7 +37,7 @@ class MainScreen extends StatelessWidget {
                   value: VertMenu.themeMode,
                   child: ListTile(
                       leading: context.read<CustomTheme>().icon,
-                      title: const Text("다크 모드"))),
+                      title: context.read<CustomTheme>().text)),
               const PopupMenuDivider(height: 5),
               const PopupMenuItem<VertMenu>(
                   value: VertMenu.issueReport,
