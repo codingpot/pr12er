@@ -93,8 +93,9 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 		params := paperswithcode_go.PaperListParamsDefault()
 		params.ArxivID = arxivID
 		papers, err := c.PaperList(params)
-		if err != nil {
+		if err != nil || papers == nil {
 			log.Printf("fail to Get paper of the Arxiv id %s\n", arxivID)
+			continue
 		}
 
 		if len(papers.Results) > 0 {
@@ -102,14 +103,16 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 
 			// reference: https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
 			repoList, err := c.PaperRepositoryList(paperID)
-			if err != nil {
+			if err != nil || repoList == nil {
 				log.Printf("fail to Get paper repositores of the paper id %s\n", paperID)
+				continue
 			}
 			repositories := transformRepositoriesForPaper(repoList.Results)
 
 			methodlist, err := c.PaperMethodList(paperID)
-			if err != nil {
+			if err != nil || methodlist == nil {
 				log.Printf("fail to Get paper methods of the paper id %s\n", paperID)
+				continue
 			}
 			methods := transformMethodsForPaper(methodlist.Results)
 
@@ -121,12 +124,9 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 				Abstract: papers.Results[0].Abstract,
 				PubDate:  timestamppb.New(time.Time(papers.Results[0].Published)),
 			}
-			paper.Authors = make([]string, len(papers.Results[0].Authors))
-			paper.Repositories = make([]*pr12er.Repository, len(repositories))
-			paper.Methods = make([]*pr12er.Method, len(methods))
-			copy(paper.Authors, papers.Results[0].Authors)
-			copy(paper.Repositories, repositories)
-			copy(paper.Methods, methods)
+			paper.Authors = papers.Results[0].Authors
+			paper.Repositories = repositories
+			paper.Methods = methods
 
 			pr12erPapers = append(pr12erPapers, paper)
 		}
