@@ -6,6 +6,7 @@ require (
 	cloud.google.com/go v0.84.0 // indirect
 	github.com/daixiang0/gci v0.2.8
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
+	github.com/google/go-cmp v0.5.6
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/prometheus/client_golang v1.10.0
