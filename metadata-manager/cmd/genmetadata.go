@@ -18,7 +18,6 @@ package cmd
 import (
 	"context"
 	"errors"
-	"fmt"
 	"log"
 	"os"
 	"time"
@@ -33,18 +32,28 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
-var mappingFile string
+const (
+	defaultMappingFile  = "mapping_table.pbtxt"
+	defaultDatabaseFile = "database.pbtxt"
+)
 
-// genMetaCmd represents the genMeta command
+var (
+	// flag variables
+	mappingFile string
+	apiKey      string
+)
+
+// genMetaCmd represents the gen-meta command
 var genMetaCmd = &cobra.Command{
 	Use:   "gen-meta",
-	Short: "Generate pr12_metadata_<yymmdd-hhmmss>.pbtxt",
-	Long: `Generate pr12_metadata_<yymmdd-hhmmss>.pbtxt on \metadata-manager directory
+	Short: "Generate database.pbtxt",
+	Long: `Generate database.pbtxt. 
 Then, you can use it as a \server\internal\pr12_metadata.pbtxt
 
 How to use:
 
-$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt
+$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt 
+$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt --apikey <YouTubeDataAPIKey> # If you did not set environment variable "YouTubeDataAPIV3Key"
 `,
 	Run: generateMetadata,
 }
@@ -62,7 +71,6 @@ func frameworkToEnum(paperFramework string) pr12er.Framework {
 
 func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.Repository {
 	var pr12erRepos []*pr12er.Repository
-	fmt.Printf("repo %+v\n", repositories)
 	for _, repo := range repositories {
 		repo := pr12er.Repository{
 			IsOfficial:    repo.IsOfficial,
@@ -106,10 +114,10 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 		if len(papers.Results) > 0 {
 			paperId := papers.Results[0].ID
 
-			// https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
+			// reference: https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
 			repolist, err := c.PaperRepositoryList(paperId)
 			if err != nil {
-				log.Printf("fail to Get paper repos of the paper id %s\n", paperId)
+				log.Printf("fail to Get paper repositores of the paper id %s\n", paperId)
 			}
 			repositories := transformRepositoriesForPaper(repolist.Results)
 
@@ -143,19 +151,10 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 
 	// api info: https://developers.google.com/youtube/v3/docs/videos/list
-	// part: id, snippet, contentDetails, fileDetails,
-	//       liveStreamingDetails, player, processingDetails, recordingDetails,
-	//       statistics, status, suggestions, topicDetails
-
-	// contentDetails.duration: "PT35M5S"
-	// snippet.publishedAt: 2017-04-16T14:24:02Z
-	// snippet.title: "title": "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)"
-	// statistics.viewCount likeCount, dislikeCount, favoriteCount, commentCount
-
-	// use the package: https://pkg.go.dev/google.golang.org/api/youtube/v3
+	// using package: https://pkg.go.dev/google.golang.org/api/youtube/v3
 	// using API example: https://bit.ly/3dfFQPd
 
-	apiKey := os.Getenv("YouTubeDataAPIV3Key")
+	apiKey = os.Getenv("YouTubeDataAPIV3Key")
 	if apiKey == "" {
 		log.Fatal(errors.New("no YouTube API Key"))
 	}
@@ -229,7 +228,7 @@ func generateMetadata(cmd *cobra.Command, args []string) {
 	log.Println("made database completely")
 	// save as a .pbtxt
 	b = []byte(prototext.Format(database.ProtoReflect().Interface()))
-	if err := os.WriteFile("database.pbtxt", b, 0600); err != nil {
+	if err := os.WriteFile(defaultDatabaseFile, b, 0600); err != nil {
 		log.Fatal(err)
 	}
 
@@ -243,7 +242,8 @@ func init() {
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
 	// genMetaCmd.PersistentFlags().String("foo", "", "A help for foo")
-	genMetaCmd.PersistentFlags().StringVar(&mappingFile, "mapping-file", "", "A mapping file which generate pr12_metadata_<yymmdd-hhmmss>.pbtxt from")
+	genMetaCmd.PersistentFlags().StringVarP(&mappingFile, "mapping-file", "f", defaultMappingFile, "A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
+	genMetaCmd.PersistentFlags().StringVarP(&mappingFile, "apikey", "k", "", "Youtube Data API Key. you can provide as a flag value or environment variable as a 'YouTubeDataAPIV3Key'")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
