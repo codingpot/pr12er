@@ -18,6 +18,7 @@ package cmd
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"os"
 	"time"
@@ -60,7 +61,8 @@ func frameworkToEnum(paperFramework string) pr12er.Framework {
 }
 
 func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.Repository {
-	pr12erRepos := make([]*pr12er.Repository, len(repositories))
+	var pr12erRepos []*pr12er.Repository
+	fmt.Printf("repo %+v\n", repositories)
 	for _, repo := range repositories {
 		repo := pr12er.Repository{
 			IsOfficial:    repo.IsOfficial,
@@ -76,7 +78,7 @@ func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.R
 }
 
 func transformMethodsForPaper(methods []*models.Method) []*pr12er.Method {
-	pr12erMethods := make([]*pr12er.Method, len(methods))
+	var pr12erMethods []*pr12er.Method
 	for _, method := range methods {
 		pr12erMethod := pr12er.Method{
 			Name:        method.Name,
@@ -91,7 +93,7 @@ func transformMethodsForPaper(methods []*models.Method) []*pr12er.Method {
 var c = paperswithcode_go.NewClient()
 
 func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
-	pr12erPapers := make([]*pr12er.Paper, 1)
+	var pr12erPapers []*pr12er.Paper
 
 	for _, ArxivId := range paperArxivIds {
 		params := paperswithcode_go.PaperListParamsDefault()

@@ -1,7 +1,9 @@
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 	"testing"
 	"time"
 
@@ -11,10 +13,15 @@ import (
 )
 
 func TestFetchArxivPapersInfo(t *testing.T) {
-	paperArxivId := []string{"1406.2661", "1703.06211"}
+	paperArxivId := []string{"1505.07818"}
 	papers := fetchArxivPapersInfo(paperArxivId)
 
 	expectedType := "[]*pr12er.Paper"
+	if b, err := json.MarshalIndent(papers, "", "  "); err != nil {
+		log.Fatal(err)
+	} else {
+		fmt.Println(string(b))
+	}
 	actualType := fmt.Sprintf("%T", papers)
 	assert.Equal(t, expectedType, actualType)
 }
