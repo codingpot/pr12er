@@ -18,8 +18,8 @@ import (
 )
 
 const (
-	defaultMappingFile  = "mapping_table.pbtxt"
-	defaultDatabaseFile = "database.pbtxt"
+	defaultMappingFile  = "/server/internal/data/mapping_table.pbtxt"
+	defaultDatabaseFile = "/server/internal/data/database.pbtxt"
 )
 
 var (
