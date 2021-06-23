@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"context"
-	"io/ioutil"
 	"log"
 	"os"
 	"time"
@@ -209,10 +208,8 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 		return err
 	}
 	// save as a .pbtxt
-	if err = ioutil.WriteFile(defaultDatabaseFile, bs, 0x600); err != nil {
-		return err
-	}
-	return nil
+	err = os.WriteFile(defaultDatabaseFile, bs, 0o600)
+	return err
 }
 
 // nolint: gochecknoinits
