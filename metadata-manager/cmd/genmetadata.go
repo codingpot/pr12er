@@ -85,10 +85,10 @@ func transformMethodsForPaper(methods []*models.Method) []*pr12er.Method {
 
 var c = paperswithcode_go.NewClient()
 
-func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
+func fetchArxivPapersInfo(paperArxivIDs []string) []*pr12er.Paper {
 	var pr12erPapers []*pr12er.Paper
 
-	for _, arxivID := range paperArxivIds {
+	for _, arxivID := range paperArxivIDs {
 		params := paperswithcode_go.PaperListParamsDefault()
 		params.ArxivID = arxivID
 		papers, err := c.PaperList(params)
@@ -110,7 +110,7 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 
 			methodlist, err := c.PaperMethodList(paperID)
 			if err != nil || methodlist == nil {
-				log.Printf("fail to Get paper methods of the paper id %s\n", paperID)
+				log.Printf("failed to get paper methods of the paper id %s\n", paperID)
 				continue
 			}
 			methods := transformMethodsForPaper(methodlist.Results)
