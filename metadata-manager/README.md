@@ -18,7 +18,7 @@ message MappingTableRow {
 
 Database(database.proto)
 
-```
+```proto
 message Database {
   map<int32, PrVideo> pr_id_to_video = 1;
 }
