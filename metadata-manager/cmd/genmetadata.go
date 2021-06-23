@@ -176,15 +176,11 @@ func fetchYouTubeVideoInfo(videoID string) *pr12er.YouTubeVideo {
 }
 
 func fetchPrVideo(prRow *pr12er.MappingTableRow) *pr12er.PrVideo {
-	prVideo := &pr12er.PrVideo{}
-
-	papers := fetchArxivPapersInfo(prRow.PaperArxivId)
-	prVideo.Papers = make([]*pr12er.Paper, len(papers))
-	copy(prVideo.Papers, papers)
-
-	prVideo.Video = fetchYouTubeVideoInfo(prRow.YoutubeVideoId)
-
-	return prVideo
+	return &pr12er.PrVideo{
+		PrId:   prRow.GetPrId(),
+		Papers: fetchArxivPapersInfo(prRow.PaperArxivId),
+		Video:  fetchYouTubeVideoInfo(prRow.YoutubeVideoId),
+	}
 }
 
 func generateMetadata(cmd *cobra.Command, args []string) {
