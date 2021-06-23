@@ -57,7 +57,7 @@ jobs:
           go-version: "1.16"
       - uses: golangci/golangci-lint-action@v2
         with:
-          working-directory: server
+          working-directory: metadata-manager
       - run: go test -v --race -coverprofile=coverage.txt -covermode=atomic ./...
       - run: go build main.go
       - run: bash <(curl -s https://codecov.io/bash) -F metadata-manager
