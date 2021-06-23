@@ -4,7 +4,7 @@
 
 MappingTable(database.proto)
 
-```
+```proto
 message MappingTable {
   repeated MappingTableRow rows = 1;
 }
