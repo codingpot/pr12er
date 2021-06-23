@@ -1,18 +1,3 @@
-/*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package cmd
 
 import (
@@ -38,7 +23,6 @@ const (
 )
 
 var (
-	// flag variables
 	mappingFile string
 	apiKey      string
 )
@@ -53,20 +37,20 @@ Then, you can use it as a \server\internal\database.pbtxt
 How to use:
 
 $ metadata-manager gen-meta --mapping-file mapping_table.pbtxt 
-$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt --apikey <YouTubeDataAPIKey> # If you did not set environment variable "YouTubeDataAPIV3Key"
+$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt --apikey <YouTubeDataAPIKey> # If you did not set environment variable "YOUTUBE_DATA_API_KEY"
 `,
 	Run: generateMetadata,
 }
 
 func frameworkToEnum(paperFramework string) pr12er.Framework {
 	if paperFramework == "tf" {
-		return 1
+		return pr12er.Framework_FRAMEWORK_TENSORFLOW
 	} else if paperFramework == "pytorch" {
-		return 2
-	} else if paperFramework == "" { // unspecified
-		return 0
+		return pr12er.Framework_FRAMEWORK_PYTORCH
+	} else if paperFramework == "" {
+		return pr12er.Framework_FRAMEWORK_UNSPECIFIED
 	}
-	return 3 // others
+	return pr12er.Framework_FRAMEWORK_OTHERS
 }
 
 func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.Repository {
@@ -154,7 +138,7 @@ func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 	// using package: https://pkg.go.dev/google.golang.org/api/youtube/v3
 	// using API example: https://bit.ly/3dfFQPd
 
-	apiKey = os.Getenv("YouTubeDataAPIV3Key")
+	apiKey = os.Getenv("YOUTUBE_DATA_API_KEY")
 	if apiKey == "" {
 		log.Fatal(errors.New("no YouTube API Key"))
 	}
@@ -243,7 +227,6 @@ func init() {
 	// and all subcommands, e.g.:
 	// genMetaCmd.PersistentFlags().String("foo", "", "A help for foo")
 	genMetaCmd.PersistentFlags().StringVarP(&mappingFile, "mapping-file", "f", defaultMappingFile, "A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
-	genMetaCmd.PersistentFlags().StringVarP(&mappingFile, "apikey", "k", "", "Youtube Data API Key. you can provide as a flag value or environment variable as a 'YouTubeDataAPIV3Key'")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:

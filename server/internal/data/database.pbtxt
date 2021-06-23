@@ -63,7 +63,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/lab-ml/annotated_deep_learning_paper_implementations/tree/master/labml_nn/gan/original"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  3057
+        number_of_stars:  3053
         description:  "🧠 Implementations/tutorials of deep learning papers with side-by-side notes; including transformers (original, xl, switch, feedback), optimizers(adam, radam, adabelief), gans(dcgan, cyclegan, stylegan2), reinforcement learning (ppo, dqn), capsnet, sketch-rnn, etc."
       }
       repositories:  {
@@ -86,7 +86,7 @@ pr_id_to_video:  {
       video_id:  "L3hz57whyNw"
       video_title:  "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)"
       number_of_likes:  255
-      number_of_views:  34423
+      number_of_views:  34421
       published_date:  {
         seconds:  1492839397
       }
@@ -415,7 +415,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/datamllab/rlcard"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  1174
+        number_of_stars:  1173
         description:  "Reinforcement Learning / AI Bots in Card (Poker) Games - Blackjack, Leduc, Texas, DouDizhu, Mahjong, UNO."
       }
       repositories:  {
@@ -572,7 +572,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/MarkPKCollier/NeuralTuringMachine"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  560
+        number_of_stars:  559
         description:  "Tensorflow implementation of a Neural Turing Machine"
       }
       repositories:  {
@@ -611,7 +611,7 @@ pr_id_to_video:  {
       video_id:  "2wbDiZCWQtY"
       video_title:  "PR-006: Neural Turing Machine"
       number_of_likes:  41
-      number_of_views:  5055
+      number_of_views:  5053
       published_date:  {
         seconds:  1494447474
       }
@@ -643,7 +643,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/EvanLi/Github-Ranking"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  457
+        number_of_stars:  456
         description:  ":star:Github Ranking:star: Github stars and forks ranking list. Github Top100 stars list of different languages. Automatically update daily. | Github仓库排名，每日自动更新"
       }
       repositories:  {
@@ -887,7 +887,7 @@ pr_id_to_video:  {
     video:  {
       video_id:  "KYA-GEhObIs"
       video_title:  "PR-010: Auto-Encoding Variational Bayes, ICLR 2014"
-      number_of_likes:  202
+      number_of_likes:  203
       number_of_views:  12143
       published_date:  {
         seconds:  1495549847
@@ -1107,7 +1107,7 @@ pr_id_to_video:  {
       video_id:  "kcPAGIgBGRs"
       video_title:  "PR-012: Faster R-CNN : Towards Real-Time Object Detection with Region Proposal Networks"
       number_of_likes:  387
-      number_of_views:  48659
+      number_of_views:  48654
       published_date:  {
         seconds:  1495981094
       }
@@ -1198,7 +1198,7 @@ pr_id_to_video:  {
       video_id:  "n2J7giHrS-Y"
       video_title:  "PR-013: Domain Adversarial Training of Neural Network"
       number_of_likes:  51
-      number_of_views:  5878
+      number_of_views:  5877
       published_date:  {
         seconds:  1496675287
       }
@@ -1339,7 +1339,7 @@ pr_id_to_video:  {
       video_id:  "IRB2vXSet2E"
       video_title:  "PR-015:Convolutional Neural Networks for Sentence Classification"
       number_of_likes:  49
-      number_of_views:  5782
+      number_of_views:  5781
       published_date:  {
         seconds:  1497187460
       }
@@ -1467,7 +1467,7 @@ pr_id_to_video:  {
       video_id:  "eTDcoeqj1_w"
       video_title:  "PR-016: You only look once: Unified, real-time object detection"
       number_of_likes:  99
-      number_of_views:  16122
+      number_of_views:  16120
       published_date:  {
         seconds:  1497795435
       }
@@ -1526,7 +1526,7 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/tensorflow/models"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  70334
+        number_of_stars:  70333
         description:  "Models and examples built with TensorFlow"
       }
       repositories:  {
@@ -2294,7 +2294,7 @@ pr_id_to_video:  {
       video_id:  "6fdclSGgeio"
       video_title:  "PR-023: YOLO9000: Better, Faster, Stronger"
       number_of_likes:  95
-      number_of_views:  12510
+      number_of_views:  12509
       published_date:  {
         seconds:  1500299473
       }
@@ -2615,7 +2615,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/pytorch/vision"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  9294
+        number_of_stars:  9293
         description:  "Datasets, Transforms and Models specific to Computer Vision"
       }
       repositories:  {
@@ -2889,7 +2889,7 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/deepmind/learning-to-learn"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  4020
+        number_of_stars:  4021
         description:  "Learning to Learn in TensorFlow"
       }
       repositories:  {
@@ -3238,7 +3238,7 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/tensorflow/models"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  70334
+        number_of_stars:  70333
         description:  "Models and examples built with TensorFlow"
       }
     }
@@ -3754,7 +3754,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/lab-ml/nn/tree/master/labml_nn/optimizers"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  3058
+        number_of_stars:  3053
         description:  "🧠 Implementations/tutorials of deep learning papers with side-by-side notes; including transformers (original, xl, switch, feedback), optimizers(adam, radam, adabelief), gans(dcgan, cyclegan, stylegan2), reinforcement learning (ppo, dqn), capsnet, sketch-rnn, etc."
       }
       repositories:  {
@@ -3800,7 +3800,7 @@ pr_id_to_video:  {
       video_id:  "KN120w3PZIA"
       video_title:  "PR-042: Adam: A Method for Stochastic Optimization"
       number_of_likes:  39
-      number_of_views:  4166
+      number_of_views:  4165
       published_date:  {
         seconds:  1508682336
       }
@@ -4003,7 +4003,7 @@ pr_id_to_video:  {
       video_id:  "7UoOFKcyIvM"
       video_title:  "PR-044: MobileNet"
       number_of_likes:  140
-      number_of_views:  14768
+      number_of_views:  14766
       published_date:  {
         seconds:  1509456696
       }
@@ -4350,7 +4350,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/bangoc123/transformer"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  7
+        number_of_stars:  5
         description:  "Build English-Vietnamese machine translation with ProtonX Transformer. :D"
       }
       repositories:  {
@@ -4379,7 +4379,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/machine_translation/transformer"
         framework:  FRAMEWORK_OTHERS
-        number_of_stars:  1364
+        number_of_stars:  1363
         description:  "An NLP library with Awesome pre-trained Transformer models and easy-to-use interface,  supporting wide-range of NLP tasks from research to industrial applications."
       }
       repositories:  {
@@ -4390,7 +4390,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/xmu-xiaoma666/External-Attention-pytorch"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  485
+        number_of_stars:  479
         description:  "Pytorch implementation of various Attention Mechanism"
       }
       repositories:  {
@@ -4548,7 +4548,7 @@ pr_id_to_video:  {
       video_id:  "3cFfCM4CXws"
       video_title:  "PR-050: Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting"
       number_of_likes:  38
-      number_of_views:  6946
+      number_of_views:  6945
       published_date:  {
         seconds:  1511707163
       }
@@ -4883,7 +4883,7 @@ pr_id_to_video:  {
       video_id:  "pNuBdj53Hbc"
       video_title:  "PR-054: ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices"
       number_of_likes:  52
-      number_of_views:  6168
+      number_of_views:  6167
       published_date:  {
         seconds:  1513005030
       }
@@ -4908,7 +4908,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/dl4nlp-tuda2021/deep-learning-for-nlp-lectures"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  62
+        number_of_stars:  60
         description:  "Deep Learning for Natural Language Processing - Lectures 2021"
       }
       repositories:  {
@@ -5020,7 +5020,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/lab-ml/nn/tree/master/labml_nn/capsule_networks"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  3058
+        number_of_stars:  3053
         description:  "🧠 Implementations/tutorials of deep learning papers with side-by-side notes; including transformers (original, xl, switch, feedback), optimizers(adam, radam, adabelief), gans(dcgan, cyclegan, stylegan2), reinforcement learning (ppo, dqn), capsnet, sketch-rnn, etc."
       }
       repositories:  {
@@ -5154,14 +5154,14 @@ pr_id_to_video:  {
         description:  "**Residual Blocks** are skip-connection blocks that learn residual functions with reference to the layer inputs, instead of learning unreferenced functions. They were introduced as part of the [ResNet](https://paperswithcode.com/method/resnet) architecture.\r\n \r\nFormally, denoting the desired underlying mapping as $\\mathcal{H}({x})$, we let the stacked nonlinear layers fit another mapping of $\\mathcal{F}({x}):=\\mathcal{H}({x})-{x}$. The original mapping is recast into $\\mathcal{F}({x})+{x}$. The additional $x$ acts like a residual, hence the name 'residual block'.\r\n\r\nThe intuition is that it is easier to optimize the residual mapping than to optimize the original, unreferenced mapping. To the extreme, if an identity mapping were optimal, it would be easier to push the residual to zero than to fit an identity mapping by a stack of nonlinear layers. Having skip connections allows the network to more easily learn identity-like mappings.\r\n\r\nNote that in practice, [Bottleneck Residual Blocks](https://paperswithcode.com/method/bottleneck-residual-block) are used for deeper ResNets, such as ResNet-50 and ResNet-101, as these bottleneck blocks are less computationally intensive."
       }
       methods:  {
-        name:  "Kaiming Initialization"
-        full_name:  "Kaiming Initialization"
-        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
-      }
-      methods:  {
         name:  "Bottleneck Residual Block"
         full_name:  "Bottleneck Residual Block"
         description:  "A **Bottleneck Residual Block** is a variant of the [residual block](https://paperswithcode.com/method/residual-block) that utilises 1x1 convolutions to create a bottleneck. The use of a bottleneck reduces the number of parameters and matrix multiplications. The idea is to make residual blocks as thin as possible to increase depth and have less parameters. They were introduced as part of the [ResNet](https://paperswithcode.com/method/resnet) architecture, and are used as part of deeper ResNets such as ResNet-50 and ResNet-101."
+      }
+      methods:  {
+        name:  "Kaiming Initialization"
+        full_name:  "Kaiming Initialization"
+        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
       }
       methods:  {
         name:  "1x1 Convolution"
@@ -5748,7 +5748,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/kuleshov/audio-super-res"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  546
+        number_of_stars:  545
         description:  "Audio super resolution using neural networks"
       }
       repositories:  {
@@ -5846,7 +5846,7 @@ pr_id_to_video:  {
       video_id:  "okyo61ZZivA"
       video_title:  "PR-068: DeepAR: Probabilistic Forecasting with Autoregressive Recurrent Networks"
       number_of_likes:  23
-      number_of_views:  3937
+      number_of_views:  3936
       published_date:  {
         seconds:  1519565309
       }
@@ -5951,7 +5951,7 @@ pr_id_to_video:  {
       video_id:  "fbCcJaSQPPA"
       video_title:  "PR-069: Efficient Neural Architecture Search via Parameter Sharing"
       number_of_likes:  44
-      number_of_views:  4296
+      number_of_views:  4295
       published_date:  {
         seconds:  1520088191
       }
@@ -6043,7 +6043,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/tensorflow/models"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  70334
+        number_of_stars:  70333
         description:  "Models and examples built with TensorFlow"
       }
       repositories:  {
@@ -6068,7 +6068,7 @@ pr_id_to_video:  {
       video_id:  "ty3SciyoIyk"
       video_title:  "PR-071: Categorical Reparameterization with Gumbel Softmax"
       number_of_likes:  41
-      number_of_views:  4264
+      number_of_views:  4262
       published_date:  {
         seconds:  1520172922
       }
@@ -6865,7 +6865,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/open-mmlab/mmaction2"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  939
+        number_of_stars:  938
         description:  "OpenMMLab's Next Generation Video Understanding Toolbox and Benchmark"
       }
       repositories:  {
@@ -6906,7 +6906,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/facebookresearch/detectron"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  24457
+        number_of_stars:  24456
         description:  "FAIR's research platform for object detection research, implementing popular algorithms like Mask R-CNN and RetinaNet."
       }
       repositories:  {
@@ -7000,7 +7000,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/CSAILVision/semantic-segmentation-pytorch"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  3933
+        number_of_stars:  3932
         description:  "Pytorch implementation for Semantic Segmentation/Scene Parsing on MIT ADE20K dataset"
       }
       repositories:  {
@@ -7312,14 +7312,14 @@ pr_id_to_video:  {
         description:  "**SNGAN**, or **Spectrally Normalised GAN**, is a type of generative adversarial network that uses spectral normalization, a type of weight normalization, to stabilise the training of the discriminator."
       }
       methods:  {
-        name:  "Kaiming Initialization"
-        full_name:  "Kaiming Initialization"
-        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
-      }
-      methods:  {
         name:  "Bottleneck Residual Block"
         full_name:  "Bottleneck Residual Block"
         description:  "A **Bottleneck Residual Block** is a variant of the [residual block](https://paperswithcode.com/method/residual-block) that utilises 1x1 convolutions to create a bottleneck. The use of a bottleneck reduces the number of parameters and matrix multiplications. The idea is to make residual blocks as thin as possible to increase depth and have less parameters. They were introduced as part of the [ResNet](https://paperswithcode.com/method/resnet) architecture, and are used as part of deeper ResNets such as ResNet-50 and ResNet-101."
+      }
+      methods:  {
+        name:  "Kaiming Initialization"
+        full_name:  "Kaiming Initialization"
+        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
       }
       methods:  {
         name:  "1x1 Convolution"
@@ -7671,7 +7671,7 @@ pr_id_to_video:  {
       video_id:  "fxJXXKZb-ik"
       video_title:  "PR-094: Model-Agnostic Meta-Learning for fast adaptation of deep networks"
       number_of_likes:  58
-      number_of_views:  5062
+      number_of_views:  5061
       published_date:  {
         seconds:  1529847830
       }
@@ -8017,7 +8017,7 @@ pr_id_to_video:  {
       video_id:  "FfBp6xJqZVA"
       video_title:  "PR-101: Deep Feature Consistent Variational Autoencoder"
       number_of_likes:  34
-      number_of_views:  9166
+      number_of_views:  9164
       published_date:  {
         seconds:  1536508427
       }
@@ -8522,7 +8522,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/pytorch/vision"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  9294
+        number_of_stars:  9293
         description:  "Datasets, Transforms and Models specific to Computer Vision"
       }
       repositories:  {
@@ -8608,7 +8608,7 @@ pr_id_to_video:  {
       video_id:  "mT5Y-Zumbbw"
       video_title:  "PR-108: MobileNetV2: Inverted Residuals and Linear Bottlenecks"
       number_of_likes:  67
-      number_of_views:  8202
+      number_of_views:  8201
       published_date:  {
         seconds:  1540388729
       }
@@ -8731,9 +8731,9 @@ pr_id_to_video:  {
         description:  "The **Two Time-scale Update Rule (TTUR)** is an update rule for generative adversarial networks trained with stochastic gradient descent. TTUR has an individual learning rate for both the discriminator and the generator. The main premise is that the discriminator converges to a local minimum when the generator is fixed. If the generator changes slowly enough, then the discriminator still converges, since the generator perturbations are small. Besides ensuring convergence, the performance may also improve since the discriminator must first learn new patterns before they are transferred to the generator. In contrast, a generator which is overly fast, drives the discriminator steadily into new regions without capturing its gathered information."
       }
       methods:  {
-        name:  "Projection Discriminator"
-        full_name:  "Projection Discriminator"
-        description:  "A **Projection Discriminator** is a type of discriminator for generative adversarial networks. It is motivated by a probabilistic model in which the distribution of the conditional variable $\\textbf{y}$ given $\\textbf{x}$ is discrete or uni-modal continuous distributions.\r\n\r\nIf we look at the original solution for the loss function $\\mathcal{L}\\_{D}$ in the vanilla GANs, we can decompose it into the sum of two log-likelihood ratios:\r\n\r\n$$ f^{*}\\left(\\mathbf{x}, \\mathbf{y}\\right) = \\log\\frac{q\\left(\\mathbf{x}\\mid{\\mathbf{y}}\\right)q\\left(\\mathbf{y}\\right)}{p\\left(\\mathbf{x}\\mid{\\mathbf{y}}\\right)p\\left(\\mathbf{y}\\right)} = \\log\\frac{q\\left(\\mathbf{y}\\mid{\\mathbf{x}}\\right)}{p\\left(\\mathbf{y}\\mid{\\mathbf{x}}\\right)} + \\log\\frac{q\\left(\\mathbf{x}\\right)}{p\\left(\\mathbf{x}\\right)}  = r\\left(\\mathbf{y\\mid{x}}\\right) + r\\left(\\mathbf{x}\\right) $$\r\n\r\nWe can model the log likelihood ratio $r\\left(\\mathbf{y\\mid{x}}\\right)$ and  $r\\left(\\mathbf{x}\\right)$ by some parametric functions $f\\_{1}$ and $f\\_{2}$ respectively. If we make a standing assumption that $p\\left(y\\mid{x}\\right)$ and $q\\left(y\\mid{x}\\right)$ are simple distributions like those that are Gaussian or discrete log linear on the feature space, then the parametrization of the following form becomes natural:\r\n\r\n$$ f\\left(\\mathbf{x}, \\mathbf{y}; \\theta\\right) = f\\_{1}\\left(\\mathbf{x}, \\mathbf{y}; \\theta\\right) + f\\_{2}\\left(\\mathbf{x}; \\theta\\right) = \\mathbf{y}^{T}V\\phi\\left(\\mathbf{x}; \\theta\\_{\\phi}\\right) + \\psi\\left(\\phi(\\mathbf{x}; \\theta\\_{\\phi}); \\theta\\_{\\psi}\\right) $$\r\n\r\nwhere $V$ is the embedding matrix of $y$, $\\phi\\left(·, \\theta\\_{\\phi}\\right)$ is a vector output function of $x$, and $\\psi\\left(·, \\theta\\_{\\psi}\\right)$ is a scalar function of the same $\\phi\\left(\\mathbf{x}; \\theta\\_{\\phi}\\right)$ that appears in $f\\_{1}$. The learned parameters $\\theta = ${$V, \\theta\\_{\\phi}, \\theta\\_{\\psi}$} are trained to optimize the adversarial loss. This model of the discriminator is the projection."
+        name:  "Conditional Batch Normalization"
+        full_name:  "Conditional Batch Normalization"
+        description:  "**Conditional Batch Normalization (CBN)** is a class-conditional variant of [batch normalization](https://paperswithcode.com/method/batch-normalization). The key idea is to predict the $\\gamma$ and $\\beta$ of the batch normalization from an embedding - e.g. a language embedding in VQA. CBN enables the linguistic embedding to manipulate entire feature maps by scaling them up or down, negating them, or shutting them off. CBN has also been used in [GANs](https://paperswithcode.com/methods/category/generative-adversarial-networks) to allow class information to affect the batch normalization parameters.\r\n\r\nConsider a single convolutional layer with batch normalization module $\\text{BN}\\left(F\\_{i,c,h,w}|\\gamma\\_{c}, \\beta\\_{c}\\right)$ for which pretrained scalars $\\gamma\\_{c}$ and $\\beta\\_{c}$ are available. We would like to directly predict these affine scaling parameters from, e.g., a language embedding $\\mathbf{e\\_{q}}$. When starting the training procedure, these parameters must be close to the pretrained values to recover the original ResNet model as a poor initialization could significantly deteriorate performance. Unfortunately, it is difficult to initialize a network to output the pretrained $\\gamma$ and $\\beta$. For these reasons, the authors propose to predict a change $\\delta\\beta\\_{c}$ and $\\delta\\gamma\\_{c}$ on the frozen original scalars, for which it is straightforward to initialize a neural network to produce an output with zero-mean and small variance.\r\n\r\nThe authors use a one-hidden-layer MLP to predict these deltas from a question embedding $\\mathbf{e\\_{q}}$ for all feature maps within the layer:\r\n\r\n$$\\Delta\\beta = \\text{MLP}\\left(\\mathbf{e\\_{q}}\\right)$$\r\n\r\n$$\\Delta\\gamma = \\text{MLP}\\left(\\mathbf{e\\_{q}}\\right)$$\r\n\r\nSo, given a feature map with $C$ channels, these MLPs output a vector of size $C$. We then add these predictions to the $\\beta$ and $\\gamma$ parameters:\r\n\r\n$$ \\hat{\\beta}\\_{c} = \\beta\\_{c} + \\Delta\\beta\\_{c} $$\r\n\r\n$$ \\hat{\\gamma}\\_{c} = \\gamma\\_{c} + \\Delta\\gamma\\_{c} $$\r\n\r\nFinally, these updated $\\hat{β}$ and $\\hat{\\gamma}$ are used as parameters for the batch normalization: $\\text{BN}\\left(F\\_{i,c,h,w}|\\hat{\\gamma\\_{c}}, \\hat{\\beta\\_{c}}\\right)$. The authors freeze all ResNet parameters, including $\\gamma$ and $\\beta$, during training. A ResNet consists of\r\nfour stages of computation, each subdivided in several residual blocks. In each block, the authors apply CBN to the three convolutional layers."
       }
     }
     video:  {
@@ -9299,7 +9299,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/pytorch/vision"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  9294
+        number_of_stars:  9293
         description:  "Datasets, Transforms and Models specific to Computer Vision"
       }
       repositories:  {
@@ -9409,7 +9409,7 @@ pr_id_to_video:  {
       video_id:  "lrU6uXiJ_9Y"
       video_title:  "PR-120: ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design"
       number_of_likes:  34
-      number_of_views:  2884
+      number_of_views:  2882
       published_date:  {
         seconds:  1542552935
       }
@@ -9435,7 +9435,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/airsplay/vimpac"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  18
+        number_of_stars:  15
       }
       repositories:  {
         url:  "https://github.com/han-shi/SparseBERT"
@@ -9454,7 +9454,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/labmlai/annotated_deep_learning_paper_implementations/tree/master/labml_nn/transformers/mlm"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  3057
+        number_of_stars:  3053
         description:  "🧠 Implementations/tutorials of deep learning papers with side-by-side notes; including transformers (original, xl, switch, feedback), optimizers(adam, radam, adabelief), gans(dcgan, cyclegan, stylegan2), reinforcement learning (ppo, dqn), capsnet, sketch-rnn, etc."
       }
       repositories:  {
@@ -9663,7 +9663,7 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/NVIDIA/partialconv"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  938
+        number_of_stars:  937
         description:  "A New Padding Scheme: Partial Convolution based Padding"
       }
       repositories:  {
@@ -9802,7 +9802,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/facebookresearch/DensePose"
         framework:  FRAMEWORK_OTHERS
-        number_of_stars:  6027
+        number_of_stars:  6026
         description:  "A real-time approach for mapping all human pixels of 2D RGB images to a 3D surface-based model of the body"
       }
       repositories:  {
@@ -9813,7 +9813,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/facebookresearch/detectron"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  24457
+        number_of_stars:  24456
         description:  "FAIR's research platform for object detection research, implementing popular algorithms like Mask R-CNN and RetinaNet."
       }
       repositories:  {
@@ -9884,7 +9884,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/serengil/deepface"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  1692
+        number_of_stars:  1690
         description:  "A Lightweight Deep Face Recognition and Facial Attribute Analysis (Age, Gender, Emotion and Race) Framework for Python"
       }
       repositories:  {
@@ -9968,7 +9968,7 @@ pr_id_to_video:  {
       video_id:  "5eofa6SksKU"
       video_title:  "PR-128: TimbreTron: A Wavenet(CycleGAN(CQT(Audio))) pipeline for musical timbre transfer"
       number_of_likes:  6
-      number_of_views:  549
+      number_of_views:  548
       published_date:  {
         seconds:  1544973323
       }
@@ -10008,13 +10008,13 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/uber/horovod"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  11340
+        number_of_stars:  11339
         description:  "Distributed training framework for TensorFlow, Keras, PyTorch, and Apache MXNet."
       }
       repositories:  {
         url:  "https://github.com/horovod/horovod"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  11340
+        number_of_stars:  11339
         description:  "Distributed training framework for TensorFlow, Keras, PyTorch, and Apache MXNet."
       }
       repositories:  {
@@ -10319,7 +10319,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/serengil/deepface"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  1692
+        number_of_stars:  1690
         description:  "A Lightweight Deep Face Recognition and Facial Attribute Analysis (Age, Gender, Emotion and Race) Framework for Python"
       }
       repositories:  {
@@ -10402,7 +10402,7 @@ pr_id_to_video:  {
       video_id:  "ej1ISEoAK5g"
       video_title:  "PR-132: SSD: Single Shot MultiBox Detector"
       number_of_likes:  118
-      number_of_views:  10399
+      number_of_views:  10398
       published_date:  {
         seconds:  1546786878
       }
@@ -10863,7 +10863,7 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/tensorflow/models"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  70334
+        number_of_stars:  70333
         description:  "Models and examples built with TensorFlow"
       }
       repositories:  {
@@ -10956,7 +10956,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/lab-ml/annotated_deep_learning_paper_implementations/tree/master/labml_nn/gan/wasserstein"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  3057
+        number_of_stars:  3053
         description:  "🧠 Implementations/tutorials of deep learning papers with side-by-side notes; including transformers (original, xl, switch, feedback), optimizers(adam, radam, adabelief), gans(dcgan, cyclegan, stylegan2), reinforcement learning (ppo, dqn), capsnet, sketch-rnn, etc."
       }
       repositories:  {
@@ -11102,14 +11102,14 @@ pr_id_to_video:  {
         description:  "A **Fire Module** is a building block for convolutional neural networks, notably used as part of [SqueezeNet](https://paperswithcode.com/method/squeezenet). A Fire module is comprised of: a squeeze convolution layer (which has only 1x1 filters), feeding into an expand layer that has a mix of 1x1 and 3x3 convolution filters.  We expose three tunable dimensions (hyperparameters) in a Fire module: $s\\_{1x1}$, $e\\_{1x1}$, and $e\\_{3x3}$. In a Fire module, $s\\_{1x1}$ is the number of filters in the squeeze layer (all 1x1), $e\\_{1x1}$ is the number of 1x1 filters in the expand layer, and $e\\_{3x3}$ is the number of 3x3 filters in the expand layer. When we use Fire modules we set $s\\_{1x1}$ to be less than ($e\\_{1x1}$ + $e\\_{3x3}$), so the squeeze layer helps to limit the number of input channels to the 3x3 filters."
       }
       methods:  {
-        name:  "SqueezeNet"
-        full_name:  "SqueezeNet"
-        description:  "**SqueezeNet** is a convolutional neural network that employs design strategies to reduce the number of parameters, notably with the use of fire modules that \"squeeze\" parameters using 1x1 convolutions."
-      }
-      methods:  {
         name:  "1x1 Convolution"
         full_name:  "1x1 Convolution"
         description:  "A **1 x 1 Convolution** is a convolution with some special properties in that it can be used for dimensionality reduction, efficient low dimensional embeddings, and applying non-linearity after convolutions. It maps an input pixel with all its channels to an output pixel which can be squeezed to a desired output depth. It can be viewed as an [MLP](https://paperswithcode.com/method/feedforward-network) looking at a particular pixel location.\r\n\r\nImage Credit: [http://deeplearning.ai](http://deeplearning.ai)"
+      }
+      methods:  {
+        name:  "SqueezeNet"
+        full_name:  "SqueezeNet"
+        description:  "**SqueezeNet** is a convolutional neural network that employs design strategies to reduce the number of parameters, notably with the use of fire modules that \"squeeze\" parameters using 1x1 convolutions."
       }
       methods:  {
         name:  "Dense Connections"
@@ -11235,7 +11235,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/open-mmlab/mmdetection"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  15367
+        number_of_stars:  15362
         description:  "OpenMMLab Detection Toolbox and Benchmark"
       }
       repositories:  {
@@ -12320,7 +12320,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/language_model/transformer-xl"
         framework:  FRAMEWORK_OTHERS
-        number_of_stars:  1364
+        number_of_stars:  1363
         description:  "An NLP library with Awesome pre-trained Transformer models and easy-to-use interface,  supporting wide-range of NLP tasks from research to industrial applications."
       }
       repositories:  {
@@ -12338,7 +12338,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/lab-ml/nn/tree/master/labml_nn/transformers/xl"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  3058
+        number_of_stars:  3053
         description:  "🧠 Implementations/tutorials of deep learning papers with side-by-side notes; including transformers (original, xl, switch, feedback), optimizers(adam, radam, adabelief), gans(dcgan, cyclegan, stylegan2), reinforcement learning (ppo, dqn), capsnet, sketch-rnn, etc."
       }
       repositories:  {
@@ -12487,7 +12487,7 @@ pr_id_to_video:  {
       video_id:  "Dvi5_YC8Yts"
       video_title:  "PR-163: CNN Attention Networks"
       number_of_likes:  125
-      number_of_views:  8262
+      number_of_views:  8260
       published_date:  {
         seconds:  1558274434
       }
@@ -12639,7 +12639,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/open-mmlab/mmdetection"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  15367
+        number_of_stars:  15362
         description:  "OpenMMLab Detection Toolbox and Benchmark"
       }
       repositories:  {
@@ -12991,7 +12991,7 @@ pr_id_to_video:  {
       video_id:  "Vhz0quyvR7I"
       video_title:  "PR-169: EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks"
       number_of_likes:  99
-      number_of_views:  6332
+      number_of_views:  6331
       published_date:  {
         seconds:  1560496231
       }
@@ -13063,7 +13063,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/pytorch/vision"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  9294
+        number_of_stars:  9293
         description:  "Datasets, Transforms and Models specific to Computer Vision"
       }
       repositories:  {
@@ -13083,14 +13083,14 @@ pr_id_to_video:  {
         description:  "**Weight Decay**, or **$L_{2}$ Regularization**, is a regularization technique applied to the weights of a neural network. We minimize a loss function compromising both the primary loss function and a penalty on the $L\\_{2}$ Norm of the weights:\r\n\r\n$$L\\_{new}\\left(w\\right) = L\\_{original}\\left(w\\right) + \\lambda{w^{T}w}$$\r\n\r\nwhere $\\lambda$ is a value determining the strength of the penalty (encouraging smaller weights). \r\n\r\nWeight decay can be incorporated directly into the weight update rule, rather than just implicitly by defining it through to objective function. Often weight decay refers to the implementation where we specify it directly in the weight update rule (whereas L2 regularization is usually the implementation which is specified in the objective function).\r\n\r\nImage Source: Deep Learning, Goodfellow et al"
       }
       methods:  {
-        name:  "Kaiming Initialization"
-        full_name:  "Kaiming Initialization"
-        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
-      }
-      methods:  {
         name:  "Bottleneck Residual Block"
         full_name:  "Bottleneck Residual Block"
         description:  "A **Bottleneck Residual Block** is a variant of the [residual block](https://paperswithcode.com/method/residual-block) that utilises 1x1 convolutions to create a bottleneck. The use of a bottleneck reduces the number of parameters and matrix multiplications. The idea is to make residual blocks as thin as possible to increase depth and have less parameters. They were introduced as part of the [ResNet](https://paperswithcode.com/method/resnet) architecture, and are used as part of deeper ResNets such as ResNet-50 and ResNet-101."
+      }
+      methods:  {
+        name:  "Kaiming Initialization"
+        full_name:  "Kaiming Initialization"
+        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
       }
       methods:  {
         name:  "Random Horizontal Flip"
@@ -13127,7 +13127,7 @@ pr_id_to_video:  {
       video_id:  "7fSgqlC7Wdo"
       video_title:  "PR-170: ResNet - Deep Residual Learning for Image Recognition"
       number_of_likes:  16
-      number_of_views:  1729
+      number_of_views:  1728
       published_date:  {
         seconds:  1565744287
       }
@@ -13383,7 +13383,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/language_model/xlnet"
         framework:  FRAMEWORK_OTHERS
-        number_of_stars:  1364
+        number_of_stars:  1363
         description:  "An NLP library with Awesome pre-trained Transformer models and easy-to-use interface,  supporting wide-range of NLP tasks from research to industrial applications."
       }
       repositories:  {
@@ -13680,7 +13680,7 @@ pr_id_to_video:  {
       video_id:  "uqBsvoOY8jM"
       video_title:  "PR-178: Graph Convolutional Network"
       number_of_likes:  95
-      number_of_views:  6066
+      number_of_views:  6062
       published_date:  {
         seconds:  1563112484
       }
@@ -14112,7 +14112,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/serengil/deepface"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  1692
+        number_of_stars:  1690
         description:  "A Lightweight Deep Face Recognition and Facial Attribute Analysis (Age, Gender, Emotion and Race) Framework for Python"
       }
       repositories:  {
@@ -14314,7 +14314,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/tensorflow/models"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  70334
+        number_of_stars:  70333
         description:  "Models and examples built with TensorFlow"
       }
       repositories:  {
@@ -14473,11 +14473,6 @@ pr_id_to_video:  {
         description:  "**Weight Decay**, or **$L_{2}$ Regularization**, is a regularization technique applied to the weights of a neural network. We minimize a loss function compromising both the primary loss function and a penalty on the $L\\_{2}$ Norm of the weights:\r\n\r\n$$L\\_{new}\\left(w\\right) = L\\_{original}\\left(w\\right) + \\lambda{w^{T}w}$$\r\n\r\nwhere $\\lambda$ is a value determining the strength of the penalty (encouraging smaller weights). \r\n\r\nWeight decay can be incorporated directly into the weight update rule, rather than just implicitly by defining it through to objective function. Often weight decay refers to the implementation where we specify it directly in the weight update rule (whereas L2 regularization is usually the implementation which is specified in the objective function).\r\n\r\nImage Source: Deep Learning, Goodfellow et al"
       }
       methods:  {
-        name:  "Kaiming Initialization"
-        full_name:  "Kaiming Initialization"
-        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
-      }
-      methods:  {
         name:  "Bottleneck Residual Block"
         full_name:  "Bottleneck Residual Block"
         description:  "A **Bottleneck Residual Block** is a variant of the [residual block](https://paperswithcode.com/method/residual-block) that utilises 1x1 convolutions to create a bottleneck. The use of a bottleneck reduces the number of parameters and matrix multiplications. The idea is to make residual blocks as thin as possible to increase depth and have less parameters. They were introduced as part of the [ResNet](https://paperswithcode.com/method/resnet) architecture, and are used as part of deeper ResNets such as ResNet-50 and ResNet-101."
@@ -14486,6 +14481,11 @@ pr_id_to_video:  {
         name:  "Adam"
         full_name:  "Adam"
         description:  "**Adam** is an adaptive learning rate optimization algorithm that utilises both momentum and scaling, combining the benefits of [RMSProp](https://paperswithcode.com/method/rmsprop) and [SGD w/th Momentum](https://paperswithcode.com/method/sgd-with-momentum). The optimizer is designed to be appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. \r\n\r\nThe weight updates are performed as:\r\n\r\n$$ w_{t} = w_{t-1} - \\eta\\frac{\\hat{m}\\_{t}}{\\sqrt{\\hat{v}\\_{t}} + \\epsilon}  $$\r\n\r\nwith\r\n\r\n$$ \\hat{m}\\_{t} = \\frac{m_{t}}{1-\\beta^{t}_{1}} $$\r\n\r\n$$ \\hat{v}\\_{t} = \\frac{v_{t}}{1-\\beta^{t}_{2}} $$\r\n\r\n$$ m_{t} = \\beta_{1}m_{t-1} + (1-\\beta_{1})g_{t} $$\r\n\r\n$$ v_{t} = \\beta_{2}v_{t-1} + (1-\\beta_{2})g_{t}^{2}  $$\r\n\r\n\r\n$ \\eta $ is the step size/learning rate, around 1e-3 in the original paper. $ \\epsilon $ is a small number, typically 1e-8 or 1e-10, to prevent dividing by zero. $ \\beta_{1} $ and $ \\beta_{2} $ are forgetting parameters, with typical values 0.9 and 0.999, respectively."
+      }
+      methods:  {
+        name:  "Kaiming Initialization"
+        full_name:  "Kaiming Initialization"
+        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
       }
       methods:  {
         name:  "1x1 Convolution"
@@ -14934,7 +14934,7 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/google-research/google-research"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  18068
+        number_of_stars:  18067
         description:  "Google Research"
       }
       repositories:  {
@@ -15057,7 +15057,7 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/open-mmlab/mmaction2"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  939
+        number_of_stars:  938
         description:  "OpenMMLab's Next Generation Video Understanding Toolbox and Benchmark"
       }
       repositories:  {
@@ -15299,7 +15299,7 @@ pr_id_to_video:  {
         is_official:  true
         url:  "https://github.com/dmlc/gluon-cv"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  4787
+        number_of_stars:  4786
         description:  "Gluon CV Toolkit"
       }
       repositories:  {
@@ -15374,7 +15374,7 @@ pr_id_to_video:  {
       video_id:  "D-baIgejA4M"
       video_title:  "PR-201: Bag of Tricks for Image Classification with Convolutional Neural Networks"
       number_of_likes:  47
-      number_of_views:  8750
+      number_of_views:  8746
       published_date:  {
         seconds:  1571580127
       }
@@ -15554,7 +15554,7 @@ pr_id_to_video:  {
       video_id:  "YNicvevmByo"
       video_title:  "PR-204: Learning deep representations by mutual information estimation and maximization"
       number_of_likes:  30
-      number_of_views:  2474
+      number_of_views:  2473
       published_date:  {
         seconds:  1572789342
       }
@@ -15606,7 +15606,7 @@ pr_id_to_video:  {
       video_id:  "yyqZ1K5u2_8"
       video_title:  "PR-205: A Closer Look at Few Shot Classification"
       number_of_likes:  26
-      number_of_views:  2139
+      number_of_views:  2137
       published_date:  {
         seconds:  1573496397
       }
@@ -15814,7 +15814,7 @@ pr_id_to_video:  {
       video_id:  "HMgcvgRrDcA"
       video_title:  "PR-207: YOLOv3: An Incremental Improvement"
       number_of_likes:  116
-      number_of_views:  7254
+      number_of_views:  7252
       published_date:  {
         seconds:  1574001134
       }
