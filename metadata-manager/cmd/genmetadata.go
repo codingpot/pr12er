@@ -46,9 +46,9 @@ var (
 // genMetaCmd represents the gen-meta command
 var genMetaCmd = &cobra.Command{
 	Use:   "gen-meta",
-	Short: "Generate database.pbtxt",
+	Short: "Generate database.pbtxt from the mapping_table.pbtxt",
 	Long: `Generate database.pbtxt. 
-Then, you can use it as a \server\internal\pr12_metadata.pbtxt
+Then, you can use it as a \server\internal\database.pbtxt
 
 How to use:
 
@@ -115,11 +115,11 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 			paperId := papers.Results[0].ID
 
 			// reference: https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
-			repolist, err := c.PaperRepositoryList(paperId)
+			repoList, err := c.PaperRepositoryList(paperId)
 			if err != nil {
 				log.Printf("fail to Get paper repositores of the paper id %s\n", paperId)
 			}
-			repositories := transformRepositoriesForPaper(repolist.Results)
+			repositories := transformRepositoriesForPaper(repoList.Results)
 
 			methodlist, err := c.PaperMethodList(paperId)
 			if err != nil {

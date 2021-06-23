@@ -31,13 +31,11 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "metadata-manager",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Metadata-manager is a cli tool for managing metadata for PR12ER project",
+	Long: `Metadata-manager is a cli tool for managing metadata for PR12ER project.
+It will generate database.pbtxt from the mapping_table.pbtxt. 
+It will generate mapping_table.pbtxt from the youtube URL.
+`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },
