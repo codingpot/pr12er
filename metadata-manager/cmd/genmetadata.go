@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"context"
+	"io/ioutil"
 	"log"
 	"os"
 	"time"
@@ -40,7 +41,7 @@ How to use:
 $ metadata-manager gen-meta --mapping-file mapping_table.pbtxt 
 $ metadata-manager gen-meta --mapping-file mapping_table.pbtxt --apikey <YouTubeDataAPIKey> # If you did not set environment variable "YOUTUBE_DATA_API_KEY"
 `,
-	Run: generateMetadata,
+	RunE: generateMetadata,
 }
 
 func frameworkToEnum(paperFramework string) pr12er.Framework {
@@ -183,18 +184,16 @@ func fetchPrVideo(prRow *pr12er.MappingTableRow) *pr12er.PrVideo {
 	}
 }
 
-func generateMetadata(cmd *cobra.Command, args []string) {
-	log.Println("gen-meta called", mappingFile)
-
+func generateMetadata(cmd *cobra.Command, args []string) error {
 	// read file and unmarshal mapping file
 	b, err := os.ReadFile(mappingFile)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
-	mappingTable := pr12er.MappingTable{}
+	var mappingTable pr12er.MappingTable
 	if err := prototext.Unmarshal(b, &mappingTable); err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	// loop and make Database
@@ -205,12 +204,15 @@ func generateMetadata(cmd *cobra.Command, args []string) {
 		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(prRow)
 	}
 
-	log.Println("made database completely")
-	// save as a .pbtxt
-	b = []byte(prototext.Format(database.ProtoReflect().Interface()))
-	if err := os.WriteFile(defaultDatabaseFile, b, 0o600); err != nil {
-		log.Fatal(err)
+	bs, err := prototext.Marshal(database)
+	if err != nil {
+		return err
 	}
+	// save as a .pbtxt
+	if err = ioutil.WriteFile(defaultDatabaseFile, bs, 0x600); err != nil {
+		return err
+	}
+	return nil
 }
 
 // nolint: gochecknoinits
