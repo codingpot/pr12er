@@ -28,3 +28,4 @@ linters:
     - interfacer
     - maligned
     - gomoddirectives
+    - wrapcheck
