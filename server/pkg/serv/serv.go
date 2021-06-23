@@ -16,11 +16,11 @@ type Server struct {
 
 var _ pr12er.Pr12ErServiceServer = (*Server)(nil)
 
-func (s Server) GetDetails(_ context.Context, in *pr12er.GetDetailsRequest) (*pr12er.GetDetailsResponse, error) {
+func (s Server) GetDetail(_ context.Context, in *pr12er.GetDetailRequest) (*pr12er.GetDetailResponse, error) {
 	// Returns details of this ID
 	searchPRID := in.GetPrId()
 
-	resp := &pr12er.GetDetailsResponse{
+	resp := &pr12er.GetDetailResponse{
 		Detail: &pr12er.Detail{
 			PrId: searchPRID,
 			Paper: []*pr12er.Paper{

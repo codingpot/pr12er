@@ -57,7 +57,7 @@ class DetailScreen extends StatelessWidget {
                         FutureBuilder<Detail>(
                           future: context
                               .read<GrpcClient>()
-                              .getDetails(args.video.prId),
+                              .getDetail(args.video.prId),
                           builder: (context, AsyncSnapshot<Detail> snapshot) {
                             if (!snapshot.hasData) {
                               return const Center(

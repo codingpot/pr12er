@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 type Pr12ErServiceClient interface {
 	GetHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
 	GetVideos(ctx context.Context, in *GetVideosRequest, opts ...grpc.CallOption) (*GetVideosResponse, error)
-	GetDetails(ctx context.Context, in *GetDetailsRequest, opts ...grpc.CallOption) (*GetDetailsResponse, error)
+	GetDetail(ctx context.Context, in *GetDetailRequest, opts ...grpc.CallOption) (*GetDetailResponse, error)
 }
 
 type pr12ErServiceClient struct {
@@ -49,9 +49,9 @@ func (c *pr12ErServiceClient) GetVideos(ctx context.Context, in *GetVideosReques
 	return out, nil
 }
 
-func (c *pr12ErServiceClient) GetDetails(ctx context.Context, in *GetDetailsRequest, opts ...grpc.CallOption) (*GetDetailsResponse, error) {
-	out := new(GetDetailsResponse)
-	err := c.cc.Invoke(ctx, "/pkg.pr12er.Pr12erService/GetDetails", in, out, opts...)
+func (c *pr12ErServiceClient) GetDetail(ctx context.Context, in *GetDetailRequest, opts ...grpc.CallOption) (*GetDetailResponse, error) {
+	out := new(GetDetailResponse)
+	err := c.cc.Invoke(ctx, "/pkg.pr12er.Pr12erService/GetDetail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (c *pr12ErServiceClient) GetDetails(ctx context.Context, in *GetDetailsRequ
 type Pr12ErServiceServer interface {
 	GetHello(context.Context, *HelloRequest) (*HelloResponse, error)
 	GetVideos(context.Context, *GetVideosRequest) (*GetVideosResponse, error)
-	GetDetails(context.Context, *GetDetailsRequest) (*GetDetailsResponse, error)
+	GetDetail(context.Context, *GetDetailRequest) (*GetDetailResponse, error)
 	mustEmbedUnimplementedPr12ErServiceServer()
 }
 
@@ -78,8 +78,8 @@ func (UnimplementedPr12ErServiceServer) GetHello(context.Context, *HelloRequest)
 func (UnimplementedPr12ErServiceServer) GetVideos(context.Context, *GetVideosRequest) (*GetVideosResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVideos not implemented")
 }
-func (UnimplementedPr12ErServiceServer) GetDetails(context.Context, *GetDetailsRequest) (*GetDetailsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDetails not implemented")
+func (UnimplementedPr12ErServiceServer) GetDetail(context.Context, *GetDetailRequest) (*GetDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDetail not implemented")
 }
 func (UnimplementedPr12ErServiceServer) mustEmbedUnimplementedPr12ErServiceServer() {}
 
@@ -130,20 +130,20 @@ func _Pr12ErService_GetVideos_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Pr12ErService_GetDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDetailsRequest)
+func _Pr12ErService_GetDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDetailRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(Pr12ErServiceServer).GetDetails(ctx, in)
+		return srv.(Pr12ErServiceServer).GetDetail(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pkg.pr12er.Pr12erService/GetDetails",
+		FullMethod: "/pkg.pr12er.Pr12erService/GetDetail",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(Pr12ErServiceServer).GetDetails(ctx, req.(*GetDetailsRequest))
+		return srv.(Pr12ErServiceServer).GetDetail(ctx, req.(*GetDetailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -164,8 +164,8 @@ var Pr12ErService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Pr12ErService_GetVideos_Handler,
 		},
 		{
-			MethodName: "GetDetails",
-			Handler:    _Pr12ErService_GetDetails_Handler,
+			MethodName: "GetDetail",
+			Handler:    _Pr12ErService_GetDetail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

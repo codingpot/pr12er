@@ -45,23 +45,23 @@ const GetVideosRequest$json = const {
 
 /// Descriptor for `GetVideosRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getVideosRequestDescriptor = $convert.base64Decode('ChBHZXRWaWRlb3NSZXF1ZXN0');
-@$core.Deprecated('Use getDetailsResponseDescriptor instead')
-const GetDetailsResponse$json = const {
-  '1': 'GetDetailsResponse',
+@$core.Deprecated('Use getDetailResponseDescriptor instead')
+const GetDetailResponse$json = const {
+  '1': 'GetDetailResponse',
   '2': const [
     const {'1': 'detail', '3': 1, '4': 1, '5': 11, '6': '.pkg.pr12er.Detail', '10': 'detail'},
   ],
 };
 
-/// Descriptor for `GetDetailsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getDetailsResponseDescriptor = $convert.base64Decode('ChJHZXREZXRhaWxzUmVzcG9uc2USKgoGZGV0YWlsGAEgASgLMhIucGtnLnByMTJlci5EZXRhaWxSBmRldGFpbA==');
-@$core.Deprecated('Use getDetailsRequestDescriptor instead')
-const GetDetailsRequest$json = const {
-  '1': 'GetDetailsRequest',
+/// Descriptor for `GetDetailResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getDetailResponseDescriptor = $convert.base64Decode('ChFHZXREZXRhaWxSZXNwb25zZRIqCgZkZXRhaWwYASABKAsyEi5wa2cucHIxMmVyLkRldGFpbFIGZGV0YWls');
+@$core.Deprecated('Use getDetailRequestDescriptor instead')
+const GetDetailRequest$json = const {
+  '1': 'GetDetailRequest',
   '2': const [
     const {'1': 'pr_id', '3': 1, '4': 1, '5': 5, '10': 'prId'},
   ],
 };
 
-/// Descriptor for `GetDetailsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getDetailsRequestDescriptor = $convert.base64Decode('ChFHZXREZXRhaWxzUmVxdWVzdBITCgVwcl9pZBgBIAEoBVIEcHJJZA==');
+/// Descriptor for `GetDetailRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getDetailRequestDescriptor = $convert.base64Decode('ChBHZXREZXRhaWxSZXF1ZXN0EhMKBXByX2lkGAEgASgFUgRwcklk');
