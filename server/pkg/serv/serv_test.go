@@ -31,8 +31,8 @@ func TestGetVideos(t *testing.T) {
 
 func TestServer_GetDetails(t *testing.T) {
 	s := Server{}
-	request := pr12er.GetDetailsRequest{PrId: 1}
-	got, err := s.GetDetails(context.Background(), &request)
+	request := pr12er.GetDetailRequest{PrId: 1}
+	got, err := s.GetDetail(context.Background(), &request)
 	assert.NoError(t, err)
 	assert.Equal(t, int32(1), got.GetDetail().GetPrId())
 }

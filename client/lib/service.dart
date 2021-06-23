@@ -25,9 +25,9 @@ class GrpcClient {
     return response.videos;
   }
 
-  Future<Detail> getDetails(int videoId) async {
-    final request = GetDetailsRequest(prId: videoId);
-    final response = await _client.getDetails(request);
+  Future<Detail> getDetail(int videoId) async {
+    final request = GetDetailRequest(prId: videoId);
+    final response = await _client.getDetail(request);
 
     return response.detail;
   }
