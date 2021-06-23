@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# stash unstaged changes
+git commit --no-verify -m 'Save index'
+old_stash=$(git rev-parse -q --verify refs/stash)
+git stash push -m 'Unstaged changes'
+new_stash=$(git rev-parse -q --verify refs/stash)
+git reset --soft HEAD^
+
+GO_FILES=$(git diff --staged --name-only -- '*.go')
+DART_FILES=$(git diff --staged --name-only -- '*.dart')
+
+if [[ "${GO_FILES}" == "" ]]; then
+  echo "No Go files"
+else
+  make format.go
+  git add -u
+fi
+
+if [[ "${DART_FILES}" == "" ]]; then
+  echo "No Dart files"
+else
+  make format.dart
+  git add -u
+fi
+
+# If unstaged changes were stashed reapply to working tree
+if [ "$old_stash" != "$new_stash" ]; then
+  git stash pop
+fi
