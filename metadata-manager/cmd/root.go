@@ -1,13 +1,12 @@
 package cmd
 
 import (
-	"fmt"
-	"os"
+	"log"
 
 	"github.com/spf13/cobra"
 )
 
-// rootCmd represents the base command when called without any subcommands
+// rootCmd represents the base command when called without any subcommands.
 var rootCmd = &cobra.Command{
 	Use:   "metadata-manager",
 	Short: "Metadata-manager is a cli tool for managing metadata for PR12ER project",
@@ -21,7 +20,6 @@ It will generate mapping_table.pbtxt from the youtube URL.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Panic(err)
 	}
 }

@@ -27,3 +27,4 @@ linters:
     - scopelint
     - interfacer
     - maligned
+    - gomoddirectives
