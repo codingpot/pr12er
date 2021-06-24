@@ -97,7 +97,11 @@ pr_id_to_video:  {
       video_id:  "L3hz57whyNw"
       video_title:  "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)"
       number_of_likes:  255
+<<<<<<< HEAD
       number_of_views:  34434
+=======
+      number_of_views:  34435
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1492839397
       }
@@ -796,6 +800,12 @@ pr_id_to_video:  {
       authors:  "Andrea G. Rockall"
       authors:  "Daniel Rueckert"
       authors:  "Ben Glocker"
+<<<<<<< HEAD
+=======
+    }
+    video:  {
+      video_id:  "jbnjzyJDldA"
+>>>>>>> cb750a7 (chore: update database)
     }
   }
 }
@@ -2695,7 +2705,11 @@ pr_id_to_video:  {
       repositories:  {
         url:  "https://github.com/salem-devloper/COVID-Lung-Segment"
         owner:  "salem-devloper"
+<<<<<<< HEAD
         framework:  FRAMEWORK_OTHERS
+=======
+        framework:  FRAMEWORK_PYTORCH
+>>>>>>> cb750a7 (chore: update database)
       }
       repositories:  {
         url:  "https://github.com/mateuszbuda/brain-segmentation-pytorch"
@@ -4551,7 +4565,11 @@ pr_id_to_video:  {
       video_id:  "JiC78rUF4iI"
       video_title:  "PR-045: DeepLab: Semantic Image Segmentation"
       number_of_likes:  93
+<<<<<<< HEAD
       number_of_views:  8716
+=======
+      number_of_views:  8717
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1509896571
       }
@@ -5133,6 +5151,10 @@ pr_id_to_video:  {
         description:  "**AlphaZero** is a reinforcement learning agent for playing board games such as Go, chess, and shogi. "
       }
     }
+<<<<<<< HEAD
+=======
+    video:  {}
+>>>>>>> cb750a7 (chore: update database)
   }
 }
 pr_id_to_video:  {
@@ -5570,7 +5592,11 @@ pr_id_to_video:  {
       video_id:  "_YT_8CT2w_Q"
       video_title:  "PR-056: Capsule Network"
       number_of_likes:  67
+<<<<<<< HEAD
       number_of_views:  5738
+=======
+      number_of_views:  5739
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1513522378
       }
@@ -5717,7 +5743,11 @@ pr_id_to_video:  {
       video_id:  "RtSZALC9DlU"
       video_title:  "PR-057: Mask R-CNN"
       number_of_likes:  133
+<<<<<<< HEAD
       number_of_views:  10993
+=======
+      number_of_views:  10994
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1515330928
       }
@@ -7505,6 +7535,10 @@ pr_id_to_video:  {
       authors:  "S. M. Ali Eslami"
       authors:  "Matthew Botvinick"
     }
+<<<<<<< HEAD
+=======
+    video:  {}
+>>>>>>> cb750a7 (chore: update database)
   }
 }
 pr_id_to_video:  {
@@ -8291,6 +8325,10 @@ pr_id_to_video:  {
         description:  "TensorFlow implementation of \"Playing hard exploration games by watching YouTube\""
       }
     }
+<<<<<<< HEAD
+=======
+    video:  {}
+>>>>>>> cb750a7 (chore: update database)
   }
 }
 pr_id_to_video:  {
@@ -9725,6 +9763,12 @@ pr_id_to_video:  {
         full_name:  "Independent Component Analysis"
         description:  "_**Independent component analysis** (ICA) is a statistical and computational technique for revealing hidden factors that underlie sets of random variables, measurements, or signals._\r\n\r\n_ICA defines a generative model for the observed multivariate data, which is typically given as a large database of samples. In the model, the data variables are assumed to be linear mixtures of some unknown latent variables, and the mixing system is also unknown. The latent variables are assumed nongaussian and mutually independent, and they are called the independent components of the observed data. These independent components, also called sources or factors, can be found by ICA._\r\n\r\n_ICA is superficially related to principal component analysis and factor analysis. ICA is a much more powerful technique, however, capable of finding the underlying factors or sources when these classic methods fail completely._\r\n\r\n\r\nExtracted from (https://www.cs.helsinki.fi/u/ahyvarin/whatisica.shtml)\r\n\r\n**Source papers**:\r\n\r\n[Blind separation of sources, part I: An adaptive algorithm based on neuromimetic architecture](https://doi.org/10.1016/0165-1684(91)90079-X)\r\n\r\n[Independent component analysis, A new concept?](https://doi.org/10.1016/0165-1684(94)90029-9)\r\n\r\n[Independent component analysis: algorithms and applications](https://doi.org/10.1016/S0893-6080(00)00026-5)"
       }
+<<<<<<< HEAD
+=======
+    }
+    video:  {
+      video_id:  "mLSPA76qSuU"
+>>>>>>> cb750a7 (chore: update database)
     }
   }
 }
@@ -10619,6 +10663,12 @@ pr_id_to_video:  {
         full_name:  "AutoEncoder"
         description:  "An **Autoencoder** is a bottleneck architecture that turns a high-dimensional input into a latent low-dimensional code (encoder), and then performs a reconstruction of the input with this latent code (the decoder).\r\n\r\nImage: [Michael Massi](https://en.wikipedia.org/wiki/Autoencoder#/media/File:Autoencoder_schema.png)"
       }
+<<<<<<< HEAD
+=======
+    }
+    video:  {
+      video_id:  "saJcr74ldvs"
+>>>>>>> cb750a7 (chore: update database)
     }
   }
 }
@@ -10844,7 +10894,11 @@ pr_id_to_video:  {
       video_id:  "0k3X-9y_9S8"
       video_title:  "PR-127: FaceNet"
       number_of_likes:  58
+<<<<<<< HEAD
       number_of_views:  4051
+=======
+      number_of_views:  4052
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1544971153
       }
@@ -11734,6 +11788,10 @@ pr_id_to_video:  {
         description:  "Keras implementation (only for tensorflow backend) of MINE: Mutual Information Neural Estimation"
       }
     }
+<<<<<<< HEAD
+=======
+    video:  {}
+>>>>>>> cb750a7 (chore: update database)
   }
 }
 pr_id_to_video:  {
@@ -11830,7 +11888,11 @@ pr_id_to_video:  {
       video_id:  "dv5yUl6Lw1g"
       video_title:  "PR-139: Fully Convolutional Siamese Networks for Object Tracking"
       number_of_likes:  38
+<<<<<<< HEAD
       number_of_views:  2851
+=======
+      number_of_views:  2853
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1549845265
       }
@@ -11939,7 +12001,11 @@ pr_id_to_video:  {
       video_id:  "ltlhQXHGzgE"
       video_title:  "PR-141:  Auto-DeepLab: Hierarchical Neural Architecture Search for Semantic Image Segmentation"
       number_of_likes:  19
+<<<<<<< HEAD
       number_of_views:  1694
+=======
+      number_of_views:  1695
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1550413961
       }
@@ -15290,7 +15356,11 @@ pr_id_to_video:  {
       video_id:  "252YxqpHzsg"
       video_title:  "PR-183: MixNet: Mixed Depthwise Convolutional Kernels"
       number_of_likes:  28
+<<<<<<< HEAD
       number_of_views:  1681
+=======
+      number_of_views:  1682
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1564326548
       }
@@ -15643,6 +15713,19 @@ pr_id_to_video:  {
         number_of_stars:  10
         description:  "Repo for my Master Thesis at ULiège in 2019 (Machine learning under resource constraints)"
       }
+<<<<<<< HEAD
+=======
+    }
+    video:  {
+      video_id:  "vUNAJsO2G98"
+      video_title:  "PR-187 : MorphNet: Fast & Simple Resource-Constrained Structure Learning of Deep Networks"
+      number_of_likes:  4
+      number_of_views:  507
+      published_date:  {
+        seconds:  1565712056
+      }
+      uploader:  "Sunghoon Joo"
+>>>>>>> cb750a7 (chore: update database)
     }
   }
 }
@@ -16162,6 +16245,7 @@ pr_id_to_video:  {
         number_of_stars:  1240
         description:  "[ICLR 2019] ProxylessNAS: Direct Neural Architecture Search on Target Task and Hardware"
       }
+<<<<<<< HEAD
       repositories:  {
         url:  "https://github.com/mit-han-lab/lpcvc"
         owner:  "mit-han-lab"
@@ -16170,6 +16254,10 @@ pr_id_to_video:  {
         description:  "[LPIRC 2019, ICCV 2019] Winner Solution for 4th LPCVC"
       }
     }
+=======
+    }
+    video:  {}
+>>>>>>> cb750a7 (chore: update database)
   }
 }
 pr_id_to_video:  {
@@ -16309,7 +16397,11 @@ pr_id_to_video:  {
         url:  "https://github.com/leaderj1001/Stand-Alone-Self-Attention"
         owner:  "leaderj1001"
         framework:  FRAMEWORK_PYTORCH
+<<<<<<< HEAD
         number_of_stars:  343
+=======
+        number_of_stars:  344
+>>>>>>> cb750a7 (chore: update database)
         description:  "Implementing Stand-Alone Self-Attention in Vision Models using Pytorch"
       }
       repositories:  {
@@ -16483,6 +16575,10 @@ pr_id_to_video:  {
         description:  "Course Project for Stanford CS231n Convolutional Neural Networks for Visual Recognition"
       }
     }
+<<<<<<< HEAD
+=======
+    video:  {}
+>>>>>>> cb750a7 (chore: update database)
   }
 }
 pr_id_to_video:  {
@@ -17267,11 +17363,120 @@ pr_id_to_video:  {
       video_id:  "HMgcvgRrDcA"
       video_title:  "PR-207: YOLOv3: An Incremental Improvement"
       number_of_likes:  116
+<<<<<<< HEAD
       number_of_views:  7265
+=======
+      number_of_views:  7266
+>>>>>>> cb750a7 (chore: update database)
       published_date:  {
         seconds:  1574001134
       }
       uploader:  "JinWon Lee"
+<<<<<<< HEAD
+=======
+    }
+  }
+}
+pr_id_to_video:  {
+  key:  208
+  value:  {
+    pr_id:  208
+    papers:  {
+      paper_id:  "revisiting-self-supervised-visual"
+      title:  "Revisiting Self-Supervised Visual Representation Learning"
+      arxiv_id:  "1901.09005"
+      abstract:  "Unsupervised visual representation learning remains a largely unsolved\nproblem in computer vision research. Among a big body of recently proposed\napproaches for unsupervised learning of visual representations, a class of\nself-supervised techniques achieves superior performance on many challenging\nbenchmarks. A large number of the pretext tasks for self-supervised learning\nhave been studied, but other important aspects, such as the choice of\nconvolutional neural networks (CNN), has not received equal attention.\nTherefore, we revisit numerous previously proposed self-supervised models,\nconduct a thorough large scale study and, as a result, uncover multiple crucial\ninsights. We challenge a number of common practices in selfsupervised visual\nrepresentation learning and observe that standard recipes for CNN design do not\nalways translate to self-supervised representation learning. As part of our\nstudy, we drastically boost the performance of previously proposed techniques\nand outperform previously published state-of-the-art results by a large margin."
+      pub_date:  {
+        seconds:  1548374400
+      }
+      authors:  "Alexander Kolesnikov"
+      authors:  "Xiaohua Zhai"
+      authors:  "Lucas Beyer"
+      repositories:  {
+        url:  "https://github.com/virtualgraham/sc_patch"
+        owner:  "virtualgraham"
+        framework:  FRAMEWORK_PYTORCH
+        number_of_stars:  7
+      }
+      repositories:  {
+        url:  "https://github.com/moabitcoin/ssvr"
+        owner:  "moabitcoin"
+        framework:  FRAMEWORK_TENSORFLOW
+        description:  "Rotations gonna rotate, potatoes gonna potate."
+      }
+      repositories:  {
+        is_official:  true
+        url:  "https://github.com/google/revisiting-self-supervised"
+        owner:  "google"
+        framework:  FRAMEWORK_TENSORFLOW
+        number_of_stars:  332
+      }
+      repositories:  {
+        url:  "https://github.com/rickyHong/Puzzle-tensorflow-latest-repl"
+        owner:  "rickyHong"
+        framework:  FRAMEWORK_TENSORFLOW
+      }
+      methods:  {
+        name:  "Global Average Pooling"
+        full_name:  "Global Average Pooling"
+        description:  "**Global Average Pooling** is a pooling operation designed to replace fully connected layers in classical CNNs. The idea is to generate one feature map for each corresponding category of the classification task in the last mlpconv layer. Instead of adding fully connected layers on top of the feature maps, we take the average of each feature map, and the resulting vector is fed directly into the softmax layer. \r\n\r\nOne advantage of global average pooling over the fully connected layers is that it is more native to the convolution structure by enforcing correspondences between feature maps and categories. Thus the feature maps can be easily interpreted as categories confidence maps. Another advantage is that there is no parameter to optimize in the global average pooling thus overfitting is avoided at this layer. Furthermore, global average pooling sums out the spatial information, thus it is more robust to spatial translations of the input."
+      }
+      methods:  {
+        name:  "Convolution"
+        full_name:  "Convolution"
+        description:  "A **convolution** is a type of matrix operation, consisting of a kernel, a small matrix of weights, that slides over input data performing element-wise multiplication with the part of the input it is on, then summing the results into an output.\r\n\r\nIntuitively, a convolution allows for weight sharing - reducing the number of effective parameters - and image translation (allowing for the same feature to be detected in different parts of the input space).\r\n\r\nImage Source: [https://arxiv.org/pdf/1603.07285.pdf](https://arxiv.org/pdf/1603.07285.pdf)"
+      }
+      methods:  {
+        name:  "Residual Block"
+        full_name:  "Residual Block"
+        description:  "**Residual Blocks** are skip-connection blocks that learn residual functions with reference to the layer inputs, instead of learning unreferenced functions. They were introduced as part of the [ResNet](https://paperswithcode.com/method/resnet) architecture.\r\n \r\nFormally, denoting the desired underlying mapping as $\\mathcal{H}({x})$, we let the stacked nonlinear layers fit another mapping of $\\mathcal{F}({x}):=\\mathcal{H}({x})-{x}$. The original mapping is recast into $\\mathcal{F}({x})+{x}$. The additional $x$ acts like a residual, hence the name 'residual block'.\r\n\r\nThe intuition is that it is easier to optimize the residual mapping than to optimize the original, unreferenced mapping. To the extreme, if an identity mapping were optimal, it would be easier to push the residual to zero than to fit an identity mapping by a stack of nonlinear layers. Having skip connections allows the network to more easily learn identity-like mappings.\r\n\r\nNote that in practice, [Bottleneck Residual Blocks](https://paperswithcode.com/method/bottleneck-residual-block) are used for deeper ResNets, such as ResNet-50 and ResNet-101, as these bottleneck blocks are less computationally intensive."
+      }
+      methods:  {
+        name:  "Max Pooling"
+        full_name:  "Max Pooling"
+        description:  "**Max Pooling** is a pooling operation that calculates the maximum value for patches of a feature map, and uses it to create a downsampled (pooled) feature map.  It is usually used after a convolutional layer. It adds a small amount of translation invariance - meaning translating the image by a small amount does not significantly affect the values of most pooled outputs.\r\n\r\nImage Source: [here](https://computersciencewiki.org/index.php/File:MaxpoolSample2.png)"
+      }
+      methods:  {
+        name:  "1x1 Convolution"
+        full_name:  "1x1 Convolution"
+        description:  "A **1 x 1 Convolution** is a convolution with some special properties in that it can be used for dimensionality reduction, efficient low dimensional embeddings, and applying non-linearity after convolutions. It maps an input pixel with all its channels to an output pixel which can be squeezed to a desired output depth. It can be viewed as an [MLP](https://paperswithcode.com/method/feedforward-network) looking at a particular pixel location.\r\n\r\nImage Credit: [http://deeplearning.ai](http://deeplearning.ai)"
+      }
+      methods:  {
+        name:  "ReLU"
+        full_name:  "Rectified Linear Units"
+        description:  "**Rectified Linear Units**, or **ReLUs**, are a type of activation function that are linear in the positive dimension, but zero in the negative dimension. The kink in the function is the source of the non-linearity. Linearity in the positive dimension has the attractive property that it prevents non-saturation of gradients (contrast with [sigmoid activations](https://paperswithcode.com/method/sigmoid-activation)), although for half of the real line its gradient is zero.\r\n\r\n$$ f\\left(x\\right) = \\max\\left(0, x\\right) $$"
+      }
+      methods:  {
+        name:  "Kaiming Initialization"
+        full_name:  "Kaiming Initialization"
+        description:  "**Kaiming Initialization**, or **He Initialization**, is an initialization method for neural networks that takes into account the non-linearity of activation functions, such as ReLU activations.\r\n\r\nA proper initialization method should avoid reducing or magnifying the magnitudes of input signals exponentially. Using a derivation they work out that the condition to stop this happening is:\r\n\r\n$$\\frac{1}{2}n\\_{l}\\text{Var}\\left[w\\_{l}\\right] = 1 $$\r\n\r\nThis implies an initialization scheme of:\r\n\r\n$$ w\\_{l} \\sim \\mathcal{N}\\left(0,  2/n\\_{l}\\right)$$\r\n\r\nThat is, a zero-centered Gaussian with standard deviation of $\\sqrt{2/{n}\\_{l}}$ (variance shown in equation above). Biases are initialized at $0$."
+      }
+      methods:  {
+        name:  "Batch Normalization"
+        full_name:  "Batch Normalization"
+        description:  "**Batch Normalization** aims to reduce internal covariate shift, and in doing so aims to accelerate the training of deep neural nets. It accomplishes this via a normalization step that fixes the means and variances of layer inputs. Batch Normalization also has a beneficial effect on the gradient flow through the network, by reducing the dependence of gradients on the scale of the parameters or of their initial values. This allows for use of much higher learning rates without the risk of divergence. Furthermore, batch normalization regularizes the model and reduces the need for Dropout.\r\n\r\nWe apply a batch normalization layer as follows for a minibatch $\\mathcal{B}$:\r\n\r\n$$ \\mu\\_{\\mathcal{B}} = \\frac{1}{m}\\sum^{m}\\_{i=1}x\\_{i} $$\r\n\r\n$$ \\sigma^{2}\\_{\\mathcal{B}} = \\frac{1}{m}\\sum^{m}\\_{i=1}\\left(x\\_{i}-\\mu\\_{\\mathcal{B}}\\right)^{2} $$\r\n\r\n$$ \\hat{x}\\_{i} = \\frac{x\\_{i} - \\mu\\_{\\mathcal{B}}}{\\sqrt{\\sigma^{2}\\_{\\mathcal{B}}+\\epsilon}} $$\r\n\r\n$$ y\\_{i} = \\gamma\\hat{x}\\_{i} + \\beta = \\text{BN}\\_{\\gamma, \\beta}\\left(x\\_{i}\\right) $$\r\n\r\nWhere $\\gamma$ and $\\beta$ are learnable parameters."
+      }
+      methods:  {
+        name:  "Bottleneck Residual Block"
+        full_name:  "Bottleneck Residual Block"
+        description:  "A **Bottleneck Residual Block** is a variant of the [residual block](https://paperswithcode.com/method/residual-block) that utilises 1x1 convolutions to create a bottleneck. The use of a bottleneck reduces the number of parameters and matrix multiplications. The idea is to make residual blocks as thin as possible to increase depth and have less parameters. They were introduced as part of the [ResNet](https://paperswithcode.com/method/resnet) architecture, and are used as part of deeper ResNets such as ResNet-50 and ResNet-101."
+      }
+      methods:  {
+        name:  "Residual Connection"
+        full_name:  "Residual Connection"
+        description:  "**Residual Connections** are a type of skip-connection that learn residual functions with reference to the layer inputs, instead of learning unreferenced functions. \r\n\r\nFormally, denoting the desired underlying mapping as $\\mathcal{H}({x})$, we let the stacked nonlinear layers fit another mapping of $\\mathcal{F}({x}):=\\mathcal{H}({x})-{x}$. The original mapping is recast into $\\mathcal{F}({x})+{x}$.\r\n\r\nThe intuition is that it is easier to optimize the residual mapping than to optimize the original, unreferenced mapping. To the extreme, if an identity mapping were optimal, it would be easier to push the residual to zero than to fit an identity mapping by a stack of nonlinear layers."
+      }
+    }
+    video:  {
+      video_id:  "eDDHsbMgOJQ"
+      video_title:  "PR-208: Unsupervised Visual Representation Learning Overview:Toward Self-Supervision"
+      number_of_likes:  62
+      number_of_views:  3524
+      published_date:  {
+        seconds:  1574002434
+      }
+      uploader:  "hoya012"
+>>>>>>> cb750a7 (chore: update database)
     }
   }
 }
