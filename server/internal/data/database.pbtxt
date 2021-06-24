@@ -2199,7 +2199,7 @@ pr_id_to_video:  {
         url:  "https://github.com/tensorflow/models/tree/master/research/seq_flow_lite"
         owner:  "research"
         framework:  FRAMEWORK_TENSORFLOW
-        number_of_stars:  70347
+        number_of_stars:  70351
         description:  "Models and examples built with TensorFlow"
       }
       methods:  {
@@ -5497,7 +5497,7 @@ pr_id_to_video:  {
       video_id:  "upskBSbA9cA"
       video_title:  "PR-055: Neural Machine Translation by Jointly Learning to Align and Translate"
       number_of_likes:  27
-      number_of_views:  2833
+      number_of_views:  2834
       published_date:  {
         seconds:  1513516897
       }
@@ -14255,7 +14255,7 @@ pr_id_to_video:  {
       video_id:  "Vhz0quyvR7I"
       video_title:  "PR-169: EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks"
       number_of_likes:  99
-      number_of_views:  6337
+      number_of_views:  6338
       published_date:  {
         seconds:  1560496231
       }
@@ -15007,7 +15007,7 @@ pr_id_to_video:  {
       video_id:  "uqBsvoOY8jM"
       video_title:  "PR-178: Graph Convolutional Network"
       number_of_likes:  95
-      number_of_views:  6072
+      number_of_views:  6074
       published_date:  {
         seconds:  1563112484
       }
@@ -15389,14 +15389,14 @@ pr_id_to_video:  {
         url:  "https://github.com/huggingface/block_movement_pruning"
         owner:  "huggingface"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  23
+        number_of_stars:  24
         description:  "Block Sparse movement pruning"
       }
       repositories:  {
         url:  "https://github.com/uber-research/permute-quantize-finetune"
         owner:  "uber-research"
         framework:  FRAMEWORK_PYTORCH
-        number_of_stars:  89
+        number_of_stars:  90
         description:  "Using ideas from product quantization for state-of-the-art neural network compression."
       }
       repositories:  {
@@ -16474,7 +16474,7 @@ pr_id_to_video:  {
       video_id:  "6hadVw4Sy2M"
       video_title:  "PR-196: Stand Alone Self Attention in Vision Models"
       number_of_likes:  9
-      number_of_views:  1560
+      number_of_views:  1562
       published_date:  {
         seconds:  1571072079
       }
@@ -17471,7 +17471,7 @@ pr_id_to_video:  {
       video_id:  "eDDHsbMgOJQ"
       video_title:  "PR-208: Unsupervised Visual Representation Learning Overview:Toward Self-Supervision"
       number_of_likes:  62
-      number_of_views:  3524
+      number_of_views:  3525
       published_date:  {
         seconds:  1574002434
       }
