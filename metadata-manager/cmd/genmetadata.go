@@ -2,45 +2,33 @@ package cmd
 
 import (
 	"context"
-	"log"
 	"os"
 	"time"
 
 	paperswithcode_go "github.com/codingpot/paperswithcode-go/v2"
-	models "github.com/codingpot/paperswithcode-go/v2/models"
+	"github.com/codingpot/paperswithcode-go/v2/models"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"google.golang.org/api/option"
 	"google.golang.org/api/youtube/v3"
 	"google.golang.org/protobuf/encoding/prototext"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
+// required environment variables.
 const (
-	defaultMappingFile  = "server/internal/data/mapping_table.pbtxt"
-	defaultDatabaseFile = "server/internal/data/database.pbtxt"
-)
-
-var (
-	mappingFile string
-	apiKey      string
+	envNameYouTubeAPIKey   = "YOUTUBE_API_KEY"
+	envNameMappingFile     = "MAPPING_FILE"
+	envNameDatabaseOutFile = "DATABASE_OUT_FILE"
 )
 
 // genMetaCmd represents the gen-meta command.
 var genMetaCmd = &cobra.Command{
 	Use:   "gen-meta",
 	Short: "Generate database.pbtxt from the mapping_table.pbtxt",
-
-	// nolint:lll
-	Long: `Generate database.pbtxt. 
-Then, you can use it as a \server\internal\database.pbtxt
-
-How to use:
-
-$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt 
-$ metadata-manager gen-meta --mapping-file mapping_table.pbtxt --apikey <YouTubeDataAPIKey> # If you did not set environment variable "YOUTUBE_DATA_API_KEY"
-`,
-	RunE: generateMetadata,
+	RunE:  generateMetadata,
 }
 
 func frameworkToEnum(paperFramework string) pr12er.Framework {
@@ -108,12 +96,12 @@ func fetchArxivPapersInfo(paperArxivIDs []string) []*pr12er.Paper {
 			}
 			repositories := transformRepositoriesForPaper(repoList.Results)
 
-			methodlist, err := c.PaperMethodList(paperID)
-			if err != nil || methodlist == nil {
+			methodList, err := c.PaperMethodList(paperID)
+			if err != nil || methodList == nil {
 				log.Printf("failed to get paper methods of the paper id %s\n", paperID)
 				continue
 			}
-			methods := transformMethodsForPaper(methodlist.Results)
+			methods := transformMethodsForPaper(methodList.Results)
 
 			// make paper
 			paper := &pr12er.Paper{
@@ -133,16 +121,10 @@ func fetchArxivPapersInfo(paperArxivIDs []string) []*pr12er.Paper {
 	return pr12erPapers
 }
 
-func fetchYouTubeVideoInfo(videoID string) *pr12er.YouTubeVideo {
+func fetchYouTubeVideoInfo(videoID string, apiKey string) *pr12er.YouTubeVideo {
 	// api info: https://developers.google.com/youtube/v3/docs/videos/list
 	// using package: https://pkg.go.dev/google.golang.org/api/youtube/v3
 	// using API example: https://bit.ly/3dfFQPd
-
-	apiKey = os.Getenv("YOUTUBE_DATA_API_KEY")
-	if apiKey == "" {
-		log.Panic("Environment variable YOUTUBE_DATA_API_KEY is expected")
-	}
-
 	ctx := context.Background()
 	youtubeService, err := youtube.NewService(ctx, option.WithAPIKey(apiKey))
 	if err != nil {
@@ -175,15 +157,25 @@ func fetchYouTubeVideoInfo(videoID string) *pr12er.YouTubeVideo {
 	return &youTubeVideo
 }
 
-func fetchPrVideo(prRow *pr12er.MappingTableRow) *pr12er.PrVideo {
+func fetchPrVideo(prRow *pr12er.MappingTableRow, apiKey string) *pr12er.PrVideo {
 	return &pr12er.PrVideo{
 		PrId:   prRow.GetPrId(),
 		Papers: fetchArxivPapersInfo(prRow.PaperArxivId),
-		Video:  fetchYouTubeVideoInfo(prRow.YoutubeVideoId),
+		Video:  fetchYouTubeVideoInfo(prRow.YoutubeVideoId, apiKey),
 	}
 }
 
 func generateMetadata(cmd *cobra.Command, args []string) error {
+	apiKey := viper.GetString(envNameYouTubeAPIKey)
+	mappingFile := viper.GetString(envNameMappingFile)
+	databaseOutFile := viper.GetString(envNameDatabaseOutFile)
+
+	log.WithFields(log.Fields{
+		envNameMappingFile:     mappingFile,
+		envNameYouTubeAPIKey:   apiKey,
+		envNameDatabaseOutFile: databaseOutFile,
+	}).WithField(envNameYouTubeAPIKey, apiKey).Info("bind variables")
+
 	// read file and unmarshal mapping file
 	b, err := os.ReadFile(mappingFile)
 	if err != nil {
@@ -200,7 +192,7 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 		PrIdToVideo: make(map[int32]*pr12er.PrVideo),
 	}
 	for _, prRow := range mappingTable.Rows {
-		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(prRow)
+		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(prRow, apiKey)
 	}
 
 	bs, err := prototext.Marshal(database)
@@ -208,17 +200,31 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 		return err
 	}
 	// save as a .pbtxt
-	err = os.WriteFile(defaultDatabaseFile, bs, 0o600)
+	err = os.WriteFile(databaseOutFile, bs, 0o600)
 	return err
 }
 
 // nolint: gochecknoinits
 func init() {
 	rootCmd.AddCommand(genMetaCmd)
+	viper.AutomaticEnv()
 
-	genMetaCmd.PersistentFlags().StringVarP(&mappingFile,
+	genMetaCmd.PersistentFlags().StringP(
 		"mapping-file",
 		"f",
-		defaultMappingFile,
+		"../server/internal/data/mapping_table.pbtxt",
 		"A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
+	_ = viper.BindPFlag(envNameMappingFile, genMetaCmd.PersistentFlags().Lookup("mapping-file"))
+
+	genMetaCmd.
+		PersistentFlags().
+		String("youtube-api-key", "", "YouTube Data API (v3) key")
+	_ = viper.BindPFlag(envNameYouTubeAPIKey, genMetaCmd.PersistentFlags().Lookup("youtube-api-key"))
+
+	genMetaCmd.
+		PersistentFlags().
+		String("database-out-file",
+			"../server/internal/data/database.pbtxt",
+			"Filepath to write database.pbtxt")
+	_ = viper.BindPFlag(envNameDatabaseOutFile, genMetaCmd.PersistentFlags().Lookup("database-out-file"))
 }

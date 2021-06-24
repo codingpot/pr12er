@@ -79,10 +79,10 @@ test.go: lint.go ## test go files
 
 .PHONY: format.go
 format.go: ## format go files
-	cd server && gci -w . && gofumpt -w -s .
+	cd server && gci -w . && gofumpt -w -s . && go mod tidy
 	# regenerate as generated files should not be edited.
 	make gen.all
-	cd metadata-manager && gci -w . && gofumpt -w -s .
+	cd metadata-manager && gci -w . && gofumpt -w -s . && go mod tidy
 
 .PHONY: lint.go
 lint.go: ## lint go files

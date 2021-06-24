@@ -3,3 +3,4 @@
 .vscode/
 /client/test/**/*.mocks.dart
 .devcontainer/
+/.env
