@@ -3,6 +3,7 @@ package handlers
 import (
 	"sort"
 
+	"github.com/codingpot/pr12er/server/internal/err"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 )
 
@@ -55,4 +56,19 @@ func getCategory(prVideo *pr12er.PrVideo) pr12er.Category {
 // getYouTubeLinkFromID returns the full URL.
 func getYouTubeLinkFromID(videoID string) string {
 	return "https://youtu.be/" + videoID
+}
+
+// DetailResponseFromDB builds DetailResponse from Database.
+func DetailResponseFromDB(prID int32, db *pr12er.Database) (*pr12er.GetDetailResponse, error) {
+	video, ok := db.GetPrIdToVideo()[prID]
+	if !ok {
+		return nil, err.ErrorPrIDNotFound{PrID: prID}
+	}
+
+	return &pr12er.GetDetailResponse{
+		Detail: &pr12er.Detail{
+			PrId:  prID,
+			Paper: video.GetPapers(),
+		},
+	}, nil
 }
