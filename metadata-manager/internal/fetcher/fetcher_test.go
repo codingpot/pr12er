@@ -1,12 +1,10 @@
-package cmd
+package fetcher
 
 import (
-	"encoding/json"
-	"fmt"
-	"log"
 	"testing"
 	"time"
 
+	"github.com/codingpot/paperswithcode-go/v2"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/types/known/timestamppb"
@@ -14,14 +12,11 @@ import (
 
 func TestFetchArxivPapersInfo(t *testing.T) {
 	arxivID := []string{"1505.07818"}
-	papers := fetchArxivPapersInfo(arxivID)
 
-	expectedType := "[]*pr12er.Paper"
-	if _, err := json.MarshalIndent(papers, "", "  "); err != nil {
-		log.Fatal(err)
-	}
-	actualType := fmt.Sprintf("%T", papers)
-	assert.Equal(t, expectedType, actualType)
+	c := New(paperswithcode_go.NewClient(), nil)
+	papers, err := c.fetchArxivPapersInfo(arxivID)
+	assert.NoError(t, err)
+	assert.Equal(t, 1, len(papers))
 }
 
 func TestFetchYouTubeVideoInfo(t *testing.T) {
@@ -35,7 +30,10 @@ func TestFetchYouTubeVideoInfo(t *testing.T) {
 		PublishedDate: timestamppb.New(ts),
 		Uploader:      "Sung Kim",
 	}
-	actualVideo := fetchYouTubeVideoInfo(youtubeID, "API_KEY")
+
+	c := New(paperswithcode_go.NewClient(), nil)
+	actualVideo, err := c.fetchYouTubeVideoInfo(youtubeID)
+	assert.NoError(t, err)
 
 	assert.Equal(t, expectedVideo.VideoId, actualVideo.VideoId)
 	assert.Equal(t, expectedVideo.VideoTitle, actualVideo.VideoTitle)
