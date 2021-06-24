@@ -1,0 +1,26 @@
+name: Generate Database
+
+on:
+  pull_request:
+    paths:
+      - "server/internal/data/mapping_table.pbtxt"
+  workflow_dispatch:
+jobs:
+  generate-database:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "1.16"
+      - run: (cd metadata-manager && go run main.go gen-meta)
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          MAPPING_FILE: "server/internal/data/mapping_table.pbtxt"
+          DATABASE_OUT_FILE: "server/internal/data/database.pbtxt"
+      - run: |
+          git config --global user.name '코딩냄비'
+          git config --global user.email 'kkweon@gmail.com'
+          git add server/internal/data/database.pbtxt
+          git commit -m 'chore: update database'
+          git push
