@@ -30,3 +30,4 @@ linters:
     - gomoddirectives
     - wrapcheck
     - funlen
+    - goimports # False positive with paperswithcode_go
