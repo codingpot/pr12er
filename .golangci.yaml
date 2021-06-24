@@ -27,3 +27,5 @@ linters:
     - scopelint
     - interfacer
     - maligned
+    - gomoddirectives
+    - wrapcheck

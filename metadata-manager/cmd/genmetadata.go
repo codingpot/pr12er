@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"context"
-	"errors"
 	"log"
 	"os"
 	"time"
@@ -27,10 +26,12 @@ var (
 	apiKey      string
 )
 
-// genMetaCmd represents the gen-meta command
+// genMetaCmd represents the gen-meta command.
 var genMetaCmd = &cobra.Command{
 	Use:   "gen-meta",
 	Short: "Generate database.pbtxt from the mapping_table.pbtxt",
+
+	// nolint:lll
 	Long: `Generate database.pbtxt. 
 Then, you can use it as a \server\internal\database.pbtxt
 
@@ -39,10 +40,11 @@ How to use:
 $ metadata-manager gen-meta --mapping-file mapping_table.pbtxt 
 $ metadata-manager gen-meta --mapping-file mapping_table.pbtxt --apikey <YouTubeDataAPIKey> # If you did not set environment variable "YOUTUBE_DATA_API_KEY"
 `,
-	Run: generateMetadata,
+	RunE: generateMetadata,
 }
 
 func frameworkToEnum(paperFramework string) pr12er.Framework {
+	//nolint: gocritic
 	if paperFramework == "tf" {
 		return pr12er.Framework_FRAMEWORK_TENSORFLOW
 	} else if paperFramework == "pytorch" {
@@ -54,9 +56,10 @@ func frameworkToEnum(paperFramework string) pr12er.Framework {
 }
 
 func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.Repository {
-	var pr12erRepos []*pr12er.Repository
-	for _, repo := range repositories {
-		repo := pr12er.Repository{
+	pr12erRepos := make([]*pr12er.Repository, len(repositories))
+
+	for idx, repo := range repositories {
+		pr12erRepos[idx] = &pr12er.Repository{
 			IsOfficial:    repo.IsOfficial,
 			Url:           repo.URL,
 			Owner:         "",
@@ -64,67 +67,65 @@ func transformRepositoriesForPaper(repositories []models.Repository) []*pr12er.R
 			NumberOfStars: int64(repo.Stars),
 			Description:   repo.Description,
 		}
-		pr12erRepos = append(pr12erRepos, &repo)
 	}
 	return pr12erRepos
 }
 
 func transformMethodsForPaper(methods []*models.Method) []*pr12er.Method {
-	var pr12erMethods []*pr12er.Method
-	for _, method := range methods {
-		pr12erMethod := pr12er.Method{
+	pr12erMethods := make([]*pr12er.Method, len(methods))
+	for idx, method := range methods {
+		pr12erMethods[idx] = &pr12er.Method{
 			Name:        method.Name,
 			FullName:    method.FullName,
 			Description: method.Description,
 		}
-		pr12erMethods = append(pr12erMethods, &pr12erMethod)
 	}
 	return pr12erMethods
 }
 
 var c = paperswithcode_go.NewClient()
 
-func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
+func fetchArxivPapersInfo(paperArxivIDs []string) []*pr12er.Paper {
 	var pr12erPapers []*pr12er.Paper
 
-	for _, ArxivId := range paperArxivIds {
+	for _, arxivID := range paperArxivIDs {
 		params := paperswithcode_go.PaperListParamsDefault()
-		params.ArxivID = ArxivId
+		params.ArxivID = arxivID
 		papers, err := c.PaperList(params)
-		if err != nil {
-			log.Printf("fail to Get paper of the Arxiv id %s\n", ArxivId)
+		if err != nil || papers == nil {
+			log.Printf("fail to Get paper of the Arxiv id %s\n", arxivID)
+			continue
 		}
 
 		if len(papers.Results) > 0 {
-			paperId := papers.Results[0].ID
+			paperID := papers.Results[0].ID
 
 			// reference: https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
-			repoList, err := c.PaperRepositoryList(paperId)
-			if err != nil {
-				log.Printf("fail to Get paper repositores of the paper id %s\n", paperId)
+			repoList, err := c.PaperRepositoryList(paperID)
+			if err != nil || repoList == nil {
+				log.Printf("fail to Get paper repositores of the paper id %s\n", paperID)
+				continue
 			}
 			repositories := transformRepositoriesForPaper(repoList.Results)
 
-			methodlist, err := c.PaperMethodList(paperId)
-			if err != nil {
-				log.Printf("fail to Get paper methods of the paper id %s\n", paperId)
+			methodlist, err := c.PaperMethodList(paperID)
+			if err != nil || methodlist == nil {
+				log.Printf("failed to get paper methods of the paper id %s\n", paperID)
+				continue
 			}
 			methods := transformMethodsForPaper(methodlist.Results)
 
 			// make paper
 			paper := &pr12er.Paper{
-				PaperId:  paperId,
+				PaperId:  paperID,
 				Title:    papers.Results[0].Title,
-				ArxivId:  ArxivId,
+				ArxivId:  arxivID,
 				Abstract: papers.Results[0].Abstract,
 				PubDate:  timestamppb.New(time.Time(papers.Results[0].Published)),
 			}
-			paper.Authors = make([]string, len(papers.Results[0].Authors))
-			paper.Repositories = make([]*pr12er.Repository, len(repositories))
-			paper.Methods = make([]*pr12er.Method, len(methods))
-			copy(paper.Authors, papers.Results[0].Authors)
-			copy(paper.Repositories, repositories)
-			copy(paper.Methods, methods)
+			paper.Authors = papers.Results[0].Authors
+			paper.Repositories = repositories
+			paper.Methods = methods
 
 			pr12erPapers = append(pr12erPapers, paper)
 		}
@@ -132,15 +133,14 @@ func fetchArxivPapersInfo(paperArxivIds []string) []*pr12er.Paper {
 	return pr12erPapers
 }
 
-func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
-
+func fetchYouTubeVideoInfo(videoID string) *pr12er.YouTubeVideo {
 	// api info: https://developers.google.com/youtube/v3/docs/videos/list
 	// using package: https://pkg.go.dev/google.golang.org/api/youtube/v3
 	// using API example: https://bit.ly/3dfFQPd
 
 	apiKey = os.Getenv("YOUTUBE_DATA_API_KEY")
 	if apiKey == "" {
-		log.Fatal(errors.New("no YouTube API Key"))
+		log.Panic("Environment variable YOUTUBE_DATA_API_KEY is expected")
 	}
 
 	ctx := context.Background()
@@ -150,7 +150,7 @@ func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 	}
 
 	part := []string{"contentDetails", "snippet", "statistics"}
-	call := youtubeService.Videos.List(part).Id(youTubeVideoId)
+	call := youtubeService.Videos.List(part).Id(videoID)
 	resp, err := call.Do()
 	if err != nil {
 		log.Fatalf("Error making API call for videos: %v", err.Error())
@@ -158,7 +158,7 @@ func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 
 	// make video information
 	youTubeVideo := pr12er.YouTubeVideo{}
-	youTubeVideo.VideoId = youTubeVideoId
+	youTubeVideo.VideoId = videoID
 	if len(resp.Items) > 0 {
 		youTubeVideo.VideoTitle = resp.Items[0].Snippet.Title
 
@@ -175,30 +175,24 @@ func fetchYouTubeVideoInfo(youTubeVideoId string) *pr12er.YouTubeVideo {
 	return &youTubeVideo
 }
 
-func fetchPrVideo(prRow pr12er.MappingTableRow) *pr12er.PrVideo {
-	prVideo := &pr12er.PrVideo{}
-
-	papers := fetchArxivPapersInfo(prRow.PaperArxivId)
-	prVideo.Papers = make([]*pr12er.Paper, len(papers))
-	copy(prVideo.Papers, papers)
-
-	prVideo.Video = fetchYouTubeVideoInfo(prRow.YoutubeVideoId)
-
-	return prVideo
+func fetchPrVideo(prRow *pr12er.MappingTableRow) *pr12er.PrVideo {
+	return &pr12er.PrVideo{
+		PrId:   prRow.GetPrId(),
+		Papers: fetchArxivPapersInfo(prRow.PaperArxivId),
+		Video:  fetchYouTubeVideoInfo(prRow.YoutubeVideoId),
+	}
 }
 
-func generateMetadata(cmd *cobra.Command, args []string) {
-	log.Println("gen-meta called", mappingFile)
-
-	//read file and unmarshal mapping file
+func generateMetadata(cmd *cobra.Command, args []string) error {
+	// read file and unmarshal mapping file
 	b, err := os.ReadFile(mappingFile)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
-	mappingTable := pr12er.MappingTable{}
+	var mappingTable pr12er.MappingTable
 	if err := prototext.Unmarshal(b, &mappingTable); err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	// loop and make Database
@@ -206,29 +200,25 @@ func generateMetadata(cmd *cobra.Command, args []string) {
 		PrIdToVideo: make(map[int32]*pr12er.PrVideo),
 	}
 	for _, prRow := range mappingTable.Rows {
-		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(*prRow)
+		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(prRow)
 	}
 
-	log.Println("made database completely")
+	bs, err := prototext.Marshal(database)
+	if err != nil {
+		return err
+	}
 	// save as a .pbtxt
-	b = []byte(prototext.Format(database.ProtoReflect().Interface()))
-	if err := os.WriteFile(defaultDatabaseFile, b, 0600); err != nil {
-		log.Fatal(err)
-	}
-
+	err = os.WriteFile(defaultDatabaseFile, bs, 0o600)
+	return err
 }
 
+// nolint: gochecknoinits
 func init() {
 	rootCmd.AddCommand(genMetaCmd)
 
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// genMetaCmd.PersistentFlags().String("foo", "", "A help for foo")
-	genMetaCmd.PersistentFlags().StringVarP(&mappingFile, "mapping-file", "f", defaultMappingFile, "A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// genMetaCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	genMetaCmd.PersistentFlags().StringVarP(&mappingFile,
+		"mapping-file",
+		"f",
+		defaultMappingFile,
+		"A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
 }

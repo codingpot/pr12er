@@ -13,34 +13,32 @@ import (
 )
 
 func TestFetchArxivPapersInfo(t *testing.T) {
-	paperArxivId := []string{"1505.07818"}
-	papers := fetchArxivPapersInfo(paperArxivId)
+	arxivID := []string{"1505.07818"}
+	papers := fetchArxivPapersInfo(arxivID)
 
 	expectedType := "[]*pr12er.Paper"
-	if b, err := json.MarshalIndent(papers, "", "  "); err != nil {
+	if _, err := json.MarshalIndent(papers, "", "  "); err != nil {
 		log.Fatal(err)
-	} else {
-		fmt.Println(string(b))
 	}
 	actualType := fmt.Sprintf("%T", papers)
 	assert.Equal(t, expectedType, actualType)
 }
 
 func TestFetchYouTubeVideoInfo(t *testing.T) {
-	youtubeId := "L3hz57whyNw"
+	t.Skip("TODO: Replace YOUTUBE API with a mock")
+	youtubeID := "L3hz57whyNw"
 
 	ts, _ := time.Parse(time.RFC3339, "2017-04-22T05:36:37Z")
 	expectedVideo := &pr12er.YouTubeVideo{
-		VideoId:       youtubeId,
+		VideoId:       youtubeID,
 		VideoTitle:    "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)",
 		PublishedDate: timestamppb.New(ts),
 		Uploader:      "Sung Kim",
 	}
-	actualVideo := fetchYouTubeVideoInfo(youtubeId)
+	actualVideo := fetchYouTubeVideoInfo(youtubeID)
 
 	assert.Equal(t, expectedVideo.VideoId, actualVideo.VideoId)
 	assert.Equal(t, expectedVideo.VideoTitle, actualVideo.VideoTitle)
 	assert.Equal(t, expectedVideo.PublishedDate, actualVideo.PublishedDate)
 	assert.Equal(t, expectedVideo.Uploader, actualVideo.Uploader)
-
 }
