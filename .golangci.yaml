@@ -29,3 +29,4 @@ linters:
     - maligned
     - gomoddirectives
     - wrapcheck
+    - funlen

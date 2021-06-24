@@ -22,6 +22,7 @@ const (
 	envNameYouTubeAPIKey   = "YOUTUBE_API_KEY"
 	envNameMappingFile     = "MAPPING_FILE"
 	envNameDatabaseOutFile = "DATABASE_OUT_FILE"
+	envNameWorkers         = "WORKERS"
 )
 
 // genMetaCmd represents the gen-meta command.
@@ -77,6 +78,7 @@ func fetchArxivPapersInfo(paperArxivIDs []string) []*pr12er.Paper {
 	var pr12erPapers []*pr12er.Paper
 
 	for _, arxivID := range paperArxivIDs {
+		log.WithField("arxivID", arxivID).Info("processing a paper")
 		params := paperswithcode_go.PaperListParamsDefault()
 		params.ArxivID = arxivID
 		papers, err := c.PaperList(params)
@@ -122,6 +124,7 @@ func fetchArxivPapersInfo(paperArxivIDs []string) []*pr12er.Paper {
 }
 
 func fetchYouTubeVideoInfo(videoID string, apiKey string) *pr12er.YouTubeVideo {
+	log.WithField("videoID", videoID).Info("fetching YouTube video info")
 	// api info: https://developers.google.com/youtube/v3/docs/videos/list
 	// using package: https://pkg.go.dev/google.golang.org/api/youtube/v3
 	// using API example: https://bit.ly/3dfFQPd
@@ -169,11 +172,13 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 	apiKey := viper.GetString(envNameYouTubeAPIKey)
 	mappingFile := viper.GetString(envNameMappingFile)
 	databaseOutFile := viper.GetString(envNameDatabaseOutFile)
+	workers := viper.GetInt(envNameWorkers)
 
 	log.WithFields(log.Fields{
 		envNameMappingFile:     mappingFile,
 		envNameYouTubeAPIKey:   apiKey,
 		envNameDatabaseOutFile: databaseOutFile,
+		envNameWorkers:         workers,
 	}).WithField(envNameYouTubeAPIKey, apiKey).Info("bind variables")
 
 	// read file and unmarshal mapping file
@@ -191,11 +196,35 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 	database := &pr12er.Database{
 		PrIdToVideo: make(map[int32]*pr12er.PrVideo),
 	}
-	for _, prRow := range mappingTable.Rows {
-		database.PrIdToVideo[prRow.PrId] = fetchPrVideo(prRow, apiKey)
+
+	in := make(chan *pr12er.MappingTableRow, len(mappingTable.GetRows()))
+	out := make(chan *pr12er.PrVideo, len(mappingTable.GetRows()))
+
+	for w := 0; w < workers; w++ {
+		go func(id int, in <-chan *pr12er.MappingTableRow, out chan<- *pr12er.PrVideo) {
+			for row := range in {
+				out <- fetchPrVideo(row, apiKey)
+			}
+		}(w, in, out)
 	}
 
-	bs, err := prototext.Marshal(database)
+	for _, prRow := range mappingTable.GetRows() {
+		in <- prRow
+	}
+
+	close(in)
+
+	for range mappingTable.GetRows() {
+		prVideo := <-out
+		database.PrIdToVideo[prVideo.GetPrId()] = prVideo
+	}
+
+	close(out)
+
+	bs, err := prototext.MarshalOptions{
+		Multiline: true,
+		Indent:    "  ",
+	}.Marshal(database)
 	if err != nil {
 		return err
 	}
@@ -227,4 +256,7 @@ func init() {
 			"../server/internal/data/database.pbtxt",
 			"Filepath to write database.pbtxt")
 	_ = viper.BindPFlag(envNameDatabaseOutFile, genMetaCmd.PersistentFlags().Lookup("database-out-file"))
+
+	genMetaCmd.PersistentFlags().Int("workers", 10, "The number of workers to use for fetching")
+	_ = viper.BindPFlag(envNameWorkers, genMetaCmd.PersistentFlags().Lookup("workers"))
 }
