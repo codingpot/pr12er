@@ -35,7 +35,7 @@ func TestFetchYouTubeVideoInfo(t *testing.T) {
 		PublishedDate: timestamppb.New(ts),
 		Uploader:      "Sung Kim",
 	}
-	actualVideo := fetchYouTubeVideoInfo(youtubeID)
+	actualVideo := fetchYouTubeVideoInfo(youtubeID, "API_KEY")
 
 	assert.Equal(t, expectedVideo.VideoId, actualVideo.VideoId)
 	assert.Equal(t, expectedVideo.VideoTitle, actualVideo.VideoTitle)
