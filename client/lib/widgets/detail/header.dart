@@ -2,16 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
-// ignore: must_be_immutable
 class HeaderWidget extends StatelessWidget {
-  // this is a placeholder
-  // didILIkedIt should be replaced in the next future PR
-  // after defining user related information
-  bool didILikedIt = false;
+  final Video video;
 
-  late Video video;
-
-  HeaderWidget({Key? key, required this.video}) : super(key: key);
+  const HeaderWidget({Key? key, required this.video}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +25,6 @@ class HeaderWidget extends StatelessWidget {
   }
 
   Widget getLikeIcon() {
-    if (didILikedIt) {
-      return const Icon(Icons.thumb_up_alt);
-    }
     return const Icon(Icons.thumb_up_alt_outlined);
   }
 

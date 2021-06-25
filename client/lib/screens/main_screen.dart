@@ -75,11 +75,11 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class PRVideos extends StatelessWidget {
-  late VideoSearchDelegate videoSearchDelegate;
+  final VideoSearchDelegate videoSearchDelegate;
 
-  PRVideos({Key? key, required this.videoSearchDelegate}) : super(key: key);
+  const PRVideos({Key? key, required this.videoSearchDelegate})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -90,13 +90,17 @@ class PRVideos extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
 
-          videoSearchDelegate.dataRef = snapshot.data!;
+          final cleanList = snapshot.data!
+              .where((video) => video.hasTitle() && video.hasLink())
+              .toList();
+
+          videoSearchDelegate.dataRef = cleanList;
 
           return ListView.builder(
               padding: const EdgeInsets.all(8),
-              itemCount: snapshot.data!.length,
+              itemCount: cleanList.length,
               itemBuilder: (BuildContext context, int index) =>
-                  PR12Video(index: index, video: snapshot.data![index]));
+                  PR12Video(index: index, video: cleanList[index]));
         });
   }
 }

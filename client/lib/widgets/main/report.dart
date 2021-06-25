@@ -12,7 +12,7 @@ class ReportWidget extends StatefulWidget {
 
 class _ReportWidgetState extends State<ReportWidget> {
   final _reportTextFieldController = TextEditingController();
-  String reportCateogry = reportPreset[0];
+  String reportCategory = reportPreset[0];
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +38,11 @@ class _ReportWidgetState extends State<ReportWidget> {
       Container(
         padding: const EdgeInsets.only(left: 20, right: 20),
         child: DropdownButton(
-          value: reportCateogry,
+          value: reportCategory,
           isExpanded: true,
           onChanged: (String? newValue) {
             setState(() {
-              reportCateogry = newValue!;
+              reportCategory = newValue!;
             });
           },
           underline: Container(

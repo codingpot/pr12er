@@ -57,6 +57,9 @@ gen.all: ## generate all
 .PHONY: test
 test: test.go test.dart ## test go and dart files
 
+.PHONY: format
+format: format.dart format.go ## format Go and Dart Files
+
 .PHONY: test.dart
 test.dart: $(DART_MOCK_TARGETS) ## test dart files
 	cd client && flutter analyze && flutter test
