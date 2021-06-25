@@ -54,14 +54,14 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 			methods := transform.Methods(methodList.Results)
 
 			pr12erPapers = append(pr12erPapers, &pr12er.Paper{
-				PaperId:      paperID,
-				Title:        paper.Title,
-				ArxivId:      arxivID,
-				Abstract:     lineEndingRegexp.ReplaceAllString(paper.Abstract, " "),
+				PaperId:       paperID,
+				Title:         paper.Title,
+				ArxivId:       arxivID,
+				Abstract:      lineEndingRegexp.ReplaceAllString(paper.Abstract, " "),
 				PublishedDate: timestamppb.New(time.Time(papers.Results[0].Published)),
-				Authors:      paper.Authors,
-				Repositories: repositories,
-				Methods:      methods,
+				Authors:       paper.Authors,
+				Repositories:  repositories,
+				Methods:       methods,
 			})
 		}
 	}
