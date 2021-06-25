@@ -3,8 +3,10 @@ package handlers
 import (
 	"testing"
 
+	"github.com/codingpot/pr12er/server/internal/data"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/google/go-cmp/cmp"
+	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/testing/protocmp"
 )
 
@@ -82,6 +84,74 @@ func TestConvertToGet(t *testing.T) {
 			got := VideosResponseFromDB(tt.args.db)
 			if got := cmp.Diff(tt.want, got, protocmp.Transform()); got != "" {
 				t.Error(got)
+			}
+		})
+	}
+}
+
+func TestDetailResponseFromDB(t *testing.T) {
+	type args struct {
+		prID int32
+		db   *pr12er.Database
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    *pr12er.GetDetailResponse
+		wantErr bool
+	}{
+		{
+			name: "Returns a correct GetDetailResponse",
+			args: args{
+				prID: 1,
+				db:   &data.DB,
+			},
+			want: &pr12er.GetDetailResponse{Detail: &pr12er.Detail{
+				PrId: 1,
+				Paper: []*pr12er.Paper{
+					{
+						PaperId:  "generative-adversarial-networks",
+						Title:    "Generative Adversarial Networks",
+						ArxivId:  "1406.2661",
+						Abstract: "We propose a new framework for",
+						Authors: []string{
+							"Ian J. Goodfellow", "Jean Pouget-Abadie", "Mehdi Mirza", "Bing Xu",
+							"David Warde-Farley", "Sherjil Ozair", "Aaron Courville", "Yoshua Bengio",
+						},
+						Repositories: nil,
+						Methods: []*pr12er.Method{
+							{Name: "GAN", FullName: "Generative Adversarial Network"},
+							{Name: "Convolution", FullName: "Convolution"},
+						},
+					},
+				},
+			}},
+			wantErr: false,
+		},
+		{
+			name: "Returns an error when no PR is found",
+			args: args{
+				prID: 0,
+				db:   nil,
+			},
+			want:    nil,
+			wantErr: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := DetailResponseFromDB(tt.args.prID, tt.args.db)
+			if tt.wantErr {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+			}
+
+			if diff := cmp.Diff(tt.want, got,
+				protocmp.IgnoreFields(&pr12er.Method{}, "description"),
+				protocmp.IgnoreFields(&pr12er.Paper{}, "abstract", "pub_date", "repositories"),
+				protocmp.Transform()); diff != "" {
+				t.Error(diff)
 			}
 		})
 	}
