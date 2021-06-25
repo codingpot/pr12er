@@ -18,11 +18,19 @@ class _YouTubeWidgetState extends State<YoutubeWidget> {
   void initState() {
     super.initState();
 
-    _controller = YoutubePlayerController(initialVideoId: widget.youtubeId);
+    _controller = YoutubePlayerController(
+      initialVideoId: widget.youtubeId,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayer(controller: _controller);
+    // YoutubePlayerBuilder is needed for full screen support.
+    return YoutubePlayerBuilder(
+        player: YoutubePlayer(
+          controller: _controller,
+          showVideoProgressIndicator: true,
+        ),
+        builder: (context, player) => Expanded(child: player));
   }
 }

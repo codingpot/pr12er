@@ -18,7 +18,9 @@ class _YouTubeWidgetState extends State<YoutubeWidget> {
   void initState() {
     super.initState();
 
-    _controller = YoutubePlayerController(initialVideoId: widget.youtubeId);
+    _controller = YoutubePlayerController(
+        initialVideoId: widget.youtubeId,
+        params: const YoutubePlayerParams(showFullscreenButton: true));
   }
 
   @override
