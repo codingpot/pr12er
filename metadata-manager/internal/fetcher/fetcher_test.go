@@ -1,13 +1,17 @@
 package fetcher
 
 import (
+	"context"
+	"os"
 	"testing"
-	"time"
 
 	"github.com/codingpot/paperswithcode-go/v2"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/assert"
-	"google.golang.org/protobuf/types/known/timestamppb"
+	"google.golang.org/api/option"
+	"google.golang.org/api/youtube/v3"
+	"google.golang.org/protobuf/testing/protocmp"
 )
 
 func TestFetchArxivPapersInfo(t *testing.T) {
@@ -19,24 +23,63 @@ func TestFetchArxivPapersInfo(t *testing.T) {
 	assert.Equal(t, 1, len(papers))
 }
 
-func TestFetchYouTubeVideoInfo(t *testing.T) {
-	t.Skip("TODO: Replace YOUTUBE API with a mock")
-	youtubeID := "L3hz57whyNw"
-
-	ts, _ := time.Parse(time.RFC3339, "2017-04-22T05:36:37Z")
-	expectedVideo := &pr12er.YouTubeVideo{
-		VideoId:       youtubeID,
-		VideoTitle:    "PR-001: Generative adversarial nets by Jaejun Yoo (2017/4/13)",
-		PublishedDate: timestamppb.New(ts),
-		Uploader:      "Sung Kim",
+func TestFetcher_FetchMultipleYouTubeVideoIDs(t *testing.T) {
+	t.SkipNow()
+	type args struct {
+		videoIDs []string
 	}
 
-	c := New(paperswithcode_go.NewClient(), nil)
-	actualVideo, err := c.fetchYouTubeVideoInfo(youtubeID)
-	assert.NoError(t, err)
+	tests := []struct {
+		name    string
+		args    args
+		want    []*pr12er.YouTubeVideo
+		wantErr bool
+	}{
+		{
+			name: "Returns multiple vidoes",
+			args: args{
+				videoIDs: []string{
+					"iQVvhLxGAt8",
+					"Kgh88DLHHTo",
+				},
+			},
+			want: []*pr12er.YouTubeVideo{
+				{
+					VideoId:    "iQVvhLxGAt8",
+					VideoTitle: "PR-326: VICReg: Variance-Invariance-Covariance Regularization for Self-Supervised Learning",
+					Uploader:   "만끽 MaanGeek",
+				},
+				{
+					VideoId:    "Kgh88DLHHTo",
+					VideoTitle: "PR-325: Pixel-BERT: Aligning Image Pixels with Text by Deep Multi-Modal Transformers",
+					Uploader:   "Sunghoon Joo",
+				},
+			},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			youtubeService, _ := youtube.NewService(context.Background(),
+				option.WithAPIKey(os.Getenv("YOUTUBE_API_KEY")))
 
-	assert.Equal(t, expectedVideo.VideoId, actualVideo.VideoId)
-	assert.Equal(t, expectedVideo.VideoTitle, actualVideo.VideoTitle)
-	assert.Equal(t, expectedVideo.PublishedDate, actualVideo.PublishedDate)
-	assert.Equal(t, expectedVideo.Uploader, actualVideo.Uploader)
+			f := &Fetcher{
+				client:         paperswithcode_go.NewClient(),
+				youtubeService: youtubeService,
+			}
+			got, err := f.FetchMultiYouTubeVideoByIDs(tt.args.videoIDs)
+
+			if tt.wantErr {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+				if diff := cmp.Diff(tt.want, got,
+					protocmp.IgnoreFields(&pr12er.YouTubeVideo{},
+						"number_of_likes", "number_of_views", "published_date"),
+					protocmp.Transform()); diff != "" {
+					t.Error(diff)
+				}
+			}
+		})
+	}
 }

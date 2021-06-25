@@ -2,12 +2,13 @@
 package fetcher
 
 import (
+	"context"
 	"time"
 
 	"github.com/codingpot/paperswithcode-go/v2"
 	"github.com/codingpot/pr12er/metadata-manager/internal/transform"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
-	"github.com/sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"google.golang.org/api/youtube/v3"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
@@ -25,7 +26,7 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 	var pr12erPapers []*pr12er.Paper
 
 	for _, arxivID := range paperArxivIDs {
-		logrus.WithField("arxivID", arxivID).Info("processing a paper")
+		log.WithField("arxivID", arxivID).Info("processing a paper")
 		params := paperswithcode_go.PaperListParamsDefault()
 		params.ArxivID = arxivID
 		papers, err := f.client.PaperList(params)
@@ -68,42 +69,88 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 	return pr12erPapers, nil
 }
 
-func (f *Fetcher) fetchYouTubeVideoInfo(videoID string) (*pr12er.YouTubeVideo, error) {
-	logrus.WithField("videoID", videoID).Info("fetching YouTube video info")
-
-	part := []string{"contentDetails", "snippet", "statistics"}
-	call := f.youtubeService.Videos.List(part).Id(videoID)
-	resp, err := call.Do()
-	if err != nil {
-		return nil, err
+// FetchYouTubeVideos fetches YouTubeVideo and returns a map[PR-ID]Video.
+// Because we can't send 200+ IDs requests at once, we use a wrapper function to split by batchSize.
+// We need to return the map so that it can plug back to the correct PR video.
+func (f *Fetcher) FetchYouTubeVideos(videoIDToPr map[string]int32, batchSize int) (map[int32]*pr12er.YouTubeVideo, error) {
+	videoIDs := make([]string, len(videoIDToPr))
+	i := 0
+	for videoID := range videoIDToPr {
+		videoIDs[i] = videoID
+		i++
 	}
 
-	// make video information
-	youTubeVideo := pr12er.YouTubeVideo{}
-	youTubeVideo.VideoId = videoID
-	if len(resp.Items) > 0 {
-		youTubeVideo.VideoTitle = resp.Items[0].Snippet.Title
+	ret := make(map[int32]*pr12er.YouTubeVideo)
 
-		ts, err := time.Parse(time.RFC3339, resp.Items[0].Snippet.PublishedAt)
+	for i := 0; i < len(videoIDs); i += batchSize {
+		end := i + batchSize
+		if len(videoIDs) < end {
+			end = len(videoIDs)
+		}
+
+		// Get the batch response.
+		videos, err := f.FetchMultiYouTubeVideoByIDs(videoIDs[i:end])
 		if err != nil {
 			return nil, err
 		}
-		youTubeVideo.PublishedDate = timestamppb.New(ts)
-		youTubeVideo.NumberOfLikes = int64(resp.Items[0].Statistics.LikeCount)
-		youTubeVideo.NumberOfViews = int64(resp.Items[0].Statistics.ViewCount)
-		youTubeVideo.Uploader = resp.Items[0].Snippet.ChannelTitle
+
+		for _, video := range videos {
+			prID := videoIDToPr[video.GetVideoId()]
+			ret[prID] = video
+		}
 	}
 
-	return &youTubeVideo, nil
+	return ret, nil
 }
 
-// FetchPrVideo fetches YouTubeVideo and Papers information.
-func (f *Fetcher) FetchPrVideo(prRow *pr12er.MappingTableRow) (*pr12er.PrVideo, error) {
-	video, err := f.fetchYouTubeVideoInfo(prRow.YoutubeVideoId)
+// FetchMultiYouTubeVideoByIDs is a low level function that returns videos by its IDs.
+// If there is a next page token, it will iterate each page.
+func (f *Fetcher) FetchMultiYouTubeVideoByIDs(videoIDs []string) ([]*pr12er.YouTubeVideo, error) {
+	log.WithField("videoIDs", videoIDs).Info("fetching YouTube")
+
+	part := []string{"contentDetails", "snippet", "statistics"}
+
+	var ret []*pr12er.YouTubeVideo
+	err := f.youtubeService.Videos.List(part).Id(videoIDs...).
+		Pages(context.Background(), func(response *youtube.VideoListResponse) error {
+			videos, err := handleResponse(response)
+			if err != nil {
+				return err
+			}
+			ret = append(ret, videos...)
+			return nil
+		})
 	if err != nil {
 		return nil, err
 	}
 
+	return ret, nil
+}
+
+func handleResponse(resp *youtube.VideoListResponse) ([]*pr12er.YouTubeVideo, error) {
+	ret := make([]*pr12er.YouTubeVideo, len(resp.Items))
+
+	for i, item := range resp.Items {
+		ts, err := time.Parse(time.RFC3339, item.Snippet.PublishedAt)
+		if err != nil {
+			return nil, err
+		}
+
+		ret[i] = &pr12er.YouTubeVideo{
+			VideoId:       item.Id,
+			VideoTitle:    item.Snippet.Title,
+			NumberOfLikes: int64(item.Statistics.LikeCount),
+			NumberOfViews: int64(item.Statistics.ViewCount),
+			PublishedDate: timestamppb.New(ts),
+			Uploader:      item.Snippet.ChannelTitle,
+		}
+	}
+
+	return ret, nil
+}
+
+// FetchOnlyPapers fetches papers without video information.
+func (f *Fetcher) FetchOnlyPapers(prRow *pr12er.MappingTableRow) (*pr12er.PrVideo, error) {
 	papers, err := f.fetchArxivPapersInfo(prRow.PaperArxivId)
 	if err != nil {
 		return nil, err
@@ -112,6 +159,5 @@ func (f *Fetcher) FetchPrVideo(prRow *pr12er.MappingTableRow) (*pr12er.PrVideo, 
 	return &pr12er.PrVideo{
 		PrId:   prRow.GetPrId(),
 		Papers: papers,
-		Video:  video,
 	}, nil
 }

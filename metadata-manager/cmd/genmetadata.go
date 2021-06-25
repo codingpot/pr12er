@@ -29,7 +29,6 @@ var genMetaCmd = &cobra.Command{
 	RunE:  generateMetadata,
 }
 
-//nolint:funlen
 func generateMetadata(cmd *cobra.Command, args []string) error {
 	apiKey := viper.GetString(envNameYouTubeAPIKey)
 	mappingFile := viper.GetString(envNameMappingFile)
@@ -54,19 +53,78 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 		PrIdToVideo: make(map[int32]*pr12er.PrVideo),
 	}
 
-	youtubeService, err := youtube.NewService(context.Background(), option.WithAPIKey(apiKey))
+	client, err := fetcherClient(apiKey)
 	if err != nil {
 		return err
 	}
-	client := fetcher.New(paperswithcode_go.NewClient(), youtubeService)
 
 	in := make(chan *pr12er.MappingTableRow, len(mappingTable.GetRows()))
 	out := make(chan *pr12er.PrVideo, len(mappingTable.GetRows()))
 
+	startWorkers(workers, client, in, out)
+	// required for multi youtube video fetching.
+	videoIDToPrMap := beginTheJobAndPrepareVideoMap(mappingTable, in)
+
+	close(in)
+
+	waitUntilDatabaseUpdate(mappingTable, out, database)
+
+	close(out)
+
+	updateDatabaseWithYouTubeMetadata(client, videoIDToPrMap, database)
+
+	return io.DumpDatabase(database, databaseOutFile)
+}
+
+func fetcherClient(apiKey string) (*fetcher.Fetcher, error) {
+	youtubeService, err := youtube.NewService(context.Background(), option.WithAPIKey(apiKey))
+	if err != nil {
+		return nil, err
+	}
+	client := fetcher.New(paperswithcode_go.NewClient(), youtubeService)
+	return client, nil
+}
+
+func updateDatabaseWithYouTubeMetadata(client *fetcher.Fetcher, videoIDToPrMap map[string]int32, database *pr12er.Database) {
+	videos, err := client.FetchYouTubeVideos(videoIDToPrMap /*batchSize=*/, 50)
+	if err != nil {
+		log.WithError(err).Panic("failed to fetch multi YT videos")
+	}
+
+	for prID, video := range videos {
+		database.GetPrIdToVideo()[prID].Video = video
+	}
+}
+
+func waitUntilDatabaseUpdate(mappingTable *pr12er.MappingTable, out chan *pr12er.PrVideo, database *pr12er.Database) {
+	for range mappingTable.GetRows() {
+		prVideo := <-out
+
+		if prVideo != nil {
+			database.PrIdToVideo[prVideo.GetPrId()] = prVideo
+		}
+	}
+}
+
+func beginTheJobAndPrepareVideoMap(mappingTable *pr12er.MappingTable, in chan *pr12er.MappingTableRow) map[string]int32 {
+	videoIDToPrMap := make(map[string]int32)
+	for _, prRow := range mappingTable.GetRows() {
+		in <- prRow
+
+		if prRow.GetYoutubeVideoId() != "" {
+			videoIDToPrMap[prRow.GetYoutubeVideoId()] = prRow.GetPrId()
+		}
+	}
+	return videoIDToPrMap
+}
+
+func startWorkers(workers int, client *fetcher.Fetcher, in chan *pr12er.MappingTableRow, out chan *pr12er.PrVideo) {
 	for w := 0; w < workers; w++ {
 		go func(id int, in <-chan *pr12er.MappingTableRow, out chan<- *pr12er.PrVideo) {
 			for row := range in {
-				prVideo, err := client.FetchPrVideo(row)
+				// only get papers information
+				// we will run youtube multi fetch later
+				prVideo, err := client.FetchOnlyPapers(row)
 				if err != nil {
 					log.WithError(err).Warn("FetchPrVideo has failed")
 					// don't block so it still sends nil to out
@@ -75,24 +133,6 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 			}
 		}(w, in, out)
 	}
-
-	for _, prRow := range mappingTable.GetRows() {
-		in <- prRow
-	}
-
-	close(in)
-
-	for range mappingTable.GetRows() {
-		prVideo := <-out
-
-		if prVideo != nil {
-			database.PrIdToVideo[prVideo.GetPrId()] = prVideo
-		}
-	}
-
-	close(out)
-
-	return io.DumpDatabase(database, databaseOutFile)
 }
 
 // nolint: gochecknoinits
