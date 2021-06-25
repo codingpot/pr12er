@@ -23,13 +23,13 @@ const MappingTableRow$json = const {
   '1': 'MappingTableRow',
   '2': const [
     const {'1': 'pr_id', '3': 1, '4': 1, '5': 5, '10': 'prId'},
-    const {'1': 'paper_arxiv_id', '3': 2, '4': 3, '5': 9, '10': 'paperArxivId'},
+    const {'1': 'paper_arxiv_ids', '3': 2, '4': 3, '5': 9, '10': 'paperArxivIds'},
     const {'1': 'youtube_video_id', '3': 3, '4': 1, '5': 9, '10': 'youtubeVideoId'},
   ],
 };
 
 /// Descriptor for `MappingTableRow`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List mappingTableRowDescriptor = $convert.base64Decode('Cg9NYXBwaW5nVGFibGVSb3cSEwoFcHJfaWQYASABKAVSBHBySWQSJAoOcGFwZXJfYXJ4aXZfaWQYAiADKAlSDHBhcGVyQXJ4aXZJZBIoChB5b3V0dWJlX3ZpZGVvX2lkGAMgASgJUg55b3V0dWJlVmlkZW9JZA==');
+final $typed_data.Uint8List mappingTableRowDescriptor = $convert.base64Decode('Cg9NYXBwaW5nVGFibGVSb3cSEwoFcHJfaWQYASABKAVSBHBySWQSJgoPcGFwZXJfYXJ4aXZfaWRzGAIgAygJUg1wYXBlckFyeGl2SWRzEigKEHlvdXR1YmVfdmlkZW9faWQYAyABKAlSDnlvdXR1YmVWaWRlb0lk');
 @$core.Deprecated('Use databaseDescriptor instead')
 const Database$json = const {
   '1': 'Database',

@@ -12,7 +12,7 @@ message MappingTable {
 
 message MappingTableRow {
   int32 pr_id = 1;
-  repeated string paper_arxiv_id = 2;
+  repeated string paper_arxiv_ids = 2;
   string youtube_video_id = 3;
 }
 

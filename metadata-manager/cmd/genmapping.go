@@ -65,7 +65,7 @@ var genmappingCmd = &cobra.Command{
 
 					table.Rows = append(table.Rows, &pr12er.MappingTableRow{
 						PrId:           prID,
-						PaperArxivId:   paperIDs,
+						PaperArxivIds:  paperIDs,
 						YoutubeVideoId: item.ContentDetails.VideoId,
 					})
 				}

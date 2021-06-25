@@ -73,7 +73,7 @@ func TestServer_GetDetail(t *testing.T) {
 			} else {
 				assert.NoError(t, err)
 				assert.Equal(t, tt.want.GetDetail().GetPrId(), got.GetDetail().GetPrId())
-				assert.Greater(t, len(got.GetDetail().GetPaper()), 0)
+				assert.Greater(t, len(got.GetDetail().GetPapers()), 0)
 			}
 		})
 	}

@@ -63,8 +63,8 @@ func DetailResponseFromDB(prID int32, db *pr12er.Database) (*pr12er.GetDetailRes
 
 	return &pr12er.GetDetailResponse{
 		Detail: &pr12er.Detail{
-			PrId:  prID,
-			Paper: video.GetPapers(),
+			PrId:   prID,
+			Papers: video.GetPapers(),
 		},
 	}, nil
 }

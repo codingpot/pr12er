@@ -68,13 +68,13 @@ class DetailScreen extends StatelessWidget {
 
                             return Column(children: [
                               PaperAbstractWidget(
-                                  paper: snapshot.data!.paper[0]),
+                                  paper: snapshot.data!.papers[0]),
                               const SizedBox(height: 15),
                               RecommentationWidget(detail: snapshot.data!),
                               const SizedBox(height: 15),
                               RepositoryWidget(
                                 repositories:
-                                    snapshot.data!.paper[0].repositories,
+                                    snapshot.data!.papers[0].repositories,
                               )
                             ]);
                           },
@@ -98,15 +98,15 @@ class DetailScreen extends StatelessWidget {
 
           if (detail != null) {
             message.writeln('\nPaper');
-            message.writeln('\t- title: ${detail!.paper[0].title}');
+            message.writeln('\t- title: ${detail!.papers[0].title}');
             message.writeln(
-                '\t- link: https://arxiv.org/abs/${detail!.paper[0].arxivId}');
+                '\t- link: https://arxiv.org/abs/${detail!.papers[0].arxivId}');
 
             message.writeln('abstract');
-            message.writeln('\t- ${detail!.paper[0].abstract}');
+            message.writeln('\t- ${detail!.papers[0].abstract}');
 
             message.writeln('repositories');
-            for (final repo in detail!.paper[0].repositories) {
+            for (final repo in detail!.papers[0].repositories) {
               message.writeln('\t- ${repo.owner}: ${repo.url}');
             }
 

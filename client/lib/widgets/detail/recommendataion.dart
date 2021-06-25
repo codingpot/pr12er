@@ -38,7 +38,7 @@ class RecommentationWidget extends StatelessWidget {
         child: ListTile(
             title: Text(paper.title),
             subtitle: Text(
-                "${paper.authors[0]}  |  ${DateFormat.yMd().format(paper.pubDate.toDateTime())}")));
+                "${paper.authors[0]}  |  ${DateFormat.yMd().format(paper.publishedDate.toDateTime())}")));
   }
 
   List<Paper> getReferencePapers(Detail detail) {
