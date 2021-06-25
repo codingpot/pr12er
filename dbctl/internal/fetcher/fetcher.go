@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/codingpot/paperswithcode-go/v2"
-	"github.com/codingpot/pr12er/metadata-manager/internal/transform"
+	"github.com/codingpot/pr12er/dbctl/internal/transform"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/api/youtube/v3"

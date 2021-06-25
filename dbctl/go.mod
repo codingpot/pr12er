@@ -1,4 +1,4 @@
-module github.com/codingpot/pr12er/metadata-manager
+module github.com/codingpot/pr12er/dbctl
 
 go 1.16
 
