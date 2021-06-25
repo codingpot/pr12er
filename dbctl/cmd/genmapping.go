@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/codingpot/pr12er/metadata-manager/internal/transform"
+	"github.com/codingpot/pr12er/dbctl/internal/transform"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	googlesearch "github.com/rocketlaunchr/google-search"
 	log "github.com/sirupsen/logrus"

@@ -4,8 +4,8 @@ import (
 	"context"
 
 	paperswithcode_go "github.com/codingpot/paperswithcode-go/v2"
-	"github.com/codingpot/pr12er/metadata-manager/internal/fetcher"
-	"github.com/codingpot/pr12er/metadata-manager/internal/io"
+	"github.com/codingpot/pr12er/dbctl/internal/fetcher"
+	"github.com/codingpot/pr12er/dbctl/internal/io"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

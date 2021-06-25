@@ -50,11 +50,11 @@ jobs:
       - run: go build -o client cmd/client/main.go
       - run: bash <(curl -s https://codecov.io/bash) -F server
 
-  metadata-manager-build:
+  dbctl-build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: metadata-manager
+        working-directory: dbctl
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
@@ -62,10 +62,10 @@ jobs:
           go-version: "1.16"
       - uses: golangci/golangci-lint-action@v2
         with:
-          working-directory: metadata-manager
+          working-directory: dbctl
       - run: go test -v --race -coverprofile=coverage.txt -covermode=atomic ./...
       - run: go build main.go
-      - run: bash <(curl -s https://codecov.io/bash) -F metadata-manager
+      - run: bash <(curl -s https://codecov.io/bash) -F dbctl
 
   deploy-to-okteto:
     runs-on: ubuntu-latest

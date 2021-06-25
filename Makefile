@@ -76,19 +76,19 @@ format.dart: ## format dart files
 .PHONY: test.go
 test.go: lint.go ## test go files
 	cd server && go test ./...
-	cd metadata-manager && go test ./...
+	cd dbctl && go test ./...
 
 .PHONY: format.go
 format.go: ## format go files
 	cd server && gci -w . && gofumpt -w -s . && go mod tidy
 	# regenerate as generated files should not be edited.
 	make gen.all
-	cd metadata-manager && gci -w . && gofumpt -w -s . && go mod tidy
+	cd dbctl && gci -w . && gofumpt -w -s . && go mod tidy
 
 .PHONY: lint.go
 lint.go: ## lint go files
 	cd server && golangci-lint run
-	cd metadata-manager && golangci-lint run
+	cd dbctl && golangci-lint run
 
 .PHONY: clean
 clean: ## clean up proto generated files and mocks
