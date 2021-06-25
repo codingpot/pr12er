@@ -4432,7 +4432,7 @@ pr_id_to_video: {
         url: "https://github.com/CompVis/taming-transformers"
         owner: "CompVis"
         framework: FRAMEWORK_PYTORCH
-        number_of_stars: 1455
+        number_of_stars: 1457
         description: "Taming Transformers for High-Resolution Image Synthesis"
       }
       repositories: {
@@ -5095,7 +5095,7 @@ pr_id_to_video: {
       video_id: "iCgT8G4PkqI"
       video_title: "PR-051: Conditional Generative Adversarial Nets"
       number_of_likes: 24
-      number_of_views: 3459
+      number_of_views: 3460
       published_date: {
         seconds: 1512310569
       }
@@ -15635,6 +15635,16 @@ pr_id_to_video: {
         description: "Repo for my Master Thesis at ULiège in 2019 (Machine learning under resource constraints)"
       }
     }
+    video: {
+      video_id: "vUNAJsO2G98"
+      video_title: "PR-187 : MorphNet: Fast & Simple Resource-Constrained Structure Learning of Deep Networks"
+      number_of_likes: 4
+      number_of_views: 509
+      published_date: {
+        seconds: 1565712056
+      }
+      uploader: "Sunghoon Joo"
+    }
   }
 }
 pr_id_to_video: {
@@ -15658,16 +15668,6 @@ pr_id_to_video: {
         full_name: "Model-Agnostic Meta-Learning"
         description: "**MAML**, or **Model-Agnostic Meta-Learning**, is a model and task-agnostic algorithm for meta-learning that trains a model’s parameters such that a small number of gradient updates will lead to fast learning on a new task.\r\n\r\nConsider a model represented by a parametrized function $f\\_{\\theta}$ with parameters $\\theta$. When adapting to a new task $\\mathcal{T}\\_{i}$, the model’s parameters $\\theta$ become $\\theta'\\_{i}$. With MAML, the updated parameter vector $\\theta'\\_{i}$ is computed using one or more gradient descent updates on task $\\mathcal{T}\\_{i}$. For example, when using one gradient update,\r\n\r\n$$ \\theta'\\_{i} = \\theta - \\alpha\\nabla\\_{\\theta}\\mathcal{L}\\_{\\mathcal{T}\\_{i}}\\left(f\\_{\\theta}\\right) $$\r\n\r\nThe step size $\\alpha$ may be fixed as a hyperparameter or metalearned. The model parameters are trained by optimizing for the performance of $f\\_{\\theta'\\_{i}}$ with respect to $\\theta$ across tasks sampled from $p\\left(\\mathcal{T}\\_{i}\\right)$. More concretely the meta-objective is as follows:\r\n\r\n$$ \\min\\_{\\theta} \\sum\\_{\\mathcal{T}\\_{i} \\sim p\\left(\\mathcal{T}\\right)} \\mathcal{L}\\_{\\mathcal{T\\_{i}}}\\left(f\\_{\\theta'\\_{i}}\\right) = \\sum\\_{\\mathcal{T}\\_{i} \\sim p\\left(\\mathcal{T}\\right)} \\mathcal{L}\\_{\\mathcal{T\\_{i}}}\\left(f\\_{\\theta - \\alpha\\nabla\\_{\\theta}\\mathcal{L}\\_{\\mathcal{T}\\_{i}}\\left(f\\_{\\theta}\\right)}\\right) $$\r\n\r\nNote that the meta-optimization is performed over the model parameters $\\theta$, whereas the objective is computed using the updated model parameters $\\theta'$. In effect MAML aims to optimize the model parameters such that one or a small number of gradient steps on a new task will produce maximally effective behavior on that task. The meta-optimization across tasks is performed via stochastic gradient descent (SGD), such that the model parameters $\\theta$ are updated as follows:\r\n\r\n$$ \\theta \\leftarrow \\theta - \\beta\\nabla\\_{\\theta} \\sum\\_{\\mathcal{T}\\_{i} \\sim p\\left(\\mathcal{T}\\right)} \\mathcal{L}\\_{\\mathcal{T\\_{i}}}\\left(f\\_{\\theta'\\_{i}}\\right)$$\r\n\r\nwhere $\\beta$ is the meta step size."
       }
-    }
-    video: {
-      video_id: "vUNAJsO2G98"
-      video_title: "PR-187 : MorphNet: Fast & Simple Resource-Constrained Structure Learning of Deep Networks"
-      number_of_likes: 4
-      number_of_views: 509
-      published_date: {
-        seconds: 1565712056
-      }
-      uploader: "Sunghoon Joo"
     }
   }
 }
