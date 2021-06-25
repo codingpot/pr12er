@@ -59,14 +59,14 @@ const Detail$json = const {
   '1': 'Detail',
   '2': const [
     const {'1': 'pr_id', '3': 1, '4': 1, '5': 5, '10': 'prId'},
-    const {'1': 'paper', '3': 2, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'paper'},
+    const {'1': 'papers', '3': 2, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'papers'},
     const {'1': 'relevant_papers', '3': 3, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'relevantPapers'},
     const {'1': 'same_author_papers', '3': 4, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'sameAuthorPapers'},
   ],
 };
 
 /// Descriptor for `Detail`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List detailDescriptor = $convert.base64Decode('CgZEZXRhaWwSEwoFcHJfaWQYASABKAVSBHBySWQSJwoFcGFwZXIYAiADKAsyES5wa2cucHIxMmVyLlBhcGVyUgVwYXBlchI6Cg9yZWxldmFudF9wYXBlcnMYAyADKAsyES5wa2cucHIxMmVyLlBhcGVyUg5yZWxldmFudFBhcGVycxI/ChJzYW1lX2F1dGhvcl9wYXBlcnMYBCADKAsyES5wa2cucHIxMmVyLlBhcGVyUhBzYW1lQXV0aG9yUGFwZXJz');
+final $typed_data.Uint8List detailDescriptor = $convert.base64Decode('CgZEZXRhaWwSEwoFcHJfaWQYASABKAVSBHBySWQSKQoGcGFwZXJzGAIgAygLMhEucGtnLnByMTJlci5QYXBlclIGcGFwZXJzEjoKD3JlbGV2YW50X3BhcGVycxgDIAMoCzIRLnBrZy5wcjEyZXIuUGFwZXJSDnJlbGV2YW50UGFwZXJzEj8KEnNhbWVfYXV0aG9yX3BhcGVycxgEIAMoCzIRLnBrZy5wcjEyZXIuUGFwZXJSEHNhbWVBdXRob3JQYXBlcnM=');
 @$core.Deprecated('Use paperDescriptor instead')
 const Paper$json = const {
   '1': 'Paper',
@@ -75,7 +75,7 @@ const Paper$json = const {
     const {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'arxiv_id', '3': 3, '4': 1, '5': 9, '10': 'arxivId'},
     const {'1': 'abstract', '3': 4, '4': 1, '5': 9, '10': 'abstract'},
-    const {'1': 'pub_date', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'pubDate'},
+    const {'1': 'published_date', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'publishedDate'},
     const {'1': 'authors', '3': 6, '4': 3, '5': 9, '10': 'authors'},
     const {'1': 'repositories', '3': 7, '4': 3, '5': 11, '6': '.pkg.pr12er.Repository', '10': 'repositories'},
     const {'1': 'methods', '3': 8, '4': 3, '5': 11, '6': '.pkg.pr12er.Method', '10': 'methods'},
@@ -83,7 +83,7 @@ const Paper$json = const {
 };
 
 /// Descriptor for `Paper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paperDescriptor = $convert.base64Decode('CgVQYXBlchIZCghwYXBlcl9pZBgBIAEoCVIHcGFwZXJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSGQoIYXJ4aXZfaWQYAyABKAlSB2FyeGl2SWQSGgoIYWJzdHJhY3QYBCABKAlSCGFic3RyYWN0EjUKCHB1Yl9kYXRlGAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIHcHViRGF0ZRIYCgdhdXRob3JzGAYgAygJUgdhdXRob3JzEjoKDHJlcG9zaXRvcmllcxgHIAMoCzIWLnBrZy5wcjEyZXIuUmVwb3NpdG9yeVIMcmVwb3NpdG9yaWVzEiwKB21ldGhvZHMYCCADKAsyEi5wa2cucHIxMmVyLk1ldGhvZFIHbWV0aG9kcw==');
+final $typed_data.Uint8List paperDescriptor = $convert.base64Decode('CgVQYXBlchIZCghwYXBlcl9pZBgBIAEoCVIHcGFwZXJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSGQoIYXJ4aXZfaWQYAyABKAlSB2FyeGl2SWQSGgoIYWJzdHJhY3QYBCABKAlSCGFic3RyYWN0EkEKDnB1Ymxpc2hlZF9kYXRlGAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFINcHVibGlzaGVkRGF0ZRIYCgdhdXRob3JzGAYgAygJUgdhdXRob3JzEjoKDHJlcG9zaXRvcmllcxgHIAMoCzIWLnBrZy5wcjEyZXIuUmVwb3NpdG9yeVIMcmVwb3NpdG9yaWVzEiwKB21ldGhvZHMYCCADKAsyEi5wa2cucHIxMmVyLk1ldGhvZFIHbWV0aG9kcw==');
 @$core.Deprecated('Use repositoryDescriptor instead')
 const Repository$json = const {
   '1': 'Repository',

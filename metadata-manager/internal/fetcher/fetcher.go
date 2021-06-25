@@ -58,7 +58,7 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 				Title:        paper.Title,
 				ArxivId:      arxivID,
 				Abstract:     lineEndingRegexp.ReplaceAllString(paper.Abstract, " "),
-				PubDate:      timestamppb.New(time.Time(paper.Published)),
+				PublishedDate: timestamppb.New(time.Time(papers.Results[0].Published)),
 				Authors:      paper.Authors,
 				Repositories: repositories,
 				Methods:      methods,
@@ -151,7 +151,7 @@ func handleResponse(resp *youtube.VideoListResponse) ([]*pr12er.YouTubeVideo, er
 
 // FetchOnlyPapers fetches papers without video information.
 func (f *Fetcher) FetchOnlyPapers(prRow *pr12er.MappingTableRow) (*pr12er.PrVideo, error) {
-	papers, err := f.fetchArxivPapersInfo(prRow.PaperArxivId)
+	papers, err := f.fetchArxivPapersInfo(prRow.PaperArxivIds)
 	if err != nil {
 		return nil, err
 	}

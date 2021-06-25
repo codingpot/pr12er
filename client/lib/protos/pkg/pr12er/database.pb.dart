@@ -57,7 +57,7 @@ class MappingTable extends $pb.GeneratedMessage {
 class MappingTableRow extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MappingTableRow', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
     ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'prId', $pb.PbFieldType.O3)
-    ..pPS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperArxivId')
+    ..pPS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paperArxivIds')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'youtubeVideoId')
     ..hasRequiredFields = false
   ;
@@ -65,15 +65,15 @@ class MappingTableRow extends $pb.GeneratedMessage {
   MappingTableRow._() : super();
   factory MappingTableRow({
     $core.int? prId,
-    $core.Iterable<$core.String>? paperArxivId,
+    $core.Iterable<$core.String>? paperArxivIds,
     $core.String? youtubeVideoId,
   }) {
     final _result = create();
     if (prId != null) {
       _result.prId = prId;
     }
-    if (paperArxivId != null) {
-      _result.paperArxivId.addAll(paperArxivId);
+    if (paperArxivIds != null) {
+      _result.paperArxivIds.addAll(paperArxivIds);
     }
     if (youtubeVideoId != null) {
       _result.youtubeVideoId = youtubeVideoId;
@@ -111,7 +111,7 @@ class MappingTableRow extends $pb.GeneratedMessage {
   void clearPrId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<$core.String> get paperArxivId => $_getList(1);
+  $core.List<$core.String> get paperArxivIds => $_getList(1);
 
   @$pb.TagNumber(3)
   $core.String get youtubeVideoId => $_getSZ(2);

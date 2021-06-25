@@ -108,7 +108,7 @@ func TestDetailResponseFromDB(t *testing.T) {
 			},
 			want: &pr12er.GetDetailResponse{Detail: &pr12er.Detail{
 				PrId: 1,
-				Paper: []*pr12er.Paper{
+				Papers: []*pr12er.Paper{
 					{
 						PaperId:  "generative-adversarial-networks",
 						Title:    "Generative Adversarial Networks",
