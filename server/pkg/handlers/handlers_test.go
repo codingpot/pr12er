@@ -149,7 +149,7 @@ func TestDetailResponseFromDB(t *testing.T) {
 
 			if diff := cmp.Diff(tt.want, got,
 				protocmp.IgnoreFields(&pr12er.Method{}, "description"),
-				protocmp.IgnoreFields(&pr12er.Paper{}, "abstract", "pub_date", "repositories"),
+				protocmp.IgnoreFields(&pr12er.Paper{}, "abstract", "published_date", "repositories"),
 				protocmp.Transform()); diff != "" {
 				t.Error(diff)
 			}
