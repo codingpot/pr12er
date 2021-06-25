@@ -22,14 +22,9 @@ class RepositoryWidget extends StatelessWidget {
               "Repositories",
               style: Theme.of(context).textTheme.headline1,
             )),
-        // ignore: sized_box_for_whitespace
-        Container(
-            height: 150,
-            child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200,
-                  childAspectRatio: 6.5 / 2,
-                ),
+        SizedBox(
+            height: 400,
+            child: ListView.builder(
                 itemCount: visibleRepositories.length,
                 itemBuilder: (BuildContext context, int index) =>
                     getItemCard(context, visibleRepositories[index])))
@@ -75,6 +70,11 @@ class RepositoryWidget extends StatelessWidget {
         ),
         title: Text(
           extractRepoNameFromURL(repo.url),
+        ),
+        subtitle: Text(
+          repo.description,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
       )),
     );
