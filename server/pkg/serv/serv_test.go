@@ -29,10 +29,52 @@ func TestGetVideos(t *testing.T) {
 	assert.Greater(t, len(resp.Videos), 0)
 }
 
-func TestServer_GetDetails(t *testing.T) {
-	s := Server{}
-	request := pr12er.GetDetailRequest{PrId: 1}
-	got, err := s.GetDetail(context.Background(), &request)
-	assert.NoError(t, err)
-	assert.Equal(t, int32(1), got.GetDetail().GetPrId())
+func TestServer_GetDetail(t *testing.T) {
+	type args struct {
+		ctx context.Context
+		req *pr12er.GetDetailRequest
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    *pr12er.GetDetailResponse
+		wantErr bool
+	}{
+		{
+			name: "Returns an error if the PR is not found with the given ID",
+			args: args{
+				ctx: context.Background(),
+				req: &pr12er.GetDetailRequest{
+					PrId: 0,
+				},
+			},
+			want:    nil,
+			wantErr: true,
+		},
+		{
+			name: "Returns a valid response if the PR is found",
+			args: args{
+				ctx: context.Background(),
+				req: &pr12er.GetDetailRequest{PrId: 1},
+			},
+			want: &pr12er.GetDetailResponse{Detail: &pr12er.Detail{
+				PrId: 1,
+			}},
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s := Server{}
+			got, err := s.GetDetail(tt.args.ctx, tt.args.req)
+			if tt.wantErr {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+				assert.Equal(t, tt.want.GetDetail().GetPrId(), got.GetDetail().GetPrId())
+				assert.Greater(t, len(got.GetDetail().GetPaper()), 0)
+			}
+		})
+	}
 }
