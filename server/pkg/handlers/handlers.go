@@ -4,6 +4,7 @@ import (
 	"sort"
 
 	"github.com/codingpot/pr12er/server/internal/err"
+	"github.com/codingpot/pr12er/server/pkg/handlers/prutils"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 )
 
@@ -19,7 +20,7 @@ func VideosResponseFromDB(db *pr12er.Database) *pr12er.GetVideosResponse {
 			Title:         dataVideo.GetVideoTitle(),
 			Link:          getYouTubeLinkFromID(dataVideo.GetVideoId()),
 			Presenter:     dataVideo.GetUploader(),
-			Category:      getCategory(data),
+			Category:      prutils.CategoryFromVideo(data),
 			NumberOfLike:  dataVideo.GetNumberOfLikes(),
 			Keywords:      getKeywords(data),
 			NumberOfViews: dataVideo.GetNumberOfViews(),
@@ -46,11 +47,6 @@ func getKeywords(prVideo *pr12er.PrVideo) []string {
 		}
 	}
 	return ret
-}
-
-// TODO: Implement getCategory based on papers.
-func getCategory(prVideo *pr12er.PrVideo) pr12er.Category {
-	return pr12er.Category_CATEGORY_UNSPECIFIED
 }
 
 // getYouTubeLinkFromID returns the full URL.
