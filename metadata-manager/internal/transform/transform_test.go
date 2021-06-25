@@ -90,3 +90,110 @@ func Test_ownerFromURL(t *testing.T) {
 		})
 	}
 }
+
+func TestExtractPRID(t *testing.T) {
+	tests := []struct {
+		name    string
+		title   string
+		want    int32
+		wantErr bool
+	}{
+		{
+			name:    "PR-274 should return 274",
+			title:   "PR-274: On mutual information maximization for representation learning",
+			want:    274,
+			wantErr: false,
+		},
+		{
+			name:    "PR274 should return 274",
+			title:   "PR274: On mutual information maximization for representation learning",
+			want:    274,
+			wantErr: false,
+		},
+		{
+			name:    "PR0 should return 0",
+			title:   "PR0: On mutual information maximization for representation learning",
+			want:    0,
+			wantErr: false,
+		},
+		{
+			name:    "Invalid name should return an error",
+			title:   "This is not a valid PR Video",
+			wantErr: true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := ExtractPRID(tt.title)
+			if tt.wantErr {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+				assert.Equal(t, tt.want, got)
+			}
+		})
+	}
+}
+
+func TestExtractPaperIDs(t *testing.T) {
+	t.Skip("Skip this function as Google can block you")
+
+	tests := []struct {
+		name    string
+		title   string
+		want    []string
+		wantErr bool
+	}{
+		{
+			name:    "It returns up to 3 papers by inferring from the title",
+			title:   "PR-274: On mutual information maximization for representation learning",
+			want:    []string{"1907.13625", "2103.04537", "1910.08350"},
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := ExtractPaperIDs(tt.title)
+			if tt.wantErr {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+				assert.Equal(t, tt.want, got)
+			}
+		})
+	}
+}
+
+func TestExtractArxivIDFromURL(t *testing.T) {
+	tests := []struct {
+		name    string
+		url     string
+		want    string
+		wantErr bool
+	}{
+		{
+			name:    "Valid URL returns the arxivID",
+			url:     "https://arxiv.org/abs/2103.04537",
+			want:    "2103.04537",
+			wantErr: false,
+		},
+		{
+			name:    "Invalid URL returns an error",
+			url:     "https://gabs/2103.04537",
+			wantErr: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := ExtractArxivIDFromURL(tt.url)
+			if tt.wantErr {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+				assert.Equal(t, tt.want, got)
+			}
+		})
+	}
+}

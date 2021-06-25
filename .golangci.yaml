@@ -30,5 +30,7 @@ linters:
     - gomoddirectives
     - wrapcheck
     - funlen
-    - goimports # False positive with paperswithcode_go
-    - lll # long line lint
+    - goimports # False positive with paperswithcode_go.
+    - lll # I want to use a long line.
+    - goerr113 # I want to use dynamic error.
+    - gochecknoinits # I want to use init().
