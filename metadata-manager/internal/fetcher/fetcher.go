@@ -3,6 +3,7 @@ package fetcher
 
 import (
 	"context"
+	"regexp"
 	"time"
 
 	"github.com/codingpot/paperswithcode-go/v2"
@@ -12,6 +13,8 @@ import (
 	"google.golang.org/api/youtube/v3"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
+
+var lineEndingRegexp = regexp.MustCompile(`\r?\n`)
 
 type Fetcher struct {
 	client         *paperswithcode_go.Client
@@ -34,8 +37,8 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 			return nil, err
 		}
 
-		if len(papers.Results) > 0 {
-			paperID := papers.Results[0].ID
+		for _, paper := range papers.Results {
+			paperID := paper.ID
 
 			// reference: https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
 			repoList, err := f.client.PaperRepositoryList(paperID)
@@ -50,19 +53,16 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 			}
 			methods := transform.Methods(methodList.Results)
 
-			// make paper
-			paper := &pr12er.Paper{
-				PaperId:  paperID,
-				Title:    papers.Results[0].Title,
-				ArxivId:  arxivID,
-				Abstract: papers.Results[0].Abstract,
-				PubDate:  timestamppb.New(time.Time(papers.Results[0].Published)),
-			}
-			paper.Authors = papers.Results[0].Authors
-			paper.Repositories = repositories
-			paper.Methods = methods
-
-			pr12erPapers = append(pr12erPapers, paper)
+			pr12erPapers = append(pr12erPapers, &pr12er.Paper{
+				PaperId:      paperID,
+				Title:        paper.Title,
+				ArxivId:      arxivID,
+				Abstract:     lineEndingRegexp.ReplaceAllString(paper.Abstract, " "),
+				PubDate:      timestamppb.New(time.Time(paper.Published)),
+				Authors:      paper.Authors,
+				Repositories: repositories,
+				Methods:      methods,
+			})
 		}
 	}
 
