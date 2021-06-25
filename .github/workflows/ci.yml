@@ -7,6 +7,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 */12 * * *'
+  workflow_run:
+    workflows:
+      - Generate Database
+    types:
+      - completed
 jobs:
   flutter-build:
     runs-on: ubuntu-latest
