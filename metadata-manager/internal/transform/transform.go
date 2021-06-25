@@ -2,11 +2,18 @@
 package transform
 
 import (
+	"context"
+	"fmt"
+	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/codingpot/paperswithcode-go/v2/models"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	"github.com/rocketlaunchr/google-search"
 )
+
+var prIDRegexp = regexp.MustCompile(`pr-?(\d+)`)
 
 func frameworkToEnum(paperFramework string) pr12er.Framework {
 	switch paperFramework {
@@ -59,4 +66,64 @@ func Methods(methods []*models.Method) []*pr12er.Method {
 		}
 	}
 	return pr12erMethods
+}
+
+// ExtractPaperIDs Google Search with the title and gets ArxivIDs.
+//
+// For example,
+// "PR-274: On mutual information maximization for representation learning"
+// => []string{"1907.13625", "2103.04537", "1910.08350"}.
+func ExtractPaperIDs(title string) ([]string, error) {
+	searchTerm := prIDRegexp.ReplaceAllString(strings.ToLower(title), "") + " site:arxiv.org"
+	search, err := googlesearch.Search(context.Background(), searchTerm)
+	if err != nil {
+		return nil, err
+	}
+	maxLen := 3
+	if len(search) < maxLen {
+		maxLen = len(search)
+	}
+
+	var paperIDs []string
+
+	for i := 0; i < maxLen; i++ {
+		arxivID, _ := ExtractArxivIDFromURL(search[i].URL)
+		paperIDs = append(paperIDs, arxivID)
+	}
+
+	return paperIDs, nil
+}
+
+// ExtractArxivIDFromURL extracts ArxivID from the URL.
+//
+// For example,
+// https://arxiv.org/abs/2102.03732 => 2102.03732
+func ExtractArxivIDFromURL(url string) (string, error) {
+	if !strings.Contains(url, "arxiv.org") {
+		return "", fmt.Errorf("%s does not contain arxiv.org", url)
+	}
+	splits := strings.Split(url, "/")
+	if len(splits) == 0 {
+		return "", fmt.Errorf("%s does not contain any ArxivID", url)
+	}
+	return splits[len(splits)-1], nil
+}
+
+// ExtractPRID extracts PR ID from the title.
+//
+// For example,
+//
+// PR-274: On mutual information maximization for representation learning
+// => 274.
+func ExtractPRID(title string) (int32, error) {
+	submatch := prIDRegexp.FindStringSubmatch(strings.ToLower(title))
+	if len(submatch) < 2 {
+		return 0, fmt.Errorf("expected PR-XXX but got %s", title)
+	}
+	//nolint:gosec
+	atoi, err := strconv.Atoi(submatch[1])
+	if err != nil {
+		return 0, err
+	}
+	return int32(atoi), nil
 }
