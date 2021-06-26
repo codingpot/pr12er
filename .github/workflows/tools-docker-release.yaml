@@ -1,6 +1,7 @@
 name: Docker Release for Tools
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - ./client/pubspec.*
