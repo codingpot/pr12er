@@ -33,7 +33,7 @@ install: install.buf ## install buf, protoc, protoc-gen for Go & Dart
 	export PATH="$${PATH}:$(BIN_INSTALL_DIR)"
 	rm -f protoc-*.zip
 	make install.go
-	pub global activate protoc_plugin
+	flutter pub global activate protoc_plugin
 
 .PHONY: install.go
 install.go: ## install go with dependencies
