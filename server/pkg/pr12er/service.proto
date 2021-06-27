@@ -1,23 +1,36 @@
 syntax = "proto3";
 package pkg.pr12er;
 
-option go_package = "github.com/codingpot/server/pkg/pr12er";
-
 import "pkg/pr12er/messages.proto";
 
-message HelloRequest { string body = 1; }
+option go_package = "github.com/codingpot/server/pkg/pr12er";
 
-message HelloResponse { string body = 1; }
+message HelloRequest {
+  string body = 1;
+}
 
-message GetVideosResponse { repeated Video videos = 1; }
+message HelloResponse {
+  string body = 1;
+}
 
-message GetVideosRequest { }
+message GetVideosResponse {
+  repeated Video videos = 1;
+}
 
-message GetDetailResponse { Detail detail = 1; }
+message GetVideosRequest {
+}
 
-message GetDetailRequest { int32 pr_id = 1; }
+message GetDetailResponse {
+  Detail detail = 1;
+}
+
+message GetDetailRequest {
+  int32 pr_id = 1;
+}
 
 service Pr12erService {
+  // buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+  // buf:lint:ignore RPC_RESPONSE_STANDARD_NAME
   rpc GetHello(HelloRequest) returns (HelloResponse);
   rpc GetVideos(GetVideosRequest) returns (GetVideosResponse);
   rpc GetDetail(GetDetailRequest) returns (GetDetailResponse);

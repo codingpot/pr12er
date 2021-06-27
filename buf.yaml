@@ -3,8 +3,11 @@ build:
   roots:
     - ./server
 lint:
+  allow_comment_ignores: true
   use:
     - DEFAULT
+  except:
+    - PACKAGE_VERSION_SUFFIX
 breaking:
   use:
     - FILE
