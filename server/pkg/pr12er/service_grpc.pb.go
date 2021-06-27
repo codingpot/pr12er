@@ -18,6 +18,8 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type Pr12ErServiceClient interface {
+	// buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+	// buf:lint:ignore RPC_RESPONSE_STANDARD_NAME
 	GetHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
 	GetVideos(ctx context.Context, in *GetVideosRequest, opts ...grpc.CallOption) (*GetVideosResponse, error)
 	GetDetail(ctx context.Context, in *GetDetailRequest, opts ...grpc.CallOption) (*GetDetailResponse, error)
@@ -62,6 +64,8 @@ func (c *pr12ErServiceClient) GetDetail(ctx context.Context, in *GetDetailReques
 // All implementations must embed UnimplementedPr12ErServiceServer
 // for forward compatibility
 type Pr12ErServiceServer interface {
+	// buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+	// buf:lint:ignore RPC_RESPONSE_STANDARD_NAME
 	GetHello(context.Context, *HelloRequest) (*HelloResponse, error)
 	GetVideos(context.Context, *GetVideosRequest) (*GetVideosResponse, error)
 	GetDetail(context.Context, *GetDetailRequest) (*GetDetailResponse, error)
