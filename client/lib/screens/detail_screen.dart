@@ -99,7 +99,7 @@ class DetailScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           final String subject = "[PR-12 공유] ${args.video.title}";
-          Share.share(generateShareSummary(args.video, detail),
+          Share.share("$subject\n\n${generateShareSummary(args.video, detail)}",
               subject: subject);
         },
         child: const Icon(Icons.share),

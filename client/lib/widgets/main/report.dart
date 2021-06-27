@@ -30,9 +30,9 @@ class _ReportWidgetState extends State<ReportWidget> {
             Icon(Icons.report, size: 30, color: Theme.of(context).accentColor),
       ),
       Divider(
-        indent: 10,
-        endIndent: 10,
-        height: 15,
+        indent: 20,
+        endIndent: 20,
+        thickness: 2,
         color: Theme.of(context).accentColor,
       ),
       Container(
@@ -47,7 +47,6 @@ class _ReportWidgetState extends State<ReportWidget> {
           },
           underline: Container(
             height: 2,
-            color: Theme.of(context).accentColor,
           ),
           style: Theme.of(context).textTheme.headline6,
           items: reportPreset.map<DropdownMenuItem<String>>((String value) {
@@ -84,12 +83,17 @@ class _ReportWidgetState extends State<ReportWidget> {
             onPressed: () {
               // send report action
             },
-            icon: Icon(Icons.outbox,
-                size: 30, color: Theme.of(context).primaryIconTheme.color),
+            icon: const Icon(
+              Icons.outbox,
+              size: 30,
+            ),
             label: Container(
               padding: const EdgeInsets.only(top: 15, bottom: 15),
-              child:
-                  Text('제보 보내기', style: Theme.of(context).textTheme.headline6),
+              child: Text('제보 보내기',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .apply(color: Theme.of(context).colorScheme.onPrimary)),
             ),
           ))
         ]),

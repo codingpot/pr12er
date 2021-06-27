@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// _kHeadline1 는 Abstract/Recommendations/Repositories 등을 나타내는 헤딩1.
-const _kHeadline1 = TextStyle(fontFamily: 'PermanentMarker', fontSize: 25);
+final _kHeadline1 = GoogleFonts.permanentMarker(fontSize: 25);
 
 /// CustomTheme 은 전체 테마를 정의합니다.
 ///
@@ -10,6 +11,8 @@ const _kHeadline1 = TextStyle(fontFamily: 'PermanentMarker', fontSize: 25);
 ///
 /// ```dart
 /// Consumer<CustomTheme>(builder: (context, theme, _child) { ... }
+/// // or
+/// context.read<CustomTheme>();
 /// ```
 class CustomTheme extends ChangeNotifier {
   static ThemeData get lightTheme {
@@ -27,6 +30,7 @@ class CustomTheme extends ChangeNotifier {
   }
 
   bool _isDarkMode = false;
+
   bool get isDarkMode {
     return _isDarkMode;
   }

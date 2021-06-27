@@ -5,7 +5,10 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class YoutubeWidget extends StatefulWidget {
   final String youtubeId;
 
-  const YoutubeWidget({Key? key, required this.youtubeId}) : super(key: key);
+  const YoutubeWidget({
+    Key? key,
+    required this.youtubeId,
+  }) : super(key: key);
 
   @override
   _YouTubeWidgetState createState() => _YouTubeWidgetState();
