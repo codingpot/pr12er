@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/utils/extractor.dart';
@@ -74,7 +76,7 @@ class RepositoryWidget extends StatelessWidget {
     );
   }
 
-  List<Repository> getSubsetRepositories(int size) {
-    return repositories.sublist(0, size);
+  List<Repository> getSubsetRepositories(int maxSize) {
+    return repositories.sublist(0, min(maxSize, repositories.length));
   }
 }
