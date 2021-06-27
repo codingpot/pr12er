@@ -23,6 +23,8 @@ type Pr12ErServiceClient interface {
 	GetHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
 	GetVideos(ctx context.Context, in *GetVideosRequest, opts ...grpc.CallOption) (*GetVideosResponse, error)
 	GetDetail(ctx context.Context, in *GetDetailRequest, opts ...grpc.CallOption) (*GetDetailResponse, error)
+	// Report is a RPC for a bug report or a PR Video missing report.
+	Report(ctx context.Context, in *ReportRequest, opts ...grpc.CallOption) (*ReportResponse, error)
 }
 
 type pr12ErServiceClient struct {
@@ -60,6 +62,15 @@ func (c *pr12ErServiceClient) GetDetail(ctx context.Context, in *GetDetailReques
 	return out, nil
 }
 
+func (c *pr12ErServiceClient) Report(ctx context.Context, in *ReportRequest, opts ...grpc.CallOption) (*ReportResponse, error) {
+	out := new(ReportResponse)
+	err := c.cc.Invoke(ctx, "/pkg.pr12er.Pr12erService/Report", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Pr12ErServiceServer is the server API for Pr12ErService service.
 // All implementations must embed UnimplementedPr12ErServiceServer
 // for forward compatibility
@@ -69,6 +80,8 @@ type Pr12ErServiceServer interface {
 	GetHello(context.Context, *HelloRequest) (*HelloResponse, error)
 	GetVideos(context.Context, *GetVideosRequest) (*GetVideosResponse, error)
 	GetDetail(context.Context, *GetDetailRequest) (*GetDetailResponse, error)
+	// Report is a RPC for a bug report or a PR Video missing report.
+	Report(context.Context, *ReportRequest) (*ReportResponse, error)
 	mustEmbedUnimplementedPr12ErServiceServer()
 }
 
@@ -84,6 +97,9 @@ func (UnimplementedPr12ErServiceServer) GetVideos(context.Context, *GetVideosReq
 }
 func (UnimplementedPr12ErServiceServer) GetDetail(context.Context, *GetDetailRequest) (*GetDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetDetail not implemented")
+}
+func (UnimplementedPr12ErServiceServer) Report(context.Context, *ReportRequest) (*ReportResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Report not implemented")
 }
 func (UnimplementedPr12ErServiceServer) mustEmbedUnimplementedPr12ErServiceServer() {}
 
@@ -152,6 +168,24 @@ func _Pr12ErService_GetDetail_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Pr12ErService_Report_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(Pr12ErServiceServer).Report(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pkg.pr12er.Pr12erService/Report",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(Pr12ErServiceServer).Report(ctx, req.(*ReportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Pr12ErService_ServiceDesc is the grpc.ServiceDesc for Pr12ErService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -170,6 +204,10 @@ var Pr12ErService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetDetail",
 			Handler:    _Pr12ErService_GetDetail_Handler,
+		},
+		{
+			MethodName: "Report",
+			Handler:    _Pr12ErService_Report_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

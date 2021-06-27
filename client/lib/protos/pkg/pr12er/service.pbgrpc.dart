@@ -31,6 +31,11 @@ class Pr12erServiceClient extends $grpc.Client {
           ($0.GetDetailRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.GetDetailResponse.fromBuffer(value));
+  static final _$report =
+      $grpc.ClientMethod<$0.ReportRequest, $0.ReportResponse>(
+          '/pkg.pr12er.Pr12erService/Report',
+          ($0.ReportRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.ReportResponse.fromBuffer(value));
 
   Pr12erServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -52,6 +57,11 @@ class Pr12erServiceClient extends $grpc.Client {
       $0.GetDetailRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getDetail, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.ReportResponse> report($0.ReportRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$report, request, options: options);
   }
 }
 
@@ -80,6 +90,13 @@ abstract class Pr12erServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.GetDetailRequest.fromBuffer(value),
         ($0.GetDetailResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ReportRequest, $0.ReportResponse>(
+        'Report',
+        report_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.ReportRequest.fromBuffer(value),
+        ($0.ReportResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.HelloResponse> getHello_Pre(
@@ -97,10 +114,17 @@ abstract class Pr12erServiceBase extends $grpc.Service {
     return getDetail(call, await request);
   }
 
+  $async.Future<$0.ReportResponse> report_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.ReportRequest> request) async {
+    return report(call, await request);
+  }
+
   $async.Future<$0.HelloResponse> getHello(
       $grpc.ServiceCall call, $0.HelloRequest request);
   $async.Future<$0.GetVideosResponse> getVideos(
       $grpc.ServiceCall call, $0.GetVideosRequest request);
   $async.Future<$0.GetDetailResponse> getDetail(
       $grpc.ServiceCall call, $0.GetDetailRequest request);
+  $async.Future<$0.ReportResponse> report(
+      $grpc.ServiceCall call, $0.ReportRequest request);
 }

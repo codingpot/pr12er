@@ -11,6 +11,10 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'messages.pb.dart' as $2;
 
+import 'service.pbenum.dart';
+
+export 'service.pbenum.dart';
+
 class HelloRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'HelloRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'body')
@@ -269,5 +273,113 @@ class GetDetailRequest extends $pb.GeneratedMessage {
   $core.bool hasPrId() => $_has(0);
   @$pb.TagNumber(1)
   void clearPrId() => clearField(1);
+}
+
+class ReportRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ReportRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..e<ReportRequest_ReportType>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED, valueOf: ReportRequest_ReportType.valueOf, enumValues: ReportRequest_ReportType.values)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'body')
+    ..hasRequiredFields = false
+  ;
+
+  ReportRequest._() : super();
+  factory ReportRequest({
+    ReportRequest_ReportType? type,
+    $core.String? body,
+  }) {
+    final _result = create();
+    if (type != null) {
+      _result.type = type;
+    }
+    if (body != null) {
+      _result.body = body;
+    }
+    return _result;
+  }
+  factory ReportRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReportRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReportRequest clone() => ReportRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReportRequest copyWith(void Function(ReportRequest) updates) => super.copyWith((message) => updates(message as ReportRequest)) as ReportRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ReportRequest create() => ReportRequest._();
+  ReportRequest createEmptyInstance() => create();
+  static $pb.PbList<ReportRequest> createRepeated() => $pb.PbList<ReportRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ReportRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReportRequest>(create);
+  static ReportRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ReportRequest_ReportType get type => $_getN(0);
+  @$pb.TagNumber(1)
+  set type(ReportRequest_ReportType v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasType() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearType() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get body => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set body($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasBody() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBody() => clearField(2);
+}
+
+class ReportResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ReportResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pkg.pr12er'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'issueUrl')
+    ..hasRequiredFields = false
+  ;
+
+  ReportResponse._() : super();
+  factory ReportResponse({
+    $core.String? issueUrl,
+  }) {
+    final _result = create();
+    if (issueUrl != null) {
+      _result.issueUrl = issueUrl;
+    }
+    return _result;
+  }
+  factory ReportResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReportResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReportResponse clone() => ReportResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReportResponse copyWith(void Function(ReportResponse) updates) => super.copyWith((message) => updates(message as ReportResponse)) as ReportResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ReportResponse create() => ReportResponse._();
+  ReportResponse createEmptyInstance() => create();
+  static $pb.PbList<ReportResponse> createRepeated() => $pb.PbList<ReportResponse>();
+  @$core.pragma('dart2js:noInline')
+  static ReportResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReportResponse>(create);
+  static ReportResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get issueUrl => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set issueUrl($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasIssueUrl() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIssueUrl() => clearField(1);
 }
 

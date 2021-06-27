@@ -65,3 +65,35 @@ const GetDetailRequest$json = const {
 
 /// Descriptor for `GetDetailRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getDetailRequestDescriptor = $convert.base64Decode('ChBHZXREZXRhaWxSZXF1ZXN0EhMKBXByX2lkGAEgASgFUgRwcklk');
+@$core.Deprecated('Use reportRequestDescriptor instead')
+const ReportRequest$json = const {
+  '1': 'ReportRequest',
+  '2': const [
+    const {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.pkg.pr12er.ReportRequest.ReportType', '10': 'type'},
+    const {'1': 'body', '3': 2, '4': 1, '5': 9, '10': 'body'},
+  ],
+  '4': const [ReportRequest_ReportType$json],
+};
+
+@$core.Deprecated('Use reportRequestDescriptor instead')
+const ReportRequest_ReportType$json = const {
+  '1': 'ReportType',
+  '2': const [
+    const {'1': 'REPORT_TYPE_UNSPECIFIED', '2': 0},
+    const {'1': 'REPORT_TYPE_MISSING_PR_VIDEO', '2': 1},
+    const {'1': 'REPORT_TYPE_BUG', '2': 2},
+  ],
+};
+
+/// Descriptor for `ReportRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reportRequestDescriptor = $convert.base64Decode('Cg1SZXBvcnRSZXF1ZXN0EjgKBHR5cGUYASABKA4yJC5wa2cucHIxMmVyLlJlcG9ydFJlcXVlc3QuUmVwb3J0VHlwZVIEdHlwZRISCgRib2R5GAIgASgJUgRib2R5ImAKClJlcG9ydFR5cGUSGwoXUkVQT1JUX1RZUEVfVU5TUEVDSUZJRUQQABIgChxSRVBPUlRfVFlQRV9NSVNTSU5HX1BSX1ZJREVPEAESEwoPUkVQT1JUX1RZUEVfQlVHEAI=');
+@$core.Deprecated('Use reportResponseDescriptor instead')
+const ReportResponse$json = const {
+  '1': 'ReportResponse',
+  '2': const [
+    const {'1': 'issue_url', '3': 1, '4': 1, '5': 9, '10': 'issueUrl'},
+  ],
+};
+
+/// Descriptor for `ReportResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reportResponseDescriptor = $convert.base64Decode('Cg5SZXBvcnRSZXNwb25zZRIbCglpc3N1ZV91cmwYASABKAlSCGlzc3VlVXJs');

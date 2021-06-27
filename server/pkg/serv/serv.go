@@ -26,3 +26,7 @@ func (s Server) GetHello(_ context.Context, in *pr12er.HelloRequest) (*pr12er.He
 func (s Server) GetVideos(_ context.Context, _ *pr12er.GetVideosRequest) (*pr12er.GetVideosResponse, error) {
 	return handlers.VideosResponseFromDB(&data.DB), nil
 }
+
+func (s Server) Report(_ context.Context, in *pr12er.ReportRequest) (*pr12er.ReportResponse, error) {
+	panic("implement me")
+}
