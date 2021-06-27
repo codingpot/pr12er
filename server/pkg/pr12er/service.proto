@@ -28,10 +28,28 @@ message GetDetailRequest {
   int32 pr_id = 1;
 }
 
+message ReportRequest {
+  enum ReportType {
+    REPORT_TYPE_UNSPECIFIED = 0;
+    REPORT_TYPE_MISSING_PR_VIDEO = 1;
+    REPORT_TYPE_BUG = 2;
+  }
+
+  ReportType type = 1;
+  string body = 2;
+}
+
+message ReportResponse {
+  string issue_url = 1;
+}
+
 service Pr12erService {
   // buf:lint:ignore RPC_REQUEST_STANDARD_NAME
   // buf:lint:ignore RPC_RESPONSE_STANDARD_NAME
   rpc GetHello(HelloRequest) returns (HelloResponse);
   rpc GetVideos(GetVideosRequest) returns (GetVideosResponse);
   rpc GetDetail(GetDetailRequest) returns (GetDetailResponse);
+
+  // Report is a RPC for a bug report or a PR Video missing report.
+  rpc Report(ReportRequest) returns (ReportResponse);
 }
