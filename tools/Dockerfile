@@ -1,5 +1,5 @@
 FROM ubuntu:latest AS builder
-RUN apt update && apt install -y git curl make tar gzip bash unzip libsnmp-dev
+RUN apt update && apt install -y git curl make tar gzip bash unzip gcc
 WORKDIR /temp
 # Set up ENV variable.
 ENV PATH=$PATH:/temp/flutter/bin:/usr/local/go/bin:/root/.local/bin:/root/go/bin
