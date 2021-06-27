@@ -19,17 +19,19 @@ class _ExpandableTextState extends State<ExpandableText> {
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme.subtitle1;
     const double iconSize = 35;
+    const cardPadding = EdgeInsets.all(15);
 
     if (_isExpanded) {
       return Card(
           child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: cardPadding,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               widget.text,
               style: textStyle,
+              softWrap: true,
             ),
             IconButton(
                 iconSize: iconSize,
@@ -41,24 +43,25 @@ class _ExpandableTextState extends State<ExpandableText> {
       ));
     }
 
-    return Stack(alignment: Alignment.bottomCenter, children: [
-      Card(
-          child: Container(
-              padding: const EdgeInsets.all(15),
-              child: Text(
-                widget.text,
-                overflow: TextOverflow.fade,
-                maxLines: 3,
-                style: textStyle,
-              ))),
-      Positioned(
-          bottom: iconSize / 3,
-          child: IconButton(
-              iconSize: iconSize,
-              onPressed: onPressed,
-              color: Theme.of(context).accentColor,
-              icon: const Icon(Icons.keyboard_arrow_down)))
-    ]);
+    return Card(
+      child: Stack(alignment: Alignment.bottomCenter, children: [
+        Container(
+            padding: cardPadding,
+            child: Text(
+              widget.text,
+              overflow: TextOverflow.fade,
+              maxLines: 3,
+              style: textStyle,
+            )),
+        Positioned(
+            bottom: iconSize / 3,
+            child: IconButton(
+                iconSize: iconSize,
+                onPressed: onPressed,
+                color: Theme.of(context).accentColor,
+                icon: const Icon(Icons.keyboard_arrow_down)))
+      ]),
+    );
   }
 
   void onPressed() {

@@ -3,33 +3,27 @@ import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/utils/extractor.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-// ignore: must_be_immutable
 class RepositoryWidget extends StatelessWidget {
-  late List<Repository> repositories;
+  final List<Repository> repositories;
 
-  RepositoryWidget({Key? key, required this.repositories}) : super(key: key);
+  const RepositoryWidget({Key? key, required this.repositories})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final List<Repository> visibleRepositories = getSubsetRepositories(4);
 
     return Container(
-      padding: const EdgeInsets.only(left: 5, right: 5),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Container(
-            margin: const EdgeInsets.only(bottom: 10),
-            child: Text(
-              "Repositories",
-              style: Theme.of(context).textTheme.headline1,
-            )),
-        SizedBox(
-            height: 400,
-            child: ListView.builder(
-                itemCount: visibleRepositories.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    getItemCard(context, visibleRepositories[index])))
-      ]),
-    );
+        padding: const EdgeInsets.only(left: 5, right: 5),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Container(
+              margin: const EdgeInsets.only(bottom: 10),
+              child: Text(
+                "Repositories",
+                style: Theme.of(context).textTheme.headline1,
+              )),
+          ...visibleRepositories.map((repo) => getItemCard(context, repo))
+        ]));
   }
 
   AssetImage getImageFramework(Framework framework) {
@@ -39,7 +33,7 @@ class RepositoryWidget extends StatelessWidget {
       case Framework.FRAMEWORK_PYTORCH:
         return const AssetImage('images/pytorch-logo.png');
       default:
-        // placeholder. when found appropriage image for OTHERS and UNDEFINED, this line will be replaced
+        // placeholder. when found appropriate image for OTHERS and UNDEFINED, this line will be replaced
         return const AssetImage('images/pytorch-logo.png');
     }
   }

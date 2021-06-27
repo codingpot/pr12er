@@ -9,8 +9,8 @@ import (
 // rootCmd represents the base command when called without any subcommands.
 var rootCmd = &cobra.Command{
 	Use:   "dbctl",
-	Short: "Metadata-manager is a cli tool for managing metadata for PR12ER project",
-	Long: `Metadata-manager is a cli tool for managing metadata for PR12ER project.
+	Short: "dbctl is a cli tool for managing metadata for PR12ER project",
+	Long: `dbctl is a cli tool for managing metadata for PR12ER project.
 It will generate database.pbtxt from the mapping_table.pbtxt. 
 It will generate mapping_table.pbtxt from the youtube URL.
 `,

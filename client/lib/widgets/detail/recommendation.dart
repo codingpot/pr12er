@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 
-// ignore: must_be_immutable
-class RecommentationWidget extends StatelessWidget {
-  late Detail detail;
+class RecommendationWidget extends StatelessWidget {
+  final Detail detail;
 
-  RecommentationWidget({Key? key, required this.detail}) : super(key: key);
+  const RecommendationWidget({Key? key, required this.detail})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +21,7 @@ class RecommentationWidget extends StatelessWidget {
               "Recommendations",
               style: Theme.of(context).textTheme.headline1,
             )),
-        // ignore: sized_box_for_whitespace
-        Container(
+        SizedBox(
             height: 150,
             child: ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
@@ -42,7 +41,7 @@ class RecommentationWidget extends StatelessWidget {
   }
 
   List<Paper> getReferencePapers(Detail detail) {
-    final List<Paper> papers = <Paper>[];
+    final List<Paper> papers = detail.papers.sublist(1);
 
     if (detail.sameAuthorPapers.isNotEmpty) {
       papers.add(detail.sameAuthorPapers[0]);

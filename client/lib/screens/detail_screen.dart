@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/service.dart';
+import 'package:pr12er/utils/share_service.dart';
 import 'package:pr12er/widgets/detail/abstract.dart';
 import 'package:pr12er/widgets/detail/header.dart';
 import 'package:pr12er/utils/extractor.dart';
-import 'package:pr12er/widgets/detail/recommendataion.dart';
+import 'package:pr12er/widgets/detail/recommendation.dart';
 import 'package:pr12er/widgets/detail/repository.dart';
 import 'package:pr12er/widgets/detail/youtube.dart';
 import 'package:provider/provider.dart';
@@ -39,89 +40,67 @@ class DetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          LimitedBox(
-            maxHeight: 350,
-            child: YoutubeWidget(youtubeId: extractYoutubeId(args.video.link)),
-          ),
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Container(
-                    margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                    child: Column(
-                      children: [
-                        FittedBox(child: HeaderWidget(video: args.video)),
-                        const SizedBox(height: 15),
-                        FutureBuilder<Detail>(
-                          future: context
-                              .read<GrpcClient>()
-                              .getDetail(args.video.prId),
-                          builder: (context, AsyncSnapshot<Detail> snapshot) {
-                            if (!snapshot.hasData) {
-                              return const Center(
-                                  child: CircularProgressIndicator());
-                            }
+          Flexible(
+              flex: 3,
+              child:
+                  YoutubeWidget(youtubeId: extractYoutubeId(args.video.link))),
+          Flexible(
+            flex: 6,
+            child: ListView(children: [
+              Container(
+                margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
+                child: Column(
+                  children: [
+                    FittedBox(child: HeaderWidget(video: args.video)),
+                    const SizedBox(height: 15),
+                    FutureBuilder<Detail>(
+                      future:
+                          context.read<GrpcClient>().getDetail(args.video.prId),
+                      builder: (context, AsyncSnapshot<Detail> snapshot) {
+                        if (!snapshot.hasData) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
 
-                            detail = snapshot.data;
+                        detail = snapshot.data;
 
-                            return Column(children: [
-                              PaperAbstractWidget(
-                                  paper: snapshot.data!.papers[0]),
+                        final papers = detail?.papers ?? [];
+                        final relevantPapers = detail?.relevantPapers ?? [];
+                        final sameAuthorPapers = detail?.sameAuthorPapers ?? [];
+
+                        return Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              PaperAbstractWidget(paper: papers.first),
                               const SizedBox(height: 15),
-                              RecommentationWidget(detail: snapshot.data!),
+
+                              // Shows Recommendation only when there's one.
+                              if (papers.length +
+                                      relevantPapers.length +
+                                      sameAuthorPapers.length >=
+                                  2)
+                                RecommendationWidget(detail: detail!),
                               const SizedBox(height: 15),
-                              RepositoryWidget(
-                                repositories:
-                                    snapshot.data!.papers[0].repositories,
-                              )
+
+                              if (papers.isNotEmpty)
+                                RepositoryWidget(
+                                  repositories: papers.first.repositories,
+                                )
                             ]);
-                          },
-                        )
-                      ],
-                    ),
-                  )
-                ]))
-              ],
-            ),
-          ),
+                      },
+                    )
+                  ],
+                ),
+              )
+            ]),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          final String subject = "[논문공유] ${args.video.title}";
-          final StringBuffer message = StringBuffer();
-
-          message.writeln('YouTube Link');
-          message.writeln('\t- ${args.video.link}');
-
-          if (detail != null) {
-            message.writeln('\nPaper');
-            message.writeln('\t- title: ${detail!.papers[0].title}');
-            message.writeln(
-                '\t- link: https://arxiv.org/abs/${detail!.papers[0].arxivId}');
-
-            message.writeln('abstract');
-            message.writeln('\t- ${detail!.papers[0].abstract}');
-
-            message.writeln('repositories');
-            for (final repo in detail!.papers[0].repositories) {
-              message.writeln('\t- ${repo.owner}: ${repo.url}');
-            }
-
-            message.writeln('\nRecommended Papers');
-            for (final paper in detail!.relevantPapers) {
-              message.writeln(
-                  '\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
-            }
-            for (final paper in detail!.sameAuthorPapers) {
-              message.writeln(
-                  '\t- ${paper.title}(${paper.authors[0]}): https://arxiv.org/abs/${paper.arxivId}');
-            }
-          }
-
-          Share.share(message.toString(), subject: subject);
+          final String subject = "[PR-12 공유] ${args.video.title}";
+          Share.share(generateShareSummary(args.video, detail),
+              subject: subject);
         },
         child: const Icon(Icons.share),
       ),

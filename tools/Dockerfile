@@ -17,9 +17,9 @@ COPY ./server ./server/
 COPY Makefile .
 
 RUN make install
-COPY ./metadata-manager ./metadata-manager/
-RUN cd metadata-manager && go mod download
-RUN rm -rf client server Makefile metadata-manager
+COPY ./dbctl ./dbctl/
+RUN cd dbctl && go mod download
+RUN rm -rf client server Makefile dbctl
 
 # Install golangci-lint.
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.40.1
