@@ -7,8 +7,8 @@ String generateShareSummary(Video video, Detail? detail) {
 ${video.link}
 """);
 
-  if (detail != null && detail.paper.isNotEmpty) {
-    final mainPaper = detail.paper.first;
+  if (detail != null && detail.papers.isNotEmpty) {
+    final mainPaper = detail.papers.first;
     sb.write("""
 
 [논문]

@@ -41,7 +41,7 @@ class RecommendationWidget extends StatelessWidget {
   }
 
   List<Paper> getReferencePapers(Detail detail) {
-    final List<Paper> papers = detail.paper.sublist(1);
+    final List<Paper> papers = detail.papers.sublist(1);
 
     if (detail.sameAuthorPapers.isNotEmpty) {
       papers.add(detail.sameAuthorPapers[0]);

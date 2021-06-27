@@ -21,7 +21,7 @@ https://youtube.com/www
         ..title = "Title"
         ..link = "https://youtube.com/www";
       final detail = Detail();
-      detail.paper.addAll([
+      detail.papers.addAll([
         Paper()
           ..title = "paper-title"
           ..arxivId = "arxiv-id"

@@ -64,7 +64,7 @@ class DetailScreen extends StatelessWidget {
 
                         detail = snapshot.data;
 
-                        final papers = detail?.paper ?? [];
+                        final papers = detail?.papers ?? [];
                         final relevantPapers = detail?.relevantPapers ?? [];
                         final sameAuthorPapers = detail?.sameAuthorPapers ?? [];
 
