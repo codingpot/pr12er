@@ -27,6 +27,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: codingpot/buf
+          flavor: |
+            latest=true
           tags: |
             type=ref,event=branch
             type=ref,event=pr
