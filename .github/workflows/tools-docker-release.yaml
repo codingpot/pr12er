@@ -2,12 +2,20 @@ name: Docker Release for Tools
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     paths:
-      - ./client/pubspec.*
-      - ./server/go.*
-      - ./tools/Dockerfile
-      - ./Makefile
+      - "client/pubspec.*"
+      - "server/go.*"
+      - "tools/Dockerfile"
+      - "Makefile"
+  push:
+    branches:
+      - main
+    paths:
+      - "client/pubspec.*"
+      - "server/go.*"
+      - "tools/Dockerfile"
+      - "Makefile"
 
 jobs:
   docker:
@@ -20,6 +28,8 @@ jobs:
         with:
           images: codingpot/buf
           tags: |
+            type=ref,event=branch
+            type=ref,event=pr
             type=raw,value=latest
 
       - name: Set up Docker Buildx
