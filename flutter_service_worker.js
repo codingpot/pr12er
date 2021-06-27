@@ -7,23 +7,20 @@ const RESOURCES = {
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "version.json": "f4c169f8a1cc8964c3556bed4c699027",
 "manifest.json": "2680786bc997a4eb06ba039ae1c859ca",
-"assets/AssetManifest.json": "24f59da3827b88fc86dc1f13181f5e4a",
+"assets/AssetManifest.json": "62c9f2b3ccd41ff0432504433b42311b",
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.html": "16911fcc170c8af1c5457940bd0bf055",
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.css": "5a8d0222407e388155d7d1395a75d5b9",
 "assets/packages/youtube_player_flutter/assets/speedometer.webp": "50448630e948b5b3998ae5a5d112622b",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/fonts/DancingScript-Regular.ttf": "c4434ab21f7144bbcf88c9a35ae3f075",
-"assets/fonts/DancingScript-Medium.ttf": "2b9b7690ea41eca720fedddff070e153",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/fonts/PermanentMarker-Regular.ttf": "c863f8028c2505f92540e0ba7c379002",
-"assets/NOTICES": "84ae69bf1289c757ec22ecaaf56891a5",
-"assets/FontManifest.json": "bc8fcef940d11e4dbe2502b0cc395863",
+"assets/NOTICES": "b4e07a33f58a453744942a0ca64578b5",
+"assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/images/pytorch-logo.png": "62989affe3e57077963ec5ac0e902389",
 "assets/images/tf-logo.png": "c14d03d92129a49032b2438eced1d882",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"main.dart.js": "f04ab8353a9a7d23f9788f363ac437f9",
-"index.html": "578e1afefb26d430f2190e514c9735a7",
-"/": "578e1afefb26d430f2190e514c9735a7"
+"main.dart.js": "3827ffb3ac69ba227407ffb7bd0e52fe",
+"index.html": "7f0e075e9e4490f99e65428dbe91f4be",
+"/": "7f0e075e9e4490f99e65428dbe91f4be"
 };
 
 // The application shell files that are downloaded before a service worker can
