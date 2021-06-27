@@ -34,7 +34,7 @@ install: install.buf ## install buf, protoc, protoc-gen for Go & Dart
 	rm -f protoc-*.zip
 	make install.go
 	flutter pub global activate protoc_plugin
-	flutter pub get
+	cd client && flutter pub get
 
 .PHONY: install.go
 install.go: ## install go with dependencies
