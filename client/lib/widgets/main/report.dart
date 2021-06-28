@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pr12er/protos/pkg/pr12er/service.pb.dart';
 
-const List<String> reportPreset = ['누락된 PR12 동영상 제보', '기타 이슈'];
 const String reportTextPlaceholder = 'PR 넘버: ...\nYouTube 링크: ...\n';
 
 class ReportWidget extends StatefulWidget {
@@ -12,7 +12,7 @@ class ReportWidget extends StatefulWidget {
 
 class _ReportWidgetState extends State<ReportWidget> {
   final _reportTextFieldController = TextEditingController();
-  String reportCategory = reportPreset[0];
+  ReportRequest_ReportType currentReportType = ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO;
 
   @override
   Widget build(BuildContext context) {
@@ -37,22 +37,22 @@ class _ReportWidgetState extends State<ReportWidget> {
       ),
       Container(
         padding: const EdgeInsets.only(left: 20, right: 20),
-        child: DropdownButton(
-          value: reportCategory,
-          isExpanded: true,
-          onChanged: (String? newValue) {
+        child: DropdownButton<ReportRequest_ReportType>(
+          value: currentReportType,
+          onChanged: (newValue) {
             setState(() {
-              reportCategory = newValue!;
+              currentReportType = newValue!;
             });
           },
+          isExpanded: true,
           underline: Container(
             height: 2,
           ),
           style: Theme.of(context).textTheme.headline6,
-          items: reportPreset.map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
+          items: ReportRequest_ReportType.values.map((ReportRequest_ReportType reportType) {
+            return DropdownMenuItem<ReportRequest_ReportType>(
+              value: reportType,
+              child: Text(getStringReportTypeBy(reportType)),
             );
           }).toList(),
         ),
@@ -102,5 +102,22 @@ class _ReportWidgetState extends State<ReportWidget> {
         height: 200,
       ),
     ]);
+  }
+
+  String getStringReportTypeBy(ReportRequest_ReportType reportType) {
+    switch (reportType) {
+      case ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO: {
+        return "PR12 누락 동영상";
+      }
+
+      case ReportRequest_ReportType.REPORT_TYPE_BUG: {
+        return "버그";
+      }
+
+      default: {
+        // equivalent to ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED
+        return "기타";
+      }
+    }
   }
 }

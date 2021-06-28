@@ -8,6 +8,8 @@ PODS:
     - Flutter
     - OrderedSet (~> 5.0)
   - OrderedSet (5.0.0)
+  - path_provider (0.0.1):
+    - Flutter
   - share_plus (0.0.1):
     - Flutter
   - url_launcher (0.0.1):
@@ -16,6 +18,7 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_inappwebview (from `.symlinks/plugins/flutter_inappwebview/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
 
@@ -28,6 +31,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_inappwebview:
     :path: ".symlinks/plugins/flutter_inappwebview/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
   share_plus:
     :path: ".symlinks/plugins/share_plus/ios"
   url_launcher:
@@ -37,6 +42,7 @@ SPEC CHECKSUMS:
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   flutter_inappwebview: bfd58618f49dc62f2676de690fc6dcda1d6c3721
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   share_plus: 056a1e8ac890df3e33cb503afffaf1e9b4fbae68
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
 
