@@ -17,7 +17,10 @@ import (
 	"google.golang.org/api/option"
 )
 
-var prIDRegexp = regexp.MustCompile(`pr-?(\d+)`)
+var (
+	prIDRegexp    = regexp.MustCompile(`pr-?(\d+)`)
+	arxivIDRegexp = regexp.MustCompile(`\d+\.\d+`)
+)
 
 func frameworkToEnum(paperFramework string) pr12er.Framework {
 	switch paperFramework {
@@ -137,11 +140,9 @@ func ExtractArxivIDFromURL(url string) (string, error) {
 	if !strings.Contains(url, "arxiv.org") {
 		return "", fmt.Errorf("%s does not contain arxiv.org", url)
 	}
-	splits := strings.Split(url, "/")
-	if len(splits) == 0 {
-		return "", fmt.Errorf("%s does not contain any ArxivID", url)
-	}
-	return splits[len(splits)-1], nil
+
+	arxivID := arxivIDRegexp.FindString(url)
+	return arxivID, nil
 }
 
 // ExtractPRID extracts PR ID from the title.

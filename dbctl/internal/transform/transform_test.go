@@ -111,8 +111,8 @@ func TestExtractPRID(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name:    "PR0 should return 0",
-			title:   "PR0: On mutual information maximization for representation learning",
+			name:    "PR000 should return 0",
+			title:   "PR000:On mutual information maximization for representation learning",
 			want:    0,
 			wantErr: false,
 		},
@@ -183,6 +183,12 @@ func TestExtractArxivIDFromURL(t *testing.T) {
 			name:    "Invalid URL returns an error",
 			url:     "https://gabs/2103.04537",
 			wantErr: true,
+		},
+		{
+			name:    "Valid but dirty URL returns an error",
+			url:     "https://arxiv.org/abs/2103.04537?aidosfjoijkalejglutm_a232859.23582",
+			want:    "2103.04537",
+			wantErr: false,
 		},
 	}
 	for _, tt := range tests {
