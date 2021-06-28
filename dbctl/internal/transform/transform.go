@@ -5,7 +5,6 @@ import (
 	"context"
 	"fmt"
 	"regexp"
-	"sort"
 	"strconv"
 	"strings"
 
@@ -127,10 +126,11 @@ func ExtractPaperIDsViaProgrammableSearch(title, cx, apiKey string, limiter *rat
 			log.WithError(err).Warn("failed to parse arxiv ID")
 			continue
 		}
-		paperIDs = append(paperIDs, arxivID)
-	}
 
-	sort.Strings(paperIDs)
+		if arxivID != "" {
+			paperIDs = append(paperIDs, arxivID)
+		}
+	}
 
 	return paperIDs, nil
 }
