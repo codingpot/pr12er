@@ -2,12 +2,35 @@ package data
 
 import (
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 	"testing"
 
+	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/stretchr/testify/assert"
+	"google.golang.org/protobuf/encoding/prototext"
 )
+
+func TestValidMappingTable(t *testing.T) {
+	bs, err := pbFiles.ReadFile("mapping_table.pbtxt")
+	assert.NoError(t, err)
+
+	// Unmarshalled correctly.
+	var table pr12er.MappingTable
+	err = prototext.Unmarshal(bs, &table)
+	assert.NoError(t, err)
+
+	// Sorted by PR ID.
+	sort.SliceIsSorted(table.GetRows(), func(i, j int) bool {
+		return table.GetRows()[i].GetPrId() < table.GetRows()[j].GetPrId()
+	})
+
+	// PR ID and Video ID must exist.
+	for _, row := range table.GetRows() {
+		assert.Greater(t, row.GetPrId(), int32(0))
+	}
+}
 
 // TestValidData validates data integrity of the database.
 func TestValidData(t *testing.T) {
