@@ -108,11 +108,11 @@ class _ReportWidgetState extends State<ReportWidget> {
     switch (reportType) {
       case ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO: {
         return "PR12 누락 동영상";
-      } break;
+      }
 
       case ReportRequest_ReportType.REPORT_TYPE_BUG: {
         return "버그";
-      } break;
+      }
 
       default: {
         // equivalent to ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED
