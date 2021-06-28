@@ -7,7 +7,6 @@ import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 
 import '../protos/pkg/pr12er/messages.pb.dart';
 
