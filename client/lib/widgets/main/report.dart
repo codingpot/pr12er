@@ -12,7 +12,8 @@ class ReportWidget extends StatefulWidget {
 
 class _ReportWidgetState extends State<ReportWidget> {
   final _reportTextFieldController = TextEditingController();
-  ReportRequest_ReportType currentReportType = ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO;
+  ReportRequest_ReportType currentReportType =
+      ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,8 @@ class _ReportWidgetState extends State<ReportWidget> {
             height: 2,
           ),
           style: Theme.of(context).textTheme.headline6,
-          items: ReportRequest_ReportType.values.map((ReportRequest_ReportType reportType) {
+          items: ReportRequest_ReportType.values
+              .map((ReportRequest_ReportType reportType) {
             return DropdownMenuItem<ReportRequest_ReportType>(
               value: reportType,
               child: Text(getStringReportTypeBy(reportType)),
@@ -106,18 +108,21 @@ class _ReportWidgetState extends State<ReportWidget> {
 
   String getStringReportTypeBy(ReportRequest_ReportType reportType) {
     switch (reportType) {
-      case ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO: {
-        return "PR12 누락 동영상";
-      }
+      case ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO:
+        {
+          return "PR12 누락 동영상";
+        }
 
-      case ReportRequest_ReportType.REPORT_TYPE_BUG: {
-        return "버그";
-      }
+      case ReportRequest_ReportType.REPORT_TYPE_BUG:
+        {
+          return "버그";
+        }
 
-      default: {
-        // equivalent to ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED
-        return "기타";
-      }
+      default:
+        {
+          // equivalent to ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED
+          return "기타";
+        }
     }
   }
 }
