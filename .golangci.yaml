@@ -34,3 +34,4 @@ linters:
     - lll # I want to use a long line.
     - goerr113 # I want to use dynamic error.
     - gochecknoinits # I want to use init().
+    - prealloc # is annoying
