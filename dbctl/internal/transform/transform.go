@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -128,6 +129,8 @@ func ExtractPaperIDsViaProgrammableSearch(title, cx, apiKey string, limiter *rat
 		}
 		paperIDs = append(paperIDs, arxivID)
 	}
+
+	sort.Strings(paperIDs)
 
 	return paperIDs, nil
 }

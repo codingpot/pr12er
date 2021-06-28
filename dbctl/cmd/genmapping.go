@@ -3,6 +3,7 @@ package cmd
 import (
 	"context"
 	"os"
+	"sort"
 	"time"
 
 	"github.com/codingpot/pr12er/dbctl/internal/transform"
@@ -108,6 +109,10 @@ var genmappingCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
+
+		sort.Slice(table.GetRows(), func(i, j int) bool {
+			return table.GetRows()[i].GetPrId() < table.GetRows()[j].GetPrId()
+		})
 
 		marshal, err := prototext.MarshalOptions{
 			Multiline: true,
