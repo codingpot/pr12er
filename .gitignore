@@ -4,3 +4,4 @@
 /client/test/**/*.mocks.dart
 .devcontainer/
 /.env
+*.pbtxt.bak

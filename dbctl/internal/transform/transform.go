@@ -118,7 +118,9 @@ func ExtractPaperIDsViaProgrammableSearch(title, cx, apiKey string, limiter *rat
 		return nil, err
 	}
 
-	var paperIDs []string
+	var arxivIDs []string
+
+	seenArxivIDs := map[string]bool{}
 
 	for _, item := range do.Items {
 		arxivID, err := ExtractArxivIDFromURL(item.Link)
@@ -128,11 +130,14 @@ func ExtractPaperIDsViaProgrammableSearch(title, cx, apiKey string, limiter *rat
 		}
 
 		if arxivID != "" {
-			paperIDs = append(paperIDs, arxivID)
+			if !seenArxivIDs[arxivID] {
+				seenArxivIDs[arxivID] = true
+				arxivIDs = append(arxivIDs, arxivID)
+			}
 		}
 	}
 
-	return paperIDs, nil
+	return arxivIDs, nil
 }
 
 // ExtractArxivIDFromURL extracts ArxivID from the URL.
