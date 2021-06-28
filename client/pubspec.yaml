@@ -33,6 +33,7 @@ dependencies:
   protobuf: ^2.0.0
   provider: ^5.0.0
   share_plus: ^2.1.4
+  shared_preferences: ^2.0.6
   url_launcher: ^6.0.6
   youtube_player_flutter: ^8.0.0
   youtube_player_iframe: ^2.0.0

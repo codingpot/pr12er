@@ -4,6 +4,7 @@ import 'package:pr12er/widgets/main/pr12video.dart';
 
 class VideoSearchDelegate extends SearchDelegate {
   late List<Video> dataRef;
+  late bool ignoreBookmarkIcon;
 
   @override
   ThemeData appBarTheme(BuildContext context) {
@@ -43,8 +44,10 @@ class VideoSearchDelegate extends SearchDelegate {
     return ListView.builder(
         padding: const EdgeInsets.all(8),
         itemCount: videos.length,
-        itemBuilder: (BuildContext context, int index) =>
-            PR12Video(index: index, video: videos[index]));
+        itemBuilder: (BuildContext context, int index) => PR12Video(
+            index: index,
+            video: videos[index],
+            ignoreBookmarkIcon: ignoreBookmarkIcon));
   }
 
   @override
