@@ -138,27 +138,30 @@ func startWorkers(workers int, client *fetcher.Fetcher, in chan *pr12er.MappingT
 // nolint: gochecknoinits
 func init() {
 	rootCmd.AddCommand(genMetaCmd)
-	viper.AutomaticEnv()
-
-	genMetaCmd.PersistentFlags().StringP(
-		"mapping-file",
-		"f",
-		"../server/internal/data/mapping_table.pbtxt",
-		"A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
-	_ = viper.BindPFlag(envNameMappingFile, genMetaCmd.PersistentFlags().Lookup("mapping-file"))
 
 	genMetaCmd.
-		PersistentFlags().
+		Flags().
+		StringP(
+			"mapping-file",
+			"f",
+			"../server/internal/data/mapping_table.pbtxt",
+			"A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
+	_ = viper.BindPFlag(envNameMappingFile, genMetaCmd.Flag("mapping-file"))
+
+	genMetaCmd.
+		Flags().
 		String("youtube-api-key", "", "YouTube Data API (v3) key")
-	_ = viper.BindPFlag(envNameYouTubeAPIKey, genMetaCmd.PersistentFlags().Lookup("youtube-api-key"))
+	_ = viper.BindPFlag(envNameYouTubeAPIKey, genMetaCmd.Flag("youtube-api-key"))
 
 	genMetaCmd.
-		PersistentFlags().
+		Flags().
 		String("database-out-file",
 			"../server/internal/data/database.pbtxt",
 			"Filepath to write database.pbtxt")
-	_ = viper.BindPFlag(envNameDatabaseOutFile, genMetaCmd.PersistentFlags().Lookup("database-out-file"))
+	_ = viper.BindPFlag(envNameDatabaseOutFile, genMetaCmd.Flag("database-out-file"))
 
-	genMetaCmd.PersistentFlags().Int("workers", 10, "The number of workers to use for fetching")
-	_ = viper.BindPFlag(envNameWorkers, genMetaCmd.PersistentFlags().Lookup("workers"))
+	genMetaCmd.
+		Flags().
+		Int("workers", 10, "The number of workers to use for fetching")
+	_ = viper.BindPFlag(envNameWorkers, genMetaCmd.Flag("workers"))
 }

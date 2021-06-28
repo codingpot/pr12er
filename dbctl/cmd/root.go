@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/spf13/viper"
 	"log"
 
 	"github.com/spf13/cobra"
@@ -22,4 +23,8 @@ func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		log.Panic(err)
 	}
+}
+
+func init() {
+	viper.AutomaticEnv()
 }

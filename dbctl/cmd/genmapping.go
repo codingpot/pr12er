@@ -17,7 +17,11 @@ import (
 	"google.golang.org/protobuf/encoding/prototext"
 )
 
-const envNameYouTubePlaylistID = "YOUTUBE_PLAYLIST_ID"
+const (
+	envNameYouTubePlaylistID = "YOUTUBE_PLAYLIST_ID"
+	envNameMinPrID           = "MIN_PR_ID"
+	envNameMaxPrID           = "MAX_PR_ID"
+)
 
 var genmappingCmd = &cobra.Command{
 	Use:   "gen-mapping",
@@ -27,14 +31,18 @@ var genmappingCmd = &cobra.Command{
 		youtubePlaylistID := viper.GetString(envNameYouTubePlaylistID)
 		mappingFilepath := viper.GetString(envNameMappingFile)
 
+		minPrID := viper.GetInt32(envNameMinPrID)
+		maxPrID := viper.GetInt32(envNameMaxPrID)
+
 		log.WithFields(log.Fields{
 			envNameYouTubeAPIKey:     youtubeAPIKey,
 			envNameYouTubePlaylistID: youtubePlaylistID,
 			envNameMappingFile:       mappingFilepath,
+			envNameMinPrID:           minPrID,
+			envNameMaxPrID:           maxPrID,
 		}).Info("binding variables")
 
-		// Define RateLimit
-		// 3 / seconds
+		// Define RateLimit: 1/sec
 		googlesearch.RateLimit = rate.NewLimiter(rate.Every(time.Second), 3)
 
 		svc, err := youtube.NewService(context.Background(), option.WithAPIKey(youtubeAPIKey))
@@ -56,6 +64,10 @@ var genmappingCmd = &cobra.Command{
 					prID, err := transform.ExtractPRID(item.Snippet.Title)
 					if err != nil {
 						return err
+					}
+
+					if !(minPrID <= prID  && prID <= maxPrID) {
+						continue
 					}
 
 					paperIDs, err := transform.ExtractPaperIDs(item.Snippet.Title)
@@ -94,10 +106,12 @@ func init() {
 
 	genmappingCmd.Flags().String("youtube-api-key", "", "YouTube API Key (required)")
 	_ = viper.BindPFlag(envNameYouTubeAPIKey, genmappingCmd.Flag("youtube-api-key"))
-
 	genmappingCmd.Flags().String("playlist-id", "", "YouTube Playlist ID (required)")
 	_ = viper.BindPFlag(envNameYouTubePlaylistID, genmappingCmd.Flag("playlist-id"))
-
 	genmappingCmd.Flags().String("mapping-file", "../server/internal/data/mapping_table.pbtxt", "Filepath to mapping_table.pbtxt")
 	_ = viper.BindPFlag(envNameMappingFile, genmappingCmd.Flag("mapping-file"))
+	genmappingCmd.Flags().Int32("min-pr-id", 0, "Minimum PR ID to fetch from (inclusive). It will start fetching from this ID.")
+	_ = viper.BindPFlag(envNameMinPrID, genmappingCmd.Flag("min-pr-id"))
+	genmappingCmd.Flags().Int32("max-pr-id", 999, "Maximum PR ID to fetch from (inclusive). It will start fetching until this PR.")
+	_ = viper.BindPFlag(envNameMaxPrID, genmappingCmd.Flag("max-pr-id"))
 }
