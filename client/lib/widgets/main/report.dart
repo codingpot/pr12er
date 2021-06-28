@@ -3,13 +3,6 @@ import 'package:pr12er/protos/pkg/pr12er/service.pb.dart';
 
 const String reportTextPlaceholder = 'PR 넘버: ...\nYouTube 링크: ...\n';
 
-class ListItem {
-  ReportRequest_ReportType value;
-  String title;
-
-  ListItem(this.value, this.title);
-}
-
 class ReportWidget extends StatefulWidget {
   const ReportWidget({Key? key}) : super(key: key);
 
@@ -20,23 +13,6 @@ class ReportWidget extends StatefulWidget {
 class _ReportWidgetState extends State<ReportWidget> {
   final _reportTextFieldController = TextEditingController();
   ReportRequest_ReportType currentReportType = ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO;
-
-  String getStringReportTypeBy(ReportRequest_ReportType reportType) {
-    switch (reportType) {
-      case ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO: {
-        return "PR12 누락 동영상";
-      } break;
-
-      case ReportRequest_ReportType.REPORT_TYPE_BUG: {
-        return "버그";
-      } break;
-
-      default: {
-        // equivalent to ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED
-        return "기타";
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,5 +102,22 @@ class _ReportWidgetState extends State<ReportWidget> {
         height: 200,
       ),
     ]);
+  }
+
+  String getStringReportTypeBy(ReportRequest_ReportType reportType) {
+    switch (reportType) {
+      case ReportRequest_ReportType.REPORT_TYPE_MISSING_PR_VIDEO: {
+        return "PR12 누락 동영상";
+      } break;
+
+      case ReportRequest_ReportType.REPORT_TYPE_BUG: {
+        return "버그";
+      } break;
+
+      default: {
+        // equivalent to ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED
+        return "기타";
+      }
+    }
   }
 }
