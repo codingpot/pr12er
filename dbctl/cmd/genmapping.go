@@ -21,6 +21,7 @@ const (
 	envNameYouTubePlaylistID = "YOUTUBE_PLAYLIST_ID"
 	envNameMinPrID           = "MIN_PR_ID"
 	envNameMaxPrID           = "MAX_PR_ID"
+	envNameCx                = "CX"
 )
 
 var genmappingCmd = &cobra.Command{
@@ -34,16 +35,21 @@ var genmappingCmd = &cobra.Command{
 		minPrID := viper.GetInt32(envNameMinPrID)
 		maxPrID := viper.GetInt32(envNameMaxPrID)
 
+		cx := viper.GetString(envNameCx)
+
 		log.WithFields(log.Fields{
 			envNameYouTubeAPIKey:     youtubeAPIKey,
 			envNameYouTubePlaylistID: youtubePlaylistID,
 			envNameMappingFile:       mappingFilepath,
 			envNameMinPrID:           minPrID,
 			envNameMaxPrID:           maxPrID,
+			envNameCx:                cx,
 		}).Info("binding variables")
 
 		// Define RateLimit: 1/sec
-		googlesearch.RateLimit = rate.NewLimiter(rate.Every(time.Second), 3)
+		if cx == "" {
+			googlesearch.RateLimit = rate.NewLimiter(rate.Every(time.Second), 3)
+		}
 
 		svc, err := youtube.NewService(context.Background(), option.WithAPIKey(youtubeAPIKey))
 		if err != nil {
@@ -57,6 +63,9 @@ var genmappingCmd = &cobra.Command{
 			List([]string{"contentDetails", "snippet"}).
 			PlaylistId(youtubePlaylistID).
 			Pages(context.Background(), func(resp *youtube.PlaylistItemListResponse) error {
+				// rateLimiter is used for CSE search.
+				rateLimiter := rate.NewLimiter(rate.Every(time.Second), 1)
+
 				for _, item := range resp.Items {
 					log.WithFields(log.Fields{
 						"title": item.Snippet.Title,
@@ -66,11 +75,22 @@ var genmappingCmd = &cobra.Command{
 						return err
 					}
 
-					if !(minPrID <= prID  && prID <= maxPrID) {
+					if !(minPrID <= prID && prID <= maxPrID) {
 						continue
 					}
 
-					paperIDs, err := transform.ExtractPaperIDs(item.Snippet.Title)
+					var paperIDs []string
+
+					if cx == "" {
+						paperIDs, err = transform.ExtractPaperIDs(item.Snippet.Title)
+					} else {
+						paperIDs, err = transform.
+							ExtractPaperIDsViaProgrammableSearch(
+								item.Snippet.Title,
+								cx,
+								youtubeAPIKey,
+								rateLimiter)
+					}
 					if err != nil {
 						return err
 					}
@@ -114,4 +134,6 @@ func init() {
 	_ = viper.BindPFlag(envNameMinPrID, genmappingCmd.Flag("min-pr-id"))
 	genmappingCmd.Flags().Int32("max-pr-id", 999, "Maximum PR ID to fetch from (inclusive). It will start fetching until this PR.")
 	_ = viper.BindPFlag(envNameMaxPrID, genmappingCmd.Flag("max-pr-id"))
+	genmappingCmd.Flags().String("cx", "", "Search Engine ID from https://programmablesearchengine.google.com/ If this is not set, it will use googlesearch (free)")
+	_ = viper.BindPFlag(envNameCx, genmappingCmd.Flag("cx"))
 }

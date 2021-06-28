@@ -11,6 +11,10 @@ import (
 	"github.com/codingpot/paperswithcode-go/v2/models"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/rocketlaunchr/google-search"
+	log "github.com/sirupsen/logrus"
+	"golang.org/x/time/rate"
+	"google.golang.org/api/customsearch/v1"
+	"google.golang.org/api/option"
 )
 
 var prIDRegexp = regexp.MustCompile(`pr-?(\d+)`)
@@ -88,6 +92,37 @@ func ExtractPaperIDs(title string) ([]string, error) {
 
 	for i := 0; i < maxLen; i++ {
 		arxivID, _ := ExtractArxivIDFromURL(search[i].URL)
+		paperIDs = append(paperIDs, arxivID)
+	}
+
+	return paperIDs, nil
+}
+
+// ExtractPaperIDsViaProgrammableSearch returns ArxivIDs from Programmable Search API.
+func ExtractPaperIDsViaProgrammableSearch(title, cx, apiKey string, limiter *rate.Limiter) ([]string, error) {
+	searchTerm := prIDRegexp.ReplaceAllString(strings.ToLower(title), "")
+	svc, err := customsearch.NewService(context.Background(), option.WithAPIKey(apiKey))
+	if err != nil {
+		return nil, err
+	}
+
+	if err := limiter.Wait(context.Background()); err != nil {
+		return nil, err
+	}
+
+	do, err := svc.Cse.Siterestrict.List().Cx(cx).Q(searchTerm).Do()
+	if err != nil {
+		return nil, err
+	}
+
+	var paperIDs []string
+
+	for _, item := range do.Items {
+		arxivID, err := ExtractArxivIDFromURL(item.Link)
+		if err != nil {
+			log.WithError(err).Warn("failed to parse arxiv ID")
+			continue
+		}
 		paperIDs = append(paperIDs, arxivID)
 	}
 
