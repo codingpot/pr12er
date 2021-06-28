@@ -13,14 +13,14 @@ const RESOURCES = {
 "assets/packages/youtube_player_flutter/assets/speedometer.webp": "50448630e948b5b3998ae5a5d112622b",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/NOTICES": "b4e07a33f58a453744942a0ca64578b5",
+"assets/NOTICES": "e45809f998af90b0667f9174d8b63018",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/images/pytorch-logo.png": "62989affe3e57077963ec5ac0e902389",
 "assets/images/tf-logo.png": "c14d03d92129a49032b2438eced1d882",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"main.dart.js": "fdaf16532ee6fd5d6e076d2234c04091",
-"index.html": "f45f359674d19940826f5c77bf2c6ffa",
-"/": "f45f359674d19940826f5c77bf2c6ffa"
+"main.dart.js": "bdc2b831e66984b0330648f4e66d34ca",
+"index.html": "f644f8354d7a056eb812353a9e17b21f",
+"/": "f644f8354d7a056eb812353a9e17b21f"
 };
 
 // The application shell files that are downloaded before a service worker can
