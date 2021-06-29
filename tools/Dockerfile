@@ -14,6 +14,7 @@ COPY --from=golang:1.16 /usr/local/go/ /usr/local/go/
 WORKDIR /workspace
 COPY ./client/pubspec.lock ./client/pubspec.yaml ./client/
 COPY ./server/go.* ./server/
+COPY ./server/cmd/tools/tools.go ./server/cmd/tools/
 COPY ./dbctl/go.* ./dbctl/
 COPY Makefile .
 
