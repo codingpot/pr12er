@@ -9,6 +9,11 @@ import (
 	"golang.org/x/oauth2"
 )
 
+const (
+	owner    = "codingpot"
+	repoName = "pr12er"
+)
+
 // GitHubV3 is the v3 implementation of gh.GitHubService.
 type GitHubV3 struct {
 	client *github.Client
@@ -16,13 +21,17 @@ type GitHubV3 struct {
 
 // CreateIssue create an issue.
 func (g GitHubV3) CreateIssue(title, body string, labels []string) (*gh.GitHubIssue, error) {
-	create, _, err := g.client.Issues.Create(context.Background(), "codingpot", "pr12er", &github.IssueRequest{
-		Title:  &title,
-		Body:   &body,
-		Labels: &labels,
-	})
+	create, _, err := g.client.Issues.Create(
+		context.Background(),
+		owner,
+		repoName,
+		&github.IssueRequest{
+			Title:  &title,
+			Body:   &body,
+			Labels: &labels,
+		})
 
-	if create == nil {
+	if create == nil || err != nil {
 		return nil, err
 	}
 	return &gh.GitHubIssue{URL: create.GetURL()}, err
