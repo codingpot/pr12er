@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RecommendationWidget extends StatelessWidget {
   final Detail detail;
@@ -24,20 +25,36 @@ class RecommendationWidget extends StatelessWidget {
         SizedBox(
             height: 150,
             child: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
                 itemCount: refPapers.length,
                 itemBuilder: (BuildContext context, int index) =>
-                    getItemCard(refPapers[index])))
+                    getItemCard(context, refPapers[index])))
       ]),
     );
   }
 
-  Widget getItemCard(Paper paper) {
-    return Card(
-        child: ListTile(
-            title: Text(paper.title),
-            subtitle: Text(
-                "${paper.authors[0]}  |  ${DateFormat.yMd().format(paper.publishedDate.toDateTime())}")));
+  Widget getItemCard(BuildContext context, Paper paper) {
+    return GestureDetector(
+        onTap: () async {
+          if (await canLaunch("https://arxiv.org/abs/${paper.arxivId}")) {
+            await launch("https://arxiv.org/abs/${paper.arxivId}");
+            return;
+          }
+          ScaffoldMessenger.of(context).removeCurrentSnackBar();
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Theme.of(context).colorScheme.error,
+            content: Text("https://arxiv.org/abs/${paper.arxivId} is not a valid URL"),
+            action: SnackBarAction(
+              label: "OK",
+              textColor: Theme.of(context).colorScheme.onError,
+              onPressed: (){},
+            ),
+          ));
+        },
+        child: Card(
+            child: ListTile(
+                title: Text(paper.title),
+                subtitle: Text(
+                    "${paper.authors[0]}  |  ${DateFormat.yMd().format(paper.publishedDate.toDateTime())}"))));
   }
 
   List<Paper> getReferencePapers(Detail detail) {
