@@ -28,21 +28,29 @@ BUF_VERSION := 0.43.2
 
 .PHONY: install
 install: install.buf ## install buf, protoc, protoc-gen for Go & Dart
+	make install.protoc
+	make install.go
+	make install.dart
+
+.PHONY: install.protoc
+install.protoc: ## install Protoc dependencies
 	curl -OL $(PROTOC_FULL_URL)
 	unzip -o $(PROTOC_FILE) -d $(BIN_INSTALL_DIR)/../
 	export PATH="$${PATH}:$(BIN_INSTALL_DIR)"
 	rm -f protoc-*.zip
-	make install.go
-	flutter pub global activate protoc_plugin
-	make install.dart
 
 .PHONY: install.dart
 install.dart: ## install Dart dependencies
+	flutter pub global activate protoc_plugin
 	cd client && flutter pub get
 
 .PHONY: install.go
-install.go: ## install go with dependencies
-	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install && go mod tidy
+install.go: install.go.notidy ## install go with dependencies
+	cd server && go mod tidy
+
+.PHONY: install.go.notidy
+install.go.notidy: ## install go with dependencies but no tidy
+	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install
 	cd dbctl && go mod download
 
 .PHONY: install.buf

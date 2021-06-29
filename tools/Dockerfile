@@ -13,12 +13,11 @@ COPY --from=golang:1.16 /usr/local/go/ /usr/local/go/
 # Install dependencies
 WORKDIR /workspace
 COPY ./client/pubspec.lock ./client/pubspec.yaml ./client/
-COPY ./server ./server/
-COPY ./dbctl ./dbctl/
+COPY ./server/go.* ./server/
+COPY ./dbctl/go.* ./dbctl/
 COPY Makefile .
 
-RUN make install
-RUN cd dbctl && go mod download
+RUN make install.buf install.protoc install.go.notidy install.dart
 RUN rm -rf client server Makefile dbctl
 
 # Install golangci-lint.
