@@ -24,7 +24,6 @@ class RecommendationWidget extends StatelessWidget {
         SizedBox(
             height: 150,
             child: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
                 itemCount: refPapers.length,
                 itemBuilder: (BuildContext context, int index) =>
                     getItemCard(refPapers[index])))
