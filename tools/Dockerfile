@@ -14,10 +14,10 @@ COPY --from=golang:1.16 /usr/local/go/ /usr/local/go/
 WORKDIR /workspace
 COPY ./client/pubspec.lock ./client/pubspec.yaml ./client/
 COPY ./server ./server/
+COPY ./dbctl ./dbctl/
 COPY Makefile .
 
 RUN make install
-COPY ./dbctl ./dbctl/
 RUN cd dbctl && go mod download
 RUN rm -rf client server Makefile dbctl
 
