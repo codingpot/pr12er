@@ -42,11 +42,12 @@ class RecommendationWidget extends StatelessWidget {
           ScaffoldMessenger.of(context).removeCurrentSnackBar();
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Theme.of(context).colorScheme.error,
-            content: Text("https://arxiv.org/abs/${paper.arxivId} is not a valid URL"),
+            content: Text(
+                "https://arxiv.org/abs/${paper.arxivId} is not a valid URL"),
             action: SnackBarAction(
               label: "OK",
               textColor: Theme.of(context).colorScheme.onError,
-              onPressed: (){},
+              onPressed: () {},
             ),
           ));
         },

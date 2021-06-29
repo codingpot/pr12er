@@ -53,6 +53,7 @@ class FavoriteVideoViewModel extends ChangeNotifier {
             ?.map((e) => int.parse(e, radix: 10))
             .toSet() ??
         {};
+    notifyListeners();
   }
 
   Future<void> toggleFavoriteVideo(int prID) async {
