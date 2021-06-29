@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pr12er/view_models/view_model_videos.dart';
-import 'package:pr12er/widgets/components/custom_app_bar.dart';
-import 'package:pr12er/widgets/components/custom_bottom_navigation_bar.dart';
-import 'package:pr12er/widgets/main/main_screen_favorite_view.dart';
-import 'package:pr12er/widgets/main/main_screen_list_view.dart';
-import 'package:pr12er/widgets/main/pr12video.dart';
-import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
 
 import '../protos/pkg/pr12er/messages.pb.dart';
 import '../service.dart';
+import '../widgets/components/custom_app_bar.dart';
+import '../widgets/components/custom_bottom_navigation_bar.dart';
+import '../widgets/main/main_screen_favorite_view.dart';
+import '../widgets/main/main_screen_list_view.dart';
+import '../widgets/main/video_search_delegate.dart';
 
 const appName = 'PR12er';
 
