@@ -34,11 +34,16 @@ install: install.buf ## install buf, protoc, protoc-gen for Go & Dart
 	rm -f protoc-*.zip
 	make install.go
 	flutter pub global activate protoc_plugin
+	make install.dart
+
+.PHONY: install.dart
+install.dart: ## install Dart dependencies
 	cd client && flutter pub get
 
 .PHONY: install.go
 install.go: ## install go with dependencies
 	cd server && go mod download && grep _ ./cmd/tools/tools.go | cut -d' ' -f2 | sed 's/\r//' | xargs go install && go mod tidy
+	cd dbctl && go mod download
 
 .PHONY: install.buf
 install.buf: ## install buf
