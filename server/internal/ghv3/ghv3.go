@@ -34,7 +34,7 @@ func (g GitHubV3) CreateIssue(title, body string, labels []string) (*gh.GitHubIs
 	if create == nil || err != nil {
 		return nil, err
 	}
-	return &gh.GitHubIssue{URL: create.GetURL()}, err
+	return &gh.GitHubIssue{URL: create.GetHTMLURL()}, err
 }
 
 // Ensure the GitHubV3 implements gh.GitHubService interface.
