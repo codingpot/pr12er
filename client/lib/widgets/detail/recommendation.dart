@@ -45,7 +45,6 @@ class RecommendationWidget extends StatelessWidget {
             content: Text("https://arxiv.org/abs/${paper.arxivId} is not a valid URL"),
             action: SnackBarAction(
               label: "OK",
-              onPressed: () {},
               textColor: Theme.of(context).colorScheme.onError,
             ),
           ));
