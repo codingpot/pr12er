@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/service.dart';
+import 'package:pr12er/view_models/view_model_videos.dart';
 import 'package:provider/provider.dart';
 
 import 'custom_theme.dart';
@@ -14,6 +15,9 @@ void main() => runApp(MultiProvider(providers: [
       ),
       ChangeNotifierProvider(
         create: (context) => CustomTheme(),
+      ),
+      ChangeNotifierProvider<FavoriteVideoViewModel>(
+        create: (context) => FavoriteVideoViewModel(),
       )
     ], child: const MainApp()));
 

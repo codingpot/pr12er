@@ -45,9 +45,9 @@ class VideoSearchDelegate extends SearchDelegate {
         padding: const EdgeInsets.all(8),
         itemCount: videos.length,
         itemBuilder: (BuildContext context, int index) => PR12Video(
-            index: index,
+            prID: index,
             video: videos[index],
-            ignoreBookmarkIcon: ignoreBookmarkIcon));
+            hideBookmarkIcon: ignoreBookmarkIcon));
   }
 
   @override

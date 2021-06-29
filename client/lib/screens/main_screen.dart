@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pr12er/screens/main_screen_all.dart';
-import 'package:pr12er/screens/main_screen_bookmark.dart';
+import 'package:pr12er/view_models/view_model_videos.dart';
+import 'package:pr12er/widgets/components/custom_app_bar.dart';
+import 'package:pr12er/widgets/main/pr12video.dart';
+import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
 
 import '../protos/pkg/pr12er/messages.pb.dart';
 import '../service.dart';
 
 const appName = 'PR12er';
-
-enum VertMenu { themeMode, issueReport }
 
 class MainScreen extends StatefulWidget {
   static const String routeName = "main_screen";
@@ -20,8 +20,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late List<Video> cleanList;
-
-  int _selectedBtmNavIndex = 0;
+  VideoSearchDelegate videoSearchDelegate = VideoSearchDelegate();
+  int _selectedBottomNavIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +37,38 @@ class _MainScreenState extends State<MainScreen> {
               .toList();
 
           return Scaffold(
+            appBar: CustomAppBar(
+              videoSearchDelegate: videoSearchDelegate,
+              context: context,
+              title: appName,
+            ),
             body: IndexedStack(
-              index: _selectedBtmNavIndex,
+              index: _selectedBottomNavIndex,
               children: [
-                MainScreenAll(cleanList: cleanList),
-                MainScreenBookmark(cleanList: cleanList),
+                PRVideos(
+                  cleanList: cleanList,
+                  videoSearchDelegate: videoSearchDelegate,
+                  hideBookmarkIcon: false,
+                ),
+                FutureBuilder<Set<int>>(
+                  future:
+                      context.read<FavoriteVideoViewModel>().favoriteVideosMap,
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    final Set<int> favoriteVideoMap = snapshot.data!;
+                    return PRVideos(
+                      cleanList: cleanList
+                          .where((element) =>
+                              favoriteVideoMap.contains(element.prId))
+                          .toList(growable: false),
+                      videoSearchDelegate: videoSearchDelegate,
+                      hideBookmarkIcon: true,
+                    );
+                  },
+                )
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
@@ -57,11 +84,11 @@ class _MainScreenState extends State<MainScreen> {
                     label: '북마크',
                   ),
                 ],
-                currentIndex: _selectedBtmNavIndex,
-                selectedItemColor: Colors.amber[800],
+                currentIndex: _selectedBottomNavIndex,
                 onTap: (int index) {
                   setState(() {
-                    _selectedBtmNavIndex = index;
+                    _selectedBottomNavIndex = index;
+                    videoSearchDelegate.ignoreBookmarkIcon = index == 1;
                   });
                 }),
           );

@@ -1,21 +1,20 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/screens/detail_screen.dart';
+import 'package:pr12er/view_models/view_model_videos.dart';
 import 'package:pr12er/widgets/main/video_search_delegate.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PRVideos extends StatelessWidget {
   final VideoSearchDelegate videoSearchDelegate;
   final List<Video> cleanList;
-  final bool ignoreBookmarkIcon;
+  final bool hideBookmarkIcon;
 
   const PRVideos(
       {Key? key,
       required this.cleanList,
       required this.videoSearchDelegate,
-      required this.ignoreBookmarkIcon})
+      required this.hideBookmarkIcon})
       : super(key: key);
 
   @override
@@ -26,54 +25,34 @@ class PRVideos extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         itemCount: cleanList.length,
         itemBuilder: (BuildContext context, int index) => PR12Video(
-            index: index,
+            prID: cleanList[index].prId,
             video: cleanList[index],
-            ignoreBookmarkIcon: ignoreBookmarkIcon));
+            hideBookmarkIcon: hideBookmarkIcon));
   }
 }
 
-class PR12Video extends StatefulWidget {
-  final int index;
+class PR12Video extends StatelessWidget {
+  final int prID;
   final Video video;
-  final bool ignoreBookmarkIcon;
+  final bool hideBookmarkIcon;
 
   const PR12Video(
       {Key? key,
-      required this.index,
+      required this.prID,
       required this.video,
-      required this.ignoreBookmarkIcon})
+      required this.hideBookmarkIcon})
       : super(key: key);
-
-  @override
-  _PR12VideoState createState() => _PR12VideoState();
-}
-
-class _PR12VideoState extends State<PR12Video> {
-  bool isBookmarked = false;
-
-  @override
-  void initState() {
-    super.initState();
-    SharedPreferences.getInstance().then((prefs) {
-      final List<String>? bookmarks = prefs.getStringList("bookmark");
-      if (bookmarks != null && bookmarks.contains(widget.index.toString())) {
-        setState(() {
-          isBookmarked = true;
-        });
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Card(
         child: ListTile(
-            key: ValueKey("ListTile-${widget.index}"),
+            key: ValueKey("ListTile-$prID"),
             leading: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: getCategoryWidgets(widget.video.category)),
+                children: getCategoryWidgets(video.category)),
             title: Text(
-              widget.video.title,
+              video.title,
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
             ),
@@ -82,12 +61,12 @@ class _PR12VideoState extends State<PR12Video> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.video.presenter,
+                  video.presenter,
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  getKeywords(widget.video.keywords),
+                  getKeywords(video.keywords),
                   style: Theme.of(context)
                       .textTheme
                       .caption
@@ -100,44 +79,38 @@ class _PR12VideoState extends State<PR12Video> {
               Navigator.pushNamed(
                 context,
                 DetailScreen.routeName,
-                arguments: DetailScreenArguments(widget.video),
+                arguments: DetailScreenArguments(video),
               );
             },
-            trailing: getTrailingWidget()));
+            trailing: getTrailingWidget(context, video.prId)));
   }
 
-  Widget? getTrailingWidget() {
-    if (widget.ignoreBookmarkIcon) {
+  Widget? getTrailingWidget(BuildContext context, int prID) {
+    if (hideBookmarkIcon) {
       return null;
     }
 
-    return IconButton(
-      onPressed: () async {
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        List<String>? bookmarks = prefs.getStringList("bookmark");
-        if (bookmarks != null) {
-          if (bookmarks.contains(widget.index.toString())) {
-            bookmarks.remove(widget.index.toString());
-          } else {
-            bookmarks.add(widget.index.toString());
-          }
-          prefs.setStringList("bookmark", bookmarks);
-        } else {
-          bookmarks = [widget.index.toString()];
-          prefs.setStringList("bookmark", bookmarks);
+    return FutureBuilder<bool>(
+      future: context.select<FavoriteVideoViewModel, Future<bool>>(
+          (service) => service.isFavoriteVideo(prID)),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const CircularProgressIndicator();
         }
+        final bool isFavorite = snapshot.data!;
 
-        log(bookmarks.toString());
-
-        setState(() {
-          isBookmarked = !isBookmarked;
-        });
+        return IconButton(
+          onPressed: () =>
+              context.read<FavoriteVideoViewModel>().toggleFavoriteVideo(prID),
+          icon: Icon(
+            isFavorite
+                ? Icons.bookmark_add_rounded
+                : Icons.bookmark_add_outlined,
+            size: 30,
+            color: Theme.of(context).accentColor,
+          ),
+        );
       },
-      icon: Icon(
-        isBookmarked ? Icons.bookmark_add_rounded : Icons.bookmark_add_outlined,
-        size: 30,
-        color: Theme.of(context).accentColor,
-      ),
     );
   }
 }
