@@ -46,6 +46,7 @@ class RecommendationWidget extends StatelessWidget {
             action: SnackBarAction(
               label: "OK",
               textColor: Theme.of(context).colorScheme.onError,
+              onPressed: (){},
             ),
           ));
         },
