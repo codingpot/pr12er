@@ -22,7 +22,7 @@ RUN make install.buf install.protoc install.go.notidy install.dart
 RUN rm -rf client server Makefile dbctl
 
 # Install golangci-lint.
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.40.1
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
 
 ENV PATH=$PATH:/root/.pub-cache/bin
 
