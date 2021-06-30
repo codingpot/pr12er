@@ -15,7 +15,7 @@ import (
 
 const envNameYouTubeLink = "YOUTUBE_LINK"
 
-// youtubeCmd represents the youtube command
+// youtubeCmd represents the youtube command.
 var youtubeCmd = &cobra.Command{
 	Use:   "youtube",
 	Short: "Generate a single GenMapping to STDOUT",
@@ -101,6 +101,7 @@ For example,
 		}
 
 		// Print to stdout
+		// nolint:forbidigo
 		fmt.Print(string(bs))
 
 		return nil
