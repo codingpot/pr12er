@@ -4,7 +4,10 @@ import (
 	"testing"
 
 	"github.com/codingpot/pr12er/server/internal/data"
+	"github.com/codingpot/pr12er/server/internal/mock_gh"
+	"github.com/codingpot/pr12er/server/pkg/handlers/gh"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
+	"github.com/golang/mock/gomock"
 	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/testing/protocmp"
@@ -81,7 +84,8 @@ func TestConvertToGet(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := VideosResponseFromDB(tt.args.db)
+			h := New(nil)
+			got := h.VideosResponseFromDB(tt.args.db)
 			if got := cmp.Diff(tt.want, got, protocmp.Transform()); got != "" {
 				t.Error(got)
 			}
@@ -140,7 +144,8 @@ func TestDetailResponseFromDB(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := DetailResponseFromDB(tt.args.prID, tt.args.db)
+			h := New(nil)
+			got, err := h.DetailResponseFromDB(tt.args.prID, tt.args.db)
 			if tt.wantErr {
 				assert.Error(t, err)
 			} else {
@@ -154,5 +159,40 @@ func TestDetailResponseFromDB(t *testing.T) {
 				t.Error(diff)
 			}
 		})
+	}
+}
+
+func TestHandler_Report(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	{
+		// GIVEN a report
+		in := &pr12er.ReportRequest{
+			Type: pr12er.ReportRequest_REPORT_TYPE_BUG,
+			Body: "Bug Bug Bug",
+		}
+
+		// THEN it should create a issue with the following information.
+		mockService := mock_gh.NewMockGitHubService(ctrl)
+		mockService.
+			EXPECT().
+			CreateIssue(
+				gomock.Eq("버그 리포트"),
+				gomock.Eq("Bug Bug Bug"),
+				gomock.Eq([]string{"bug"}),
+			).
+			Return(&gh.GitHubIssue{URL: "github-issue-url"}, nil)
+
+		// THEN checks the response contains the URL.
+		want := &pr12er.ReportResponse{
+			IssueUrl: "github-issue-url",
+		}
+		h := New(mockService)
+		got, err := h.Report(in)
+		assert.NoError(t, err)
+		if diff := cmp.Diff(want, got, protocmp.Transform()); diff != "" {
+			t.Error(diff)
+		}
 	}
 }

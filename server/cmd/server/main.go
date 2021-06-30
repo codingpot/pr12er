@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"net"
 
+	"github.com/codingpot/pr12er/server/internal/ghv3"
 	"github.com/codingpot/pr12er/server/middlewares/healthserver"
 	"github.com/codingpot/pr12er/server/middlewares/metrics"
 	"github.com/codingpot/pr12er/server/pkg/env"
+	"github.com/codingpot/pr12er/server/pkg/handlers"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	"github.com/codingpot/pr12er/server/pkg/serv"
 	grpc_logrus "github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus"
@@ -18,14 +20,20 @@ import (
 )
 
 func main() {
-	log.WithField("ServicePort", env.ServicePort).Print("gRPC server is listening")
+	log.WithFields(
+		log.Fields{
+			"ServicePort":    env.ServicePort,
+			"GITHUB_API_KEY": env.GitHubAPIKey,
+		}).Print("gRPC server is listening")
 
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", env.ServicePort))
 	if err != nil {
 		log.WithError(err).Fatalf("failed to listen")
 	}
 
-	s := serv.Server{}
+	githubService := ghv3.New(env.GitHubAPIKey)
+	handler := handlers.New(githubService)
+	s := serv.New(handler)
 
 	logNewEntry := log.NewEntry(log.New())
 
@@ -42,7 +50,7 @@ func main() {
 		),
 	)
 
-	pr12er.RegisterPr12ErServiceServer(grpcServer, &s)
+	pr12er.RegisterPr12ErServiceServer(grpcServer, s)
 	healthserver.RegisterHealthServer(grpcServer)
 	reflection.Register(grpcServer)
 

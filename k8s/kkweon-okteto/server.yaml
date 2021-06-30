@@ -57,6 +57,8 @@ spec:
               value: "9000"
             - name: PR12ER_PROMETHEUS_PORT
               value: "9093"
+            - name: GITHUB_API_KEY
+              value: "${GITHUB_API_KEY}"
 
           readinessProbe:
             exec:
