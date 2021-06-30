@@ -85,13 +85,12 @@ class VideoSearchDelegate extends SearchDelegate {
   }
 
   List<Video> getInterestedVideos() {
-    var videos = dataRef.where((video) {
+    return dataRef.where((video) {
       final searchLower = query.toLowerCase();
       final titleLower = video.title.toLowerCase();
 
       return titleLower.contains(searchLower);
     }).toList();
-    return videos;
   }
 
   @override

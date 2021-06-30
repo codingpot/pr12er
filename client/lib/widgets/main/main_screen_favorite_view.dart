@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/view_models/view_model_videos.dart';
 import 'package:pr12er/widgets/main/pr12video.dart';
-import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
 
 import '../../protos/pkg/pr12er/messages.pb.dart';
