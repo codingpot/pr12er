@@ -4,6 +4,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pr12er/custom_theme.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
+import 'package:pr12er/protos/pkg/pr12er/service.pb.dart';
 import 'package:pr12er/screens/main_screen.dart';
 import 'package:pr12er/service.dart';
 import 'package:provider/provider.dart';
@@ -73,6 +74,23 @@ void main() {
       verify(mockTheme.toggleMode()).called(1);
       // THEN themeMode should have changed.
       expect(mockTheme.themeMode, isNot(oldThemeMode));
+    });
+
+    testWidgets("Clicking the create issue button should send request",
+        (WidgetTester tester) async {
+      // GIVEN a user enters the main screen.
+      final devClient = MockGrpcClient();
+      when(devClient.getVideos()).thenAnswer((_) => Future.value(videos));
+      final req = ReportRequest();
+      when(devClient.report(req))
+          .thenAnswer((_) => Future.value(ReportResponse()));
+      await tester
+          .pumpWidget(setup(widget: MainScreen(), grpcClient: devClient));
+      await tester.pumpAndSettle();
+
+      // WHEN a user clicks send a request.
+
+      // THEN it should send a gRPC request.
     });
   });
 }

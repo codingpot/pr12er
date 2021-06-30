@@ -31,6 +31,10 @@ class GrpcClient {
 
     return response.detail;
   }
+
+  Future<ReportResponse> report(ReportRequest request) {
+    return _client.report(request);
+  }
 }
 
 // ignore: unused_element

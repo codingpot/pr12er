@@ -1,6 +1,12 @@
 include: package:lint/analysis_options.yaml
-analyzer:
-  exclude:
-    - lib/**/*.pb*.dart
-    - lib/test-server.dart
-    - test/**/*.mocks.dart
+
+linter:
+  rules:
+    # these rules are disabled due to gRPC/mock generated files.
+    constant_identifier_names: false
+    directives_ordering: false
+    avoid_implementing_value_types: false
+    prefer_constructors_over_static_methods: false
+    sort_unnamed_constructors_first: false
+    implementation_imports: false
+    invalid_implementation_override: false

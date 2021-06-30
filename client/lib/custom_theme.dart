@@ -42,9 +42,10 @@ class CustomTheme extends ChangeNotifier {
 
   ThemeMode get themeMode => _isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
-  Icon get icon => _isDarkMode
-      ? const Icon(Icons.dark_mode_outlined)
-      : const Icon(Icons.light_mode_outlined);
+  // This type should not be a widget(e.g. Icon) because of mockito support...
+  IconData get icon =>
+      _isDarkMode ? Icons.dark_mode_outlined : Icons.light_mode_outlined;
 
-  Text get text => _isDarkMode ? const Text("다크 모드") : const Text("라이트 모드");
+  // This type should not be a widget(e.g. Text) because of mockito support...
+  String get text => _isDarkMode ? "다크 모드" : "라이트 모드";
 }

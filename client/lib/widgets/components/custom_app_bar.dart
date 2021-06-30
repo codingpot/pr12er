@@ -31,8 +31,8 @@ class CustomAppBar extends AppBar {
                 PopupMenuItem<VertMenu>(
                     value: VertMenu.themeMode,
                     child: ListTile(
-                        leading: context.read<CustomTheme>().icon,
-                        title: context.read<CustomTheme>().text)),
+                        leading: Icon(context.read<CustomTheme>().icon),
+                        title: Text(context.read<CustomTheme>().text))),
                 const PopupMenuDivider(height: 5),
                 const PopupMenuItem<VertMenu>(
                     value: VertMenu.issueReport,
