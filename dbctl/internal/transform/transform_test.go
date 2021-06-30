@@ -203,3 +203,59 @@ func TestExtractArxivIDFromURL(t *testing.T) {
 		})
 	}
 }
+
+func TestExtractYouTubeID(t *testing.T) {
+	type args struct {
+		link string
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    string
+		wantErr bool
+	}{
+		{
+			name: "https://www.youtube.com/watch?v=rtuJqQDWmIA => rtuJqQDWmIA",
+			args: args{
+				link: "https://www.youtube.com/watch?v=rtuJqQDWmIA",
+			},
+			want:    "rtuJqQDWmIA",
+			wantErr: false,
+		},
+		{
+			name: "https://youtube.com/watch?v=rtuJqQDWmIA => rtuJqQDWmIA",
+			args: args{
+				link: "https://youtube.com/watch?v=rtuJqQDWmIA",
+			},
+			want:    "rtuJqQDWmIA",
+			wantErr: false,
+		},
+		{
+			name: "https://youtu.be/rtuJqQDWmIA => rtuJqQDWmIA",
+			args: args{
+				link: "https://youtu.be/rtuJqQDWmIA",
+			},
+			want:    "rtuJqQDWmIA",
+			wantErr: false,
+		},
+		{
+			name: "invalid url returns an error",
+			args: args{
+				link: "www.gooogle.com",
+			},
+			want:    "",
+			wantErr: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := ExtractYouTubeID(tt.args.link)
+			if tt.wantErr {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+				assert.Equal(t, tt.want, got)
+			}
+		})
+	}
+}

@@ -4,6 +4,7 @@ package transform
 import (
 	"context"
 	"fmt"
+	"net/url"
 	"regexp"
 	"strconv"
 	"strings"
@@ -170,4 +171,46 @@ func ExtractPRID(title string) (int32, error) {
 		return 0, err
 	}
 	return int32(atoi), nil
+}
+
+type ErrNotYouTubeLink struct {
+	url string
+}
+
+func (e ErrNotYouTubeLink) Error() string {
+	return fmt.Sprintf("no valid YouTubeID is found in %s", e.url)
+}
+
+// ExtractYouTubeID extracts videoID from YouTube link
+//
+// For example,
+//
+// https://www.youtube.com/watch?v=rtuJqQDWmIA => rtuJqQDWmIA
+// https://youtube.com/watch?v=rtuJqQDWmIA => rtuJqQDWmIA
+// https://youtu.be/rtuJqQDWmIA => rtuJqQDWmIA
+func ExtractYouTubeID(link string) (string, error) {
+	parse, err := url.Parse(link)
+	if err != nil {
+		return "", err
+	}
+
+	errNotYouTubeLink := ErrNotYouTubeLink{link}
+
+	if strings.Contains(parse.Hostname(), "youtube") {
+		youtubeID := parse.Query().Get("v")
+		if youtubeID == "" {
+			return "", errNotYouTubeLink
+		}
+		return youtubeID, nil
+	}
+
+	if strings.Contains(parse.Hostname(), "youtu.be") {
+		youtubeID := strings.TrimPrefix(parse.Path, "/")
+		if youtubeID == "" {
+			return "", errNotYouTubeLink
+		}
+		return youtubeID, nil
+	}
+
+	return "", errNotYouTubeLink
 }
