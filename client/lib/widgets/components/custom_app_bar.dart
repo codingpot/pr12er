@@ -27,14 +27,17 @@ class CustomAppBar extends AppBar {
               width: 5,
             ),
             PopupMenuButton(
+              key: const ValueKey("popup-menu-button"),
               itemBuilder: (BuildContext context) => <PopupMenuEntry<VertMenu>>[
                 PopupMenuItem<VertMenu>(
+                    key: const ValueKey("icon-theme-toggle-button"),
                     value: VertMenu.themeMode,
                     child: ListTile(
                         leading: Icon(context.read<CustomTheme>().icon),
                         title: Text(context.read<CustomTheme>().text))),
                 const PopupMenuDivider(height: 5),
                 const PopupMenuItem<VertMenu>(
+                    key: ValueKey("popup-menu-item-issue-report"),
                     value: VertMenu.issueReport,
                     child: ListTile(
                         leading: Icon(

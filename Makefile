@@ -20,8 +20,8 @@ else ifeq ($(UNAME), Windows)
 endif
 
 # Mock 이 필요한 파일
-DART_MOCK_SRCS := $(shell find client -name "*_with_mocks.dart" -type f)
-DART_MOCK_TARGETS := $(DART_MOCK_SRCS:%_with_mocks.dart=%_with_mocks.mocks.dart)
+DART_MOCK_SRCS := $(shell find client -name "*_with_mocks_test.dart" -type f)
+DART_MOCK_TARGETS := $(DART_MOCK_SRCS:%_with_mocks_test.dart=%_with_mocks_test.mocks.dart)
 
 BIN_INSTALL_DIR := $$HOME/.local/bin
 BUF_VERSION := 0.43.2
