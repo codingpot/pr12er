@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:link_text/link_text.dart';
 import 'package:pr12er/protos/pkg/pr12er/service.pb.dart';
+import 'package:pr12er/service.dart';
+import "package:provider/provider.dart";
 
 const String reportTextPlaceholder = 'PR 넘버: ...\nYouTube 링크: ...\n';
 
@@ -65,6 +68,7 @@ class _ReportWidgetState extends State<ReportWidget> {
       Container(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: TextField(
+            key: const ValueKey("report-text-field"),
             controller: _reportTextFieldController,
             style: Theme.of(context).textTheme.headline6,
             maxLines: 5,
@@ -82,8 +86,14 @@ class _ReportWidgetState extends State<ReportWidget> {
         child: Row(children: [
           Expanded(
               child: ElevatedButton.icon(
-            onPressed: () {
+            key: const ValueKey("report-action-button"),
+            onPressed: () async {
               // send report action
+              final resp = await context
+                  .read<GrpcClient>()
+                  .report(currentReportType, _reportTextFieldController.text);
+              Navigator.of(context).pop();
+              showSnackbar(resp.issueUrl);
             },
             icon: const Icon(
               Icons.outbox,
@@ -124,5 +134,22 @@ class _ReportWidgetState extends State<ReportWidget> {
           return "기타";
         }
     }
+  }
+
+  void showSnackbar(String issueUrl) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: LinkText(
+        "$issueUrl 에서 답변을 확인할 수 있습니다.",
+        textStyle: Theme.of(context)
+            .textTheme
+            .bodyText1!
+            .apply(color: Theme.of(context).colorScheme.surface),
+      ),
+      action: SnackBarAction(
+        onPressed: () {},
+        label: 'OK',
+      ),
+    ));
   }
 }
