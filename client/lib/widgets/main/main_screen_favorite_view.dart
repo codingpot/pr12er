@@ -10,11 +10,9 @@ class MainScreenFavoriteView extends StatelessWidget {
   const MainScreenFavoriteView({
     Key? key,
     required this.cleanList,
-    required this.videoSearchDelegate,
   }) : super(key: key);
 
   final List<Video> cleanList;
-  final VideoSearchDelegate videoSearchDelegate;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +22,11 @@ class MainScreenFavoriteView extends StatelessWidget {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         }
-
-        final Set<int> favoriteVideoMap = snapshot.data!;
+        final favoriteMap = snapshot.requireData;
         return PRVideos(
           cleanList: cleanList
-              .where((element) => favoriteVideoMap.contains(element.prId))
-              .toList(growable: false),
-          videoSearchDelegate: videoSearchDelegate,
+              .where((element) => favoriteMap.contains(element.prId))
+              .toList(),
           hideBookmarkIcon: true,
         );
       },

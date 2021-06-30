@@ -11,6 +11,8 @@ class GrpcClient {
   final Pr12erServiceClient _client =
       Pr12erServiceClient(getKkweonOktetoChannel());
 
+  List<Video>? _videoCache;
+
   Future<String> sendMessage(String message) async {
     final request = HelloRequest()..body = message;
     final response = await _client.getHello(request);
@@ -19,10 +21,14 @@ class GrpcClient {
   }
 
   Future<List<Video>> getVideos() async {
+    if (_videoCache != null) return _videoCache!;
+
     final request = GetVideosRequest();
     final response = await _client.getVideos(request);
 
-    return response.videos;
+    _videoCache = response.videos;
+
+    return _videoCache!;
   }
 
   Future<Detail> getDetail(int videoId) async {

@@ -46,19 +46,15 @@ class _MainScreenState extends State<MainScreen> {
               body: IndexedStack(
                 index: _selectedBottomNavIndex,
                 children: [
-                  MainScreenListView(
-                      cleanList: cleanList,
-                      videoSearchDelegate: videoSearchDelegate),
-                  MainScreenFavoriteView(
-                      cleanList: cleanList,
-                      videoSearchDelegate: videoSearchDelegate)
+                  MainScreenListView(cleanList: cleanList),
+                  MainScreenFavoriteView(cleanList: cleanList)
                 ],
               ),
               bottomNavigationBar: CustomBottomNavigationBar(
                   selectedBottomNavIndex: _selectedBottomNavIndex,
                   onTap: (index) => setState(() {
                         _selectedBottomNavIndex = index;
-                        videoSearchDelegate.ignoreBookmarkIcon = index == 1;
+                        videoSearchDelegate.showOnlyBookmarkItems = index == 1;
                       })));
         });
   }

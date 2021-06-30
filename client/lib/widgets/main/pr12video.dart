@@ -3,24 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/screens/detail_screen.dart';
 import 'package:pr12er/view_models/view_model_videos.dart';
-import 'package:pr12er/widgets/main/video_search_delegate.dart';
 
 class PRVideos extends StatelessWidget {
-  final VideoSearchDelegate videoSearchDelegate;
   final List<Video> cleanList;
   final bool hideBookmarkIcon;
 
   const PRVideos(
-      {Key? key,
-      required this.cleanList,
-      required this.videoSearchDelegate,
-      required this.hideBookmarkIcon})
+      {Key? key, required this.cleanList, required this.hideBookmarkIcon})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    videoSearchDelegate.dataRef = cleanList;
-
     return ListView.builder(
         padding: const EdgeInsets.all(8),
         itemCount: cleanList.length,
