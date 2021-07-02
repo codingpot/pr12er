@@ -55,10 +55,10 @@ class CustomTheme extends ChangeNotifier {
 
   // This type should not be a widget(e.g. Icon) because of mockito support...
   IconData get icon =>
-      _isDarkMode ? Icons.dark_mode_outlined : Icons.light_mode_outlined;
+      _isDarkMode ? Icons.light_mode_outlined : Icons.dark_mode_outlined;
 
   // This type should not be a widget(e.g. Text) because of mockito support...
-  String get text => _isDarkMode ? "다크 모드" : "라이트 모드";
+  String get text => _isDarkMode ? "라이트 모드로" : "다크 모드로";
 
   CustomTheme() {
     SharedPreferences.getInstance().then((pref) {
