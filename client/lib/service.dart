@@ -38,8 +38,10 @@ class GrpcClient {
     return response.detail;
   }
 
-  Future<ReportResponse> report(ReportRequest request) {
-    return _client.report(request);
+  Future<ReportResponse> report(ReportRequest_ReportType type, String body) {
+    return _client.report(ReportRequest()
+      ..type = type
+      ..body = body);
   }
 }
 

@@ -29,6 +29,7 @@ dependencies:
   google_fonts: ^2.1.0
   grpc: ^3.0.0
   intl: ^0.17.0
+  link_text: ^0.2.0
   modal_bottom_sheet: ^2.0.0
   protobuf: ^2.0.0
   provider: ^5.0.0
