@@ -1,8 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/utils/extractor.dart';
+import 'package:pr12er/widgets/components/open_url_on_tap.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RepositoryWidget extends StatelessWidget {
@@ -24,7 +24,12 @@ class RepositoryWidget extends StatelessWidget {
                 "Repositories",
                 style: Theme.of(context).textTheme.headline1,
               )),
-          ...visibleRepositories.map((repo) => getItemCard(context, repo))
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: visibleRepositories.length,
+            itemBuilder: (context, index) =>
+                _RepositoryItem(repo: visibleRepositories[index]),
+          )
         ]));
   }
 
@@ -78,5 +83,44 @@ class RepositoryWidget extends StatelessWidget {
 
   List<Repository> getSubsetRepositories(int maxSize) {
     return repositories.sublist(0, min(maxSize, repositories.length));
+  }
+}
+
+class _RepositoryItem extends StatelessWidget {
+  final Repository repo;
+
+  const _RepositoryItem({Key? key, required this.repo}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return OpenURLOnTap(
+        url: repo.url,
+        child: Card(
+            child: ListTile(
+          leading: CircleAvatar(
+            backgroundImage: getImageFramework(repo.framework),
+            backgroundColor: Colors.transparent,
+          ),
+          title: Text(
+            extractRepoNameFromURL(repo.url),
+          ),
+          subtitle: Text(
+            repo.description,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        )));
+  }
+}
+
+AssetImage getImageFramework(Framework framework) {
+  switch (framework) {
+    case Framework.FRAMEWORK_TENSORFLOW:
+      return const AssetImage('images/tf-logo.png');
+    case Framework.FRAMEWORK_PYTORCH:
+      return const AssetImage('images/pytorch-logo.png');
+    default:
+      // placeholder. when found appropriate image for OTHERS and UNDEFINED, this line will be replaced
+      return const AssetImage('images/pytorch-logo.png');
   }
 }
