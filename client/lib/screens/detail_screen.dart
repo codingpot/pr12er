@@ -78,7 +78,7 @@ class DetailScreen extends StatelessWidget {
                               if (papers.length +
                                       relevantPapers.length +
                                       sameAuthorPapers.length >=
-                                  2)
+                                  1)
                                 RecommendationWidget(detail: detail!),
                               const SizedBox(height: 15),
 

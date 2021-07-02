@@ -23,7 +23,7 @@ class RecommendationWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.headline1,
             )),
         SizedBox(
-            height: 150,
+            height: refPapers.length == 1 ? 75 : 150,
             child: ListView.builder(
                 itemCount: refPapers.length,
                 itemBuilder: (BuildContext context, int index) =>
@@ -59,7 +59,7 @@ class RecommendationWidget extends StatelessWidget {
   }
 
   List<Paper> getReferencePapers(Detail detail) {
-    final List<Paper> papers = detail.papers.sublist(1);
+    final List<Paper> papers = detail.papers;
 
     if (detail.sameAuthorPapers.isNotEmpty) {
       papers.add(detail.sameAuthorPapers[0]);
