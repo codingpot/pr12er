@@ -50,7 +50,7 @@ class DetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(10).copyWith(bottom: 0),
               child: ListView(
                 children: [
-                  FittedBox(child: HeaderWidget(video: args.video)),
+                  HeaderWidget(video: args.video),
                   const SizedBox(height: 15),
                   FutureBuilder<Detail>(
                     future:
