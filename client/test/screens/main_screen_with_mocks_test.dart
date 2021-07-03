@@ -6,6 +6,7 @@ import 'package:pr12er/custom_theme.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/screens/main_screen.dart';
 import 'package:pr12er/service.dart';
+import 'package:pr12er/sort_preference.dart';
 import 'package:pr12er/view_models/view_model_videos.dart';
 import 'package:provider/provider.dart';
 
@@ -112,6 +113,9 @@ MultiProvider wrapWithProviders(
       ChangeNotifierProvider<CustomTheme>(create: (context) => mockCustomTheme),
       ChangeNotifierProvider<FavoriteVideoViewModel>(
           create: (context) => mockFavoriteVideoViewModel),
+      ChangeNotifierProvider<SortMode>(
+        create: (context) => SortMode(),
+      )
     ],
     builder: (context, child) => MaterialApp(home: MainScreen()),
   );

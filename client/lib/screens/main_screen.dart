@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../protos/pkg/pr12er/messages.pb.dart';
 import '../service.dart';
+import '../sort_preference.dart';
 import '../widgets/components/custom_app_bar.dart';
 import '../widgets/components/custom_bottom_navigation_bar.dart';
 import '../widgets/main/main_screen_favorite_view.dart';
@@ -37,25 +38,33 @@ class _MainScreenState extends State<MainScreen> {
               .where((video) => video.hasTitle() && video.hasLink())
               .toList();
 
-          return Scaffold(
-              appBar: CustomAppBar(
-                videoSearchDelegate: videoSearchDelegate,
-                context: context,
-                title: appName,
-              ),
-              body: IndexedStack(
-                index: _selectedBottomNavIndex,
-                children: [
-                  MainScreenListView(cleanList: cleanList),
-                  MainScreenFavoriteView(cleanList: cleanList)
-                ],
-              ),
-              bottomNavigationBar: CustomBottomNavigationBar(
-                  selectedBottomNavIndex: _selectedBottomNavIndex,
-                  onTap: (index) => setState(() {
-                        _selectedBottomNavIndex = index;
-                        videoSearchDelegate.showOnlyBookmarkItems = index == 1;
-                      })));
+          return Consumer<SortMode>(
+              builder: (context, sort, _child) => Scaffold(
+                  appBar: CustomAppBar(
+                    videoSearchDelegate: videoSearchDelegate,
+                    context: context,
+                    title: appName,
+                  ),
+                  body: IndexedStack(
+                    index: _selectedBottomNavIndex,
+                    children: [
+                      MainScreenListView(
+                          cleanList: sort.isDescOrder
+                              ? cleanList
+                              : List.from(cleanList.reversed)),
+                      MainScreenFavoriteView(
+                          cleanList: sort.isDescOrder
+                              ? cleanList
+                              : List.from(cleanList.reversed))
+                    ],
+                  ),
+                  bottomNavigationBar: CustomBottomNavigationBar(
+                      selectedBottomNavIndex: _selectedBottomNavIndex,
+                      onTap: (index) => setState(() {
+                            _selectedBottomNavIndex = index;
+                            videoSearchDelegate.showOnlyBookmarkItems =
+                                index == 1;
+                          }))));
         });
   }
 }
