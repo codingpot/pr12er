@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:pr12er/custom_theme.dart';
+import 'package:pr12er/sort_preference.dart';
 import 'package:pr12er/widgets/main/report.dart';
 import 'package:pr12er/widgets/main/video_search_delegate.dart';
 import 'package:provider/provider.dart';
 
-enum VertMenu { themeMode, issueReport }
+enum VertMenu { themeMode, sortMode, issueReport }
 
 class CustomAppBar extends AppBar {
   CustomAppBar({
@@ -36,6 +37,13 @@ class CustomAppBar extends AppBar {
                         leading: Icon(context.read<CustomTheme>().icon),
                         title: Text(context.read<CustomTheme>().text))),
                 const PopupMenuDivider(height: 5),
+                PopupMenuItem<VertMenu>(
+                    key: const ValueKey("icon-sort-toggle-button"),
+                    value: VertMenu.sortMode,
+                    child: ListTile(
+                        leading: Icon(context.read<SortMode>().icon),
+                        title: Text(context.read<SortMode>().text))),
+                const PopupMenuDivider(height: 5),
                 const PopupMenuItem<VertMenu>(
                     key: ValueKey("popup-menu-item-issue-report"),
                     value: VertMenu.issueReport,
@@ -49,6 +57,9 @@ class CustomAppBar extends AppBar {
                 switch (value) {
                   case VertMenu.themeMode:
                     context.read<CustomTheme>().toggleMode();
+                    break;
+                  case VertMenu.sortMode:
+                    context.read<SortMode>().toggleMode();
                     break;
                   case VertMenu.issueReport:
                     showMaterialModalBottomSheet(
