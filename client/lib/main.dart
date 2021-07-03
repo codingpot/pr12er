@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr12er/service.dart';
+import 'package:pr12er/sort_preference.dart';
 import 'package:pr12er/view_models/view_model_videos.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +19,10 @@ void main() => runApp(MultiProvider(providers: [
       ),
       ChangeNotifierProvider<FavoriteVideoViewModel>(
         create: (context) => FavoriteVideoViewModel(),
-      )
+      ),
+      ChangeNotifierProvider(
+        create: (context) => SortMode(),
+      ),
     ], child: const MainApp()));
 
 class MainApp extends StatelessWidget {
