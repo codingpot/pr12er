@@ -15,6 +15,9 @@ import 'main_screen_with_mocks_test.mocks.dart';
 void main() {
   group("MainScreen()", () {
     late List<Video> videos;
+    late MockGrpcClient mockGrpcClient;
+    late MockFavoriteVideoViewModel mockFavoriteVideoViewModel;
+    late MockCustomTheme mockCustomTheme;
 
     setUp(() {
       final video1 = Video()
@@ -26,40 +29,37 @@ void main() {
         ..prId = 2
         ..link = "video-link2";
       videos = List.of([video1, video2]);
+
+      mockGrpcClient = MockGrpcClient();
+      mockFavoriteVideoViewModel = MockFavoriteVideoViewModel();
+      mockCustomTheme = MockCustomTheme();
     });
 
     testWidgets('MainWidget has a load view', (WidgetTester tester) async {
-      final devClient = MockGrpcClient();
-      when(devClient.getVideos()).thenAnswer((_) => Future.value(videos));
-      await tester.pumpWidget(MultiProvider(
-        providers: [
-          Provider<GrpcClient>(create: (context) => devClient),
-          ChangeNotifierProvider(create: (context) => null),
-        ],
-        builder: (context, child) => MainScreen(),
-      ));
+      when(mockGrpcClient.getVideos()).thenAnswer((_) => Future.value(videos));
+      await tester.pumpWidget(wrapWithProviders(
+          mockGrpcClient: mockGrpcClient,
+          mockCustomTheme: mockCustomTheme,
+          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel));
 
       final loadView = find.byType(CircularProgressIndicator);
       expect(loadView, findsOneWidget);
     });
 
     testWidgets("has clickable list tile", (WidgetTester tester) async {
-      final devClient = MockGrpcClient();
-      when(devClient.getVideos()).thenAnswer((_) => Future.value(videos));
+      when(mockGrpcClient.getVideos()).thenAnswer((_) => Future.value(videos));
 
-      final mockVM = MockFavoriteVideoViewModel();
-      when(mockVM.favoriteVideosMap).thenAnswer((_) => Future.value({}));
-      when(mockVM.isFavoriteVideo(1)).thenAnswer((_) => Future.value(false));
-      when(mockVM.isFavoriteVideo(2)).thenAnswer((_) => Future.value(false));
-      await tester.pumpWidget(MultiProvider(
-        providers: [
-          Provider<GrpcClient>(create: (context) => devClient),
-          ChangeNotifierProvider(create: (context) => null),
-          ChangeNotifierProvider<FavoriteVideoViewModel>(
-              create: (context) => mockVM),
-        ],
-        builder: (context, child) => MaterialApp(home: MainScreen()),
-      ));
+      when(mockFavoriteVideoViewModel.favoriteVideosMap)
+          .thenAnswer((_) => Future.value({}));
+      when(mockFavoriteVideoViewModel.isFavoriteVideo(1))
+          .thenAnswer((_) => Future.value(false));
+      when(mockFavoriteVideoViewModel.isFavoriteVideo(2))
+          .thenAnswer((_) => Future.value(false));
+
+      await tester.pumpWidget(wrapWithProviders(
+          mockGrpcClient: mockGrpcClient,
+          mockCustomTheme: mockCustomTheme,
+          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel));
       await tester.pumpAndSettle();
       final firstTile = find.byKey(const ValueKey("ListTile-1"));
       expect(firstTile, findsOneWidget);
@@ -67,28 +67,23 @@ void main() {
 
     testWidgets("Clicking the toggle dark/light mode changes the theme",
         (WidgetTester tester) async {
-      final devClient = MockGrpcClient();
-      when(devClient.getVideos()).thenAnswer((_) => Future.value(videos));
+      when(mockGrpcClient.getVideos()).thenAnswer((_) => Future.value(videos));
 
-      final mockTheme = MockCustomTheme();
-      when(mockTheme.themeMode).thenReturn(ThemeMode.dark);
-      when(mockTheme.icon).thenReturn(Icons.dark_mode);
-      when(mockTheme.text).thenReturn("다크모드");
+      when(mockCustomTheme.themeMode).thenReturn(ThemeMode.dark);
+      when(mockCustomTheme.icon).thenReturn(Icons.dark_mode);
+      when(mockCustomTheme.text).thenReturn("다크모드");
 
-      final mockVM = MockFavoriteVideoViewModel();
-      when(mockVM.favoriteVideosMap).thenAnswer((_) => Future.value({}));
-      when(mockVM.isFavoriteVideo(1)).thenAnswer((_) => Future.value(false));
-      when(mockVM.isFavoriteVideo(2)).thenAnswer((_) => Future.value(false));
+      when(mockFavoriteVideoViewModel.favoriteVideosMap)
+          .thenAnswer((_) => Future.value({}));
+      when(mockFavoriteVideoViewModel.isFavoriteVideo(1))
+          .thenAnswer((_) => Future.value(false));
+      when(mockFavoriteVideoViewModel.isFavoriteVideo(2))
+          .thenAnswer((_) => Future.value(false));
 
-      await tester.pumpWidget(MultiProvider(
-        providers: [
-          Provider<GrpcClient>(create: (context) => devClient),
-          ChangeNotifierProvider<CustomTheme>(create: (context) => mockTheme),
-          ChangeNotifierProvider<FavoriteVideoViewModel>(
-              create: (context) => mockVM),
-        ],
-        builder: (context, child) => MaterialApp(home: MainScreen()),
-      ));
+      await tester.pumpWidget(wrapWithProviders(
+          mockGrpcClient: mockGrpcClient,
+          mockCustomTheme: mockCustomTheme,
+          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel));
       await tester.pumpAndSettle();
 
       // GIVEN the theme toggle button.
@@ -101,7 +96,23 @@ void main() {
       await tester.tap(btn);
 
       // THEN toggleMode function has been called.
-      verify(mockTheme.toggleMode()).called(1);
+      verify(mockCustomTheme.toggleMode()).called(1);
     });
   });
+}
+
+/// wrapWithProviders is a helper function that initializes material app with mock providers.
+MultiProvider wrapWithProviders(
+    {required MockGrpcClient mockGrpcClient,
+    required MockCustomTheme mockCustomTheme,
+    required MockFavoriteVideoViewModel mockFavoriteVideoViewModel}) {
+  return MultiProvider(
+    providers: [
+      Provider<GrpcClient>(create: (context) => mockGrpcClient),
+      ChangeNotifierProvider<CustomTheme>(create: (context) => mockCustomTheme),
+      ChangeNotifierProvider<FavoriteVideoViewModel>(
+          create: (context) => mockFavoriteVideoViewModel),
+    ],
+    builder: (context, child) => MaterialApp(home: MainScreen()),
+  );
 }
