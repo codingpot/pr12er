@@ -3,24 +3,25 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "favicon.png": "5dcef449791fa27946b3d35ad8803796",
+  "favicon.png": "8a6ea62746af22b58abd8a5077b3f8db",
 "main.dart.js": "71627623fd06259ac8c2cdedcce5f719",
-"index.html": "1524bebd1f300e474fb27a6df8fa83d2",
-"/": "1524bebd1f300e474fb27a6df8fa83d2",
-"manifest.json": "2680786bc997a4eb06ba039ae1c859ca",
+"index.html": "fe9fb182be4a6db61f564b7b834c2f71",
+"/": "fe9fb182be4a6db61f564b7b834c2f71",
+"manifest.json": "b97f24e9e0e52ea213ec40bde19e5496",
 "assets/images/tf-logo.png": "c14d03d92129a49032b2438eced1d882",
 "assets/images/pytorch-logo.png": "62989affe3e57077963ec5ac0e902389",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.html": "16911fcc170c8af1c5457940bd0bf055",
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.css": "5a8d0222407e388155d7d1395a75d5b9",
 "assets/packages/youtube_player_flutter/assets/speedometer.webp": "50448630e948b5b3998ae5a5d112622b",
-"assets/NOTICES": "1365ecd1cee5ac20c64500892917ae38",
+"assets/NOTICES": "04691044417291e85966f99135ebf5b8",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/AssetManifest.json": "62c9f2b3ccd41ff0432504433b42311b",
 "version.json": "f4c169f8a1cc8964c3556bed4c699027",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1"
+"icons/icon-512.png": "d1d73884c6db0ae72d1af1bf30786d70",
+"icons/icon-256.png": "61fc87b8ae7ca7cc76451357fb183069",
+"icons/icon-128.png": "97beaa0cf2e7bd2e68082a613d16fabb"
 };
 
 // The application shell files that are downloaded before a service worker can
