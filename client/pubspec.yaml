@@ -44,11 +44,19 @@ dev_dependencies:
   change_app_package_name: ^1.0.0
   flutter_driver:
     sdk: flutter
+  flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter
   lint: ^1.5.3
   mockito: ^5.0.9
   test: any
+
+# Generate icons for Android and iOS using the following command.
+# flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "web/icons/icon-512.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
