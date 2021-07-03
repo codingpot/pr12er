@@ -49,11 +49,11 @@ class _MainScreenState extends State<MainScreen> {
                     index: _selectedBottomNavIndex,
                     children: [
                       MainScreenListView(
-                          cleanList: context.read<SortMode>().isDescOrder
+                          cleanList: sort.isDescOrder
                               ? cleanList
                               : List.from(cleanList.reversed)),
                       MainScreenFavoriteView(
-                          cleanList: context.read<SortMode>().isDescOrder
+                          cleanList: sort.isDescOrder
                               ? cleanList
                               : List.from(cleanList.reversed))
                     ],
