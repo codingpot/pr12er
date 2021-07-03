@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:pr12er/widgets/components/open_url_on_tap.dart';
 
 class RecommendationWidget extends StatelessWidget {
   final Detail detail;
@@ -22,40 +22,13 @@ class RecommendationWidget extends StatelessWidget {
               "Recommendations",
               style: Theme.of(context).textTheme.headline1,
             )),
-        SizedBox(
-            height: refPapers.length == 1 ? 75 : 150,
-            child: ListView.builder(
-                itemCount: refPapers.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    getItemCard(context, refPapers[index])))
+        ListView.builder(
+            shrinkWrap: true,
+            itemCount: refPapers.length,
+            itemBuilder: (BuildContext context, int index) =>
+                _Paper(paper: refPapers[index]))
       ]),
     );
-  }
-
-  Widget getItemCard(BuildContext context, Paper paper) {
-    return GestureDetector(
-        onTap: () async {
-          if (await canLaunch("https://arxiv.org/abs/${paper.arxivId}")) {
-            await launch("https://arxiv.org/abs/${paper.arxivId}");
-            return;
-          }
-          ScaffoldMessenger.of(context).removeCurrentSnackBar();
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Theme.of(context).colorScheme.error,
-            content: Text(
-                "https://arxiv.org/abs/${paper.arxivId} is not a valid URL"),
-            action: SnackBarAction(
-              label: "OK",
-              textColor: Theme.of(context).colorScheme.onError,
-              onPressed: () {},
-            ),
-          ));
-        },
-        child: Card(
-            child: ListTile(
-                title: Text(paper.title),
-                subtitle: Text(
-                    "${paper.authors[0]}  |  ${DateFormat.yMd().format(paper.publishedDate.toDateTime())}"))));
   }
 
   List<Paper> getReferencePapers(Detail detail) {
@@ -70,5 +43,25 @@ class RecommendationWidget extends StatelessWidget {
     }
 
     return papers;
+  }
+}
+
+class _Paper extends StatelessWidget {
+  final Paper paper;
+
+  const _Paper({
+    Key? key,
+    required this.paper,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return OpenURLOnTap(
+        url: "https://arxiv.org/abs/${paper.arxivId}",
+        child: Card(
+            child: ListTile(
+                title: Text(paper.title),
+                subtitle: Text(
+                    "${paper.authors[0]}  |  ${DateFormat.yMd().format(paper.publishedDate.toDateTime())}"))));
   }
 }
