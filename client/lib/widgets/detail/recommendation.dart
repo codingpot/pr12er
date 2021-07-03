@@ -24,6 +24,7 @@ class RecommendationWidget extends StatelessWidget {
             )),
         ListView.builder(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: refPapers.length,
             itemBuilder: (BuildContext context, int index) =>
                 _Paper(paper: refPapers[index]))

@@ -26,6 +26,7 @@ class RepositoryWidget extends StatelessWidget {
               )),
           ListView.builder(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: visibleRepositories.length,
             itemBuilder: (context, index) =>
                 _RepositoryItem(repo: visibleRepositories[index]),

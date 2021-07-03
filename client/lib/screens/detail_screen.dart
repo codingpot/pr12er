@@ -46,53 +46,50 @@ class DetailScreen extends StatelessWidget {
                   YoutubeWidget(youtubeId: extractYoutubeId(args.video.link))),
           Flexible(
             flex: 6,
-            child: ListView(children: [
-              Container(
-                margin: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                child: Column(
-                  children: [
-                    FittedBox(child: HeaderWidget(video: args.video)),
-                    const SizedBox(height: 15),
-                    FutureBuilder<Detail>(
-                      future:
-                          context.read<GrpcClient>().getDetail(args.video.prId),
-                      builder: (context, AsyncSnapshot<Detail> snapshot) {
-                        if (!snapshot.hasData) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
+            child: Padding(
+              padding: const EdgeInsets.all(10).copyWith(bottom: 0),
+              child: ListView(
+                children: [
+                  FittedBox(child: HeaderWidget(video: args.video)),
+                  const SizedBox(height: 15),
+                  FutureBuilder<Detail>(
+                    future:
+                        context.read<GrpcClient>().getDetail(args.video.prId),
+                    builder: (context, AsyncSnapshot<Detail> snapshot) {
+                      if (!snapshot.hasData) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
 
-                        detail = snapshot.data;
+                      detail = snapshot.data;
 
-                        final papers = detail?.papers ?? [];
-                        final relevantPapers = detail?.relevantPapers ?? [];
-                        final sameAuthorPapers = detail?.sameAuthorPapers ?? [];
+                      final papers = detail?.papers ?? [];
+                      final relevantPapers = detail?.relevantPapers ?? [];
+                      final sameAuthorPapers = detail?.sameAuthorPapers ?? [];
 
-                        return Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              PaperAbstractWidget(paper: papers.first),
-                              const SizedBox(height: 15),
+                      return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            PaperAbstractWidget(paper: papers.first),
+                            const SizedBox(height: 15),
 
-                              // Shows Recommendation only when there's one.
-                              if (papers.length +
-                                      relevantPapers.length +
-                                      sameAuthorPapers.length >=
-                                  1)
-                                RecommendationWidget(detail: detail!),
-                              const SizedBox(height: 15),
+                            // Shows Recommendation only when there's one.
+                            if (papers.length +
+                                    relevantPapers.length +
+                                    sameAuthorPapers.length >=
+                                1)
+                              RecommendationWidget(detail: detail!),
+                            const SizedBox(height: 15),
 
-                              if (papers.isNotEmpty)
-                                RepositoryWidget(
-                                  repositories: papers.first.repositories,
-                                )
-                            ]);
-                      },
-                    )
-                  ],
-                ),
-              )
-            ]),
+                            if (papers.isNotEmpty)
+                              RepositoryWidget(
+                                repositories: papers.first.repositories,
+                              )
+                          ]);
+                    },
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
