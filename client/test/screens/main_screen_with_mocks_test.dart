@@ -114,7 +114,8 @@ MultiProvider wrapWithProviders(
       ChangeNotifierProvider<FavoriteVideoViewModel>(
           create: (context) => mockFavoriteVideoViewModel),
       ChangeNotifierProvider<SortMode>(
-        create: (context) => SortMode(),       
+        create: (context) => SortMode(),
+      )
     ],
     builder: (context, child) => MaterialApp(home: MainScreen()),
   );
