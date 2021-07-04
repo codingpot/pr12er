@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 const _sharedPreferenceSortModeKey = "isDescOrder";
 
 class SortMode extends ChangeNotifier {
-  bool _isDescOrder = false;
+  bool _isDescOrder = true;
 
   bool get isDescOrder {
     return _isDescOrder;
@@ -26,7 +26,7 @@ class SortMode extends ChangeNotifier {
 
   // This type should not be a widget(e.g. Icon) because of mockito support...
   IconData get icon =>
-      _isDescOrder ? Icons.vertical_align_top : Icons.vertical_align_bottom;
+      _isDescOrder ? Icons.arrow_upward : Icons.arrow_downward;
 
   // This type should not be a widget(e.g. Text) because of mockito support...
   String get text => _isDescOrder ? "오름차순으로" : "내림차순으로";

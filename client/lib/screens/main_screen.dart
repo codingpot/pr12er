@@ -50,12 +50,12 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       MainScreenListView(
                           cleanList: sort.isDescOrder
-                              ? cleanList
-                              : List.from(cleanList.reversed)),
+                              ? List.from(cleanList.reversed)
+                              : cleanList),
                       MainScreenFavoriteView(
                           cleanList: sort.isDescOrder
-                              ? cleanList
-                              : List.from(cleanList.reversed))
+                              ? List.from(cleanList.reversed)
+                              : cleanList)
                     ],
                   ),
                   bottomNavigationBar: CustomBottomNavigationBar(
