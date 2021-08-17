@@ -93,10 +93,18 @@ func ExtractPaperIDs(title string) ([]string, error) {
 	}
 
 	var paperIDs []string
+	// save paperIDs that were already seen.
+	seenPaperID := map[string]bool{}
 
 	for i := 0; i < maxLen; i++ {
 		arxivID, _ := ExtractArxivIDFromURL(search[i].URL)
+
+		if seenPaperID[arxivID] {
+			continue
+		}
+
 		paperIDs = append(paperIDs, arxivID)
+		seenPaperID[arxivID] = true
 	}
 
 	return paperIDs, nil
