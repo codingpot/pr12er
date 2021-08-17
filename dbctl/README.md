@@ -1,46 +1,25 @@
-# Metadata manager
+# dbctl
 
-## 1. Generate a metadata from the mapping table
+`dbctl` 은 데이터베이스 파일을 업데이트 하는데 사용됩니다.
 
-MappingTable(database.proto)
+## 새로운 PR 영상을 추가하기
 
-```proto
-message MappingTable {
-  repeated MappingTableRow rows = 1;
-}
+1. PR 영상의 유튜브 주소를 획득합니다.
+2. 아래 스크립트를 실행합니다 (bash 기준).
 
-message MappingTableRow {
-  int32 pr_id = 1;
-  repeated string paper_arxiv_id = 2;
-  string youtube_video_id = 3;
-}
-```
+   ```bash
+   youtube_links=(
+     https://youtu.be/-5fFL68d7Gg
+     https://youtu.be/I9kQwMbpxuE
+     https://youtu.be/HWf8CmTAIR4
+     https://youtu.be/FFXAm2uTmeI
+     https://youtu.be/20kxrS2yglg
+     https://youtu.be/BZwUR9hvBPE
+     https://youtu.be/hptinxZIXT4
+   )
 
-Database(database.proto)
-
-```proto
-message Database {
-  map<int32, PrVideo> pr_id_to_video = 1;
-}
-
-// PR영상의 하나의 레코드
-message PrVideo {
-  int32 pr_id = 1;
-  // 관련도에 따라 정렬
-  repeated Paper papers = 2;
-  YouTubeVideo video = 3;
-}
-
-// 유튜브 1편에 대한 정보
-// `pkg.pr12er.Video` 생성하기 위해 사용됩니다.
-message YouTubeVideo {
-  string video_id = 1;
-  string video_title = 2;
-  int64 number_of_likes = 3;
-  int64 number_of_views = 4;
-  google.protobuf.Timestamp published_date = 5;
-  string uploader = 6;
-}
-```
-
-2.
+   for youtube in ${youtube_links[@]}
+   do
+     go run main.go youtube --youtube-link $youtube >> ../server/internal/data/mapping_table.pbtxt
+   done
+   ```

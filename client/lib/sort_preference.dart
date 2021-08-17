@@ -25,8 +25,7 @@ class SortMode extends ChangeNotifier {
   }
 
   // This type should not be a widget(e.g. Icon) because of mockito support...
-  IconData get icon =>
-      _isDescOrder ? Icons.arrow_upward : Icons.arrow_downward;
+  IconData get icon => _isDescOrder ? Icons.arrow_upward : Icons.arrow_downward;
 
   // This type should not be a widget(e.g. Text) because of mockito support...
   String get text => _isDescOrder ? "오름차순으로" : "내림차순으로";
