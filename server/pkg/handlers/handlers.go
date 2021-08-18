@@ -54,7 +54,7 @@ func (h *Handler) VideosResponseFromDB(db *pr12er.Database) *pr12er.GetVideosRes
 func (h *Handler) DetailResponseFromDB(prID int32, db *pr12er.Database) (*pr12er.GetDetailResponse, error) {
 	video, ok := db.GetPrIdToVideo()[prID]
 	if !ok {
-		return nil, err.ErrorPrIDNotFound{PrID: prID}
+		return nil, err.PrIDNotFoundError{PrID: prID}
 	}
 
 	return &pr12er.GetDetailResponse{

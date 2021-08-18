@@ -181,12 +181,12 @@ func ExtractPRID(title string) (int32, error) {
 	return int32(atoi), nil
 }
 
-type ErrNotYouTubeLink struct {
+type InvalidYouTubeLinkError struct {
 	url string
 }
 
-func (e ErrNotYouTubeLink) Error() string {
-	return fmt.Sprintf("no valid YouTubeID is found in %s", e.url)
+func (e InvalidYouTubeLinkError) Error() string {
+	return fmt.Sprintf("invalid YouTubeID is found in %s", e.url)
 }
 
 // ExtractYouTubeID extracts videoID from YouTube link
@@ -202,7 +202,7 @@ func ExtractYouTubeID(link string) (string, error) {
 		return "", err
 	}
 
-	errNotYouTubeLink := ErrNotYouTubeLink{link}
+	errNotYouTubeLink := InvalidYouTubeLinkError{link}
 
 	if strings.Contains(parse.Hostname(), "youtube") {
 		youtubeID := parse.Query().Get("v")
