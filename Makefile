@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-PROTOC_VERSION := 3.17.2
+PROTOC_VERSION := 3.17.3
 PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
 PROTOC_URL := $(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/
 UNAME := $(shell uname)
