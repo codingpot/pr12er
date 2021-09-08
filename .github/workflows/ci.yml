@@ -6,7 +6,7 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: "0 */12 * * *"
   workflow_run:
     workflows:
       - Generate Database
@@ -45,6 +45,7 @@ jobs:
       - uses: golangci/golangci-lint-action@v2
         with:
           working-directory: server
+          version: v1.42
       - run: go test -v --race -coverprofile=coverage.txt -covermode=atomic ./...
       - run: go build -o server cmd/server/main.go
       - run: go build -o client cmd/client/main.go

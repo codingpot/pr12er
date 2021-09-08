@@ -23,9 +23,7 @@ func TestNewPrometheusServer(t *testing.T) {
 
 	metrics, err := io.ReadAll(res.Body)
 	assert.NoError(t, err)
-	defer func(Body io.ReadCloser) {
-		_ = Body.Close()
-	}(res.Body)
+	defer res.Body.Close()
 
 	t.Log("/metrics has counter metrics")
 	assert.True(t, strings.Contains(string(metrics), "_total"))
