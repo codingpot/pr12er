@@ -84,7 +84,7 @@ func TestConvertToGet(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			h := New(nil)
+			h := ProvideHandler(nil)
 			got := h.VideosResponseFromDB(tt.args.db)
 			if got := cmp.Diff(tt.want, got, protocmp.Transform()); got != "" {
 				t.Error(got)
@@ -144,7 +144,7 @@ func TestDetailResponseFromDB(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			h := New(nil)
+			h := ProvideHandler(nil)
 			got, err := h.DetailResponseFromDB(tt.args.prID, tt.args.db)
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -188,7 +188,7 @@ func TestHandler_Report(t *testing.T) {
 		want := &pr12er.ReportResponse{
 			IssueUrl: "github-issue-url",
 		}
-		h := New(mockService)
+		h := ProvideHandler(mockService)
 		got, err := h.Report(in)
 		assert.NoError(t, err)
 		if diff := cmp.Diff(want, got, protocmp.Transform()); diff != "" {

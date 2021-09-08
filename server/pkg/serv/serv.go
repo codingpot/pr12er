@@ -14,7 +14,7 @@ type Server struct {
 	h *handlers.Handler
 }
 
-func New(handler *handlers.Handler) *Server {
+func ProvideServer(handler *handlers.Handler) *Server {
 	return &Server{
 		h: handler,
 	}

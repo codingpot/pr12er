@@ -5,10 +5,9 @@
 package mock_gh
 
 import (
-	reflect "reflect"
-
 	gh "github.com/codingpot/pr12er/server/pkg/handlers/gh"
 	gomock "github.com/golang/mock/gomock"
+	reflect "reflect"
 )
 
 // MockGitHubService is a mock of GitHubService interface

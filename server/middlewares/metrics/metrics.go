@@ -12,26 +12,30 @@ import (
 )
 
 type PromServer struct {
-	Mux *http.ServeMux
+	Mux    *http.ServeMux
+	config *env.Config
 }
 
 // Start starts the server listening at PrometheusPort.
 func (s *PromServer) Start() {
 	log.WithFields(log.Fields{
-		"port": env.PrometheusPort,
+		"port": s.config.PrometheusPort,
 	}).Info("Running Prometheus server")
-	if err := http.ListenAndServe(fmt.Sprintf(":%s", env.PrometheusPort), s.Mux); err != nil {
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", s.config.PrometheusPort), s.Mux); err != nil {
 		log.Panic("Unable to start a prometheus server.")
 	}
 }
 
-// NewPrometheusServer returns http server /metrics endpoint where metrics are served.
-func NewPrometheusServer(grpcServer *grpc.Server) *PromServer {
+// ProvidePrometheusServer returns http server /metrics endpoint where metrics are served.
+func ProvidePrometheusServer(grpcServer *grpc.Server, config *env.Config) *PromServer {
 	mux := http.NewServeMux()
 	grpc_prometheus.EnableHandlingTimeHistogram()
 	grpc_prometheus.Register(grpcServer)
 	// Register Prometheus metrics handler.
 	mux.Handle("/metrics", promhttp.Handler())
 
-	return &PromServer{mux}
+	return &PromServer{
+		Mux:    mux,
+		config: config,
+	}
 }

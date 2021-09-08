@@ -4,6 +4,7 @@ package ghv3
 import (
 	"context"
 
+	"github.com/codingpot/pr12er/server/pkg/env"
 	"github.com/codingpot/pr12er/server/pkg/handlers/gh"
 	"github.com/google/go-github/v36/github"
 	"golang.org/x/oauth2"
@@ -40,9 +41,9 @@ func (g GitHubV3) CreateIssue(title, body string, labels []string) (*gh.GitHubIs
 // Ensure the GitHubV3 implements gh.GitHubService interface.
 var _ gh.GitHubService = (*GitHubV3)(nil)
 
-func New(apiKey string) *GitHubV3 {
+func ProvideGitHubService(config *env.Config) *GitHubV3 {
 	client := github.NewClient(oauth2.NewClient(context.Background(), oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: apiKey},
+		&oauth2.Token{AccessToken: config.GitHubAPIKey},
 	)))
 	return &GitHubV3{
 		client: client,

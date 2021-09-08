@@ -7,12 +7,13 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/codingpot/pr12er/server/pkg/env"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc"
 )
 
 func TestNewPrometheusServer(t *testing.T) {
-	promServer := NewPrometheusServer(grpc.NewServer())
+	promServer := ProvidePrometheusServer(grpc.NewServer(), &env.Config{})
 	ts := httptest.NewServer(promServer.Mux)
 	defer ts.Close()
 
@@ -22,7 +23,9 @@ func TestNewPrometheusServer(t *testing.T) {
 
 	metrics, err := io.ReadAll(res.Body)
 	assert.NoError(t, err)
-	defer res.Body.Close()
+	defer func(Body io.ReadCloser) {
+		_ = Body.Close()
+	}(res.Body)
 
 	t.Log("/metrics has counter metrics")
 	assert.True(t, strings.Contains(string(metrics), "_total"))

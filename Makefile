@@ -65,6 +65,7 @@ uninstall.buf: ## uninstall buf
 
 .PHONY: gen.all
 gen.all: ## generate all
+	cd server && wire ./...
 	buf generate
 
 .PHONY: test

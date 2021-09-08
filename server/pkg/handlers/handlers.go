@@ -16,7 +16,7 @@ type Handler struct {
 	gh gh.GitHubService
 }
 
-func New(service gh.GitHubService) *Handler {
+func ProvideHandler(service gh.GitHubService) *Handler {
 	return &Handler{gh: service}
 }
 
