@@ -4,6 +4,7 @@ import (
 	"context"
 
 	paperswithcode_go "github.com/codingpot/paperswithcode-go/v2"
+	"github.com/codingpot/pr12er/dbctl/internal/config"
 	"github.com/codingpot/pr12er/dbctl/internal/fetcher"
 	"github.com/codingpot/pr12er/dbctl/internal/io"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
@@ -14,14 +15,6 @@ import (
 	"google.golang.org/api/youtube/v3"
 )
 
-// required environment variables.
-const (
-	envNameYouTubeAPIKey   = "YOUTUBE_API_KEY"
-	envNameMappingFile     = "MAPPING_FILE"
-	envNameDatabaseOutFile = "DATABASE_OUT_FILE"
-	envNameWorkers         = "WORKERS"
-)
-
 // genMetaCmd represents the gen-meta command.
 var genMetaCmd = &cobra.Command{
 	Use:   "gen-meta",
@@ -30,20 +23,11 @@ var genMetaCmd = &cobra.Command{
 }
 
 func generateMetadata(cmd *cobra.Command, args []string) error {
-	apiKey := viper.GetString(envNameYouTubeAPIKey)
-	mappingFile := viper.GetString(envNameMappingFile)
-	databaseOutFile := viper.GetString(envNameDatabaseOutFile)
-	workers := viper.GetInt(envNameWorkers)
-
-	log.WithFields(log.Fields{
-		envNameMappingFile:     mappingFile,
-		envNameYouTubeAPIKey:   apiKey,
-		envNameDatabaseOutFile: databaseOutFile,
-		envNameWorkers:         workers,
-	}).WithField(envNameYouTubeAPIKey, apiKey).Info("bind variables")
+	cfg := config.ProvideConfigFromViper()
+	log.Info(cfg)
 
 	// read file and unmarshal mapping file
-	mappingTable, err := io.MappingTableFromFilepath(mappingFile)
+	mappingTable, err := io.MappingTableFromFilepath(cfg.MappingFile)
 	if err != nil {
 		return err
 	}
@@ -53,7 +37,7 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 		PrIdToVideo: make(map[int32]*pr12er.PrVideo),
 	}
 
-	client, err := fetcherClient(apiKey)
+	client, err := fetcherClient(cfg.YouTubeAPIKey)
 	if err != nil {
 		return err
 	}
@@ -61,8 +45,8 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 	in := make(chan *pr12er.MappingTableRow, len(mappingTable.GetRows()))
 	out := make(chan *pr12er.PrVideo, len(mappingTable.GetRows()))
 
-	startWorkers(workers, client, in, out)
-	// required for multi youtube video fetching.
+	startWorkers(cfg.Workers, client, in, out)
+	// required for multi YouTube video fetching.
 	videoIDToPrMap := beginTheJobAndPrepareVideoMap(mappingTable, in)
 
 	close(in)
@@ -73,7 +57,7 @@ func generateMetadata(cmd *cobra.Command, args []string) error {
 
 	updateDatabaseWithYouTubeMetadata(client, videoIDToPrMap, database)
 
-	return io.DumpDatabase(database, databaseOutFile)
+	return io.DumpDatabase(database, cfg.DatabaseOutFile)
 }
 
 func fetcherClient(apiKey string) (*fetcher.Fetcher, error) {
@@ -146,22 +130,22 @@ func init() {
 			"f",
 			"../server/internal/data/mapping_table.pbtxt",
 			"A mapping file which generate database.pbtxt from. default name is 'mapping_table.pbtxt'")
-	_ = viper.BindPFlag(envNameMappingFile, genMetaCmd.Flag("mapping-file"))
+	_ = viper.BindPFlag(config.EnvNameMappingFile, genMetaCmd.Flag("mapping-file"))
 
 	genMetaCmd.
 		Flags().
 		String("youtube-api-key", "", "YouTube Data API (v3) key")
-	_ = viper.BindPFlag(envNameYouTubeAPIKey, genMetaCmd.Flag("youtube-api-key"))
+	_ = viper.BindPFlag(config.EnvNameYouTubeAPIKey, genMetaCmd.Flag("youtube-api-key"))
 
 	genMetaCmd.
 		Flags().
 		String("database-out-file",
 			"../server/internal/data/database.pbtxt",
 			"Filepath to write database.pbtxt")
-	_ = viper.BindPFlag(envNameDatabaseOutFile, genMetaCmd.Flag("database-out-file"))
+	_ = viper.BindPFlag(config.EnvNameDatabaseOutFile, genMetaCmd.Flag("database-out-file"))
 
 	genMetaCmd.
 		Flags().
 		Int("workers", 10, "The number of workers to use for fetching")
-	_ = viper.BindPFlag(envNameWorkers, genMetaCmd.Flag("workers"))
+	_ = viper.BindPFlag(config.EnvNameWorkers, genMetaCmd.Flag("workers"))
 }

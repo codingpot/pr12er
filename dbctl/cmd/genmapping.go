@@ -6,6 +6,7 @@ import (
 	"sort"
 	"time"
 
+	"github.com/codingpot/pr12er/dbctl/internal/config"
 	"github.com/codingpot/pr12er/dbctl/internal/transform"
 	"github.com/codingpot/pr12er/server/pkg/pr12er"
 	googlesearch "github.com/rocketlaunchr/google-search"
@@ -18,41 +19,19 @@ import (
 	"google.golang.org/protobuf/encoding/prototext"
 )
 
-const (
-	envNameYouTubePlaylistID = "YOUTUBE_PLAYLIST_ID"
-	envNameMinPrID           = "MIN_PR_ID"
-	envNameMaxPrID           = "MAX_PR_ID"
-	envNameCx                = "CX"
-)
-
 var genmappingCmd = &cobra.Command{
 	Use:   "gen-mapping",
 	Short: "[Experimental] Generate Mapping Table from Playlist",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		youtubeAPIKey := viper.GetString(envNameYouTubeAPIKey)
-		youtubePlaylistID := viper.GetString(envNameYouTubePlaylistID)
-		mappingFilepath := viper.GetString(envNameMappingFile)
-
-		minPrID := viper.GetInt32(envNameMinPrID)
-		maxPrID := viper.GetInt32(envNameMaxPrID)
-
-		cx := viper.GetString(envNameCx)
-
-		log.WithFields(log.Fields{
-			envNameYouTubeAPIKey:     youtubeAPIKey,
-			envNameYouTubePlaylistID: youtubePlaylistID,
-			envNameMappingFile:       mappingFilepath,
-			envNameMinPrID:           minPrID,
-			envNameMaxPrID:           maxPrID,
-			envNameCx:                cx,
-		}).Info("binding variables")
+		cfg := config.ProvideConfigFromViper()
+		log.Info(cfg)
 
 		// Define RateLimit: 1/sec
-		if cx == "" {
+		if cfg.Cx == "" {
 			googlesearch.RateLimit = rate.NewLimiter(rate.Every(time.Second), 3)
 		}
 
-		svc, err := youtube.NewService(context.Background(), option.WithAPIKey(youtubeAPIKey))
+		svc, err := youtube.NewService(context.Background(), option.WithAPIKey(cfg.YouTubeAPIKey))
 		if err != nil {
 			return err
 		}
@@ -62,7 +41,7 @@ var genmappingCmd = &cobra.Command{
 		err = svc.
 			PlaylistItems.
 			List([]string{"contentDetails", "snippet"}).
-			PlaylistId(youtubePlaylistID).
+			PlaylistId(cfg.YouTubePlaylistID).
 			Pages(context.Background(), func(resp *youtube.PlaylistItemListResponse) error {
 				// rateLimiter is used for CSE search.
 				rateLimiter := rate.NewLimiter(rate.Every(time.Second), 1)
@@ -76,20 +55,20 @@ var genmappingCmd = &cobra.Command{
 						return err
 					}
 
-					if !(minPrID <= prID && prID <= maxPrID) {
+					if !(cfg.MinPrID <= prID && prID <= cfg.MaxPrID) {
 						continue
 					}
 
 					var paperIDs []string
 
-					if cx == "" {
+					if cfg.Cx == "" {
 						paperIDs, err = transform.ExtractPaperIDs(item.Snippet.Title)
 					} else {
 						paperIDs, err = transform.
 							ExtractPaperIDsViaProgrammableSearch(
 								item.Snippet.Title,
-								cx,
-								youtubeAPIKey,
+								cfg.Cx,
+								cfg.YouTubeAPIKey,
 								rateLimiter)
 					}
 					if err != nil {
@@ -122,7 +101,7 @@ var genmappingCmd = &cobra.Command{
 			return err
 		}
 
-		return os.WriteFile(mappingFilepath, marshal, 0o600)
+		return os.WriteFile(cfg.MappingFile, marshal, 0o600)
 	},
 }
 
@@ -130,15 +109,15 @@ func init() {
 	rootCmd.AddCommand(genmappingCmd)
 
 	genmappingCmd.Flags().String("youtube-api-key", "", "YouTube API Key (required)")
-	_ = viper.BindPFlag(envNameYouTubeAPIKey, genmappingCmd.Flag("youtube-api-key"))
+	_ = viper.BindPFlag(config.EnvNameYouTubeAPIKey, genmappingCmd.Flag("youtube-api-key"))
 	genmappingCmd.Flags().String("playlist-id", "", "YouTube Playlist ID (required)")
-	_ = viper.BindPFlag(envNameYouTubePlaylistID, genmappingCmd.Flag("playlist-id"))
+	_ = viper.BindPFlag(config.EnvNameYouTubePlaylistID, genmappingCmd.Flag("playlist-id"))
 	genmappingCmd.Flags().String("mapping-file", "../server/internal/data/mapping_table.pbtxt", "Filepath to mapping_table.pbtxt")
-	_ = viper.BindPFlag(envNameMappingFile, genmappingCmd.Flag("mapping-file"))
+	_ = viper.BindPFlag(config.EnvNameMappingFile, genmappingCmd.Flag("mapping-file"))
 	genmappingCmd.Flags().Int32("min-pr-id", 0, "Minimum PR ID to fetch from (inclusive). It will start fetching from this ID.")
-	_ = viper.BindPFlag(envNameMinPrID, genmappingCmd.Flag("min-pr-id"))
+	_ = viper.BindPFlag(config.EnvNameMinPrID, genmappingCmd.Flag("min-pr-id"))
 	genmappingCmd.Flags().Int32("max-pr-id", 999, "Maximum PR ID to fetch from (inclusive). It will start fetching until this PR.")
-	_ = viper.BindPFlag(envNameMaxPrID, genmappingCmd.Flag("max-pr-id"))
+	_ = viper.BindPFlag(config.EnvNameMaxPrID, genmappingCmd.Flag("max-pr-id"))
 	genmappingCmd.Flags().String("cx", "", "Search Engine ID from https://programmablesearchengine.google.com/ If this is not set, it will use googlesearch (free)")
-	_ = viper.BindPFlag(envNameCx, genmappingCmd.Flag("cx"))
+	_ = viper.BindPFlag(config.EnvNameCx, genmappingCmd.Flag("cx"))
 }
