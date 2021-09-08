@@ -4,6 +4,7 @@ package pr12er
 
 import (
 	context "context"
+
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -86,18 +87,20 @@ type Pr12ErServiceServer interface {
 }
 
 // UnimplementedPr12ErServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedPr12ErServiceServer struct {
-}
+type UnimplementedPr12ErServiceServer struct{}
 
 func (UnimplementedPr12ErServiceServer) GetHello(context.Context, *HelloRequest) (*HelloResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetHello not implemented")
 }
+
 func (UnimplementedPr12ErServiceServer) GetVideos(context.Context, *GetVideosRequest) (*GetVideosResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVideos not implemented")
 }
+
 func (UnimplementedPr12ErServiceServer) GetDetail(context.Context, *GetDetailRequest) (*GetDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetDetail not implemented")
 }
+
 func (UnimplementedPr12ErServiceServer) Report(context.Context, *ReportRequest) (*ReportResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Report not implemented")
 }

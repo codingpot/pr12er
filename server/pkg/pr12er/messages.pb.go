@@ -7,11 +7,12 @@
 package pr12er
 
 import (
+	reflect "reflect"
+	sync "sync"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -678,18 +679,21 @@ func file_pkg_pr12er_messages_proto_rawDescGZIP() []byte {
 	return file_pkg_pr12er_messages_proto_rawDescData
 }
 
-var file_pkg_pr12er_messages_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_pkg_pr12er_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
-var file_pkg_pr12er_messages_proto_goTypes = []interface{}{
-	(Category)(0),                 // 0: pkg.pr12er.Category
-	(Framework)(0),                // 1: pkg.pr12er.Framework
-	(*Video)(nil),                 // 2: pkg.pr12er.Video
-	(*Detail)(nil),                // 3: pkg.pr12er.Detail
-	(*Paper)(nil),                 // 4: pkg.pr12er.Paper
-	(*Repository)(nil),            // 5: pkg.pr12er.Repository
-	(*Method)(nil),                // 6: pkg.pr12er.Method
-	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
-}
+var (
+	file_pkg_pr12er_messages_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+	file_pkg_pr12er_messages_proto_msgTypes  = make([]protoimpl.MessageInfo, 5)
+	file_pkg_pr12er_messages_proto_goTypes   = []interface{}{
+		(Category)(0),                 // 0: pkg.pr12er.Category
+		(Framework)(0),                // 1: pkg.pr12er.Framework
+		(*Video)(nil),                 // 2: pkg.pr12er.Video
+		(*Detail)(nil),                // 3: pkg.pr12er.Detail
+		(*Paper)(nil),                 // 4: pkg.pr12er.Paper
+		(*Repository)(nil),            // 5: pkg.pr12er.Repository
+		(*Method)(nil),                // 6: pkg.pr12er.Method
+		(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
+	}
+)
+
 var file_pkg_pr12er_messages_proto_depIdxs = []int32{
 	0, // 0: pkg.pr12er.Video.category:type_name -> pkg.pr12er.Category
 	7, // 1: pkg.pr12er.Video.published_date:type_name -> google.protobuf.Timestamp

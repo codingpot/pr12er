@@ -7,10 +7,11 @@
 package pr12er
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -519,21 +520,24 @@ func file_pkg_pr12er_service_proto_rawDescGZIP() []byte {
 	return file_pkg_pr12er_service_proto_rawDescData
 }
 
-var file_pkg_pr12er_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_pkg_pr12er_service_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_pkg_pr12er_service_proto_goTypes = []interface{}{
-	(ReportRequest_ReportType)(0), // 0: pkg.pr12er.ReportRequest.ReportType
-	(*HelloRequest)(nil),          // 1: pkg.pr12er.HelloRequest
-	(*HelloResponse)(nil),         // 2: pkg.pr12er.HelloResponse
-	(*GetVideosResponse)(nil),     // 3: pkg.pr12er.GetVideosResponse
-	(*GetVideosRequest)(nil),      // 4: pkg.pr12er.GetVideosRequest
-	(*GetDetailResponse)(nil),     // 5: pkg.pr12er.GetDetailResponse
-	(*GetDetailRequest)(nil),      // 6: pkg.pr12er.GetDetailRequest
-	(*ReportRequest)(nil),         // 7: pkg.pr12er.ReportRequest
-	(*ReportResponse)(nil),        // 8: pkg.pr12er.ReportResponse
-	(*Video)(nil),                 // 9: pkg.pr12er.Video
-	(*Detail)(nil),                // 10: pkg.pr12er.Detail
-}
+var (
+	file_pkg_pr12er_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+	file_pkg_pr12er_service_proto_msgTypes  = make([]protoimpl.MessageInfo, 8)
+	file_pkg_pr12er_service_proto_goTypes   = []interface{}{
+		(ReportRequest_ReportType)(0), // 0: pkg.pr12er.ReportRequest.ReportType
+		(*HelloRequest)(nil),          // 1: pkg.pr12er.HelloRequest
+		(*HelloResponse)(nil),         // 2: pkg.pr12er.HelloResponse
+		(*GetVideosResponse)(nil),     // 3: pkg.pr12er.GetVideosResponse
+		(*GetVideosRequest)(nil),      // 4: pkg.pr12er.GetVideosRequest
+		(*GetDetailResponse)(nil),     // 5: pkg.pr12er.GetDetailResponse
+		(*GetDetailRequest)(nil),      // 6: pkg.pr12er.GetDetailRequest
+		(*ReportRequest)(nil),         // 7: pkg.pr12er.ReportRequest
+		(*ReportResponse)(nil),        // 8: pkg.pr12er.ReportResponse
+		(*Video)(nil),                 // 9: pkg.pr12er.Video
+		(*Detail)(nil),                // 10: pkg.pr12er.Detail
+	}
+)
+
 var file_pkg_pr12er_service_proto_depIdxs = []int32{
 	9,  // 0: pkg.pr12er.GetVideosResponse.videos:type_name -> pkg.pr12er.Video
 	10, // 1: pkg.pr12er.GetDetailResponse.detail:type_name -> pkg.pr12er.Detail

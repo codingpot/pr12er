@@ -7,11 +7,12 @@
 package pr12er
 
 import (
+	reflect "reflect"
+	sync "sync"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -405,17 +406,20 @@ func file_pkg_pr12er_database_proto_rawDescGZIP() []byte {
 	return file_pkg_pr12er_database_proto_rawDescData
 }
 
-var file_pkg_pr12er_database_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_pkg_pr12er_database_proto_goTypes = []interface{}{
-	(*MappingTable)(nil),          // 0: pkg.pr12er.MappingTable
-	(*MappingTableRow)(nil),       // 1: pkg.pr12er.MappingTableRow
-	(*Database)(nil),              // 2: pkg.pr12er.Database
-	(*PrVideo)(nil),               // 3: pkg.pr12er.PrVideo
-	(*YouTubeVideo)(nil),          // 4: pkg.pr12er.YouTubeVideo
-	nil,                           // 5: pkg.pr12er.Database.PrIdToVideoEntry
-	(*Paper)(nil),                 // 6: pkg.pr12er.Paper
-	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
-}
+var (
+	file_pkg_pr12er_database_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+	file_pkg_pr12er_database_proto_goTypes  = []interface{}{
+		(*MappingTable)(nil),          // 0: pkg.pr12er.MappingTable
+		(*MappingTableRow)(nil),       // 1: pkg.pr12er.MappingTableRow
+		(*Database)(nil),              // 2: pkg.pr12er.Database
+		(*PrVideo)(nil),               // 3: pkg.pr12er.PrVideo
+		(*YouTubeVideo)(nil),          // 4: pkg.pr12er.YouTubeVideo
+		nil,                           // 5: pkg.pr12er.Database.PrIdToVideoEntry
+		(*Paper)(nil),                 // 6: pkg.pr12er.Paper
+		(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
+	}
+)
+
 var file_pkg_pr12er_database_proto_depIdxs = []int32{
 	1, // 0: pkg.pr12er.MappingTable.rows:type_name -> pkg.pr12er.MappingTableRow
 	5, // 1: pkg.pr12er.Database.pr_id_to_video:type_name -> pkg.pr12er.Database.PrIdToVideoEntry

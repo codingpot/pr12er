@@ -8,6 +8,7 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+
 @$core.Deprecated('Use categoryDescriptor instead')
 const Category$json = const {
   '1': 'Category',
@@ -22,7 +23,8 @@ const Category$json = const {
 };
 
 /// Descriptor for `Category`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List categoryDescriptor = $convert.base64Decode('CghDYXRlZ29yeRIYChRDQVRFR09SWV9VTlNQRUNJRklFRBAAEhMKD0NBVEVHT1JZX1ZJU0lPThABEhAKDENBVEVHT1JZX05MUBACEhAKDENBVEVHT1JZX09DUhADEhIKDkNBVEVHT1JZX0FVRElPEAQSDwoLQ0FURUdPUllfUlMQBQ==');
+final $typed_data.Uint8List categoryDescriptor = $convert.base64Decode(
+    'CghDYXRlZ29yeRIYChRDQVRFR09SWV9VTlNQRUNJRklFRBAAEhMKD0NBVEVHT1JZX1ZJU0lPThABEhAKDENBVEVHT1JZX05MUBACEhAKDENBVEVHT1JZX09DUhADEhIKDkNBVEVHT1JZX0FVRElPEAQSDwoLQ0FURUdPUllfUlMQBQ==');
 @$core.Deprecated('Use frameworkDescriptor instead')
 const Framework$json = const {
   '1': 'Framework',
@@ -35,7 +37,8 @@ const Framework$json = const {
 };
 
 /// Descriptor for `Framework`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List frameworkDescriptor = $convert.base64Decode('CglGcmFtZXdvcmsSGQoVRlJBTUVXT1JLX1VOU1BFQ0lGSUVEEAASGAoURlJBTUVXT1JLX1RFTlNPUkZMT1cQARIVChFGUkFNRVdPUktfUFlUT1JDSBACEhQKEEZSQU1FV09SS19PVEhFUlMQAw==');
+final $typed_data.Uint8List frameworkDescriptor = $convert.base64Decode(
+    'CglGcmFtZXdvcmsSGQoVRlJBTUVXT1JLX1VOU1BFQ0lGSUVEEAASGAoURlJBTUVXT1JLX1RFTlNPUkZMT1cQARIVChFGUkFNRVdPUktfUFlUT1JDSBACEhQKEEZSQU1FV09SS19PVEhFUlMQAw==');
 @$core.Deprecated('Use videoDescriptor instead')
 const Video$json = const {
   '1': 'Video',
@@ -44,29 +47,72 @@ const Video$json = const {
     const {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'link', '3': 3, '4': 1, '5': 9, '10': 'link'},
     const {'1': 'presenter', '3': 4, '4': 1, '5': 9, '10': 'presenter'},
-    const {'1': 'category', '3': 5, '4': 1, '5': 14, '6': '.pkg.pr12er.Category', '10': 'category'},
+    const {
+      '1': 'category',
+      '3': 5,
+      '4': 1,
+      '5': 14,
+      '6': '.pkg.pr12er.Category',
+      '10': 'category'
+    },
     const {'1': 'number_of_like', '3': 6, '4': 1, '5': 3, '10': 'numberOfLike'},
     const {'1': 'keywords', '3': 7, '4': 3, '5': 9, '10': 'keywords'},
-    const {'1': 'number_of_views', '3': 8, '4': 1, '5': 3, '10': 'numberOfViews'},
-    const {'1': 'published_date', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'publishedDate'},
+    const {
+      '1': 'number_of_views',
+      '3': 8,
+      '4': 1,
+      '5': 3,
+      '10': 'numberOfViews'
+    },
+    const {
+      '1': 'published_date',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Timestamp',
+      '10': 'publishedDate'
+    },
   ],
 };
 
 /// Descriptor for `Video`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List videoDescriptor = $convert.base64Decode('CgVWaWRlbxITCgVwcl9pZBgBIAEoBVIEcHJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSEgoEbGluaxgDIAEoCVIEbGluaxIcCglwcmVzZW50ZXIYBCABKAlSCXByZXNlbnRlchIwCghjYXRlZ29yeRgFIAEoDjIULnBrZy5wcjEyZXIuQ2F0ZWdvcnlSCGNhdGVnb3J5EiQKDm51bWJlcl9vZl9saWtlGAYgASgDUgxudW1iZXJPZkxpa2USGgoIa2V5d29yZHMYByADKAlSCGtleXdvcmRzEiYKD251bWJlcl9vZl92aWV3cxgIIAEoA1INbnVtYmVyT2ZWaWV3cxJBCg5wdWJsaXNoZWRfZGF0ZRgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSDXB1Ymxpc2hlZERhdGU=');
+final $typed_data.Uint8List videoDescriptor = $convert.base64Decode(
+    'CgVWaWRlbxITCgVwcl9pZBgBIAEoBVIEcHJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSEgoEbGluaxgDIAEoCVIEbGluaxIcCglwcmVzZW50ZXIYBCABKAlSCXByZXNlbnRlchIwCghjYXRlZ29yeRgFIAEoDjIULnBrZy5wcjEyZXIuQ2F0ZWdvcnlSCGNhdGVnb3J5EiQKDm51bWJlcl9vZl9saWtlGAYgASgDUgxudW1iZXJPZkxpa2USGgoIa2V5d29yZHMYByADKAlSCGtleXdvcmRzEiYKD251bWJlcl9vZl92aWV3cxgIIAEoA1INbnVtYmVyT2ZWaWV3cxJBCg5wdWJsaXNoZWRfZGF0ZRgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSDXB1Ymxpc2hlZERhdGU=');
 @$core.Deprecated('Use detailDescriptor instead')
 const Detail$json = const {
   '1': 'Detail',
   '2': const [
     const {'1': 'pr_id', '3': 1, '4': 1, '5': 5, '10': 'prId'},
-    const {'1': 'papers', '3': 2, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'papers'},
-    const {'1': 'relevant_papers', '3': 3, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'relevantPapers'},
-    const {'1': 'same_author_papers', '3': 4, '4': 3, '5': 11, '6': '.pkg.pr12er.Paper', '10': 'sameAuthorPapers'},
+    const {
+      '1': 'papers',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.pkg.pr12er.Paper',
+      '10': 'papers'
+    },
+    const {
+      '1': 'relevant_papers',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.pkg.pr12er.Paper',
+      '10': 'relevantPapers'
+    },
+    const {
+      '1': 'same_author_papers',
+      '3': 4,
+      '4': 3,
+      '5': 11,
+      '6': '.pkg.pr12er.Paper',
+      '10': 'sameAuthorPapers'
+    },
   ],
 };
 
 /// Descriptor for `Detail`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List detailDescriptor = $convert.base64Decode('CgZEZXRhaWwSEwoFcHJfaWQYASABKAVSBHBySWQSKQoGcGFwZXJzGAIgAygLMhEucGtnLnByMTJlci5QYXBlclIGcGFwZXJzEjoKD3JlbGV2YW50X3BhcGVycxgDIAMoCzIRLnBrZy5wcjEyZXIuUGFwZXJSDnJlbGV2YW50UGFwZXJzEj8KEnNhbWVfYXV0aG9yX3BhcGVycxgEIAMoCzIRLnBrZy5wcjEyZXIuUGFwZXJSEHNhbWVBdXRob3JQYXBlcnM=');
+final $typed_data.Uint8List detailDescriptor = $convert.base64Decode(
+    'CgZEZXRhaWwSEwoFcHJfaWQYASABKAVSBHBySWQSKQoGcGFwZXJzGAIgAygLMhEucGtnLnByMTJlci5QYXBlclIGcGFwZXJzEjoKD3JlbGV2YW50X3BhcGVycxgDIAMoCzIRLnBrZy5wcjEyZXIuUGFwZXJSDnJlbGV2YW50UGFwZXJzEj8KEnNhbWVfYXV0aG9yX3BhcGVycxgEIAMoCzIRLnBrZy5wcjEyZXIuUGFwZXJSEHNhbWVBdXRob3JQYXBlcnM=');
 @$core.Deprecated('Use paperDescriptor instead')
 const Paper$json = const {
   '1': 'Paper',
@@ -75,15 +121,37 @@ const Paper$json = const {
     const {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     const {'1': 'arxiv_id', '3': 3, '4': 1, '5': 9, '10': 'arxivId'},
     const {'1': 'abstract', '3': 4, '4': 1, '5': 9, '10': 'abstract'},
-    const {'1': 'published_date', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'publishedDate'},
+    const {
+      '1': 'published_date',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Timestamp',
+      '10': 'publishedDate'
+    },
     const {'1': 'authors', '3': 6, '4': 3, '5': 9, '10': 'authors'},
-    const {'1': 'repositories', '3': 7, '4': 3, '5': 11, '6': '.pkg.pr12er.Repository', '10': 'repositories'},
-    const {'1': 'methods', '3': 8, '4': 3, '5': 11, '6': '.pkg.pr12er.Method', '10': 'methods'},
+    const {
+      '1': 'repositories',
+      '3': 7,
+      '4': 3,
+      '5': 11,
+      '6': '.pkg.pr12er.Repository',
+      '10': 'repositories'
+    },
+    const {
+      '1': 'methods',
+      '3': 8,
+      '4': 3,
+      '5': 11,
+      '6': '.pkg.pr12er.Method',
+      '10': 'methods'
+    },
   ],
 };
 
 /// Descriptor for `Paper`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List paperDescriptor = $convert.base64Decode('CgVQYXBlchIZCghwYXBlcl9pZBgBIAEoCVIHcGFwZXJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSGQoIYXJ4aXZfaWQYAyABKAlSB2FyeGl2SWQSGgoIYWJzdHJhY3QYBCABKAlSCGFic3RyYWN0EkEKDnB1Ymxpc2hlZF9kYXRlGAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFINcHVibGlzaGVkRGF0ZRIYCgdhdXRob3JzGAYgAygJUgdhdXRob3JzEjoKDHJlcG9zaXRvcmllcxgHIAMoCzIWLnBrZy5wcjEyZXIuUmVwb3NpdG9yeVIMcmVwb3NpdG9yaWVzEiwKB21ldGhvZHMYCCADKAsyEi5wa2cucHIxMmVyLk1ldGhvZFIHbWV0aG9kcw==');
+final $typed_data.Uint8List paperDescriptor = $convert.base64Decode(
+    'CgVQYXBlchIZCghwYXBlcl9pZBgBIAEoCVIHcGFwZXJJZBIUCgV0aXRsZRgCIAEoCVIFdGl0bGUSGQoIYXJ4aXZfaWQYAyABKAlSB2FyeGl2SWQSGgoIYWJzdHJhY3QYBCABKAlSCGFic3RyYWN0EkEKDnB1Ymxpc2hlZF9kYXRlGAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFINcHVibGlzaGVkRGF0ZRIYCgdhdXRob3JzGAYgAygJUgdhdXRob3JzEjoKDHJlcG9zaXRvcmllcxgHIAMoCzIWLnBrZy5wcjEyZXIuUmVwb3NpdG9yeVIMcmVwb3NpdG9yaWVzEiwKB21ldGhvZHMYCCADKAsyEi5wa2cucHIxMmVyLk1ldGhvZFIHbWV0aG9kcw==');
 @$core.Deprecated('Use repositoryDescriptor instead')
 const Repository$json = const {
   '1': 'Repository',
@@ -91,14 +159,28 @@ const Repository$json = const {
     const {'1': 'is_official', '3': 1, '4': 1, '5': 8, '10': 'isOfficial'},
     const {'1': 'url', '3': 2, '4': 1, '5': 9, '10': 'url'},
     const {'1': 'owner', '3': 3, '4': 1, '5': 9, '10': 'owner'},
-    const {'1': 'framework', '3': 4, '4': 1, '5': 14, '6': '.pkg.pr12er.Framework', '10': 'framework'},
-    const {'1': 'number_of_stars', '3': 5, '4': 1, '5': 3, '10': 'numberOfStars'},
+    const {
+      '1': 'framework',
+      '3': 4,
+      '4': 1,
+      '5': 14,
+      '6': '.pkg.pr12er.Framework',
+      '10': 'framework'
+    },
+    const {
+      '1': 'number_of_stars',
+      '3': 5,
+      '4': 1,
+      '5': 3,
+      '10': 'numberOfStars'
+    },
     const {'1': 'description', '3': 6, '4': 1, '5': 9, '10': 'description'},
   ],
 };
 
 /// Descriptor for `Repository`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List repositoryDescriptor = $convert.base64Decode('CgpSZXBvc2l0b3J5Eh8KC2lzX29mZmljaWFsGAEgASgIUgppc09mZmljaWFsEhAKA3VybBgCIAEoCVIDdXJsEhQKBW93bmVyGAMgASgJUgVvd25lchIzCglmcmFtZXdvcmsYBCABKA4yFS5wa2cucHIxMmVyLkZyYW1ld29ya1IJZnJhbWV3b3JrEiYKD251bWJlcl9vZl9zdGFycxgFIAEoA1INbnVtYmVyT2ZTdGFycxIgCgtkZXNjcmlwdGlvbhgGIAEoCVILZGVzY3JpcHRpb24=');
+final $typed_data.Uint8List repositoryDescriptor = $convert.base64Decode(
+    'CgpSZXBvc2l0b3J5Eh8KC2lzX29mZmljaWFsGAEgASgIUgppc09mZmljaWFsEhAKA3VybBgCIAEoCVIDdXJsEhQKBW93bmVyGAMgASgJUgVvd25lchIzCglmcmFtZXdvcmsYBCABKA4yFS5wa2cucHIxMmVyLkZyYW1ld29ya1IJZnJhbWV3b3JrEiYKD251bWJlcl9vZl9zdGFycxgFIAEoA1INbnVtYmVyT2ZTdGFycxIgCgtkZXNjcmlwdGlvbhgGIAEoCVILZGVzY3JpcHRpb24=');
 @$core.Deprecated('Use methodDescriptor instead')
 const Method$json = const {
   '1': 'Method',
@@ -110,4 +192,5 @@ const Method$json = const {
 };
 
 /// Descriptor for `Method`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List methodDescriptor = $convert.base64Decode('CgZNZXRob2QSEgoEbmFtZRgBIAEoCVIEbmFtZRIbCglmdWxsX25hbWUYAiABKAlSCGZ1bGxOYW1lEiAKC2Rlc2NyaXB0aW9uGAMgASgJUgtkZXNjcmlwdGlvbg==');
+final $typed_data.Uint8List methodDescriptor = $convert.base64Decode(
+    'CgZNZXRob2QSEgoEbmFtZRgBIAEoCVIEbmFtZRIbCglmdWxsX25hbWUYAiABKAlSCGZ1bGxOYW1lEiAKC2Rlc2NyaXB0aW9uGAMgASgJUgtkZXNjcmlwdGlvbg==');

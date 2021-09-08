@@ -88,7 +88,6 @@ test.dart-e2e: ## e2e test for dart files
 .PHONY: format.dart
 format.dart: ## format dart files
 	cd client && flutter format .
-	make gen.all
 
 .PHONY: test.go
 test.go: lint.go ## test go files
@@ -98,8 +97,6 @@ test.go: lint.go ## test go files
 .PHONY: format.go
 format.go: ## format go files
 	cd server && gci -w . && gofumpt -w -s . && go mod tidy
-	# regenerate as generated files should not be edited.
-	make gen.all
 	cd dbctl && gci -w . && gofumpt -w -s . && go mod tidy
 
 .PHONY: lint.go

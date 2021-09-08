@@ -10,19 +10,35 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class ReportRequest_ReportType extends $pb.ProtobufEnum {
-  static const ReportRequest_ReportType REPORT_TYPE_UNSPECIFIED = ReportRequest_ReportType._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'REPORT_TYPE_UNSPECIFIED');
-  static const ReportRequest_ReportType REPORT_TYPE_MISSING_PR_VIDEO = ReportRequest_ReportType._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'REPORT_TYPE_MISSING_PR_VIDEO');
-  static const ReportRequest_ReportType REPORT_TYPE_BUG = ReportRequest_ReportType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'REPORT_TYPE_BUG');
+  static const ReportRequest_ReportType REPORT_TYPE_UNSPECIFIED =
+      ReportRequest_ReportType._(
+          0,
+          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+              ? ''
+              : 'REPORT_TYPE_UNSPECIFIED');
+  static const ReportRequest_ReportType REPORT_TYPE_MISSING_PR_VIDEO =
+      ReportRequest_ReportType._(
+          1,
+          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+              ? ''
+              : 'REPORT_TYPE_MISSING_PR_VIDEO');
+  static const ReportRequest_ReportType REPORT_TYPE_BUG =
+      ReportRequest_ReportType._(
+          2,
+          const $core.bool.fromEnvironment('protobuf.omit_enum_names')
+              ? ''
+              : 'REPORT_TYPE_BUG');
 
-  static const $core.List<ReportRequest_ReportType> values = <ReportRequest_ReportType> [
+  static const $core.List<ReportRequest_ReportType> values =
+      <ReportRequest_ReportType>[
     REPORT_TYPE_UNSPECIFIED,
     REPORT_TYPE_MISSING_PR_VIDEO,
     REPORT_TYPE_BUG,
   ];
 
-  static final $core.Map<$core.int, ReportRequest_ReportType> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static final $core.Map<$core.int, ReportRequest_ReportType> _byValue =
+      $pb.ProtobufEnum.initByValue(values);
   static ReportRequest_ReportType? valueOf($core.int value) => _byValue[value];
 
   const ReportRequest_ReportType._($core.int v, $core.String n) : super(v, n);
 }
-
