@@ -100,7 +100,7 @@ class PR12Video extends StatelessWidget {
                 ? Icons.bookmark_add_rounded
                 : Icons.bookmark_add_outlined,
             size: 30,
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         );
       },

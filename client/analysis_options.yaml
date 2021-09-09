@@ -10,3 +10,6 @@ linter:
     sort_unnamed_constructors_first: false
     implementation_imports: false
     invalid_implementation_override: false
+    unnecessary_overrides: false
+    require_trailing_commas: false
+    camel_case_types: false

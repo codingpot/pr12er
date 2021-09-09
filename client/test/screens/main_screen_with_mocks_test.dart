@@ -38,10 +38,13 @@ void main() {
 
     testWidgets('MainWidget has a load view', (WidgetTester tester) async {
       when(mockGrpcClient.getVideos()).thenAnswer((_) => Future.value(videos));
-      await tester.pumpWidget(wrapWithProviders(
+      await tester.pumpWidget(
+        wrapWithProviders(
           mockGrpcClient: mockGrpcClient,
           mockCustomTheme: mockCustomTheme,
-          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel));
+          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel,
+        ),
+      );
 
       final loadView = find.byType(CircularProgressIndicator);
       expect(loadView, findsOneWidget);
@@ -57,10 +60,13 @@ void main() {
       when(mockFavoriteVideoViewModel.isFavoriteVideo(2))
           .thenAnswer((_) => Future.value(false));
 
-      await tester.pumpWidget(wrapWithProviders(
+      await tester.pumpWidget(
+        wrapWithProviders(
           mockGrpcClient: mockGrpcClient,
           mockCustomTheme: mockCustomTheme,
-          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel));
+          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel,
+        ),
+      );
       await tester.pumpAndSettle();
       final firstTile = find.byKey(const ValueKey("ListTile-1"));
       expect(firstTile, findsOneWidget);
@@ -81,10 +87,13 @@ void main() {
       when(mockFavoriteVideoViewModel.isFavoriteVideo(2))
           .thenAnswer((_) => Future.value(false));
 
-      await tester.pumpWidget(wrapWithProviders(
+      await tester.pumpWidget(
+        wrapWithProviders(
           mockGrpcClient: mockGrpcClient,
           mockCustomTheme: mockCustomTheme,
-          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel));
+          mockFavoriteVideoViewModel: mockFavoriteVideoViewModel,
+        ),
+      );
       await tester.pumpAndSettle();
 
       // GIVEN the theme toggle button.
@@ -103,16 +112,18 @@ void main() {
 }
 
 /// wrapWithProviders is a helper function that initializes material app with mock providers.
-MultiProvider wrapWithProviders(
-    {required MockGrpcClient mockGrpcClient,
-    required MockCustomTheme mockCustomTheme,
-    required MockFavoriteVideoViewModel mockFavoriteVideoViewModel}) {
+MultiProvider wrapWithProviders({
+  required MockGrpcClient mockGrpcClient,
+  required MockCustomTheme mockCustomTheme,
+  required MockFavoriteVideoViewModel mockFavoriteVideoViewModel,
+}) {
   return MultiProvider(
     providers: [
       Provider<GrpcClient>(create: (context) => mockGrpcClient),
       ChangeNotifierProvider<CustomTheme>(create: (context) => mockCustomTheme),
       ChangeNotifierProvider<FavoriteVideoViewModel>(
-          create: (context) => mockFavoriteVideoViewModel),
+        create: (context) => mockFavoriteVideoViewModel,
+      ),
       ChangeNotifierProvider<SortMode>(
         create: (context) => SortMode(),
       )

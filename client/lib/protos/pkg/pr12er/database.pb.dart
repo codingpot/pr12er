@@ -94,8 +94,11 @@ class MappingTableRow extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'paperArxivIds')
-    ..aOS(3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'youtubeVideoId')
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'youtubeVideoId')
     ..hasRequiredFields = false;
 
   MappingTableRow._() : super();
@@ -250,10 +253,17 @@ class PrVideo extends $pb.GeneratedMessage {
             : 'prId',
         $pb.PbFieldType.O3)
     ..pc<$2.Paper>(
-        2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'papers', $pb.PbFieldType.PM,
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'papers',
+        $pb.PbFieldType.PM,
         subBuilder: $2.Paper.create)
     ..aOM<YouTubeVideo>(
-        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'video',
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'video',
         subBuilder: YouTubeVideo.create)
     ..hasRequiredFields = false;
 
@@ -332,7 +342,10 @@ class PrVideo extends $pb.GeneratedMessage {
 }
 
 class YouTubeVideo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'YouTubeVideo',
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'YouTubeVideo',
       package: const $pb.PackageName(
           const $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
@@ -359,9 +372,16 @@ class YouTubeVideo extends $pb.GeneratedMessage {
             ? ''
             : 'numberOfViews')
     ..aOM<$1.Timestamp>(
-        5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publishedDate',
+        5,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'publishedDate',
         subBuilder: $1.Timestamp.create)
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uploader')
+    ..aOS(
+        6,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'uploader')
     ..hasRequiredFields = false;
 
   YouTubeVideo._() : super();

@@ -9,10 +9,13 @@ void main() {
         ..prId = 1
         ..title = "Title"
         ..link = "https://youtube.com/www";
-      expect(generateShareSummary(video, null), """
+      expect(
+        generateShareSummary(video, null),
+        """
 [YouTube 주소]
 https://youtube.com/www
-""");
+""",
+      );
     });
 
     test("should generate a full report when detail is set", () {
@@ -26,13 +29,16 @@ https://youtube.com/www
           ..title = "paper-title"
           ..arxivId = "arxiv-id"
       ]);
-      expect(generateShareSummary(video, detail), """
+      expect(
+        generateShareSummary(video, detail),
+        """
 [YouTube 주소]
 https://youtube.com/www
 
 [논문]
 paper-title (https://arxiv.org/abs/arxiv-id)
-""");
+""",
+      );
     });
   });
 }

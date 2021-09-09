@@ -408,8 +408,11 @@ class ReportRequest extends $pb.GeneratedMessage {
         defaultOrMaker: ReportRequest_ReportType.REPORT_TYPE_UNSPECIFIED,
         valueOf: ReportRequest_ReportType.valueOf,
         enumValues: ReportRequest_ReportType.values)
-    ..aOS(2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'body')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'body')
     ..hasRequiredFields = false;
 
   ReportRequest._() : super();

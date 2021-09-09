@@ -30,14 +30,14 @@ class _ReportWidgetState extends State<ReportWidget> {
                 .textTheme
                 .headline1
                 ?.apply(fontWeightDelta: 5)),
-        leading:
-            Icon(Icons.report, size: 30, color: Theme.of(context).accentColor),
+        leading: Icon(Icons.report,
+            size: 30, color: Theme.of(context).colorScheme.secondary),
       ),
       Divider(
         indent: 20,
         endIndent: 20,
         thickness: 2,
-        color: Theme.of(context).accentColor,
+        color: Theme.of(context).colorScheme.secondary,
       ),
       Container(
         padding: const EdgeInsets.only(left: 20, right: 20),
@@ -92,6 +92,7 @@ class _ReportWidgetState extends State<ReportWidget> {
               final resp = await context
                   .read<GrpcClient>()
                   .report(currentReportType, _reportTextFieldController.text);
+              if (!mounted) return;
               Navigator.of(context).pop();
               showSnackbar(resp.issueUrl);
             },

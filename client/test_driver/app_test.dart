@@ -18,8 +18,10 @@ void main() {
       await driver.tap(listTile);
 
       final detailScreenTitle = find.byValueKey("detail_app/appBar/title");
-      expect(await driver.getText(detailScreenTitle),
-          "Generative Adversarial Nets");
+      expect(
+        await driver.getText(detailScreenTitle),
+        "Generative Adversarial Nets",
+      );
     });
   });
 }

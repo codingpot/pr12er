@@ -36,7 +36,7 @@ class _ExpandableTextState extends State<ExpandableText> {
             IconButton(
                 iconSize: iconSize,
                 onPressed: onPressed,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
                 icon: const Icon(Icons.keyboard_arrow_up)),
           ],
         ),
@@ -58,7 +58,7 @@ class _ExpandableTextState extends State<ExpandableText> {
             child: IconButton(
                 iconSize: iconSize,
                 onPressed: onPressed,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
                 icon: const Icon(Icons.keyboard_arrow_down)))
       ]),
     );
