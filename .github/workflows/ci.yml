@@ -87,6 +87,8 @@ jobs:
           namespace: kkweon
 
       - uses: okteto/pipeline@master
+        with:
+          name: push-${{ github.event.number }}
 
   deploy-to-gh-pages:
     runs-on: ubuntu-latest
