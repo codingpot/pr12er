@@ -88,7 +88,7 @@ jobs:
 
       - uses: okteto/pipeline@master
         with:
-          name: test-1234
+          name: push-${{ github.sha }}
 
   deploy-to-gh-pages:
     runs-on: ubuntu-latest
