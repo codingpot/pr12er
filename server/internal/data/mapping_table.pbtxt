@@ -2502,3 +2502,47 @@ rows:  {
   paper_arxiv_ids:  "2011.01844"
   youtube_video_id:  "hptinxZIXT4"
 }
+rows: {
+  pr_id: 340
+  paper_arxiv_ids: "1812.00101"
+  paper_arxiv_ids: "2006.15862"
+  paper_arxiv_ids: "2105.09600"
+  youtube_video_id: "Dd8Gj2ZITkA"
+}
+rows: {
+  pr_id: 341
+  paper_arxiv_ids: "2103.06255"
+  paper_arxiv_ids: "1506.02753"
+  youtube_video_id: "R7jNrrlbsFg"
+}
+rows: {
+  pr_id: 343
+  paper_arxiv_ids: "2106.01226"
+  paper_arxiv_ids: "2003.09005"
+  youtube_video_id: "sbqZgYSWimc"
+}
+rows: {
+  pr_id: 344
+  paper_arxiv_ids: "2108.13002"
+  paper_arxiv_ids: "2108.09322"
+  youtube_video_id: "NVLMZZglx14"
+}
+rows: {
+  pr_id: 345
+  paper_arxiv_ids: "1910.05518"
+  paper_arxiv_ids: "2012.13093"
+  paper_arxiv_ids: "2004.07054"
+  youtube_video_id: "QRmFTahQRG0"
+}
+rows: {
+  pr_id: 346
+  paper_arxiv_ids: "2105.12002"
+  paper_arxiv_ids: "2104.11832"
+  youtube_video_id: "tb5qn_QKfNo"
+}
+rows: {
+  pr_id: 347
+  paper_arxiv_ids: "2104.13963"
+  paper_arxiv_ids: "1607.02104"
+  youtube_video_id: "7HdWqOm-oeQ"
+}
