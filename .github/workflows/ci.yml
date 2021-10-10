@@ -89,6 +89,7 @@ jobs:
       - uses: okteto/pipeline@master
         with:
           name: pr12er
+          timeout: 10m
 
   deploy-to-gh-pages:
     runs-on: ubuntu-latest
