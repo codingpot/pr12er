@@ -88,7 +88,7 @@ jobs:
 
       - uses: okteto/pipeline@master
         with:
-          name: push-${{ github.sha }}
+          name: pr12er
 
   deploy-to-gh-pages:
     runs-on: ubuntu-latest
