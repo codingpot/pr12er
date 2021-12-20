@@ -23,8 +23,8 @@ const RESOURCES = {
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.css": "5a8d0222407e388155d7d1395a75d5b9",
 "assets/packages/youtube_player_flutter/assets/speedometer.webp": "50448630e948b5b3998ae5a5d112622b",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"index.html": "35ece4166963d061308394a5a32a46ca",
-"/": "35ece4166963d061308394a5a32a46ca",
+"index.html": "f40e79092578c8f358b96a00bf2fadb0",
+"/": "f40e79092578c8f358b96a00bf2fadb0",
 "favicon.png": "8a6ea62746af22b58abd8a5077b3f8db"
 };
 
