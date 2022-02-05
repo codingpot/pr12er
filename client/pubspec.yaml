@@ -36,7 +36,7 @@ dependencies:
   modal_bottom_sheet: ^2.0.0
   protobuf: ^2.0.0
   provider: ^6.0.0
-  share_plus: ^2.1.4
+  share_plus: ^3.0.4
   share_plus_web: ^2.0.4
   shared_preferences: ^2.0.6
   shared_preferences_web: ^2.0.2
