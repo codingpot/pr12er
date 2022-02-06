@@ -13,3 +13,4 @@ linter:
     unnecessary_overrides: false
     require_trailing_commas: false
     camel_case_types: false
+    always_use_package_imports: false

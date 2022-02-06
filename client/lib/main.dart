@@ -4,9 +4,9 @@ import 'package:pr12er/sort_preference.dart';
 import 'package:pr12er/view_models/view_model_videos.dart';
 import 'package:provider/provider.dart';
 
-import 'custom_theme.dart';
-import 'screens/detail_screen.dart';
-import 'screens/main_screen.dart';
+import 'package:pr12er/custom_theme.dart';
+import 'package:pr12er/screens/detail_screen.dart';
+import 'package:pr12er/screens/main_screen.dart';
 
 const appName = 'PR12er';
 
