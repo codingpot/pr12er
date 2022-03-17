@@ -1,6 +1,6 @@
 module github.com/codingpot/pr12er/dbctl
 
-go 1.16
+go 1.18
 
 require (
 	github.com/PuerkitoBio/goquery v1.7.0 // indirect

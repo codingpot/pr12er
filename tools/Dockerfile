@@ -8,7 +8,7 @@ RUN git clone https://github.com/flutter/flutter.git -b stable
 RUN flutter upgrade
 RUN flutter doctor
 # Install Go.
-COPY --from=golang:1.16 /usr/local/go/ /usr/local/go/
+COPY --from=golang:1.18 /usr/local/go/ /usr/local/go/
 
 # Install dependencies
 WORKDIR /workspace
