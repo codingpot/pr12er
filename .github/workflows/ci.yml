@@ -17,7 +17,7 @@ env:
   JAVA_VERSION: "11"
   JAVA_DISTRIBUTION: temurin
   GOLANG_VERSION: "1.18"
-  GOLANG_CI_LINT_VERSION: "v1.44"
+  GOLANG_CI_LINT_VERSION: "v1.45"
 
 jobs:
   flutter-build:
