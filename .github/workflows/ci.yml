@@ -69,10 +69,6 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: ${{ env.GOLANG_VERSION }}
-      - uses: golangci/golangci-lint-action@v2
-        with:
-          working-directory: dbctl
-          version: ${{ env.GOLANG_CI_LINT_VERSION }}
       - run: go test -v --race -coverprofile=coverage.txt -covermode=atomic ./...
       - run: go build main.go
       - run: bash <(curl -s https://codecov.io/bash) -F dbctl
