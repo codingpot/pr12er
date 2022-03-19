@@ -41,7 +41,7 @@ func TestRepositories(t *testing.T) {
 }
 
 func TestMethods(t *testing.T) {
-	args := []*models.Method{
+	args := []models.Method{
 		{
 			ID:          "method-1",
 			Name:        "Convolution",
