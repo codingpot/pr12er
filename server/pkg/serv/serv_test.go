@@ -31,6 +31,7 @@ func TestGetVideos(t *testing.T) {
 
 func TestServer_GetDetail(t *testing.T) {
 	type args struct {
+		// nolint:containedctx
 		ctx context.Context
 		req *pr12er.GetDetailRequest
 	}
