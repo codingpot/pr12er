@@ -1,4 +1,4 @@
-FROM golang:1.16-alpine AS builder
+FROM golang:1.18-alpine AS builder
 
 ENV GRPC_HEALTH_PROBE_VERSION v0.4.2
 

@@ -16,8 +16,8 @@ on:
 env:
   JAVA_VERSION: "11"
   JAVA_DISTRIBUTION: temurin
-  GOLANG_VERSION: "1.17"
-  GOLANG_CI_LINT_VERSION: "v1.42"
+  GOLANG_VERSION: "1.18"
+  GOLANG_CI_LINT_VERSION: "v1.45"
 
 jobs:
   flutter-build:
@@ -69,10 +69,6 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: ${{ env.GOLANG_VERSION }}
-      - uses: golangci/golangci-lint-action@v2
-        with:
-          working-directory: dbctl
-          version: ${{ env.GOLANG_CI_LINT_VERSION }}
       - run: go test -v --race -coverprofile=coverage.txt -covermode=atomic ./...
       - run: go build main.go
       - run: bash <(curl -s https://codecov.io/bash) -F dbctl

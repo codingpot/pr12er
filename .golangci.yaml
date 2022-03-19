@@ -14,24 +14,26 @@ linters:
     - test
 
   disable:
-    - godox
-    - testpackage
-    - paralleltest
-    - gomnd
-    - gochecknoglobals
-    - nlreturn
     - exhaustivestruct
-    - wsl
-    - gofumpt
-    - golint
-    - scopelint
-    - interfacer
-    - maligned
-    - gomoddirectives
-    - wrapcheck
     - funlen
-    - goimports # False positive with paperswithcode_go.
-    - lll # I want to use a long line.
-    - goerr113 # I want to use dynamic error.
+    - gochecknoglobals
     - gochecknoinits # I want to use init().
+    - godox
+    - goerr113 # I want to use dynamic error.
+    - gofumpt
+    - goimports # False positive with paperswithcode_go.
+    - golint
+    - gomnd
+    - gomoddirectives
+    - gosec # hardcoded credential is a false positive
+    - interfacer
+    - lll # I want to use a long line.
+    - maligned
+    - nlreturn
+    - paralleltest
     - prealloc # is annoying
+    - scopelint
+    - testpackage
+    - varnamelen # I want to use a long variable name.
+    - wrapcheck
+    - wsl

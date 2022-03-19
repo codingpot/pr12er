@@ -17,11 +17,11 @@ import (
 var lineEndingRegexp = regexp.MustCompile(`\r?\n`)
 
 type Fetcher struct {
-	client         *paperswithcode_go.Client
+	client         paperswithcode_go.Client
 	youtubeService *youtube.Service
 }
 
-func New(client *paperswithcode_go.Client, youtubeService *youtube.Service) *Fetcher {
+func New(client paperswithcode_go.Client, youtubeService *youtube.Service) *Fetcher {
 	return &Fetcher{client: client, youtubeService: youtubeService}
 }
 
@@ -33,7 +33,7 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 		params := paperswithcode_go.PaperListParamsDefault()
 		params.ArxivID = arxivID
 		papers, err := f.client.PaperList(params)
-		if err != nil || papers == nil {
+		if err != nil {
 			return nil, err
 		}
 
@@ -42,13 +42,13 @@ func (f *Fetcher) fetchArxivPapersInfo(paperArxivIDs []string) ([]*pr12er.Paper,
 
 			// reference: https://pkg.go.dev/github.com/codingpot/paperswithcode-go/v2@v2.1.3/models
 			repoList, err := f.client.PaperRepositoryList(paperID)
-			if err != nil || repoList == nil {
+			if err != nil {
 				return nil, err
 			}
 			repositories := transform.Repositories(repoList.Results)
 
 			methodList, err := f.client.PaperMethodList(paperID)
-			if err != nil || methodList == nil {
+			if err != nil {
 				return nil, err
 			}
 			methods := transform.Methods(methodList.Results)

@@ -64,7 +64,7 @@ func ownerFromURL(url string) string {
 }
 
 // Methods paperswithcode 메소드를 pr12er 메소드로 변경.
-func Methods(methods []*models.Method) []*pr12er.Method {
+func Methods(methods []models.Method) []*pr12er.Method {
 	pr12erMethods := make([]*pr12er.Method, len(methods))
 	for idx, method := range methods {
 		pr12erMethods[idx] = &pr12er.Method{

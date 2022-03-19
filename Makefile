@@ -46,6 +46,7 @@ install.dart: ## install Dart dependencies
 
 .PHONY: install.go
 install.go: install.go.notidy ## install go with dependencies
+	cd dbctl && go mod tidy
 	cd server && go mod tidy
 
 .PHONY: install.go.notidy
