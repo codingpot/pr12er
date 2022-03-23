@@ -1,6 +1,6 @@
 deploy:
   - okteto build -t okteto.dev/codingpot-pr12er-server:${OKTETO_GIT_COMMIT} -f ./server/deploy/Dockerfile server
-  - for file in k8s/kkweon-okteto/*.yaml; do envsubst < $file | kubectl apply -f -; done
+  - bash './tools/envsubst_okteto_k8s_files.bash'
   - kubectl set image deployment server server=okteto.dev/codingpot-pr12er-server:${OKTETO_GIT_COMMIT}
   - kubectl rollout restart deployment grafana-agent
   - kubectl rollout status deployment server
