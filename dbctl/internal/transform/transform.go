@@ -19,7 +19,7 @@ import (
 )
 
 var (
-	prIDRegexp    = regexp.MustCompile(`pr-?(\d+)`)
+	prIDRegexp    = regexp.MustCompile(`pr[- ]*(\d+)`)
 	arxivIDRegexp = regexp.MustCompile(`\d+\.\d+`)
 )
 

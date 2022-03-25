@@ -117,6 +117,12 @@ func TestExtractPRID(t *testing.T) {
 			wantErr: false,
 		},
 		{
+			name:    "[PR 358] should return 358",
+			title:   "[PR 358] Training Differentially Private Generative Models with Sinkhorn Diver",
+			want:    358,
+			wantErr: false,
+		},
+		{
 			name:    "Invalid name should return an error",
 			title:   "This is not a valid PR Video",
 			wantErr: true,

@@ -52,7 +52,8 @@ var genmappingCmd = &cobra.Command{
 					}).Info("processing a youtube video")
 					prID, err := transform.ExtractPRID(item.Snippet.Title)
 					if err != nil {
-						return err
+						log.WithError(err).Warnf("Unable to extract PR ID from %s", item.Snippet.Title)
+						continue
 					}
 
 					if !(cfg.MinPrID <= prID && prID <= cfg.MaxPrID) {
