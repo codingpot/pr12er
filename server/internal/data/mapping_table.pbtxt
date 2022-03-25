@@ -2546,3 +2546,81 @@ rows: {
   paper_arxiv_ids: "1607.02104"
   youtube_video_id: "7HdWqOm-oeQ"
 }
+rows: {
+  pr_id: 348
+  paper_arxiv_ids: "2109.10852"
+  paper_arxiv_ids: "2112.07917"
+  youtube_video_id: "MfujG00jFk4"
+}
+rows: {
+  pr_id: 349
+  paper_arxiv_ids: "2011.12026"
+  paper_arxiv_ids: "2002.00349"
+  youtube_video_id: "AsVEb2p2EYQ"
+}
+rows: {
+  pr_id: 350
+  youtube_video_id: "SyvfYHlgVNM"
+}
+rows: {
+  pr_id: 351
+  paper_arxiv_ids: "2010.05063"
+  paper_arxiv_ids: "2111.14806"
+  youtube_video_id: "Fd30KJPq9UM"
+}
+rows: {
+  pr_id: 352
+  paper_arxiv_ids: "2108.08827"
+  paper_arxiv_ids: "2111.14822"
+  paper_arxiv_ids: "2112.13592"
+  youtube_video_id: "uy3MEwBTR4o"
+}
+rows: {
+  pr_id: 354
+  paper_arxiv_ids: ""
+  youtube_video_id: "MqkNPYldgLA"
+}
+rows: {
+  pr_id: 355
+  paper_arxiv_ids: "2111.06377"
+  paper_arxiv_ids: "2202.03670"
+  youtube_video_id: "mtUa3AAxPNQ"
+}
+rows: {
+  pr_id: 357
+  paper_arxiv_ids: "2003.06957"
+  paper_arxiv_ids: "2110.14711"
+  youtube_video_id: "iaZ_Vur9U60"
+}
+rows: {
+  pr_id: 358
+  paper_arxiv_ids: "2111.01177"
+  paper_arxiv_ids: "1912.04977"
+  paper_arxiv_ids: "2005.00065"
+  youtube_video_id: "OouhBAXiG28"
+}
+rows: {
+  pr_id: 359
+  paper_arxiv_ids: "2004.12943"
+  paper_arxiv_ids: "2104.05418"
+  youtube_video_id: "5UkOmM6xP5U"
+}
+rows: {
+  pr_id: 360
+  paper_arxiv_ids: "2111.02387"
+  paper_arxiv_ids: "2104.02057"
+  paper_arxiv_ids: ""
+  youtube_video_id: "ytvX6JChRJk"
+}
+rows: {
+  pr_id: 361
+  paper_arxiv_ids: "2109.04853"
+  paper_arxiv_ids: "2101.04997"
+  youtube_video_id: "Bb4eNsFXaI8"
+}
+rows: {
+  pr_id: 362
+  paper_arxiv_ids: "2001.10528"
+  paper_arxiv_ids: "2109.05000"
+  youtube_video_id: "b0U-jPrzIQg"
+}
