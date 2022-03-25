@@ -34,7 +34,7 @@ func TestValidMappingTable(t *testing.T) {
 
 // TestValidData validates data integrity of the database.
 func TestValidData(t *testing.T) {
-	r := regexp.MustCompile(`pr-?(\d+)`)
+	r := regexp.MustCompile(`pr[- ]*(\d+)`)
 
 	for prID, video := range DB.GetPrIdToVideo() {
 		// Every video should have PR ID set.
