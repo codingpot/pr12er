@@ -11,7 +11,7 @@
 ## Dependencies
 
 ```
-libprotoc 3.17.3
+libprotoc 3.19.4
 protoc-gen-go v1.27.0
 protoc_plugin 20.0.0
 ```
