@@ -119,8 +119,8 @@ func TestDetailResponseFromDB(t *testing.T) {
 						ArxivId:  "1406.2661",
 						Abstract: "We propose a new framework for",
 						Authors: []string{
-							"Ian J. Goodfellow", "Jean Pouget-Abadie", "Mehdi Mirza", "Bing Xu",
-							"David Warde-Farley", "Sherjil Ozair", "Aaron Courville", "Yoshua Bengio",
+							"David Warde-Farley", "Bing Xu", "Jean Pouget-Abadie", "Ian J. Goodfellow",
+							"Mehdi Mirza", "Yoshua Bengio", "Sherjil Ozair", "Aaron Courville",
 						},
 						Repositories: nil,
 						Methods: []*pr12er.Method{

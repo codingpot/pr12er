@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-PROTOC_VERSION := 3.17.3
+PROTOC_VERSION := 3.19.4
 PROTOC_RELEASE := https://github.com/protocolbuffers/protobuf/releases
 PROTOC_URL := $(PROTOC_RELEASE)/download/v$(PROTOC_VERSION)/
 UNAME := $(shell uname)
@@ -24,7 +24,7 @@ DART_MOCK_SRCS := $(shell find client -name "*_with_mocks_test.dart" -type f)
 DART_MOCK_TARGETS := $(DART_MOCK_SRCS:%_with_mocks_test.dart=%_with_mocks_test.mocks.dart)
 
 BIN_INSTALL_DIR := $$HOME/.local/bin
-BUF_VERSION := 0.43.2
+BUF_VERSION := 1.2.1
 
 .PHONY: install
 install: install.buf ## install buf, protoc, protoc-gen for Go & Dart
