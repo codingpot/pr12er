@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pr12er/protos/pkg/pr12er/messages.pb.dart';
 import 'package:pr12er/utils/extractor.dart';
 import 'package:pr12er/widgets/components/open_url_on_tap.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class RepositoryWidget extends StatelessWidget {
   final List<Repository> repositories;
@@ -49,8 +49,8 @@ class RepositoryWidget extends StatelessWidget {
   Widget getItemCard(BuildContext context, Repository repo) {
     return GestureDetector(
       onTap: () async {
-        if (await canLaunch(repo.url)) {
-          await launch(repo.url);
+        if (await canLaunchUrlString(repo.url)) {
+          await launchUrlString(repo.url);
           return;
         }
         ScaffoldMessenger.of(context).removeCurrentSnackBar();
