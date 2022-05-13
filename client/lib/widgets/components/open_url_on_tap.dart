@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 /// OpenURLOnTap is a component that opens the URL in a new tab on tap.
 /// It's used to render paper list item and repository list item.
@@ -14,8 +14,8 @@ class OpenURLOnTap extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () async {
-          if (await canLaunch(url)) {
-            await launch(url);
+          if (await canLaunchUrlString(url)) {
+            await launchUrlString(url);
             return;
           }
           ScaffoldMessenger.of(context).removeCurrentSnackBar();
