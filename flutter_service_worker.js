@@ -24,8 +24,8 @@ const RESOURCES = {
 "assets/NOTICES": "6a41be4145e750ff1d63c5a28a35cd70",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "flutter.js": "0816e65a103ba8ba51b174eeeeb2cb67",
-"index.html": "dfe172af98e55aabde9e984439e3159f",
-"/": "dfe172af98e55aabde9e984439e3159f",
+"index.html": "4a69a35d79a5c38b16a558e9cfe44e9f",
+"/": "4a69a35d79a5c38b16a558e9cfe44e9f",
 "manifest.json": "7804b5c345111467cee13085c1b85516"
 };
 
