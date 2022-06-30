@@ -83,15 +83,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: okteto/login@master
+      - uses: okteto/login@main
         with:
           token: ${{ secrets.KKWEON_OKTETO_TOKEN }}
 
-      - uses: okteto/namespace@master
+      - uses: okteto/namespace@main
         with:
           namespace: kkweon
 
-      - uses: okteto/pipeline@master
+      - uses: okteto/pipeline@main
         with:
           name: pr12er
           timeout: 10m
