@@ -57065,7 +57065,7 @@ this.b1()},
 BO(){var s,r=this,q=r.jV$,p=r.oq$
 p=r.jV$=B.d.bc(B.d.jI(p.gm(p),0,1)*255)
 if(q!==p){s=r.Dw$
-p=p>0&&p<255
+p=p>0
 r.Dw$=p
 if(r.u$!=null&&s!==p)r.rJ()
 r.adw()
